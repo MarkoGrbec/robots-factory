@@ -1,0 +1,187 @@
+[gd_scene load_steps=5 format=3 uid="uid://4uvqadvod7cb"]
+
+[ext_resource type="Script" uid="uid://db61dwu37phlo" path="res://main/InGameMenu.gd" id="1_un1ud"]
+[ext_resource type="PackedScene" uid="uid://b2i1wol5qwtld" path="res://my assets/binding/binding_container.tscn" id="2_cgffx"]
+[ext_resource type="Script" uid="uid://crwdcobjkbvbr" path="res://my assets/binding/Bindings.gd" id="2_omkwt"]
+[ext_resource type="PackedScene" uid="uid://b6jqqa8v3xar5" path="res://game/quest/options_holding_hand.tscn" id="4_yjfud"]
+
+[node name="in game menu" type="TabContainer" node_paths=PackedStringArray("options_holding_hand_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+script = ExtResource("1_un1ud")
+options_holding_hand_scene = ExtResource("4_yjfud")
+options_holding_hand_container = NodePath("holding hand/HBoxContainer/VBoxContainer")
+
+[node name="bindings" type="ScrollContainer" parent="." node_paths=PackedStringArray("binding_buttons", "disable_binding_button")]
+visible = false
+layout_mode = 2
+script = ExtResource("2_omkwt")
+binding_buttons = [NodePath("HBoxContainer/VBoxContainer/binding container"), NodePath("HBoxContainer/VBoxContainer/binding container2"), NodePath("HBoxContainer/VBoxContainer/binding container3"), NodePath("HBoxContainer/VBoxContainer/binding container4"), NodePath("HBoxContainer/VBoxContainer/binding container5"), NodePath("HBoxContainer/VBoxContainer/binding container6"), NodePath("HBoxContainer/VBoxContainer/binding container7"), NodePath("HBoxContainer/VBoxContainer/binding container8"), NodePath("HBoxContainer/VBoxContainer/binding container9")]
+disable_binding_button = NodePath("HBoxContainer/disable binding button")
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bindings"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="bindings/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="disable binding button" type="Button" parent="bindings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+tooltip_text = "it will reset on restart of the game"
+text = "disable binding"
+
+[node name="MarginContainer3" type="MarginContainer" parent="bindings/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bindings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="bindings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="binding container" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+
+[node name="binding container2" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+index = 2
+
+[node name="binding container3" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+index = 3
+
+[node name="binding container4" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+index = 4
+
+[node name="binding container5" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+index = 5
+
+[node name="binding container6" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+index = 6
+
+[node name="binding container7" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+index = 7
+
+[node name="binding container8" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+tooltip_text = "not implemented exception"
+index = 8
+
+[node name="binding container9" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+tooltip_text = "it will reset after restart of application"
+index = 15
+default = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="bindings/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="bindings/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="close window" type="Button" parent="bindings/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[node name="holding hand" type="ScrollContainer" parent="."]
+layout_mode = 2
+tooltip_text = "hoover over the button to see details"
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="holding hand"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="holding hand/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="holding hand/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="holding hand/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="holding hand/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="close window" type="Button" parent="holding hand/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[node name="quit" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="quit"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="quit"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="quit/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="quit button" type="Button" parent="quit/VBoxContainer"]
+layout_mode = 2
+text = "quit game"
+
+[node name="MarginContainer3" type="MarginContainer" parent="quit/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="quit"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="close window" type="Button" parent="quit"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[connection signal="pressed" from="bindings/HBoxContainer/disable binding button" to="bindings" method="disable_binding"]
+[connection signal="pressed" from="bindings/HBoxContainer/close window" to="." method="close_window"]
+[connection signal="pressed" from="holding hand/HBoxContainer/close window" to="." method="close_window"]
+[connection signal="pressed" from="quit/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="quit/close window" to="." method="close_window"]

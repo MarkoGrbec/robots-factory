@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://73rit0lx826f"]
+
+[ext_resource type="Script" uid="uid://bcn3qse0soinf" path="res://game/entity/EntitySpriteWorld.gd" id="1_j8uix"]
+[ext_resource type="Texture2D" uid="uid://ccspk2i065b1u" path="res://my assets/textures/sand.png" id="2_soyk8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hmqs"]
+size = Vector2(50, 50)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pyj3s"]
+radius = 25.0
+
+[node name="entity in world" type="Node2D" node_paths=PackedStringArray("sprite", "static_body_2d")]
+top_level = true
+script = ExtResource("1_j8uix")
+sprite = NodePath("Sprite2D")
+static_body_2d = NodePath("StaticBody2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_soyk8")
+region_rect = Rect2(64, 0, 64, 64)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_4hmqs")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["material"]]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_pyj3s")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 40.0
+affect_navigation_mesh = true
+carve_navigation_mesh = true
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

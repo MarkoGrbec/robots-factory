@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba8b517af62hg"]
+
+[ext_resource type="Script" uid="uid://c5pvkufd0xham" path="res://main/success windows/NewNameManager.gd" id="1_jrwrw"]
+
+[node name="change name manager" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+script = ExtResource("1_jrwrw")
+
+[node name="change name" type="HBoxContainer" parent="."]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="change name"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="change name"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="change name/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="change name/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="dialog conatainer" type="VBoxContainer" parent="change name/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="new name" type="LineEdit" parent="change name/VBoxContainer/ScrollContainer/dialog conatainer"]
+layout_mode = 2
+placeholder_text = "set new name"
+
+[node name="close window" type="Button" parent="change name"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[connection signal="text_submitted" from="change name/VBoxContainer/ScrollContainer/dialog conatainer/new name" to="." method="_on_new_name_text_submitted"]
+[connection signal="pressed" from="change name/close window" to="." method="close_window"]

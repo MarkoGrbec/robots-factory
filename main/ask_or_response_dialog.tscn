@@ -1,0 +1,5 @@
+[gd_scene load_steps=0 format=3 uid="uid://cjegpvjlgmxg6"]
+
+[node name="ask or response dialog" type="Label"]
+size_flags_horizontal = 0
+text = "some text"

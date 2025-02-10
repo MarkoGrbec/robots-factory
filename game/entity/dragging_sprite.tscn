@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cugv3q0gmarru"]
+
+[ext_resource type="Script" uid="uid://22jvw1jk1u0j" path="res://game/entity/DraggingSprite.gd" id="1_3d76j"]
+[ext_resource type="Texture2D" uid="uid://crkh2pyyctta3" path="res://icon.svg" id="1_rttos"]
+
+[node name="DraggingSprite" type="Sprite2D"]
+z_index = 1
+texture = ExtResource("1_rttos")
+script = ExtResource("1_3d76j")

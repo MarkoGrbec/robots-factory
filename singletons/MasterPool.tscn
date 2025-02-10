@@ -1,0 +1,2676 @@
+[gd_scene load_steps=167 format=3 uid="uid://cfsyjdafhmeh"]
+
+[ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://my assets/entity/MP.gd" id="1_bgkrv"]
+[ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
+[ext_resource type="PackedScene" uid="uid://dr2owvb70m1ia" path="res://game/Bots/quest/cp_quest.tscn" id="3_2o1ts"]
+[ext_resource type="Script" uid="uid://4bh35mqidnhe" path="res://my assets/quest/objects/QuestObject.gd" id="3_d1vgu"]
+[ext_resource type="PackedScene" uid="uid://73rit0lx826f" path="res://game/entity/entity_sprite2d_in_world.tscn" id="3_qrwrg"]
+[ext_resource type="Script" uid="uid://sjmolji57b8" path="res://my assets/quest/objects/QuestBasis/QuestBasis.gd" id="4_0rfkw"]
+[ext_resource type="Texture2D" uid="uid://b5bhqfskef7lb" path="res://my assets/Tiles/icon/melee_attack.png" id="4_3oteh"]
+[ext_resource type="Script" uid="uid://brslonx5by775" path="res://my assets/quest/objects/QuestBasis/QuestQuestion/QuestQuestion.gd" id="5_0rfkw"]
+[ext_resource type="Texture2D" uid="uid://vnvomxv44a0b" path="res://my assets/textures/quarrystone.png" id="5_vcwlu"]
+[ext_resource type="Texture2D" uid="uid://dbm2bldo0vgoo" path="res://my assets/textures/dirt.png" id="6_nl6tp"]
+[ext_resource type="Texture2D" uid="uid://ccspk2i065b1u" path="res://my assets/textures/sand.png" id="7_0oq30"]
+[ext_resource type="Texture2D" uid="uid://bdvbh01krpjnb" path="res://my assets/textures/clay.png" id="8_twfhk"]
+[ext_resource type="Texture2D" uid="uid://do76fw7f57dfd" path="res://my assets/textures/iron bar.png" id="9_0oq30"]
+[ext_resource type="PackedScene" uid="uid://d3uuoqkraqp62" path="res://game/Bots/trader/cp_trader.tscn" id="10_nl6tp"]
+[ext_resource type="PackedScene" uid="uid://ylewlsulmddd" path="res://game/Bots/enemy/enemy_bot.tscn" id="10_tjthm"]
+[ext_resource type="Script" uid="uid://vdcocg2xhuoh" path="res://my assets/quest/objects/QuestBasis/QuestQuestion/QQOtherNPC.gd" id="11_cdsqw"]
+[ext_resource type="PackedScene" uid="uid://cuwl2e033vtsm" path="res://game/Bots/helpless bot/cp_helpless_bot.tscn" id="12_twfhk"]
+[ext_resource type="PackedScene" uid="uid://be5bhpgyigp81" path="res://game/weapons/beem_weapon.tscn" id="14_bryxq"]
+
+[sub_resource type="Resource" id="Resource_d1vgu"]
+script = ExtResource("2_8f7pb")
+entity_num = 0
+description = ""
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_0rfkw"]
+script = ExtResource("2_8f7pb")
+entity_num = 1
+description = ""
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_oaqqu"]
+script = ExtResource("2_8f7pb")
+entity_num = 8
+description = ""
+scene = ExtResource("3_qrwrg")
+texture = ExtResource("4_3oteh")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = true
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_x6q08"]
+script = ExtResource("2_8f7pb")
+entity_num = 10
+description = ""
+texture = ExtResource("5_vcwlu")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 15
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_gk0eu"]
+script = ExtResource("2_8f7pb")
+entity_num = 11
+description = ""
+texture = ExtResource("6_nl6tp")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 12
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_tloub"]
+script = ExtResource("2_8f7pb")
+entity_num = 12
+description = ""
+texture = ExtResource("7_0oq30")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 20
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_4n8xy"]
+script = ExtResource("2_8f7pb")
+entity_num = 13
+description = ""
+texture = ExtResource("8_twfhk")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 30
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_6p7k8"]
+script = ExtResource("2_8f7pb")
+entity_num = 20
+description = ""
+texture = ExtResource("9_0oq30")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 35
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_ve1j6"]
+script = ExtResource("2_8f7pb")
+entity_num = 251
+description = ""
+scene = ExtResource("10_tjthm")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_2o1ts"]
+script = ExtResource("2_8f7pb")
+entity_num = 311
+description = ""
+scene = ExtResource("3_2o1ts")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_on5aj"]
+script = ExtResource("2_8f7pb")
+entity_num = 313
+description = ""
+scene = ExtResource("10_nl6tp")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_f6nne"]
+script = ExtResource("2_8f7pb")
+entity_num = 318
+description = ""
+scene = ExtResource("12_twfhk")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_to0er"]
+script = ExtResource("2_8f7pb")
+entity_num = 130005
+description = ""
+scene = ExtResource("14_bryxq")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 3.0
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 3.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_6ut2l"]
+script = ExtResource("2_8f7pb")
+entity_num = 150052
+description = ""
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = true
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = true
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_lpq7k"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["my commands are follows:
+[help] this dialog
+[chname] change your name"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_0oq30"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["chname"])
+response_dialog = Array[String](["something is wrong I'm broken
+new command [fix] [fix help]"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_vcwlu"]
+script = ExtResource("11_cdsqw")
+npc_activate = 2
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_gsslr"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 3
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_tt0nk"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_vcwlu"), SubResource("Resource_gsslr")])
+list_avatar_dialog = Array[String](["reboot"])
+response_dialog = Array[String](["rebooting, ..."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_3oteh"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_lpq7k"), SubResource("Resource_0oq30"), SubResource("Resource_tt0nk")])
+default_starting_dialog = "hello I can see your name has gone wild"
+default_failed_dialog = "say help to see my commands"
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_nl6tp"]
+script = ExtResource("11_cdsqw")
+npc_activate = 2
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_8rob0"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_tjthm"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_nl6tp"), SubResource("Resource_8rob0")])
+list_avatar_dialog = Array[String](["fix help"])
+response_dialog = Array[String](["find my maintenence robot and ask him what do I need to be fixed"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_twfhk"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["fix"])
+response_dialog = Array[String](["fix me"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_kmins"]
+script = ExtResource("11_cdsqw")
+npc_activate = 2
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_fxxol"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 3
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_gw05g"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_kmins"), SubResource("Resource_fxxol")])
+list_avatar_dialog = Array[String](["reboot"])
+response_dialog = Array[String](["rebooting, ..."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_xtds1"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["my commands are follows:
+[help] this dialog
+[chname] change your name
+[fix] fix me
+[fix help] how to fix me"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ybaqt"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["wrong", "error"])
+response_dialog = Array[String](["I'm broken
+I do not know what is wrong with me
+please fix me", "I need to be fixed
+say help to see my commands"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_bryxq"]
+script = ExtResource("4_0rfkw")
+description = "my commands are follows:
+[help] this dialog
+[chname] change your name
+[fix] fix me
+[fix help] how to fix me"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tjthm"), SubResource("Resource_twfhk"), SubResource("Resource_gw05g"), SubResource("Resource_xtds1"), SubResource("Resource_ybaqt")])
+default_starting_dialog = "something error wrong"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_lmjmh"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["my commands are follows:
+[help] this dialog
+[chname] change your name"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_v25tx"]
+script = ExtResource("11_cdsqw")
+npc_activate = 2
+npc_activated = false
+npc_alive = false
+npc_basis = 1
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_c7whv"]
+script = ExtResource("11_cdsqw")
+npc_activate = 3
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_vndle"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 4
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_lmxn6"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_v25tx"), SubResource("Resource_c7whv"), SubResource("Resource_vndle")])
+list_avatar_dialog = Array[String](["chname"])
+response_dialog = Array[String](["lets change your name
+there's new bot available for you
+at south east"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_e36vr"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["reboot"])
+response_dialog = Array[String](["I was just rebooted no need to reboot again!!!"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_wtrhf"]
+script = ExtResource("4_0rfkw")
+description = "rebotted"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_lmjmh"), SubResource("Resource_lmxn6"), SubResource("Resource_e36vr")])
+default_starting_dialog = "hello [name] how can I help you with"
+default_failed_dialog = "please say help to see my commands"
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_qrwrg"]
+script = ExtResource("3_d1vgu")
+quest_name = "name change bot"
+position = Vector2(500, 300)
+quest_body_type = 311
+equipment = 0
+activated = true
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_3oteh"), SubResource("Resource_bryxq"), SubResource("Resource_wtrhf")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_g2od0"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 1
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_edqj6"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_g2od0")])
+list_avatar_dialog = Array[String](["name bot needs fix", "need name bot fix", "name bot needs fixed", "need name bot fixed", "name bot is broken", "change name is broken", "fix name bot", "fix change name bot", "fixing change name"])
+response_dialog = Array[String](["what seems to be wrong?"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_26d7o"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["maintenence fix"])
+response_dialog = Array[String](["I'm maintenence bot and I do not need to be fixed!!!"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_gk2xh"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["sorry but I need to know what kind of help you need"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_r3wwj"]
+script = ExtResource("4_0rfkw")
+description = "name bot needs to be fixed"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_edqj6"), SubResource("Resource_26d7o"), SubResource("Resource_gk2xh")])
+default_starting_dialog = "hello robot [name] what is it you need"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ld3cu"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 2
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_my1nx"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_ld3cu")])
+list_avatar_dialog = Array[String](["change name", "chname"])
+response_dialog = Array[String](["if change name doesn't work
+try resetting him.
+with
+[reboot] command"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_a8ecq"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_my1nx")])
+default_starting_dialog = "hello robot [name] how is change name bot borken"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_cdsqw"]
+script = ExtResource("3_d1vgu")
+quest_name = "maintenence bot"
+position = Vector2(300, 600)
+quest_body_type = 350
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_r3wwj"), SubResource("Resource_a8ecq")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_5n0ss"]
+script = ExtResource("11_cdsqw")
+npc_activate = 1
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_gpily"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 5
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_l8wpu"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_5n0ss"), SubResource("Resource_gpily")])
+list_avatar_dialog = Array[String](["i reboot", "rebooted", "rebotted"])
+response_dialog = Array[String](["oh interesting and you figured out while others couldn't"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_3khw7"]
+script = ExtResource("11_cdsqw")
+npc_activate = 1
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_gci13"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 7
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_vs12e"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_3khw7"), SubResource("Resource_gci13")])
+list_avatar_dialog = Array[String](["reboot"])
+response_dialog = Array[String](["rebooting, ..."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_nm8h1"]
+script = ExtResource("4_0rfkw")
+description = "forking bot will be said that something was rebotted
+OR forking bot will be rebotting "
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_l8wpu"), SubResource("Resource_vs12e")])
+default_starting_dialog = "hello [name] I can see that change name bot
+was repaired after long time how did you do it?"
+default_failed_dialog = "I don't understand. I mean what did you do"
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_du56o"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 7
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_cpnbn"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_du56o")])
+list_avatar_dialog = Array[String](["reboot"])
+response_dialog = Array[String](["rebooting, ..."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_5bpv6"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["longer way", "longer ways"])
+response_dialog = Array[String](["yes well there are forks in quest line-s
+some lead to dead end.
+you might found one when you got to here if you rebooted me.
+you needed to go way longer it was a fork witch didn't lead to dead end.
+in future there will be"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_4kw0r"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 6
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_12x0b"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_4kw0r")])
+list_avatar_dialog = Array[String](["objective", "objectives", "way", "ways", "way opened", "ways opened"])
+response_dialog = Array[String](["well chosse wisely
+
+do you want to
+
+build a factory through gathering
+build a factory through crafting - not this month
+build a factory through fighting - not this month"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_v5tcw"]
+script = ExtResource("11_cdsqw")
+npc_activate = 3
+npc_activated = false
+npc_alive = false
+npc_basis = 3
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_7fuww"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 8
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_tae6u"]
+script = ExtResource("11_cdsqw")
+npc_activate = 5
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_jurw0"]
+script = ExtResource("5_0rfkw")
+new_basis = 3
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_v5tcw"), SubResource("Resource_7fuww"), SubResource("Resource_tae6u")])
+list_avatar_dialog = Array[String](["gathering", "gather"])
+response_dialog = Array[String](["so you chosen gathering it's the easyest but longest path
+go to the gathering bot and make a factory"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_eaxix"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["crafting", "craft"])
+response_dialog = Array[String](["try after few months restarting the game because this is a fork you will not go this time"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_38tap"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["fighting", "fight"])
+response_dialog = Array[String](["try after few months restarting the game because this is a fork you will not go this time"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_qiegh"]
+script = ExtResource("4_0rfkw")
+description = "not implemented exception:
+craft, fight"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_cpnbn"), SubResource("Resource_5bpv6"), SubResource("Resource_12x0b"), SubResource("Resource_jurw0"), SubResource("Resource_eaxix"), SubResource("Resource_38tap")])
+default_starting_dialog = "well [name] since you figured it out I have a heavy task for you
+listen and choose words wisely else
+you'll go longer way.
+some ways are even dead ends.
+but don't worry open ways will still be opened. But longer ways"
+default_failed_dialog = "I' here to talk about ways"
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_7s4pe"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["my commands are follows
+[help] this dialog
+[config] configure me"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_5gtf4"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 5
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_t2j3v"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_5gtf4")])
+list_avatar_dialog = Array[String](["config"])
+response_dialog = Array[String](["reconfiguring, ..."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_3l02l"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["reboot"])
+response_dialog = Array[String](["rebooting, ..."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_0kfxc"]
+script = ExtResource("4_0rfkw")
+description = "was just rebooted"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_7s4pe"), SubResource("Resource_t2j3v"), SubResource("Resource_3l02l")])
+default_starting_dialog = "I was just rebotted all my memory is lost, I need to be reconfigured"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_nqjdk"]
+script = ExtResource("4_0rfkw")
+description = "go to gathering bot"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = ""
+default_failed_dialog = "you've chosen your path now go to gathering bot"
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_krk0d"]
+script = ExtResource("3_d1vgu")
+quest_name = "forking bot"
+position = Vector2(1200, 900)
+quest_body_type = 350
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nm8h1"), SubResource("Resource_qiegh"), SubResource("Resource_0kfxc"), SubResource("Resource_nqjdk")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_p1w7n"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 3
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["name
+needs
+fix", "what is name
+& it needs
+& fix"])
+response_failed_dialog = "give me 3 quarrystones for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_u77jc"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_p1w7n")])
+default_starting_dialog = "what is the name of the bot you need to fix
+and needs to be fixed"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_sbjh2"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["at change name bot
+there's command that doesn't work", "it's second in row"])
+response_failed_dialog = "give me quarrystone for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_umi6g"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_sbjh2")])
+default_starting_dialog = "what's the command what doesn't work"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_y7xd8"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["ask the maintenence bot again for hint command of the command that doesn't work"])
+response_failed_dialog = "give me quarrystone for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_c2muu"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7xd8")])
+default_starting_dialog = "say the command that was given to you
+by the maintenence bot"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_yl1f7"]
+script = ExtResource("5_0rfkw")
+new_basis = 3
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["try if the command was repaired", "try to change your name", "try to change your name
+again"])
+response_failed_dialog = "give me quarrystone for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_g3eem"]
+script = ExtResource("4_0rfkw")
+description = "command that didn't work before chname"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yl1f7")])
+default_starting_dialog = "what was the command that didn't work at change name bot"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_72fj2"]
+script = ExtResource("5_0rfkw")
+new_basis = 4
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["what did you do to the name change bot", "what command did you use to fix name change bot
+and how did you do it", "what commanded did you use to fix name change bot"])
+response_failed_dialog = "give me quarrystone for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_cx1ar"]
+script = ExtResource("4_0rfkw")
+description = "what command was used at change name bot with ed on the end"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_72fj2")])
+default_starting_dialog = "tell him what command did you use
+becarefull how you pharse command"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_duot5"]
+script = ExtResource("5_0rfkw")
+new_basis = 5
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["ask the forking bot", "way, objective or way opened", "ask forking bot about objective"])
+response_failed_dialog = "give me quarrystone for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ayemp"]
+script = ExtResource("4_0rfkw")
+description = "way"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_duot5")])
+default_starting_dialog = "ask bot about the way"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_5gb7o"]
+script = ExtResource("5_0rfkw")
+new_basis = 6
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["gather,
+craft
+or
+fight"])
+response_failed_dialog = "give me quarrystone for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_7usyv"]
+script = ExtResource("4_0rfkw")
+description = "what way"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_5gb7o")])
+default_starting_dialog = "what way will you choose?"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_h41ud"]
+script = ExtResource("5_0rfkw")
+new_basis = 7
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["you need to config forking bot"])
+response_failed_dialog = "give me quarrystone for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_f55ae"]
+script = ExtResource("4_0rfkw")
+description = "reconfigure bot forking bot
+try using help commnad"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_h41ud")])
+default_starting_dialog = "reconfigure forking bot
+try using help commnad"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_qk1v2"]
+script = ExtResource("5_0rfkw")
+new_basis = 8
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 2
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["say [mold] to gathering bot isn't it obvious?", "say how much to get counter you need"])
+response_failed_dialog = "give me 2 quarrystones for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_aalm7"]
+script = ExtResource("4_0rfkw")
+description = "ask about mold"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_qk1v2")])
+default_starting_dialog = "ask gathering bot about the mold"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_crkrc"]
+script = ExtResource("5_0rfkw")
+new_basis = 9
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 5
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["to bring clay you need to dig clay
+press left mouse button near your robot to dig
+than drag the item to inventory
+after that drag from inventory to the top right quest slot
+to open inventory press insert", "say how much to get counter you need"])
+response_failed_dialog = "give me 5 quarrystones for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_7b8kd"]
+script = ExtResource("4_0rfkw")
+description = "hint for clay"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_crkrc")])
+default_starting_dialog = "bring clay to gathering bot
+and say [objective completed]"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_8wecr"]
+script = ExtResource("5_0rfkw")
+new_basis = 10
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 5
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["ask him how much iron he needs", "bring him iron from trader", "go to trader and drag iron
+from it in to your inventory"])
+response_failed_dialog = "give me 5 quarrystones for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_xnp5w"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8wecr")])
+default_starting_dialog = "bring hard metal (iron) to gathering bot
+and say [objective completed]"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ps30k"]
+script = ExtResource("5_0rfkw")
+new_basis = 11
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 7
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["ask him how much sand he needs", "bring him sand from trader", "go to trader and drag sand
+from it in to your inventory"])
+response_failed_dialog = "give me 7 quarrystones for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_8d3om"]
+script = ExtResource("4_0rfkw")
+description = "sand"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ps30k")])
+default_starting_dialog = "bring sand to gathering bot
+and say [objective completed]"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_btbya"]
+script = ExtResource("5_0rfkw")
+new_basis = 12
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 10
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help", "hint"])
+response_dialog = Array[String](["ask gathering bot how to protect robot", "or if you don't have a weapon yet build one", "say [protect] or [weapon]"])
+response_failed_dialog = "give me quarrystone for telling me the hint"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_o1q65"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_btbya")])
+default_starting_dialog = "say make new bot to start making new bot"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ogpnp"]
+script = ExtResource("3_d1vgu")
+quest_name = "hint bot"
+position = Vector2(150, 150)
+quest_body_type = 350
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_u77jc"), SubResource("Resource_umi6g"), SubResource("Resource_c2muu"), SubResource("Resource_g3eem"), SubResource("Resource_cx1ar"), SubResource("Resource_ayemp"), SubResource("Resource_7usyv"), SubResource("Resource_f55ae"), SubResource("Resource_aalm7"), SubResource("Resource_7b8kd"), SubResource("Resource_xnp5w"), SubResource("Resource_8d3om"), SubResource("Resource_o1q65")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_wosds"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([1])
+remove_basis_flags = Array[int]([])
+quest_item = 13
+quantity = 3
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["here clay", "objective", "completed", "got it", "for mold"])
+response_dialog = Array[String](["great I'll send clay for legs"])
+response_failed_dialog = "I need more clay"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_gmbyg"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 9
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_m1l5w"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_gmbyg")])
+list_avatar_dialog = Array[String](["mold", "molds", "robot", "part", "parts", "gather", "much"])
+response_dialog = Array[String](["well bring me 3 clay and
+I'll send to craft the mold for legs"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_a8c27"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["you need help no I need you to gather"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_nw0d3"]
+script = ExtResource("4_0rfkw")
+description = "legs"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_wosds"), SubResource("Resource_m1l5w"), SubResource("Resource_a8c27")])
+default_starting_dialog = "hey let's make some molds
+to make a part of a robot"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_tsfym"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["you need help no I need you to gather"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_uhd5j"]
+script = ExtResource("4_0rfkw")
+description = "help"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tsfym")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_i2ec7"]
+script = ExtResource("5_0rfkw")
+new_basis = 3
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 13
+quantity = 5
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["here clay", "objective", "completed", "got it", "for mold"])
+response_dialog = Array[String](["great I'll send clay for chest and arms"])
+response_failed_dialog = "I need more clay"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_v2y5f"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["mold", "gather", "much"])
+response_dialog = Array[String](["well bring me 5 clay and
+I'll send to craft the mold for chest and arms"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_tuu8w"]
+script = ExtResource("4_0rfkw")
+description = "body"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_i2ec7"), SubResource("Resource_v2y5f")])
+default_starting_dialog = "hi let's make some molds
+to make a part of a robot"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_wv4ku"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 10
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_kmewe"]
+script = ExtResource("5_0rfkw")
+new_basis = 4
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 13
+quantity = 2
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wv4ku")])
+list_avatar_dialog = Array[String](["here clay", "objective", "completed", "got it", "for mold"])
+response_dialog = Array[String](["great I'll send clay for head"])
+response_failed_dialog = "I need more clay"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_wx3ni"]
+script = ExtResource("5_0rfkw")
+new_basis = 3
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["mold", "gather", "much"])
+response_dialog = Array[String](["well bring me 2 clay and
+I'll send to craft the mold for head"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_63bdt"]
+script = ExtResource("4_0rfkw")
+description = "head"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_kmewe"), SubResource("Resource_wx3ni")])
+default_starting_dialog = "hi let's make some molds
+to make a last part of a robot"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_vfwg3"]
+script = ExtResource("5_0rfkw")
+new_basis = 4
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 20
+quantity = 15
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wv4ku")])
+list_avatar_dialog = Array[String](["here iron", "objective", "completed", "got it", "for molds", "for pouring", "got iron"])
+response_dialog = Array[String](["great I'll send iron for robot"])
+response_failed_dialog = "I need more iron"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_3p6yg"]
+script = ExtResource("5_0rfkw")
+new_basis = 4
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["how iron", "molds", "trader", "mold", "gather", "much"])
+response_dialog = Array[String](["well bring me 15 iron and
+I'll send to pour the iron in to the robot
+go to trader and buy iron"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_4chsh"]
+script = ExtResource("4_0rfkw")
+description = "full body"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_vfwg3"), SubResource("Resource_3p6yg")])
+default_starting_dialog = "hi let's fill the molds with iron.
+Get me iron from trader."
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_r2msl"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 10
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_nk2gd"]
+script = ExtResource("5_0rfkw")
+new_basis = 5
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 12
+quantity = 3
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_r2msl")])
+list_avatar_dialog = Array[String](["here sand", "objective", "completed", "got it", "for chips"])
+response_dialog = Array[String](["great I'll send sand for chips"])
+response_failed_dialog = "I need more sand"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_60hhd"]
+script = ExtResource("5_0rfkw")
+new_basis = 5
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["chip", "chips", "dead", "trader", "much", "gather"])
+response_dialog = Array[String](["well bring me 3 sand from trader and
+I'll send to craft some chips"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_703un"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_nk2gd"), SubResource("Resource_60hhd")])
+default_starting_dialog = "ok we have a robot but he's dead bring me sand from trader"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ldw7g"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = true
+npc_alive = false
+npc_basis = 10
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_tu0wc"]
+script = ExtResource("5_0rfkw")
+new_basis = 4
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_ldw7g")])
+list_avatar_dialog = Array[String](["new", "make"])
+response_dialog = Array[String](["we have molds so bring me more iron please"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_gxj3l"]
+script = ExtResource("5_0rfkw")
+new_basis = 6
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["how", "protect"])
+response_dialog = Array[String](["maybe you need a weapon", "try blocking it with any tools you have disposable", "try using your body", "try using digging", "try using dug elements"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_puk0i"]
+script = ExtResource("5_0rfkw")
+new_basis = 6
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["weapon"])
+response_dialog = Array[String](["ok ask a weapon master to build you a weapon"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_umrm6"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tu0wc"), SubResource("Resource_gxj3l"), SubResource("Resource_puk0i")])
+default_starting_dialog = "you failed to protect the helpless robot
+try again."
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ebr4p"]
+script = ExtResource("5_0rfkw")
+new_basis = 7
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 20
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_r2msl")])
+list_avatar_dialog = Array[String](["here iron", "objective", "completed", "got it", "reprogram", "reprogramming"])
+response_dialog = Array[String](["great I'm reprogramming it right now"])
+response_failed_dialog = "I need more iron"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ja8lp"]
+script = ExtResource("5_0rfkw")
+new_basis = 7
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["trader", "much", "gather"])
+response_dialog = Array[String](["well bring me 1 iron from trader and
+I'll reprogram it"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_lviuo"]
+script = ExtResource("4_0rfkw")
+description = "reprogram robot"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ebr4p"), SubResource("Resource_ja8lp")])
+default_starting_dialog = "now let's reprogram it.
+Watch out this bots are getting aggressive."
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_2t1fq"]
+script = ExtResource("11_cdsqw")
+npc_activate = 5
+npc_activated = false
+npc_alive = false
+npc_basis = 8
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_8pd08"]
+script = ExtResource("5_0rfkw")
+new_basis = 8
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([1])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_2t1fq")])
+list_avatar_dialog = Array[String](["objective", "completed"])
+response_dialog = Array[String](["I think you'll be in good hands"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_85rlo"]
+script = ExtResource("11_cdsqw")
+npc_activate = 5
+npc_activated = false
+npc_alive = false
+npc_basis = 8
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_5ni06"]
+script = ExtResource("5_0rfkw")
+new_basis = 8
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_85rlo")])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["I don't need help any longer but you are in good hands now"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_8sb7u"]
+script = ExtResource("4_0rfkw")
+description = "new companion"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8pd08"), SubResource("Resource_5ni06")])
+default_starting_dialog = "congratulations I dind't know you'll pul that one off.
+I'm glad the bot is fully operational.
+I have programmed it to be your full companion."
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_53ixe"]
+script = ExtResource("3_d1vgu")
+quest_name = "gathering bot"
+position = Vector2(550, 150)
+quest_body_type = 350
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nw0d3"), SubResource("Resource_uhd5j"), SubResource("Resource_tuu8w"), SubResource("Resource_63bdt"), SubResource("Resource_4chsh"), SubResource("Resource_703un"), SubResource("Resource_umrm6"), SubResource("Resource_lviuo"), SubResource("Resource_8sb7u")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_qwgub"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["what do you need a weapon
+a upgrade battery,
+a faster reflexes?"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_anglq"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 20
+quantity = 5
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["weapon"])
+response_dialog = Array[String](["here take this weapon.
+
+press f to fire. be carefull on the battery."])
+response_failed_dialog = "ok bring me 5 iron"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_0morn"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["battery", "faster", "reflexes"])
+response_dialog = Array[String](["you'll need a weapon first"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_7v3nd"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_qwgub"), SubResource("Resource_anglq"), SubResource("Resource_0morn")])
+default_starting_dialog = "I've heard you have problems with bots that look like us"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_2wd4e"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 12
+quantity = 5
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["upgrade", "battery"])
+response_dialog = Array[String](["ok you've got upgraded battery and I've filled your battery"])
+response_failed_dialog = "ok bring me 5 sand"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_7c15m"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 20
+quantity = 3
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["range"])
+response_dialog = Array[String](["ok here you've got it"])
+response_failed_dialog = "I'll need 3 iron"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_h50ov"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 20
+quantity = 6
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["reflexes", "faster", "reflex"])
+response_dialog = Array[String](["I've upgrated your hands reflexes"])
+response_failed_dialog = "I need 6 iron"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_5iawb"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["what do you need:
+upgrade battery or
+weapon range or
+faster reflexes?
+
+better battery more times you can fire
+longer range faster battery constumption
+faster reflexes I can upgrade
+your body to shoot faster each time
+but if you shoot too many times
+you'll still be drained"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ikqpq"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_2wd4e"), SubResource("Resource_7c15m"), SubResource("Resource_h50ov"), SubResource("Resource_5iawb")])
+default_starting_dialog = "what do you need:
+upgrade battery or
+weapon range or
+faster reflexes?
+
+or say [help]"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_go2w6"]
+script = ExtResource("3_d1vgu")
+quest_name = "weapon master"
+position = Vector2(900, 300)
+quest_body_type = 350
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_7v3nd"), SubResource("Resource_ikqpq")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_uekph"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["thanks for playing"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_h7qhj"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uekph")])
+default_starting_dialog = "thanks for playing"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_avhuw"]
+script = ExtResource("3_d1vgu")
+quest_name = "wtf bot"
+position = Vector2(700, 400)
+quest_body_type = 350
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[node name="MasterPool" type="Node"]
+script = ExtResource("1_bgkrv")
+container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
+quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw")])

@@ -1,0 +1,135 @@
+[gd_scene load_steps=13 format=3 uid="uid://bjld3caw65v7u"]
+
+[ext_resource type="Theme" uid="uid://cmeiu126swihn" path="res://my assets/themes/default.tres" id="1_jjlo8"]
+[ext_resource type="Script" uid="uid://56m1gi22gkx0" path="res://my assets/SlidersWindow/SliderManager.gd" id="3_5oyto"]
+[ext_resource type="Texture2D" uid="uid://c8c8wvxu0gt0j" path="res://my assets/SlidersWindow/Textures/1 time.png" id="4_20rd0"]
+[ext_resource type="Texture2D" uid="uid://bp61xqj7i4no8" path="res://my assets/SlidersWindow/Textures/1smaller time.png" id="5_qaa0r"]
+[ext_resource type="Texture2D" uid="uid://kcl2w4a3ttoi" path="res://my assets/SlidersWindow/Textures/2 health.png" id="6_1mr4h"]
+[ext_resource type="Texture2D" uid="uid://be473phy0b853" path="res://my assets/SlidersWindow/Textures/3 stamina.png" id="6_os38c"]
+[ext_resource type="Texture2D" uid="uid://b0ru4pcpqtqaj" path="res://my assets/SlidersWindow/Textures/3smaller stamina.png" id="7_2xn0p"]
+[ext_resource type="Texture2D" uid="uid://bbm1oo48vqdu8" path="res://my assets/SlidersWindow/Textures/2smaller health.png" id="7_eg8mw"]
+[ext_resource type="Texture2D" uid="uid://cv1jr62rpctkg" path="res://my assets/SlidersWindow/Textures/4 mana.png" id="10_htjfx"]
+[ext_resource type="Texture2D" uid="uid://ck5efmhuk3w0i" path="res://my assets/SlidersWindow/Textures/4smaller mana.png" id="11_qn15s"]
+[ext_resource type="Texture2D" uid="uid://bli1f5oqu5xfj" path="res://my assets/SlidersWindow/Textures/5 custom.png" id="12_5g3ij"]
+[ext_resource type="Texture2D" uid="uid://bp2b6dgdr48kc" path="res://my assets/SlidersWindow/Textures/5smaller custom.png" id="13_508y7"]
+
+[node name="CircleSliders" type="Control"]
+layout_mode = 3
+anchor_right = 0.083
+anchor_bottom = 0.148
+offset_right = 0.383995
+offset_bottom = 0.0960007
+mouse_filter = 2
+theme = ExtResource("1_jjlo8")
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("time_slider", "health_slider", "stamina_slider", "mana_slider", "food_slider", "audio_stream_player", "timer", "timer_digesting")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_5oyto")
+time_slider = NodePath("time slider")
+health_slider = NodePath("health slider")
+stamina_slider = NodePath("stamina slider")
+mana_slider = NodePath("mana slider")
+food_slider = NodePath("food slider")
+audio_stream_player = NodePath("AudioStream sound effects BUS")
+timer = NodePath("TimerWorking")
+timer_digesting = NodePath("TimerDigesting")
+
+[node name="time slider" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+step = 0.001
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("4_20rd0")
+texture_over = ExtResource("5_qaa0r")
+texture_progress = ExtResource("4_20rd0")
+tint_under = Color(0.125911, 0.125911, 0.125911, 1)
+tint_progress = Color(0, 0, 1, 1)
+
+[node name="health slider" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+step = 0.001
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("6_1mr4h")
+texture_over = ExtResource("7_eg8mw")
+texture_progress = ExtResource("6_1mr4h")
+tint_under = Color(0.125911, 0.125911, 0.125911, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="stamina slider" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+step = 0.001
+value = 97.0
+fill_mode = 4
+texture_under = ExtResource("6_os38c")
+texture_over = ExtResource("7_2xn0p")
+texture_progress = ExtResource("6_os38c")
+tint_under = Color(0.125911, 0.125911, 0.125911, 1)
+tint_progress = Color(0.898371, 0.898371, 1.15514e-06, 1)
+
+[node name="mana slider" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+step = 0.001
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("10_htjfx")
+texture_over = ExtResource("11_qn15s")
+texture_progress = ExtResource("10_htjfx")
+tint_under = Color(0.125911, 0.125911, 0.125911, 1)
+tint_progress = Color(0, 1, 1, 1)
+
+[node name="food slider" type="TextureProgressBar" parent="Control"]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 96.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+tooltip_text = "time
+health
+stamina
+mana
+food"
+step = 0.0
+value = 100.0
+fill_mode = 4
+texture_under = ExtResource("12_5g3ij")
+texture_over = ExtResource("13_508y7")
+texture_progress = ExtResource("12_5g3ij")
+tint_under = Color(0.125911, 0.125911, 0.125911, 1)
+tint_progress = Color(0, 1, 0, 1)
+
+[node name="AudioStream sound effects BUS" type="AudioStreamPlayer" parent="Control"]
+volume_db = -1.0
+max_polyphony = 10
+
+[node name="TimerWorking" type="Timer" parent="Control"]
+one_shot = true
+
+[node name="TimerDigesting" type="Timer" parent="Control"]
+wait_time = 10.0

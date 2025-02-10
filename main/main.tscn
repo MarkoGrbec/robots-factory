@@ -1,0 +1,429 @@
+[gd_scene load_steps=20 format=3 uid="uid://bldvfhdbgr23e"]
+
+[ext_resource type="Script" uid="uid://bj254t7es4bsr" path="res://main/MainMenu.gd" id="1_3wy1v"]
+[ext_resource type="Script" uid="uid://dxd6wbawl72f6" path="res://main/StartGame.gd" id="1_53q0u"]
+[ext_resource type="Script" uid="uid://luh38krjrogw" path="res://my assets/entity/EntityManager.gd" id="2_4hmqs"]
+[ext_resource type="PackedScene" uid="uid://ww05yde5nb2t" path="res://terrain/terrain.tscn" id="2_c651c"]
+[ext_resource type="Theme" uid="uid://cmeiu126swihn" path="res://my assets/themes/default.tres" id="2_kfbq2"]
+[ext_resource type="PackedScene" uid="uid://bj1a037by05w5" path="res://my assets/changes manager/changes_manager.tscn" id="2_pjrb6"]
+[ext_resource type="Script" uid="uid://coolq65m2ewxv" path="res://my assets/Credits/Credits.gd" id="2_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://bs3s7gpgf8hym" path="res://main/quests_manager.tscn" id="6_4dugh"]
+[ext_resource type="PackedScene" uid="uid://ba8b517af62hg" path="res://main/success windows/change_name_manager.tscn" id="7_67ri8"]
+[ext_resource type="PackedScene" uid="uid://4uvqadvod7cb" path="res://main/in_game_menu.tscn" id="8_bsumw"]
+[ext_resource type="Script" uid="uid://dfax0m1g5oqc" path="res://game/entity/InventorySystem.gd" id="9_fwcvl"]
+[ext_resource type="PackedScene" uid="uid://hlq48l63vm1f" path="res://my assets/entity/inventory_slot.tscn" id="10_n3o0a"]
+[ext_resource type="Script" uid="uid://b0blxi6f08uwi" path="res://main/TraderManager.gd" id="12_5xyti"]
+[ext_resource type="PackedScene" uid="uid://bwfl5sjvtwx4v" path="res://game/entity/trader_button_buy.tscn" id="13_s758e"]
+[ext_resource type="PackedScene" uid="uid://ls0x4xqay4he" path="res://game/entity/trader_button_sell.tscn" id="14_4hmqs"]
+[ext_resource type="PackedScene" uid="uid://cugv3q0gmarru" path="res://game/entity/dragging_sprite.tscn" id="14_piupu"]
+[ext_resource type="PackedScene" uid="uid://ba0tnj74ux3tm" path="res://my assets/mold window/mold_window.tscn" id="18_piupu"]
+[ext_resource type="PackedScene" uid="uid://bjld3caw65v7u" path="res://my assets/SlidersWindow/CircleSliders.tscn" id="18_q0sk7"]
+
+[sub_resource type="Environment" id="Environment_4hmqs"]
+background_mode = 3
+glow_enabled = true
+glow_intensity = 0.5
+glow_bloom = 0.13
+glow_hdr_luminance_cap = 0.2
+
+[node name="Node" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4hmqs")
+
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("main_menu_tab", "in_game_main_menu", "environment")]
+script = ExtResource("1_3wy1v")
+main_menu_tab = NodePath("../CanvasLayer/Main/main TabContainer")
+in_game_main_menu = NodePath("../CanvasLayer/Main/in game menu")
+environment = NodePath("../WorldEnvironment")
+
+[node name="entity_manager" type="Node2D" parent="Node2D" node_paths=PackedStringArray("array_layers", "dragging_node2d")]
+script = ExtResource("2_4hmqs")
+array_layers = [NodePath("ground_layer"), NodePath("underground_layer1"), NodePath("underground_layer2"), NodePath("underground_layer3")]
+dragging_node2d = NodePath("../../CanvasLayer/CanvasLayer/dragging")
+
+[node name="ground_layer" type="Node2D" parent="Node2D/entity_manager"]
+
+[node name="underground_layer1" type="Node2D" parent="Node2D/entity_manager"]
+
+[node name="underground_layer2" type="Node2D" parent="Node2D/entity_manager"]
+
+[node name="underground_layer3" type="Node2D" parent="Node2D/entity_manager"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Main" type="Control" parent="CanvasLayer"]
+y_sort_enabled = true
+layout_mode = 3
+anchor_top = 0.049
+anchor_right = 1.0
+anchor_bottom = 0.951
+offset_top = 0.247999
+offset_bottom = -0.248047
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+theme = ExtResource("2_kfbq2")
+metadata/_edit_use_anchors_ = true
+
+[node name="main TabContainer" type="TabContainer" parent="CanvasLayer/Main"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="start game" type="ScrollContainer" parent="CanvasLayer/Main/main TabContainer" node_paths=PackedStringArray("start_game", "delete_user", "username_line_edit", "welcome_label", "welcome_button")]
+layout_mode = 2
+script = ExtResource("1_53q0u")
+start_game = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/start game")
+delete_user = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/delete user")
+username_line_edit = NodePath("HBoxContainer/VBoxContainer/username")
+terrain = ExtResource("2_c651c")
+welcome_label = NodePath("../welcome robot/HBoxContainer/VBoxContainer/welcome label")
+welcome_button = NodePath("../welcome robot/HBoxContainer/VBoxContainer/welcome button")
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/main TabContainer/start game"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="start game" type="Button" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "start game"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="delete user" type="Button" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "delete"
+
+[node name="username" type="LineEdit" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "enter your name"
+expand_to_text_length = true
+
+[node name="credits" type="ScrollContainer" parent="CanvasLayer/Main/main TabContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("2_xwkvk")
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/main TabContainer/credits"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/credits/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/main TabContainer/credits/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/credits/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Main/main TabContainer/credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "MIT licences:
+[url=https://godotengine.org/license/]godot engine licence[/url]
+[url=https://github.com/MarkoGrbec/SQLPentagram/blob/main/LICENSE]SQLPentagram[/url]
+[url=https://github.com/finepointcgi/Drag-Rescale-and-Drop-Windows/blob/main/LICENSE/]resize window[/url]
+[url=https://github.com/HopeMetal/2DTacticalRPGDemo/blob/main/LICENSE]2DTacticalRPGDemo[/url]
+[url=https://github.com/godotengine/godot-demo-projects/tree/4.2-31d1c0c/2d/skeleton]skeleton 2d demo[/url]
+## sounds made by David Fluher"
+
+[node name="welcome robot" type="ScrollContainer" parent="CanvasLayer/Main/main TabContainer"]
+visible = false
+layout_mode = 2
+mouse_filter = 0
+metadata/_tab_index = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/main TabContainer/welcome robot"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="welcome label" type="Label" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="welcome button" type="Button" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "let's fix name"
+
+[node name="CircleSliders" parent="CanvasLayer/Main" instance=ExtResource("18_q0sk7")]
+visible = false
+layout_mode = 1
+anchor_left = 0.908528
+anchor_right = 1.0
+anchor_bottom = 0.167849
+offset_left = 0.375977
+offset_right = -5.0
+offset_bottom = -0.0239944
+grow_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="inventory system" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("grid_container_inventory_slots")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.609375
+anchor_top = 0.00171233
+anchor_right = 1.00038
+anchor_bottom = 0.573712
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+current_tab = 0
+script = ExtResource("9_fwcvl")
+inventory_slot_scene = ExtResource("10_n3o0a")
+grid_container_inventory_slots = NodePath("inventory/in game menu/VBoxContainer/GridContainer")
+metadata/_edit_use_anchors_ = true
+
+[node name="inventory" type="ScrollContainer" parent="CanvasLayer/Main/inventory system"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="in game menu" type="HBoxContainer" parent="CanvasLayer/Main/inventory system/inventory"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="close window2" type="Button" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+text = "X"
+
+[node name="inventory container" type="MarginContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="close window" type="Button" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+text = "X"
+
+[node name="trader manager" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("buy_grid_container", "trader_button_sell", "trader_gold_label", "robot_gold_label", "buy_for", "sell_for")]
+visible = false
+layout_mode = 1
+offset_right = 204.0
+offset_bottom = 311.0
+current_tab = 0
+tabs_visible = false
+script = ExtResource("12_5xyti")
+buy_grid_container = NodePath("HBoxContainer/buy container/GridContainer")
+trader_button_sell = NodePath("HBoxContainer/sell container/GridContainer/trader button sell")
+trader_gold_label = NodePath("HBoxContainer/buy container/MarginContainer/VBoxContainer/trader gold")
+robot_gold_label = NodePath("HBoxContainer/sell container/MarginContainer/VBoxContainer/user gold")
+buy_for = NodePath("HBoxContainer/buy container/MarginContainer/VBoxContainer/buy for")
+sell_for = NodePath("HBoxContainer/sell container/MarginContainer/VBoxContainer/sell for")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/trader manager"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="buy container" type="VBoxContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="trader gold" type="Label" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+text = "trader gold:"
+
+[node name="buy for" type="Label" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+text = "costs:"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="trader button buy" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container/GridContainer" instance=ExtResource("13_s758e")]
+layout_mode = 2
+entity_num = 11
+dragging_sprite = ExtResource("14_piupu")
+
+[node name="trader button buy2" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container/GridContainer" instance=ExtResource("13_s758e")]
+layout_mode = 2
+entity_num = 12
+dragging_sprite = ExtResource("14_piupu")
+
+[node name="trader button buy3" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container/GridContainer" instance=ExtResource("13_s758e")]
+layout_mode = 2
+entity_num = 13
+dragging_sprite = ExtResource("14_piupu")
+
+[node name="trader button buy4" parent="CanvasLayer/Main/trader manager/HBoxContainer/buy container/GridContainer" instance=ExtResource("13_s758e")]
+layout_mode = 2
+entity_num = 20
+dragging_sprite = ExtResource("14_piupu")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="sell container" type="VBoxContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer/sell container"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer/sell container/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="user gold" type="Label" parent="CanvasLayer/Main/trader manager/HBoxContainer/sell container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+text = "robot gold:"
+
+[node name="sell for" type="Label" parent="CanvasLayer/Main/trader manager/HBoxContainer/sell container/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 16
+text = "sell for:"
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/trader manager/HBoxContainer/sell container"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="trader button sell" parent="CanvasLayer/Main/trader manager/HBoxContainer/sell container/GridContainer" instance=ExtResource("14_4hmqs")]
+layout_mode = 2
+
+[node name="close button" type="Button" parent="CanvasLayer/Main/trader manager/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "X"
+
+[node name="QuestsManager" parent="CanvasLayer/Main" instance=ExtResource("6_4dugh")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.609
+mouse_filter = 0
+
+[node name="change name manager" parent="CanvasLayer/Main" instance=ExtResource("7_67ri8")]
+visible = false
+layout_mode = 1
+
+[node name="in game menu" parent="CanvasLayer/Main" instance=ExtResource("8_bsumw")]
+visible = false
+layout_mode = 1
+
+[node name="mold window" parent="CanvasLayer/Main" instance=ExtResource("18_piupu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.164
+anchor_right = 0.872
+anchor_bottom = 0.877
+offset_left = 0.127991
+offset_top = 0.224007
+offset_right = 0.455933
+offset_bottom = -0.16803
+
+[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+grow_vertical = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
+layer = 2
+follow_viewport_enabled = true
+
+[node name="dragging" type="Node2D" parent="CanvasLayer/CanvasLayer"]
+
+[connection signal="pressed" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="CanvasLayer/Main/main TabContainer/start game" method="_on_start_game_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="CanvasLayer/Main/main TabContainer/start game" method="_on_delete_user_pressed"]
+[connection signal="text_submitted" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/username" to="CanvasLayer/Main/main TabContainer/start game" method="submit_username"]
+[connection signal="meta_clicked" from="CanvasLayer/Main/main TabContainer/credits/HBoxContainer/VBoxContainer/RichTextLabel" to="CanvasLayer/Main/main TabContainer/credits" method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer/welcome button" to="CanvasLayer/Main/main TabContainer/start game" method="close_welcome_window"]
+[connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/inventory system" method="close_window"]
+[connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/inventory system" method="close_window"]
+[connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]

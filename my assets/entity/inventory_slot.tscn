@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://hlq48l63vm1f"]
+
+[ext_resource type="Texture2D" uid="uid://bgihchuluthaa" path="res://my assets/textures/inventory space.png" id="1_mau8w"]
+[ext_resource type="Script" uid="uid://bpi07bmpcbj4t" path="res://game/entity/EntityButtonInventory.gd" id="2_3gcnx"]
+[ext_resource type="PackedScene" uid="uid://cugv3q0gmarru" path="res://game/entity/dragging_sprite.tscn" id="3_3gcnx"]
+
+[node name="inventory slot" type="TextureRect" node_paths=PackedStringArray("slot_texture")]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.099
+offset_right = -0.512001
+offset_bottom = -0.152008
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 0
+texture = ExtResource("1_mau8w")
+expand_mode = 1
+script = ExtResource("2_3gcnx")
+dragging_sprite = ExtResource("3_3gcnx")
+slot_texture = NodePath("slot texture")
+
+[node name="slot texture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand_mode = 1

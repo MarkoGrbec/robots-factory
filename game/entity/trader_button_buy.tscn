@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwfl5sjvtwx4v"]
+
+[ext_resource type="Texture2D" uid="uid://bgihchuluthaa" path="res://my assets/textures/inventory space.png" id="1_4wjj6"]
+[ext_resource type="Script" uid="uid://cms07vfd2xcem" path="res://game/entity/TraderButtonBuy.gd" id="2_4wjj6"]
+
+[node name="trader button buy" type="TextureRect" node_paths=PackedStringArray("slot_texture")]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = -1
+anchor_right = 0.056
+anchor_bottom = 0.099
+offset_right = -64.512
+offset_bottom = -64.152
+texture = ExtResource("1_4wjj6")
+expand_mode = 1
+script = ExtResource("2_4wjj6")
+slot_texture = NodePath("slot texture")
+
+[node name="slot texture" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1

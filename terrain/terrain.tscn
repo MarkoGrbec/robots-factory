@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://ww05yde5nb2t"]
+
+[ext_resource type="Script" uid="uid://cd6ersvk34ijd" path="res://terrain/TileMapLayers.gd" id="1_2ilfp"]
+[ext_resource type="TileSet" uid="uid://cxjxodvo5kmfv" path="res://my assets/Tiles/tile_set.tres" id="2_nigp7"]
+[ext_resource type="PackedScene" uid="uid://c657hgr7fcptm" path="res://my assets/player2D/player.tscn" id="3_7nt5j"]
+[ext_resource type="Script" uid="uid://dtpmm8vlj60ev" path="res://main/MapGroundLayer.gd" id="3_nigp7"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_nigp7"]
+vertices = PackedVector2Array(1349.99, 998, 14.9531, 998, 10.0391, 13.9766, 1349, 12.0078)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 4, 5, 1008, 1360, 1008, 1359, 2)])
+
+[node name="Terrain" type="Node2D"]
+texture_filter = 1
+
+[node name="tile map layers" type="Node2D" parent="." node_paths=PackedStringArray("ground_layer", "timer")]
+script = ExtResource("1_2ilfp")
+ground_layer = [NodePath("ground layer"), NodePath("underground layer1"), NodePath("underground layer2"), NodePath("underground layer3")]
+timer = NodePath("../Timer")
+
+[node name="ground layer" type="TileMapLayer" parent="tile map layers"]
+scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("2_nigp7")
+
+[node name="underground layer1" type="TileMapLayer" parent="tile map layers"]
+scale = Vector2(0.5, 0.5)
+enabled = false
+tile_set = ExtResource("2_nigp7")
+
+[node name="underground layer2" type="TileMapLayer" parent="tile map layers"]
+scale = Vector2(0.5, 0.5)
+enabled = false
+tile_set = ExtResource("2_nigp7")
+
+[node name="underground layer3" type="TileMapLayer" parent="tile map layers"]
+scale = Vector2(0.5, 0.5)
+enabled = false
+tile_set = ExtResource("2_nigp7")
+
+[node name="map" type="Node2D" parent="."]
+script = ExtResource("3_nigp7")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="map"]
+navigation_polygon = SubResource("NavigationPolygon_nigp7")
+
+[node name="SkeletalPlayer" parent="." instance=ExtResource("3_7nt5j")]
+z_index = 1
+position = Vector2(576, 357)
+
+[node name="Timer" type="Timer" parent="."]

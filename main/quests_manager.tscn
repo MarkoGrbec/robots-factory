@@ -1,0 +1,69 @@
+[gd_scene load_steps=5 format=3 uid="uid://bs3s7gpgf8hym"]
+
+[ext_resource type="Script" uid="uid://bh3inps7efedm" path="res://main/QuestsManager.gd" id="1_2bohx"]
+[ext_resource type="PackedScene" uid="uid://cqx8v3qkveogv" path="res://game/entity/stop_button_quest.tscn" id="2_7v8hc"]
+[ext_resource type="PackedScene" uid="uid://cjegpvjlgmxg6" path="res://main/ask_or_response_dialog.tscn" id="2_mp27h"]
+[ext_resource type="PackedScene" uid="uid://ceytlmwef6eq4" path="res://game/entity/entity_button_quest.tscn" id="3_mp27h"]
+
+[node name="QuestsManager" type="TabContainer" node_paths=PackedStringArray("quest_grid_container", "entity_button_quest", "dialog_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+script = ExtResource("1_2bohx")
+quest_grid_container = NodePath("quest dialog/MarginContainer2/quest grid container")
+entity_button_quest = NodePath("quest dialog/MarginContainer2/quest grid container/entity button quest")
+stop_button_quest_scene = ExtResource("2_7v8hc")
+ask_or_response_dialog = ExtResource("2_mp27h")
+dialog_container = NodePath("quest dialog/VBoxContainer/ScrollContainer/dialog conatainer")
+
+[node name="quest dialog" type="HBoxContainer" parent="."]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="quest dialog"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="quest dialog"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="quest dialog/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="quest dialog/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="dialog conatainer" type="VBoxContainer" parent="quest dialog/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ask quester" type="LineEdit" parent="quest dialog/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "say to npc"
+
+[node name="MarginContainer2" type="MarginContainer" parent="quest dialog"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_stretch_ratio = 0.3
+
+[node name="quest grid container" type="GridContainer" parent="quest dialog/MarginContainer2"]
+layout_mode = 2
+
+[node name="entity button quest" parent="quest dialog/MarginContainer2/quest grid container" instance=ExtResource("3_mp27h")]
+layout_mode = 2
+
+[node name="close dialog manager" type="Button" parent="quest dialog"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[connection signal="text_submitted" from="quest dialog/VBoxContainer/ask quester" to="." method="_on_ask_quester"]
+[connection signal="pressed" from="quest dialog/close dialog manager" to="." method="close_window"]
