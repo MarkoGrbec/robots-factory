@@ -21,5 +21,5 @@ func _on_mouse_exited() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if g_man.camera.input_active is int and g_man.camera.input_active == -3:
 		if event is InputEventMouseButton:
-			if event.is_action_pressed("left mouse button"):
+			if event.is_action_pressed("select"):
 				pass

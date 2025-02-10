@@ -5,8 +5,8 @@ class_name MainMenu extends Node2D
 @export var environment: WorldEnvironment
 func _ready() -> void:
 	g_man.main_menu = self
-	environment.environment.glow_blend_mode = Environment.GLOW_BLEND_MODE_ADDITIVE
-	environment.environment.glow_map_strength = 0.2
+	#environment.environment.glow_blend_mode = Environment.GLOW_BLEND_MODE_ADDITIVE
+	#environment.environment.glow_map_strength = 0.2
 
 func close_main_menu():
 	main_menu_tab.hide()

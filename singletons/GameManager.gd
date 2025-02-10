@@ -1,5 +1,6 @@
 extends Node
 
+var user: User
 var player: CPPlayer
 var camera: Camera
 var map: MapGroundLayer
@@ -15,10 +16,11 @@ var bindings: Bindings
 var sliders_manager: SlidersManager
 var in_game_menu: InGameMenu
 var trader_manager: TraderManager
+var music_manager: MusicManager
 
 var dbms = "DBMS"
 
-var user: Savable
+var savable_user: Savable
 var savable_terrain_ground: Savable
 var savable_terrain_underground1: Savable
 var savable_terrain_underground2: Savable
@@ -36,7 +38,7 @@ var trader: Trader
 func _ready() -> void:
 	randomize()
 	create_database()
-	user = Savable.new(false, dbms, "user", User.new())
+	savable_user = Savable.new(false, dbms, "user", User.new())
 	savable_terrain_ground = Savable.new(false, dbms, "terrain_ground", Terrain.new())
 	savable_terrain_underground1 = Savable.new(false, dbms, "terrain_underground1", Terrain.new())
 	savable_terrain_underground2 = Savable.new(false, dbms, "terrain_underground2", Terrain.new())

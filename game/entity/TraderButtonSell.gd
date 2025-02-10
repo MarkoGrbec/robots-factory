@@ -16,7 +16,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	if not (data.get("node2d") or data.get("inv_node")) or not data.get("entity"):
 		return false
 	var entity = data.get("entity")
-	var user: User = g_man.user.get_index_data(1)
+	var user: User = g_man.user
 	var cost = Entity.cost(false, entity.entity_num, user.gold_coins, trader.gold_coins)
 	if trader.gold_coins >= cost:
 		return true
@@ -43,7 +43,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			g_man.inventory_system.dragging = false
 			g_man.inventory_system.add_remove_hover_over_sprite(-1)
 	
-	var user: User = g_man.user.get_index_data(1)
+	var user: User = g_man.user
 	var cost = Entity.cost(false, entity.entity_num, user.gold_coins, trader.gold_coins)
 	trader.gold_coins -= cost
 	trader.save_gold_coins()

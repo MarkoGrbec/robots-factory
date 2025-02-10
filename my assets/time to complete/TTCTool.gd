@@ -16,10 +16,16 @@ var _tool
 #region dig
 var _point: Vector2
 #endregion dig
-
+var finished: bool = false
 func complete():
+	finished = true
 	# dig
 	_dig.call(_point)
+
+func stop():
+	if not finished:
+		_point = Vector2.ZERO
+		_dig.call(false)
 	queue_free()
 
 func set_complete_time():
@@ -36,12 +42,12 @@ func set_complete_time():
 		
 		var min_time = entity_object.time_to_finish_min
 		var max_time = entity_object.time_to_finish_max
-		var exp_level: int = g_man.experience_manager.get_exp_level(exps)
+		var exp_level: int = 1#g_man.experience_manager.get_exp_level(exps)
 		calc_time_to_complete(exp_level, min_time, max_time)
 		
 		hard = entity_object.hard_use
 	else:
-		hard = 5
+		hard = 4.55
 		calc_time_to_complete(1, 1, 2)
 
 func to_string_name():

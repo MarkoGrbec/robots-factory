@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://blqwojg2nfqwy"
+path="res://.godot/imported/continuum.mid - The Epic Adventure - 04 The Forest Fortress.mp3-a22256c4def7b409a6cbeab42ac7f749.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - The Epic Adventure - 04 The Forest Fortress.mp3"
+dest_files=["res://.godot/imported/continuum.mid - The Epic Adventure - 04 The Forest Fortress.mp3-a22256c4def7b409a6cbeab42ac7f749.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -22,7 +22,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 	node.texture = slot_texture.texture
 	g_man.entity_manager.add_child_to_dragging(node)
 	
-	var user_gold_coins = g_man.user.get_index_data(1).gold_coins
+	var user_gold_coins = g_man.user.gold_coins
 	g_man.trader_manager.buy_for.text = str("costs: ", Entity.cost(true, entity_num, user_gold_coins, trader.gold_coins))
 	
 	return data

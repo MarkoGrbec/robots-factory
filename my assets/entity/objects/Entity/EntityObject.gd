@@ -148,6 +148,7 @@ class_name EntityObject extends Resource
 @export var is_sound_on_end: bool
 ## delay time between sounds
 @export var delay_sound: float
+@export var sound_one_shot: bool
 
 @export_group("experience")
 @export var experience_create_parent: Enums.exp = Enums.exp.nul

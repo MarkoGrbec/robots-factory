@@ -111,11 +111,11 @@ offset_bottom = 96.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 tooltip_text = "time
-health
-stamina
-mana
-food"
-step = 0.0
+armor
+reflexes
+battery
+oil"
+step = 0.001
 value = 100.0
 fill_mode = 4
 texture_under = ExtResource("12_5g3ij")

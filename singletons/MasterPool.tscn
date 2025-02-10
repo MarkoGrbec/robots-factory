@@ -1,4 +1,4 @@
-[gd_scene load_steps=167 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=183 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://my assets/entity/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -17,7 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://ylewlsulmddd" path="res://game/Bots/enemy/enemy_bot.tscn" id="10_tjthm"]
 [ext_resource type="Script" uid="uid://vdcocg2xhuoh" path="res://my assets/quest/objects/QuestBasis/QuestQuestion/QQOtherNPC.gd" id="11_cdsqw"]
 [ext_resource type="PackedScene" uid="uid://cuwl2e033vtsm" path="res://game/Bots/helpless bot/cp_helpless_bot.tscn" id="12_twfhk"]
-[ext_resource type="PackedScene" uid="uid://be5bhpgyigp81" path="res://game/weapons/beem_weapon.tscn" id="14_bryxq"]
+[ext_resource type="AudioStream" uid="uid://b22o1gxdtvjpg" path="res://sounds/shovel.wav" id="14_a8ecq"]
+[ext_resource type="PackedScene" uid="uid://be5bhpgyigp81" path="res://game/weapons/beem/beem_weapon.tscn" id="14_bryxq"]
+[ext_resource type="AudioStream" uid="uid://g16k6rwgkd2t" path="res://sounds/defunct3 laser-short-2.wav" id="15_gk2xh"]
+[ext_resource type="AudioStream" uid="uid://dhgaylnwlcabl" path="res://sounds/pickaxe_kamen.wav" id="15_tt0nk"]
 
 [sub_resource type="Resource" id="Resource_d1vgu"]
 script = ExtResource("2_8f7pb")
@@ -79,6 +82,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -145,6 +149,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -213,6 +218,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -280,6 +286,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -347,6 +354,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -414,6 +422,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -481,6 +490,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -548,6 +558,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -615,6 +626,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -682,6 +694,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -749,6 +762,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -816,6 +830,143 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_mrgwt"]
+script = ExtResource("2_8f7pb")
+entity_num = 30006
+description = ""
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 4.55
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+working_sound = ExtResource("14_a8ecq")
+is_sound_on_end = false
+delay_sound = 0.2
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_sn0bx"]
+script = ExtResource("2_8f7pb")
+entity_num = 30008
+description = ""
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 3.75
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+working_sound = ExtResource("15_tt0nk")
+is_sound_on_end = false
+delay_sound = 0.6
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -881,8 +1032,10 @@ attack = 1.0
 defense = 1.0
 range_attack = 1.0
 weapon_type = 0
+working_sound = ExtResource("15_gk2xh")
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = true
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -949,6 +1102,7 @@ range_attack = 1.0
 weapon_type = 0
 is_sound_on_end = false
 delay_sound = 0.0
+sound_one_shot = false
 experience_create_parent = 0
 experience_create = Array[int]([])
 experience_move = 31
@@ -2340,7 +2494,7 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["how", "protect"])
+list_avatar_dialog = Array[String](["how", "protect", "againq"])
 response_dialog = Array[String](["maybe you need a weapon", "try blocking it with any tools you have disposable", "try using your body", "try using digging", "try using dug elements"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
@@ -2413,6 +2567,14 @@ Watch out this bots are getting aggressive."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
+[sub_resource type="Resource" id="Resource_k1sx8"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
 [sub_resource type="Resource" id="Resource_2t1fq"]
 script = ExtResource("11_cdsqw")
 npc_activate = 5
@@ -2430,11 +2592,19 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_2t1fq")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_k1sx8"), SubResource("Resource_2t1fq")])
 list_avatar_dialog = Array[String](["objective", "completed"])
 response_dialog = Array[String](["I think you'll be in good hands"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_wraiq"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_85rlo"]
 script = ExtResource("11_cdsqw")
@@ -2453,7 +2623,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_85rlo")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wraiq"), SubResource("Resource_85rlo")])
 list_avatar_dialog = Array[String](["help"])
 response_dialog = Array[String](["I don't need help any longer but you are in good hands now"])
 response_failed_dialog = ""
@@ -2637,6 +2807,34 @@ metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_uekph"]
 script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([1])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help around"])
+response_dialog = Array[String](["I will say this only once.
+all robots are same. made by same factory.
+But some are reprogrammed.
+
+there are some that avoid and have specific target only.
+
+there are some that don't avoid,
+they take any material in their path or target it self.
+
+there are ones that can't be killed.
+But they only want to take the robot back on to the hole.
+Try to make obsticles between him and his target.
+Once he is back in to his hole.
+You can click on the robot and get some materials."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_0f1yp"]
+script = ExtResource("5_0rfkw")
 new_basis = 0
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
@@ -2646,7 +2844,11 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["thanks for playing"])
+response_dialog = Array[String](["to know what's going on say [help around]
+for me to hack in to bot do the following command:
+hack [name of the bot to hack]
+
+with the square brackets included"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2655,22 +2857,123 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uekph")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uekph"), SubResource("Resource_0f1yp")])
+default_starting_dialog = "hi I'm your robot assistant just say whom to hack in to
+and I'll try to fetch as many commands as I can.
+also ask me [help around] to know what is going on
+
+for me to hack in to bot do the following command:
+hack [name of the bot to hack]
+
+with the square brackets included"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_oj3x8"]
+script = ExtResource("5_0rfkw")
+new_basis = 1
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help"])
+response_dialog = Array[String](["to know what's going on say [help around]
+for me to hack in to bot do the following command:
+hack [name of the bot to hack]
+
+with the square brackets included"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_f41dw"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_oj3x8")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_1os4d"]
+script = ExtResource("5_0rfkw")
+new_basis = 2
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help around"])
+response_dialog = Array[String](["thanks for playing"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_37k6v"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_1os4d")])
 default_starting_dialog = "thanks for playing"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_avhuw"]
 script = ExtResource("3_d1vgu")
-quest_name = "wtf bot"
+quest_name = "robot assistant"
 position = Vector2(700, 400)
 quest_body_type = 350
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj"), SubResource("Resource_f41dw"), SubResource("Resource_37k6v")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_qngvf"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "thanks for playing"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_chumm"]
+script = ExtResource("3_d1vgu")
+quest_name = "cg"
+position = Vector2(510, -1570)
+quest_body_type = 350
+equipment = 0
+activated = true
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_qngvf")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_ksjeu"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "thanks for playing"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_8ce2w"]
+script = ExtResource("3_d1vgu")
+quest_name = ""
+position = Vector2(868, -1720)
+quest_body_type = 350
+equipment = 0
+activated = true
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_ksjeu")])
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [node name="MasterPool" type="Node"]
 script = ExtResource("1_bgkrv")
-container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
-quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw")])
+container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
+quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w")])

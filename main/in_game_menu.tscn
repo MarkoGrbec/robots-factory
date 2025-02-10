@@ -20,7 +20,7 @@ options_holding_hand_container = NodePath("holding hand/HBoxContainer/VBoxContai
 visible = false
 layout_mode = 2
 script = ExtResource("2_omkwt")
-binding_buttons = [NodePath("HBoxContainer/VBoxContainer/binding container"), NodePath("HBoxContainer/VBoxContainer/binding container2"), NodePath("HBoxContainer/VBoxContainer/binding container3"), NodePath("HBoxContainer/VBoxContainer/binding container4"), NodePath("HBoxContainer/VBoxContainer/binding container5"), NodePath("HBoxContainer/VBoxContainer/binding container6"), NodePath("HBoxContainer/VBoxContainer/binding container7"), NodePath("HBoxContainer/VBoxContainer/binding container8"), NodePath("HBoxContainer/VBoxContainer/binding container9")]
+binding_buttons = [NodePath("HBoxContainer/VBoxContainer/binding container"), NodePath("HBoxContainer/VBoxContainer/binding container2"), NodePath("HBoxContainer/VBoxContainer/binding container3"), NodePath("HBoxContainer/VBoxContainer/binding container4"), NodePath("HBoxContainer/VBoxContainer/binding container5"), NodePath("HBoxContainer/VBoxContainer/binding container6"), NodePath("HBoxContainer/VBoxContainer/binding container7"), NodePath("HBoxContainer/VBoxContainer/binding container8"), NodePath("HBoxContainer/VBoxContainer/binding container15")]
 disable_binding_button = NodePath("HBoxContainer/disable binding button")
 metadata/_tab_index = 0
 
@@ -86,6 +86,16 @@ tooltip_text = "not implemented exception"
 index = 8
 
 [node name="binding container9" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+tooltip_text = "not implemented exception"
+index = 9
+
+[node name="binding container10" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+tooltip_text = "not implemented exception"
+index = 10
+
+[node name="binding container15" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
 layout_mode = 2
 tooltip_text = "it will reset after restart of application"
 index = 15

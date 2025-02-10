@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=18 format=3 uid="uid://cxjxodvo5kmfv"]
+[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://cxjxodvo5kmfv"]
 
 [ext_resource type="Texture2D" uid="uid://bt7o7ees5q8wa" path="res://my assets/Tiles/hex clay.png" id="1_nc0qu"]
 [ext_resource type="Texture2D" uid="uid://csd8x5xng6fbn" path="res://my assets/Tiles/hex dirt.png" id="2_qfebv"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://db6geijcyesby" path="res://my assets/Tiles/hex tunnel.png" id="6_6fcow"]
 [ext_resource type="Texture2D" uid="uid://cel4gt2oc5532" path="res://my assets/Tiles/hex soft rock tunnel.png" id="7_jorpm"]
 [ext_resource type="Texture2D" uid="uid://c2j2i7gemrhmp" path="res://my assets/Tiles/hex soft rock underground.png" id="8_pjvy8"]
+[ext_resource type="Texture2D" uid="uid://c8ecir7aqqm1e" path="res://my assets/textures/house.png" id="9_xh2ge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rh0k"]
 texture = ExtResource("1_nc0qu")
@@ -181,6 +182,14 @@ texture_region_size = Vector2i(128, 128)
 0:0/0/terrains_peering_bit/top_right_side = 8
 0:0/0/terrains_peering_bit/top_right_corner = 8
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_icrrd"]
+resource_name = "house"
+texture = ExtResource("9_xh2ge")
+texture_region_size = Vector2i(192, 256)
+0:0/0 = 0
+0:0/0/z_index = 2
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-95.5892, -45.293, 95.3259, -45.8196, 90.5859, 112.969, -91.1126, 112.969)
+
 [resource]
 tile_shape = 3
 tile_size = Vector2i(128, 128)
@@ -213,3 +222,4 @@ sources/5 = SubResource("TileSetAtlasSource_pjvy8")
 sources/6 = SubResource("TileSetAtlasSource_8rto3")
 sources/7 = SubResource("TileSetAtlasSource_r10xt")
 sources/8 = SubResource("TileSetAtlasSource_eicfj")
+sources/9 = SubResource("TileSetAtlasSource_icrrd")

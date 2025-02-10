@@ -5,7 +5,7 @@ var entity_button_inventory: EntityButtonInventory
 
 func _physics_process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
-	if Input.is_action_just_released("left mouse button"):
+	if Input.is_action_just_released("select"):
 		var local_position = g_man.camera.global_position - global_position
 		var q_opened = true
 		if g_man.quests_manager.is_visible_in_tree():

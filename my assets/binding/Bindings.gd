@@ -18,9 +18,11 @@ enum keys{
 	move_left = 3,
 	move_right = 4,
 	walk = 5,
-	left_mouse_button = 6,
-	right_mouse_button = 7,
-	inventory = 8,
+	fire = 6,
+	select = 7,
+	put_back_material = 8,
+	inventory = 9,
+	stop_work = 10,
 	esc = 15,
 }
 

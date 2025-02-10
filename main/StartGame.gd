@@ -28,8 +28,9 @@ func _ready() -> void:
 	var tab = get_parent()
 	tab.set_tab_hidden(2, true)
 	tab.current_tab = 0
-	var user = g_man.user.get_index_data(1)
+	var user = g_man.savable_user.get_index_data(1)
 	if user:
+		g_man.user = user
 		avatar_name = user.avatar_name
 	if avatar_name:
 		start_game.text = str("start with: ", avatar_name)
@@ -46,7 +47,7 @@ func _on_delete_user_pressed() -> void:
 	avatar_name = ""
 	start_game.text = str("start game")
 	username_line_edit.show()
-	g_man.user.remove_all()
+	g_man.savable_user.remove_all()
 	delete_user.hide()
 	set_tooltip_start()
 
@@ -64,7 +65,8 @@ func _on_start_game_pressed() -> void:
 			var remaining = 8 - avatar_name.length()
 			for i in remaining:
 				avatar_name += str(randi_range(0, 1))
-		var user: User = g_man.user.set_index_data(1, User.new(), 0)
+		var user: User = g_man.savable_user.set_index_data(1, User.new(), 0)
+		g_man.user = user
 		user.destroy()
 		g_man.savable_entity.remove_all()
 		g_man.savable_holding_hand.remove_all()
@@ -134,7 +136,8 @@ func welcome_screen():
 	tab.set_tab_hidden(1, true)
 	tab.set_tab_hidden(2, false)
 	tab.current_tab = 2
-	var user: User = g_man.user.get_index_data(1)
+	var user: User = g_man.savable_user.get_index_data(1)
+	g_man.user = user
 	user.load_weapon()
 	user.load_weapon_range()
 	user.load_weapon_reflexes()
@@ -159,3 +162,4 @@ func close_welcome_window():
 	
 	g_man.savable_mob.partly_load_all()
 	g_man.main_menu.close_main_menu()
+	g_man.music_manager.set_music_type(MusicManager.MusicStatus.wandering)

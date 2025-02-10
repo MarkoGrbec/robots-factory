@@ -17,6 +17,7 @@ class_name Entity extends ISavable
 ## factor how much is it multiplied maybe some times varies depends on sinus and time by month by time newly started character
 const _K_FACTOR: float = 1
 const _K_DAMAGE: float = 0.0001
+const _K_COST: float = 0.85
 static var _K_DAMAGE_IMP_REPAIR: float = 0.05
 const _K_REPAIR: float = 10
 static var _K_HARD: float = 0.075
@@ -1770,13 +1771,13 @@ static func cost(buy: bool, article: Enums.Esprite, avatar_money: float, trader_
 
 ##<summary>more and at least 1</summary>
 static func cost_buy(k: float, article_cost: float):
-	article_cost = (k*0.6+0.2) * article_cost
+	article_cost = (k * _K_COST + 0.2) * article_cost
 	if article_cost == 0:
 		return 1
 	return article_cost
 ##<summary>less and minimum 0</summary>
 static func cost_sell(k: float, article_cost: float):
-	return (k*0.6+0.1) * article_cost
+	return (k * _K_COST + 0.15) * article_cost
 
 static func cost_simulate(buy: bool, avatar_money: float, trader_money: float, param_entity_num: Enums.Esprite):#, param_ql: float, param_per_ratio: float):
 	var article_cost = (cost(buy, param_entity_num, avatar_money, trader_money))# * (param_ql / 1000) * param_per_ratio)

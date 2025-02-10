@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dhpc2i7mj0pim"
+path="res://.godot/imported/continuum.mid - The Epic Adventure - 06 The Orchestra in Heaven.mp3-03d8214ffda44e8448135ef33e6e72c2.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - The Epic Adventure - 06 The Orchestra in Heaven.mp3"
+dest_files=["res://.godot/imported/continuum.mid - The Epic Adventure - 06 The Orchestra in Heaven.mp3-03d8214ffda44e8448135ef33e6e72c2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

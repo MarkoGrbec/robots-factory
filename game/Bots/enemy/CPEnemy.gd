@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 	if controller.state == EnemyController.State.BROKEN and not controller.enemy_tunnel:
 		if g_man.camera.input_active is int and g_man.camera.input_active == -4:
 			if event is InputEventMouseButton:
-				if event.is_action_pressed("left mouse button"):
+				if event.is_action_pressed("select"):
 					if get_global_mouse_position().distance_to(global_position) < 128:
 						g_man.entity_manager.create_entity_from_scratch(Enums.Esprite.hard_metal, global_position)
 						g_man.entity_manager.create_entity_from_scratch(Enums.Esprite.hard_metal, global_position)

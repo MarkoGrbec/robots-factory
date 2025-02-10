@@ -14,7 +14,7 @@ func _on_mouse_exited() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if g_man.camera.input_active is int and g_man.camera.input_active == quest_index:
 		if event is InputEventMouseButton:
-			if event.is_action_pressed("left mouse button"):
+			if event.is_action_pressed("select"):
 				g_man.quests_manager.open_dialog(quest_index, self)
 
 func succeed_old_basis(success_old_basis__qq_index):
@@ -69,23 +69,30 @@ func succeed_old_basis(success_old_basis__qq_index):
 	elif quest_index == 6: # weapon master
 		if success_old_basis__qq_index[0] == 0:
 			if success_old_basis__qq_index[1] == 1:
-				var user: User = g_man.user.get_index_data(1)
+				var user: User = g_man.user
 				user.set_weapon(true)
 		elif success_old_basis__qq_index[0] == 1:
 			if success_old_basis__qq_index[1] == 0:
-				var user: User = g_man.user.get_index_data(1)
+				var user: User = g_man.user
 				user.save_battery_constumption(1.1)
 				g_man.sliders_manager.mana_slider.value = 100
 			elif success_old_basis__qq_index[1] == 1:
-				var user: User = g_man.user.get_index_data(1)
+				var user: User = g_man.user
 				user.save_weapon_range(1.1)
 			elif success_old_basis__qq_index[1] == 2:
-				var user: User = g_man.user.get_index_data(1)
+				var user: User = g_man.user
 				user.save_weapon_reflexes(0.9)
+	elif quest_index == 7:
+		if success_old_basis__qq_index[0] == 0:
+			if success_old_basis__qq_index[1] == 0:
+				g_man.tile_map_layers.set_region(Rect2i(9, -29, 1, 30), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				g_man.tile_map_layers.set_region(Rect2i(10, -29, 1, 30), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(11, -29, 1, 30), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(12, -29, 1, 30), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 
 func change_name():
 	g_man.change_name_manager.open_window()
 
 func change_type(type):
-	var user: User = g_man.user.get_index_data(1)
+	var user: User = g_man.user
 	user.save_user_type(type)

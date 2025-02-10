@@ -7,6 +7,8 @@ var change_to_parent_sound: AudioStream
 var working_sound: AudioStream
 var is_sound_on_end: bool
 var delay_sound: float = 0
+var start_delay_sound: float = 0.5
+var one_shot: bool = false
 var hard: float = 10
 
 func calc_time_to_complete(level_exp, min_time, max_time):
@@ -17,8 +19,11 @@ func calc_time_to_complete(level_exp, min_time, max_time):
 
 func complete():
 	pass
+func stop():
+	queue_free()
+## return true to have it operational correctly
 func start_of_ttc():
-	pass
+	return false
 func set_complete_time():
 	pass
 func to_string_name():

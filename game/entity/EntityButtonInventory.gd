@@ -19,7 +19,7 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		data["entity"] = entity
 		
 		if g_man.trader_manager._trader:
-			var user_gold_coins = g_man.user.get_index_data(1).gold_coins
+			var user_gold_coins = g_man.user.gold_coins
 			g_man.trader_manager.sell_for.text = str("sell for: ", Entity.cost(false, entity.entity_num, user_gold_coins, g_man.trader_manager._trader.gold_coins))
 	return data
 
@@ -32,7 +32,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 		elif entity:
 			return false
 		var trader: Trader = data.get("trader")
-		var user: User = g_man.user.get_index_data(1)
+		var user: User = g_man.user
 		var cost = Entity.cost(true, entity_number_buy, user.gold_coins, trader.gold_coins)
 		if cost <= user.gold_coins:
 			return true
@@ -68,7 +68,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	# buy from trader
 	var entity_number_buy = data.get("buy")
 	var trader: Trader = data.get("trader")
-	var user: User = g_man.user.get_index_data(1)
+	var user: User = g_man.user
 	var cost = Entity.cost(true, entity_number_buy, user.gold_coins, trader.gold_coins)
 	user.gold_coins -= cost
 	user.save_gold_coins()

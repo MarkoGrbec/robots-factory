@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://b74easlpd6qmx"]
+
+[ext_resource type="Script" uid="uid://cuxak3tqbully" path="res://game/weapons/tools/tool.gd" id="1_wpod0"]
+[ext_resource type="Texture2D" uid="uid://cec7r34hsa42k" path="res://my assets/textures/pickaxe.png" id="2_d2mai"]
+
+[node name="Pickaxe" type="Node2D"]
+script = ExtResource("1_wpod0")
+entity_num = 30008
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 22)
+texture = ExtResource("2_d2mai")

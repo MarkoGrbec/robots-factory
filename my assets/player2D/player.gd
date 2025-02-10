@@ -1,13 +1,22 @@
 class_name Player extends Node2D
 
 @export var movement: Movement
+@export var animation_tree: AnimationTree
 
 func _physics_process(delta: float) -> void:
 	movement.state = Movement.State.RUN
 	if Input.is_action_pressed("walk"):
 		movement.state = Movement.State.WALK
 	
-	var y_direction := Input.get_axis("move up", "move down")
-	var x_direction := Input.get_axis("move left", "move right")
-	movement.direction = Vector2(x_direction, y_direction)
 	movement.body.move_and_slide()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if not g_man.quests_manager.is_visible_in_tree(): # options move while in quest dialog
+		var y_direction := Input.get_axis("move up", "move down")
+		var x_direction := Input.get_axis("move left", "move right")
+		movement.direction = Vector2(x_direction, y_direction)
+
+func blend_anim(anim, value: float, timescale: float):
+	animation_tree["parameters/state/transition_request"] = anim
+	animation_tree[str("parameters/", anim, "_blend/blend_amount")] = value
+	animation_tree[str("parameters/", anim ,"_timescale/scale")] = timescale

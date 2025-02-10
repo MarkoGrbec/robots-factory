@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://gnr0h21kqua0"
+path="res://.godot/imported/continuum.mid - The Epic Adventure - 05 Negative Altitude.mp3-0b66aab7326d7de5224438efd3477191.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - The Epic Adventure - 05 Negative Altitude.mp3"
+dest_files=["res://.godot/imported/continuum.mid - The Epic Adventure - 05 Negative Altitude.mp3-0b66aab7326d7de5224438efd3477191.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

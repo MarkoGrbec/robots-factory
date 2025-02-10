@@ -32,6 +32,7 @@ var array_stop_button_quest: Array[StopButtonQuest]
 ### for automated scrolling
 #@export var scroll_container: Control
 
+var dict_name__server_quest: Dictionary[String, ServerQuest]
 var dialogs = []
 var _basic_dialog
 
@@ -69,7 +70,7 @@ func recount_entities():
 		array_stop_button_quest.push_back(node)
 
 func add_response(quest_giver_name, response, basic_dialog):
-	if _basic_dialog != basic_dialog:
+	if _basic_dialog != basic_dialog or basic_dialog.contains("hacking, ..."):
 		_basic_dialog = basic_dialog
 		response = [response, basic_dialog]
 	
@@ -91,8 +92,8 @@ func add_response(quest_giver_name, response, basic_dialog):
 	g_man.holding_hand.holding_hand_npc()
 
 func _on_ask_quester(text: String):
-	var avatar = g_man.user.get_index_data(1)
-	add_dialogs(avatar.avatar_name, [text])
+	var avatar = g_man.user
+	await add_dialogs(avatar.avatar_name, [text])
 	# send to server a dialog
 	cmd_quest_dialog(text, _quest_index)
 
@@ -100,7 +101,7 @@ func add_dialogs(name_a: String, text):
 	for i in text.size():
 		if text[i] == "":
 			continue
-		var dialog = ask_or_response_dialog.instantiate()
+		var dialog: Label = ask_or_response_dialog.instantiate()
 		dialogs.push_back(dialog)
 		dialog_container.add_child(dialog)
 		dialog_container.move_child(dialog, 0)
@@ -108,9 +109,38 @@ func add_dialogs(name_a: String, text):
 			dialog.text = str("\n", name_a, ": ", text[i])
 		else:
 			dialog.text = str("\n", text[i])
+		var tween = create_tween()
+		var dialog_speed = dialog.text.length() * 0.035
+		tween.tween_property(dialog, "visible_characters", dialog.text.length(), dialog_speed)
+		await get_tree().create_timer(dialog_speed).timeout
 
-func cmd_quest_dialog(raw_text, quest_index):
+func cmd_quest_dialog(raw_text: String, quest_index):
 	if quest_index > 0:
+		if quest_index == 7:
+			# companion hacks in to other bots for qq avatar dialogs
+			if raw_text.contains("hack"):
+				var companion_name = mp.get_quest_object(quest_index).quest_name
+				var companion_quest: ServerQuest = dict_name__server_quest.get(companion_name)
+				
+				var array_name = raw_text.replace("hack", "").replace("]", "").split("[")
+				var server_quest: ServerQuest
+				if array_name.size() > 1:
+					server_quest = dict_name__server_quest.get(array_name[1])
+				else:
+					server_quest = dict_name__server_quest.get(array_name[0])
+				if server_quest and server_quest.body:
+					var quest_object: QuestObject = mp.get_quest_object(server_quest._quest_index)
+					var response = ""
+					for qq in quest_object.list_quest_basis[server_quest.basis].list_quest_questions:
+						response += str(qq.list_avatar_dialog, "\n")
+					
+					target_quest_response(quest_index, companion_name, response, "hacking, ...", [])
+					return
+				if server_quest:
+					target_quest_response(quest_index, companion_name, "I'm sorry but bot is gone at the moment\nyou want me to hack in to", "hacking, ... failed", [])
+					return
+				target_quest_response(quest_index, companion_name, "I'm sorry but I cannot find the bot\nyou want me to hack in to", "hacking, ... failed", [])
+				return
 		var q: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(1, quest_index)
 		var response = q.ask(raw_text, null)
 		if response:
@@ -149,10 +179,10 @@ static func target_send_quest_mob_remove(server_quest: ServerQuest):
 	if server_quest.body:
 		server_quest.body.queue_free()
 
-func target_quest_response(_quest_index, quest_giver_name, response, basis_dial, success_old_basis):
+func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis):
 	add_response(quest_giver_name, response, basis_dial)
 	if success_old_basis:
-		var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, _quest_index)
+		var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
 		if server_quest.body:
 			server_quest.body.succeed_old_basis(success_old_basis)
 
@@ -164,9 +194,22 @@ static func set_server_quest(quest_index: int, activated: bool, basis: int):
 		server_quest.save_activated()
 		server_quest.save_basis()
 		target_send_quest_mob_to_make(server_quest)
-		
 
 static func get_server_quest_basis(quest_index: int):
 	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
 	if server_quest:
 		return server_quest.basis
+
+static func get_server_quest(quest_index: int):
+	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
+	return server_quest
+
+static func add_server_quest_basis_flags(quest_index: int, flags: Array[int]):
+	var server_quest: ServerQuest = get_server_quest(quest_index)
+	if server_quest:
+		server_quest.add_basis_flags(flags, true)
+
+static func remove_server_quest_basis_flags(quest_index: int, flags: Array[int]):
+	var server_quest: ServerQuest = get_server_quest(quest_index)
+	if server_quest:
+		server_quest.remove_basis_flags(flags, true)

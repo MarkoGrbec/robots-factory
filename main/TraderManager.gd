@@ -13,13 +13,22 @@ var _trader: Trader
 func _ready() -> void:
 	g_man.trader_manager = self
 
+func can_set_music():
+	if g_man.music_manager.status == MusicManager.MusicStatus.action:
+		return false
+	return true
+
 func close_window():
+	if can_set_music():
+		g_man.music_manager.set_music_type(MusicManager.MusicStatus.wandering)
 	hide()
 
 func open_window(trader: Trader):
 	if is_visible_in_tree():
-		hide()
+		close_window()
 	else:
+		if can_set_music():
+			g_man.music_manager.set_music_type(MusicManager.MusicStatus.shop)
 		show()
 		for child: TraderButtonBuy in buy_grid_container.get_children():
 			child.trader = trader
@@ -30,5 +39,5 @@ func open_window(trader: Trader):
 
 func recount_gold():
 	trader_gold_label.text = str("trader gold: ", int(_trader.gold_coins))
-	var user: User = g_man.user.get_index_data(1)
+	var user: User = g_man.user
 	robot_gold_label.text = str(user.avatar_name, " gold: ", int(user.gold_coins))

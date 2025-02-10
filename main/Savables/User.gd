@@ -53,23 +53,23 @@ func save_weapon_activated(activate):
 
 func save_battery_constumption(battery_constumption, default: bool = false):
 	if default:
-		DataBase.insert(_server, g_man.dbms, _path, "battery_constumption", id, battery_constumption)
+		DataBase.insert(_server, g_man.dbms, _path, "battery_constumption", id, float(battery_constumption))
 	else:
 		g_man.player.weapon_controller.weapon.battery_constumption *= battery_constumption
-		DataBase.insert(_server, g_man.dbms, _path, "battery_constumption", id, g_man.player.weapon_controller.weapon.battery_constumption)
+		DataBase.insert(_server, g_man.dbms, _path, "battery_constumption", id, float(g_man.player.weapon_controller.weapon.battery_constumption))
 
 func save_weapon_range(weapon_range, default: bool = false):
 	if default:
-		DataBase.insert(_server, g_man.dbms, _path, "weapon_range", id, weapon_range)
+		DataBase.insert(_server, g_man.dbms, _path, "weapon_range", id, float(weapon_range))
 	else:
 		g_man.player.weapon_controller.weapon.distance *= weapon_range
-		DataBase.insert(_server, g_man.dbms, _path, "weapon_range", id, g_man.player.weapon_controller.weapon.distance)
+		DataBase.insert(_server, g_man.dbms, _path, "weapon_range", id, float(g_man.player.weapon_controller.weapon.distance))
 
 func save_weapon_reflexes(weapon_reflexes, default: bool = false):
 	if default:
 		_weapon_reflexes = 3
 	_weapon_reflexes *= weapon_reflexes
-	DataBase.insert(_server, g_man.dbms, _path, "weapon_reflexes", id, _weapon_reflexes)
+	DataBase.insert(_server, g_man.dbms, _path, "weapon_reflexes", id, float(_weapon_reflexes))
 	#endregion save
 	#region load
 func load_username():

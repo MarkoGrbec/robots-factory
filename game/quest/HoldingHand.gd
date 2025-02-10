@@ -37,47 +37,47 @@ func _get_set_holding_hand_scene(text, tooltip, active, on: Callable, off: Calla
 	return check_box.toggle_me
 #region movement
 
-var movement_string: String = "to move around use WASD or arrow keys\nyou can change that in bindings\nto enter main menu press ESC\npay close attention to the game it's a thinking game\nyou may go long way or short way\nfor inventory press insert\nto open dialog with npc just click him with left mouse button\nto dig press left mouse button on a tile near the robot you are controlling"
+var movement_string: String = "to move around use WASD or arrow keys\nyou can change that in bindings\nto enter main menu press ESC\npay close attention to the game it's a thinking game\nyou may go long way or short way\nfor inventory press insert\nto open dialog with npc just click him with left mouse button [select] binding\nto dig press left mouse button [select] binding on a tile near the robot you are controlling\nalso you need to have mouse there untill it digs the portion out\nelse it does not dig anything and stamina is still drained\nsometimes you can hover over UI and you'll get a tooltip shown"
 
 func load_return_holding_hand_movement():
 	return DataBase.select(_server, g_man.dbms, _path, "movement", id, true)
 
-func save_holding_hand_movement(yes, call: bool = true):
+func save_holding_hand_movement(yes, callab: bool = true):
 	DataBase.insert(_server, g_man.dbms, _path, "movement", id, yes)
-	if call:
+	if callab:
 		movement_options_callable.call(yes)
 
-func still_holding_hand_movement(call: bool = true):
-	save_holding_hand_movement(true, call)
+func still_holding_hand_movement(callab: bool = true):
+	save_holding_hand_movement(true, callab)
 
 func stop_holding_hand_movement():
 	save_holding_hand_movement(false)
 
 func holding_hand_movement():
 	if load_return_holding_hand_movement():
-		g_man.mold_window.set_yes_no_cancel([movement_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_movement, stop_holding_hand_movement)
+		g_man.mold_window.set_yes_no_cancel([movement_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_movement, stop_holding_hand_movement, stop_holding_hand_movement)
 #endregion movement
 #region dig
 
-var dig_string: String = "when you dig you dig a portion of a selected tile\nthe selected tile always has certain portion of digs to dig\nsome more some less the rock tile gained from fog is always 35 digs long\nand only soft rock underneeth\ngrass grows of dirt but it does not make a new portion of dirt to dig"
+var dig_string: String = "digging will tire you\nwhen you dig you dig a portion of a selected tile\nthe selected tile always has certain portion of digs to dig\nsome more some less the rock tile gained from fog is always 35 digs long\nand only soft rock underneeth\ngrass grows of dirt but it does not make a new portion of dirt to dig\n\nyou cannot dig up but only down"
 
 func load_return_holding_hand_dig():
 	return DataBase.select(_server, g_man.dbms, _path, "dig", id, true)
 
-func save_holding_hand_dig(yes, call: bool = true):
+func save_holding_hand_dig(yes, callab: bool = true):
 	DataBase.insert(_server, g_man.dbms, _path, "dig", id, yes)
-	if call:
+	if callab:
 		dig_options_callable.call(yes)
 
-func still_holding_hand_dig(call: bool = true):
-	save_holding_hand_dig(true, call)
+func still_holding_hand_dig(callab: bool = true):
+	save_holding_hand_dig(true, callab)
 
 func stop_holding_hand_dig():
 	save_holding_hand_dig(false)
 
 func holding_hand_dig():
 	if load_return_holding_hand_dig():
-		g_man.mold_window.set_yes_no_cancel([dig_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_dig, stop_holding_hand_dig)
+		g_man.mold_window.set_yes_no_cancel([dig_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_dig, stop_holding_hand_dig, stop_holding_hand_dig)
 #endregion dig
 #region underground
 
@@ -86,44 +86,44 @@ var underground_string: String = "when you go underground you may get back to su
 func load_return_holding_hand_underground():
 	return DataBase.select(_server, g_man.dbms, _path, "underground", id, true)
 
-func save_holding_hand_underground(yes, call: bool = true):
+func save_holding_hand_underground(yes, callab: bool = true):
 	DataBase.insert(_server, g_man.dbms, _path, "underground", id, yes)
-	if call:
+	if callab:
 		underground_options_callable.call(yes)
 
-func still_holding_hand_underground(call: bool = true):
-	save_holding_hand_underground(true, call)
+func still_holding_hand_underground(callab: bool = true):
+	save_holding_hand_underground(true, callab)
 
 func stop_holding_hand_underground():
 	save_holding_hand_underground(false)
 
 func holding_hand_underground():
 	if load_return_holding_hand_underground():
-		g_man.mold_window.set_yes_no_cancel(["spoiler", "\nmachanics of digging", "\nif you choose no you will not see this dialog any longer"], spoiler_underground, stop_holding_hand_underground)
+		g_man.mold_window.set_yes_no_cancel(["spoiler", "\nmachanics of digging", "\nif you choose no you will not see this dialog any longer"], spoiler_underground, stop_holding_hand_underground, stop_holding_hand_underground)
 
 func spoiler_underground():
-	g_man.mold_window.set_yes_no_cancel([underground_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_underground, stop_holding_hand_underground)
+	g_man.mold_window.set_yes_no_cancel([underground_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_underground, stop_holding_hand_underground, stop_holding_hand_underground)
 #endregion movement
 #region npc
-var npc_string: String = "you can talk to npc sometimes multiple times with same pharse\nand get different dialog\n\nto give item in to quest npc simply drag item from inventory or world\nin to top right slot of quest manager"
+var npc_string: String = "you can talk to npc sometimes multiple times with same pharse\nand get different dialog\n\nto give item in to quest npc simply drag item from inventory or world\nin to top right slot of quest manager\n\nusually you need to say max 3 words\nbut all words must match\nsometimes there are more than 1 pharse available to match\norder of words does not matter\n\nif you get failed dialog it means non pharses were match\nelse if you put right words for other pharse it may not activate it\ndepends on the priority of the pharse"
 
 func load_return_holding_hand_npc():
 	return DataBase.select(_server, g_man.dbms, _path, "npc", id, true)
 
-func save_holding_hand_npc(yes, call: bool = true):
+func save_holding_hand_npc(yes, callab: bool = true):
 	DataBase.insert(_server, g_man.dbms, _path, "npc", id, yes)
-	if call:
+	if callab:
 		npc_options_callable.call(yes)
 
-func still_holding_hand_npc(call: bool = true):
-	save_holding_hand_npc(true, call)
+func still_holding_hand_npc(callab: bool = true):
+	save_holding_hand_npc(true, callab)
 
 func stop_holding_hand_npc():
 	save_holding_hand_npc(false)
 
 func holding_hand_npc():
 	if load_return_holding_hand_npc():
-		g_man.mold_window.set_yes_no_cancel([npc_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_npc, stop_holding_hand_npc)
+		g_man.mold_window.set_yes_no_cancel([npc_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_npc, stop_holding_hand_npc, stop_holding_hand_npc)
 #endregion npc
 #region drop
 var drop_string: String = "you may put portion back on to ground by right clicking on it"
@@ -131,20 +131,20 @@ var drop_string: String = "you may put portion back on to ground by right clicki
 func load_return_holding_hand_drop():
 	return DataBase.select(_server, g_man.dbms, _path, "drop", id, true)
 
-func save_holding_hand_drop(yes, call: bool = true):
+func save_holding_hand_drop(yes, callab: bool = true):
 	DataBase.insert(_server, g_man.dbms, _path, "drop", id, yes)
-	if call:
+	if callab:
 		drop_options_callable.call(yes)
 
-func still_holding_hand_drop(call: bool = true):
-	save_holding_hand_drop(true, call)
+func still_holding_hand_drop(callab: bool = true):
+	save_holding_hand_drop(true, callab)
 
 func stop_holding_hand_drop():
 	save_holding_hand_drop(false)
 
 func holding_hand_drop():
 	if load_return_holding_hand_drop():
-		g_man.mold_window.set_yes_no_cancel([drop_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_drop, stop_holding_hand_drop)
+		g_man.mold_window.set_yes_no_cancel([drop_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_drop, stop_holding_hand_drop, stop_holding_hand_drop)
 #endregion drop
 #region trader
 var trader_string: String = "if you wish to buy drag the item\nfrom trader manager in to inventory\nto sell simply drag it to the top right of trader manager\n\nless money you have cheaper it is\nbut also it's cheaper to sell\nmore money you have everything is more expensive\nit's kind of economy"
@@ -152,18 +152,18 @@ var trader_string: String = "if you wish to buy drag the item\nfrom trader manag
 func load_return_holding_hand_trader():
 	return DataBase.select(_server, g_man.dbms, _path, "trader", id, true)
 
-func save_holding_hand_trader(yes, call: bool = true):
+func save_holding_hand_trader(yes, callab: bool = true):
 	DataBase.insert(_server, g_man.dbms, _path, "trader", id, yes)
-	if call:
+	if callab:
 		trader_options_callable.call(yes)
 
-func still_holding_hand_trader(call: bool = true):
-	save_holding_hand_trader(true, call)
+func still_holding_hand_trader(callab: bool = true):
+	save_holding_hand_trader(true, callab)
 
 func stop_holding_hand_trader():
 	save_holding_hand_trader(false)
 
 func holding_hand_trader():
 	if load_return_holding_hand_trader():
-		g_man.mold_window.set_yes_no_cancel([trader_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_trader, stop_holding_hand_trader)
+		g_man.mold_window.set_yes_no_cancel([trader_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_trader, stop_holding_hand_trader, stop_holding_hand_trader)
 #endregion trader

@@ -10,6 +10,8 @@ func _init(weapon: Weapon):
 		delay_sound = weapon_obj.delay_sound
 		is_sound_on_end = weapon_obj.is_sound_on_end
 		working_sound = weapon_obj.working_sound
+		start_delay_sound = 0
+		one_shot = weapon_obj.sound_one_shot
 	if check():
 		g_man.sliders_manager.add_work(self)
 	else:
@@ -17,8 +19,7 @@ func _init(weapon: Weapon):
 
 var _weapon: Weapon
 
-func complete():
-	
+func stop():
 	queue_free()
 
 func start_of_ttc():
@@ -43,7 +44,7 @@ func set_complete_time():
 		#var exp_level: int = g_man.experience_manager.get_exp_level(exps)
 		var exp_level = 1
 		
-		var user: User = g_man.user.get_index_data(1)
+		var user: User = g_man.user
 		calc_time_to_complete(exp_level, user._weapon_reflexes, user._weapon_reflexes)
 		
 		hard = entity_object.hard_use

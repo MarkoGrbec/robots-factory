@@ -15,4 +15,5 @@ func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 # [url=https://github.com/HopeMetal/2DTacticalRPGDemo/blob/main/LICENSE]2DTacticalRPGDemo[/url]
 # [url=https://github.com/godotengine/godot-demo-projects/tree/4.2-31d1c0c/2d/skeleton]skeleton 2d demo[/url]
 # sounds made by David Fluher
+# [url=https://ivanastan.bandcamp.com/album/the-epic-adventure]music[/url]
 # bow made by mess110

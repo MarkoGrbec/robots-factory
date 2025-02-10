@@ -14,8 +14,8 @@ var used_ttc
 var is_playing: bool
 
 const FRESH_GAIN_K: float = 7
-const FOOD_DRAIN_WORKING: float = 0.1
-const FOOD_DRAIN_RESTING: float = 0.1
+const FOOD_DRAIN_WORKING: float = 0.001
+const FOOD_DRAIN_RESTING: float = 0.05
 
 func _ready() -> void:
 	g_man.sliders_manager = self
@@ -40,7 +40,7 @@ func change_value(type: Enums.slider, value):
 		slider.value = value
 
 func finished_playback():
-	if waiting_work:
+	if waiting_work and not waiting_work[0].one_shot:
 		if waiting_work[0].time_start + waiting_work[0].time_to_complete > Time.get_unix_time_from_system() + waiting_work[0].delay_sound:
 			# delay between sounds
 			await get_tree().create_timer(waiting_work[0].delay_sound).timeout
@@ -88,8 +88,8 @@ func resting(delta):
 	# we add stamina depending how fresh you are
 	var freshness = (stamina_slider.value * 0.01)
 	stamina_slider.value += freshness * FRESH_GAIN_K * delta
-	stamina_slider.value = clampf(stamina_slider.value, 10, 100)
-	food_drain((1 - freshness + 0.001) * delta)
+	stamina_slider.value = clampf(stamina_slider.value, 20, 100)
+	food_drain((1 - freshness + FOOD_DRAIN_RESTING) * delta)
 #endregion sliders
 
 func working(delta):
@@ -111,7 +111,7 @@ func working(delta):
 				if waiting_work[0].check():
 					break
 				# remove this one it's integrity failed
-				waiting_work.pop_front().queue_free()
+				waiting_work.pop_front().stop()
 			# no work any longer
 			else:
 				break
@@ -160,7 +160,7 @@ func complete():
 			if not audio_stream_player.playing or (not audio_stream_player.stream == before_sound):
 				play_sound()
 	# remove current waiting work
-	waiting_work.pop_front().queue_free()
+	waiting_work.pop_front().stop()
 	if waiting_work:
 		_stamina(waiting_work[0])
 		start_working()
@@ -169,14 +169,17 @@ func complete():
 
 func play_sound():
 	audio_stream_player.stop()
-	await get_tree().create_timer(0.5).timeout
-	audio_stream_player.play()
+	if waiting_work and waiting_work[0].working_sound:
+		await get_tree().create_timer(waiting_work[0].start_delay_sound).timeout
+		if waiting_work and waiting_work[0].working_sound:
+			audio_stream_player.stream = waiting_work[0].working_sound
+			audio_stream_player.play()
 
 func _remove_work():
 	if waiting_work:
 		audio_stream_player.stream = null
 		audio_stream_player.stop()
-		waiting_work.pop_front().queue_free()
+		waiting_work.pop_front().stop()
 		if waiting_work:
 			start_working()
 	if not waiting_work:

@@ -42,7 +42,7 @@ func load_initialized():
 
 func load_inventory():
 	inventory = DataBase.select(_server, g_man.dbms, _path, "inventory", id)
-	if inventory != null: # TODO
+	if inventory != null:
 		inventory = Entity.get_entity(inventory)
 	else:
 		inventory = Entity.create_from_scratch(Enums.Esprite.quest_inventory, true, false, false)
@@ -153,7 +153,7 @@ func mission_completing(dict):
 #region ask
 ## return [[name], [response]], [quest_question], [inventory.id], [[success.new_basis], [qq_index]]
 func ask(raw_text: String, client) -> Array:
-	var avatar_name = g_man.user.get_index_data(1).avatar_name
+	var avatar_name = g_man.user.avatar_name
 	raw_text = raw_text.to_lower()
 	var q_obj = mp.get_quest_object(_quest_index)
 	if q_obj.list_quest_basis.size() > basis:
@@ -209,18 +209,14 @@ func ask(raw_text: String, client) -> Array:
 		response_dialog = [q_obj.quest_name, qq_response_dialog]
 		if qq.new_basis > -1:
 			# add remove flags
-			for add_flag in qq.add_basis_flags:
-				if not basis_flags.has(add_flag):
-					basis_flags.push_back(add_flag)
-			for remove_flag in qq.remove_basis_flags:
-				basis_flags.erase(remove_flag)
+			add_basis_flags(qq.add_basis_flags)
+			remove_basis_flags(qq.remove_basis_flags, true)
 			if basis != qq.new_basis:
 				
 				added_items.clear()
 				if general_basis:
 					basis = qq.new_basis
 				save_basis()
-				save_basis_flags()
 				# next round
 				# only if different basis
 				if q_obj.list_quest_basis.size() > basis:
@@ -236,6 +232,19 @@ func ask(raw_text: String, client) -> Array:
 		return [response_dialog, qq, inventory.id, array_old_basis__qq_index]
 	# fail
 	return [response_dialog, qq, inventory.id, []]
+
+func add_basis_flags(array: Array[int], save: bool = false):
+	for add_flag in array:
+		if not basis_flags.has(add_flag):
+			basis_flags.push_back(add_flag)
+	if save:
+		save_basis_flags()
+
+func remove_basis_flags(array: Array[int], save: bool = false):
+	for remove_flag in array:
+		basis_flags.erase(remove_flag)
+	if save:
+		save_basis_flags()
 
 func get_response_dialog(qq: QuestQuestion, qq_index, avatar_name: String):
 	if not array_response_dialog_index:

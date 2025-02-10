@@ -41,7 +41,7 @@ func run_away():
 		state = State.RUN_AWAY
 	
 	# if helpless bot doen't have me as target and I'm not broken
-	if (GameControl._helpless_bot and GameControl._helpless_bot.controller.target != self) and state != State.BROKEN:
+	if (GameControl._helpless_bot and GameControl._helpless_bot.controller.target != self) and state != State.BROKEN and state == State.CHASE:
 		state = State.RUN_AWAY
 
 func _physics_process(_delta: float) -> void:
@@ -52,6 +52,9 @@ func _physics_process(_delta: float) -> void:
 	else:# if 1 tunnel is closed go back as there's no target
 		if state == State.CHASE or state == State.RUN_AWAY:
 			state = State.RUN_AWAY
+			target_position = starting_point
+		elif state == State.RETRIVE or state == State.RETRIVE_AWAY:
+			state = State.RETRIVE_AWAY
 			target_position = starting_point
 		else:
 			return
@@ -101,18 +104,23 @@ func _physics_process(_delta: float) -> void:
 			else:
 				state = State.CHASE
 		# go back to starting point
-		target_position = starting_point
-		agent.target_position = target_position
-		next_position = agent.get_next_path_position()
-		
-		direction = global_position.direction_to(next_position)
-		
-		avoidance()
-		
+		if not target_position == starting_point:
+			target_position = starting_point
+			agent.target_position = target_position
+			
+			#if agent.is_navigation_finished():
+				#return
+				
+			next_position = agent.get_next_path_position()
+			
+			direction = global_position.direction_to(next_position)
+			
+			avoidance()
 		
 		if global_position.distance_to(coords[1][0]/2) < 24:
 			GameControl.turn_fake_tunnel_back(enemy_tunnel, state)
 	# override
+	movement.direction = direction
 	movement.body.move_and_slide()
 
 func avoidance():
@@ -122,5 +130,5 @@ func avoidance():
 		movement.direction = direction
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	#if safe_velocity:
-	movement.direction = safe_velocity
+	if safe_velocity:
+		movement.directionsd = safe_velocity

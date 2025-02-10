@@ -1,0 +1,148 @@
+[gd_scene load_steps=4 format=3 uid="uid://btw2dmrck5wsv"]
+
+[ext_resource type="Script" uid="uid://dxd6wbawl72f6" path="res://main/StartGame.gd" id="1_sciab"]
+[ext_resource type="PackedScene" uid="uid://ww05yde5nb2t" path="res://terrain/terrain.tscn" id="2_686ee"]
+[ext_resource type="Script" uid="uid://coolq65m2ewxv" path="res://my assets/Credits/Credits.gd" id="3_i4pt1"]
+
+[node name="main TabContainer" type="TabContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="start game" type="ScrollContainer" parent="." node_paths=PackedStringArray("start_game", "delete_user", "username_line_edit", "welcome_label", "welcome_button")]
+layout_mode = 2
+tooltip_text = "start playing"
+script = ExtResource("1_sciab")
+start_game = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/start game")
+delete_user = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/delete user")
+username_line_edit = NodePath("HBoxContainer/VBoxContainer/username")
+terrain = ExtResource("2_686ee")
+welcome_label = NodePath("../welcome robot/HBoxContainer/VBoxContainer/welcome label")
+welcome_button = NodePath("../welcome robot/HBoxContainer/VBoxContainer/welcome button")
+metadata/_tab_index = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="start game"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="start game/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="start game/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="start game/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="start game" type="Button" parent="start game/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "start game"
+
+[node name="MarginContainer" type="MarginContainer" parent="start game/HBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="delete user" type="Button" parent="start game/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "delete"
+
+[node name="username" type="LineEdit" parent="start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+placeholder_text = "enter your name"
+expand_to_text_length = true
+
+[node name="credits" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 2
+script = ExtResource("3_i4pt1")
+metadata/_tab_index = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="credits"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="credits/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="credits/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="credits/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="credits/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "to check credits press on URL
+
+MIT licences:
+[url=https://godotengine.org/license/]godot engine licence[/url]
+
+[url=https://github.com/MarkoGrbec/SQLPentagram/blob/main/LICENSE]SQLPentagram[/url]
+
+[url=https://github.com/finepointcgi/Drag-Rescale-and-Drop-Windows/blob/main/LICENSE/]resize window[/url]
+
+[url=https://github.com/HopeMetal/2DTacticalRPGDemo/blob/main/LICENSE]2DTacticalRPGDemo[/url]
+
+[url=https://github.com/godotengine/godot-demo-projects/tree/4.2-31d1c0c/2d/skeleton]skeleton 2d demo[/url]
+
+some sounds made by David Fluher
+
+[url=https://www.freesound.org/]sounds free sounds org[/url]
+laser - defunct3
+
+[url=https://ivanastan.bandcamp.com/album/the-epic-adventure]music ivanastan - the-epic-adventure[/url]"
+
+[node name="welcome robot" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="welcome robot"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="welcome robot/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="welcome robot/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="welcome robot/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+
+[node name="welcome label" type="Label" parent="welcome robot/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="welcome button" type="Button" parent="welcome robot/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "let's fix name"
+
+[connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="start game" method="_on_start_game_pressed"]
+[connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="start game" method="_on_delete_user_pressed"]
+[connection signal="text_submitted" from="start game/HBoxContainer/VBoxContainer/username" to="start game" method="submit_username"]
+[connection signal="meta_clicked" from="credits/HBoxContainer/VBoxContainer/RichTextLabel" to="credits" method="_on_rich_text_label_meta_clicked"]
+[connection signal="pressed" from="welcome robot/HBoxContainer/VBoxContainer/welcome button" to="start game" method="close_welcome_window"]

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5rnj13ot4s51"]
+
+[ext_resource type="Script" uid="uid://cuxak3tqbully" path="res://game/weapons/tools/tool.gd" id="1_kla87"]
+[ext_resource type="Texture2D" uid="uid://c1dj0ryy0t6hb" path="res://my assets/textures/shovel.png" id="2_v0p2o"]
+
+[node name="Shovel" type="Node2D"]
+script = ExtResource("1_kla87")
+entity_num = 30006
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 12.1743)
+scale = Vector2(0.5, 0.792141)
+texture = ExtResource("2_v0p2o")

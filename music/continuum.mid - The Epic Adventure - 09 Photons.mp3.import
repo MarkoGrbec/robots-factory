@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://catpvwd1a4dce"
+path="res://.godot/imported/continuum.mid - The Epic Adventure - 09 Photons.mp3-18b91d3ecfd8f84335420022cb2148a1.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - The Epic Adventure - 09 Photons.mp3"
+dest_files=["res://.godot/imported/continuum.mid - The Epic Adventure - 09 Photons.mp3-18b91d3ecfd8f84335420022cb2148a1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

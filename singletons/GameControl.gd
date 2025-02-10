@@ -31,18 +31,24 @@ func destroy_helpless_bot(bring_mats: bool = false):
 	await get_tree().create_timer(3).timeout
 	var coords_spawn = Vector2i(randi_range(1, 19), randi_range(1, 19))
 	var pos__id_tile = g_man.tile_map_layers.override_fake_tunnel(coords_spawn)
-	var enemy_bot: CPEnemy = CreateMob.target_create_enemy_bot(pos__id_tile[0] / 2, Enums.Esprite.mob_commander_client)
-	enemy_bot.controller.starting_point = enemy_bot.global_position
-	enemy_bot.controller.coords = [coords_spawn, pos__id_tile]
-	var enemy_tunnel = [[enemy_bot], [coords_spawn, pos__id_tile]]
-	enemy_tunnels.push_back(enemy_tunnel)
-	enemy_bot.controller.enemy_tunnel = enemy_tunnel
-	enemy_bot.controller.target = GameControl._helpless_bot
-	
-	if bring_mats:
-		enemy_bot.controller.agent.avoidance_enabled = false
-		enemy_bot.controller.state = EnemyController.State.BRING_MATS
-	enemy_bot.controller.set_timer()
+	if pos__id_tile:
+		var enemy_bot: CPEnemy = CreateMob.target_create_enemy_bot(pos__id_tile[0] / 2, Enums.Esprite.mob_commander_client)
+		enemy_bot.controller.starting_point = enemy_bot.global_position
+		enemy_bot.controller.coords = [coords_spawn, pos__id_tile]
+		var enemy_tunnel = [[enemy_bot], [coords_spawn, pos__id_tile]]
+		# make music
+		if not enemy_tunnels:
+			g_man.music_manager.set_music_type(MusicManager.MusicStatus.action)
+		
+		enemy_tunnels.push_back(enemy_tunnel)
+		enemy_bot.controller.enemy_tunnel = enemy_tunnel
+		enemy_bot.controller.target = GameControl._helpless_bot
+		
+		
+		if bring_mats:
+			enemy_bot.controller.agent.avoidance_enabled = false
+			enemy_bot.controller.state = EnemyController.State.BRING_MATS
+		enemy_bot.controller.set_timer()
 
 func retreve_bot(tunnel):
 	var enemy_bot: CPEnemy = CreateMob.target_create_enemy_bot(tunnel[1][1][0] / 2, Enums.Esprite.mob_commander_client)
@@ -70,6 +76,7 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 		QuestsManager.set_server_quest(5, true, 6)
 		QuestsManager.set_server_quest(4, true, 12)
 	elif not enemy_tunnels: # overriding quest basis after quest has been completed (tunnels cleared)
+		g_man.music_manager.set_music_type(MusicManager.MusicStatus.wandering)
 		var basis = QuestsManager.get_server_quest_basis(5)
 		if basis == 4:
 			QuestsManager.set_server_quest(5, true, 5)

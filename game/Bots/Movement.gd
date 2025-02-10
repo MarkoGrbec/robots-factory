@@ -107,6 +107,12 @@ func _physics_process(delta: float) -> void:
 				time_scale *= 0.701
 	elif body.velocity.y:
 		time_scale = abs(body.velocity.x)
+	#var req = animation_tree["parameters/state/transition_request"]
+	#for s in State:
+		#if req != s:
+			#return
+	
+	
 	if abs(body.velocity.x) > 50 or abs(body.velocity.y) > 50:
 		animation_tree["parameters/state/transition_request"] = States.RUN
 		animation_tree["parameters/run_timescale/scale"] = time_scale / (75 / relative_speed)

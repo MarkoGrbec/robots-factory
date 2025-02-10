@@ -68,6 +68,7 @@ func create_npc_with_avatar(id_avatar: int):
 	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(id_avatar, quest_index, 0)
 	server_quest._quest_index = quest_index
 	server_quest.fully_load()
+	g_man.quests_manager.dict_name__server_quest[quest_name] = server_quest
 	if server_quest.activated and server_quest.initialized:
 		return server_quest
 	

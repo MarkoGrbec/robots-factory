@@ -37,6 +37,9 @@ enum Left{
 	SOFT_ROCK_UNDERGROUND = 15,
 	FAKE_TUNNEL = 0
 }
+## overwrite -> overwrite all tiles except tunnel
+## discard -> add only on tiles that don't exist yet
+## add -> add on top of the tile
 enum RegionActionType{
 	OVERWRITE,
 	DISCARD,
@@ -55,7 +58,7 @@ func load_map():
 		set_new_terrain()
 	reload_terrain()
 	timer.timeout.connect(change_dirt_to_grass_overtime)
-	timer.start(15)
+	timer.start(30)
 
 func change_dirt_to_grass_overtime():
 	change_ground_dirt()
@@ -107,15 +110,16 @@ func dig(mouse_global_position: Vector2):
 		return
 	if id == Tile.FAKE_TUNNEL:
 		return
-	g_man.changes_manager.add_change(str("you dug a ", str(Tile.find_key(id)).to_lower().replace("_", " ")))
 	# dig
 	var new_id_type = dig_in_to_tile(data_array, position)
 	# id duged
 	if not (id == Tile.EMPTY or id == Tile.TUNNEL or id == Tile.SOFT_ROCK_TUNNEL):
 		g_man.entity_manager.create_entity_in_world(id, mouse_global_position)
 	# change tile
-	if new_id_type != null:
+	if new_id_type != null and new_id_type is int:
 		set_ground_cell(position, new_id_type, active_layer)
+	if not new_id_type is bool:
+		g_man.changes_manager.add_change(str("you dug a ", str(Tile.find_key(id)).to_lower().replace("_", " ")))
 #region in to tunnela
 func in_to_tunnel(position):
 	active_layer += 1
@@ -173,6 +177,8 @@ func change_ground_dirt(random: float = 0.025):
 #region override cell
 func override_fake_tunnel(position, id = 8):
 	var before_id = ground_layer[0].get_cell_source_id(position)
+	if before_id == Tile.FAKE_TUNNEL:
+		return false
 	ground_layer[0].set_cell(position, id, Vector2i.ZERO)
 	return [ground_layer[0].map_to_local(position), before_id]
 
@@ -211,6 +217,12 @@ func set_region(region: Rect2i, data_arrays: Array, data_arrays_range: Array = [
 				# if it has tile don't do nothing and continue with next tile
 				if action_type == RegionActionType.DISCARD:
 					if dict_ground_pos___id__left[active_layer].has(Vector2i(x, y)):
+						continue
+				# if tile is tunnel don't overwrite it
+				var tile = dict_ground_pos___id__left[active_layer].get(Vector2i(x, y))
+				if tile:
+					if tile[0][0] == Tile.TUNNEL:
+						#print("there's tunnel")
 						continue
 				dict_ground_pos___id__left[active_layer][Vector2i(x, y)] = duplicate_data_arrays
 				if grass:
@@ -391,7 +403,7 @@ func change_to_new_tile(data_array: Array, position: Vector2i):
 		temp_active_layer = clampi(temp_active_layer, 0, ground_layer.size() -1)
 		if active_layer == temp_active_layer:
 			g_man.changes_manager.add_change("cannot dig deeper")
-			return
+			return false
 		
 		var big_fill_around = true
 		
@@ -400,10 +412,10 @@ func change_to_new_tile(data_array: Array, position: Vector2i):
 			var data_array_underneeth = array__data_array_underneeth[array__data_array_underneeth.size() -1]
 			if data_array_underneeth[0] == Tile.TUNNEL:
 				g_man.changes_manager.add_change("can't dig in to tunnel underneeth")
-				return
+				return false
 			elif data_array_underneeth[0] == Tile.SOFT_ROCK_TUNNEL:
-				g_man.changes_manager.add_change("should never happen up is already tunnel up on surface")
-				return
+				g_man.changes_manager.add_change("should never happen up is already tunnel to up on surface")
+				
 			big_fill_around = false
 		# dig tunnel
 		data_array[0] = Tile.TUNNEL

@@ -354,9 +354,9 @@ static func get_data_length(type: DataType, length, array_depth, original_type: 
 
 static func _get_original_data_type_length(type: DataType, length):
 	if type == DataType.BOOL:
-		return 8
+		return 8 # 4 bytes for type and 4 bytes for data
 	if type == DataType.INT:
-		return 8 #4 for int 8 for long
+		return 8
 	if type == DataType.FLOAT:
 		return 12
 	if type == DataType.STRING:

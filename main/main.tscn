@@ -1,12 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://bldvfhdbgr23e"]
+[gd_scene load_steps=27 format=3 uid="uid://bldvfhdbgr23e"]
 
 [ext_resource type="Script" uid="uid://bj254t7es4bsr" path="res://main/MainMenu.gd" id="1_3wy1v"]
-[ext_resource type="Script" uid="uid://dxd6wbawl72f6" path="res://main/StartGame.gd" id="1_53q0u"]
 [ext_resource type="Script" uid="uid://luh38krjrogw" path="res://my assets/entity/EntityManager.gd" id="2_4hmqs"]
-[ext_resource type="PackedScene" uid="uid://ww05yde5nb2t" path="res://terrain/terrain.tscn" id="2_c651c"]
 [ext_resource type="Theme" uid="uid://cmeiu126swihn" path="res://my assets/themes/default.tres" id="2_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://bj1a037by05w5" path="res://my assets/changes manager/changes_manager.tscn" id="2_pjrb6"]
-[ext_resource type="Script" uid="uid://coolq65m2ewxv" path="res://my assets/Credits/Credits.gd" id="2_xwkvk"]
+[ext_resource type="PackedScene" uid="uid://btw2dmrck5wsv" path="res://main/main_tab_container.tscn" id="4_d00gp"]
 [ext_resource type="PackedScene" uid="uid://bs3s7gpgf8hym" path="res://main/quests_manager.tscn" id="6_4dugh"]
 [ext_resource type="PackedScene" uid="uid://ba8b517af62hg" path="res://main/success windows/change_name_manager.tscn" id="7_67ri8"]
 [ext_resource type="PackedScene" uid="uid://4uvqadvod7cb" path="res://main/in_game_menu.tscn" id="8_bsumw"]
@@ -18,24 +16,22 @@
 [ext_resource type="PackedScene" uid="uid://cugv3q0gmarru" path="res://game/entity/dragging_sprite.tscn" id="14_piupu"]
 [ext_resource type="PackedScene" uid="uid://ba0tnj74ux3tm" path="res://my assets/mold window/mold_window.tscn" id="18_piupu"]
 [ext_resource type="PackedScene" uid="uid://bjld3caw65v7u" path="res://my assets/SlidersWindow/CircleSliders.tscn" id="18_q0sk7"]
-
-[sub_resource type="Environment" id="Environment_4hmqs"]
-background_mode = 3
-glow_enabled = true
-glow_intensity = 0.5
-glow_bloom = 0.13
-glow_hdr_luminance_cap = 0.2
+[ext_resource type="Script" uid="uid://c5w5cvt6wb4ac" path="res://my assets/music/MusicManager.gd" id="19_piupu"]
+[ext_resource type="AudioStream" uid="uid://bua02kgxtfo0n" path="res://music/continuum.mid - The Epic Adventure - 01 Initd.mp3" id="20_qs5eo"]
+[ext_resource type="AudioStream" uid="uid://dns12un4gs8r5" path="res://music/continuum.mid - The Epic Adventure - 02 Quantum.mp3" id="21_frbr6"]
+[ext_resource type="AudioStream" uid="uid://catpvwd1a4dce" path="res://music/continuum.mid - The Epic Adventure - 09 Photons.mp3" id="22_o8j3b"]
+[ext_resource type="AudioStream" uid="uid://ds65shy4gqtdr" path="res://music/continuum.mid - The Epic Adventure - 03 Worlds Beyond.mp3" id="23_wpkmi"]
+[ext_resource type="AudioStream" uid="uid://blqwojg2nfqwy" path="res://music/continuum.mid - The Epic Adventure - 04 The Forest Fortress.mp3" id="24_o0l78"]
+[ext_resource type="AudioStream" uid="uid://gnr0h21kqua0" path="res://music/continuum.mid - The Epic Adventure - 05 Negative Altitude.mp3" id="25_576ah"]
+[ext_resource type="AudioStream" uid="uid://dhpc2i7mj0pim" path="res://music/continuum.mid - The Epic Adventure - 06 The Orchestra in Heaven.mp3" id="26_wpvt5"]
+[ext_resource type="AudioStream" uid="uid://crad6sln5yjpt" path="res://music/continuum.mid - The Epic Adventure - 07 The Dark Planet.mp3" id="27_amlcg"]
+[ext_resource type="AudioStream" uid="uid://m8knf1886rew" path="res://music/continuum.mid - The Epic Adventure - 08 The Great Battle.mp3" id="28_ue0mw"]
 
 [node name="Node" type="Node"]
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_4hmqs")
-
-[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("main_menu_tab", "in_game_main_menu", "environment")]
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("in_game_main_menu")]
 script = ExtResource("1_3wy1v")
-main_menu_tab = NodePath("../CanvasLayer/Main/main TabContainer")
 in_game_main_menu = NodePath("../CanvasLayer/Main/in game menu")
-environment = NodePath("../WorldEnvironment")
 
 [node name="entity_manager" type="Node2D" parent="Node2D" node_paths=PackedStringArray("array_layers", "dragging_node2d")]
 script = ExtResource("2_4hmqs")
@@ -68,132 +64,8 @@ mouse_filter = 1
 theme = ExtResource("2_kfbq2")
 metadata/_edit_use_anchors_ = true
 
-[node name="main TabContainer" type="TabContainer" parent="CanvasLayer/Main"]
+[node name="main TabContainer" parent="CanvasLayer/Main" instance=ExtResource("4_d00gp")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-current_tab = 0
-metadata/_edit_use_anchors_ = true
-
-[node name="start game" type="ScrollContainer" parent="CanvasLayer/Main/main TabContainer" node_paths=PackedStringArray("start_game", "delete_user", "username_line_edit", "welcome_label", "welcome_button")]
-layout_mode = 2
-script = ExtResource("1_53q0u")
-start_game = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/start game")
-delete_user = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/delete user")
-username_line_edit = NodePath("HBoxContainer/VBoxContainer/username")
-terrain = ExtResource("2_c651c")
-welcome_label = NodePath("../welcome robot/HBoxContainer/VBoxContainer/welcome label")
-welcome_button = NodePath("../welcome robot/HBoxContainer/VBoxContainer/welcome button")
-metadata/_tab_index = 0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/main TabContainer/start game"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="start game" type="Button" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "start game"
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-
-[node name="delete user" type="Button" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "delete"
-
-[node name="username" type="LineEdit" parent="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-placeholder_text = "enter your name"
-expand_to_text_length = true
-
-[node name="credits" type="ScrollContainer" parent="CanvasLayer/Main/main TabContainer"]
-visible = false
-layout_mode = 2
-script = ExtResource("2_xwkvk")
-metadata/_tab_index = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/main TabContainer/credits"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/credits/HBoxContainer"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/main TabContainer/credits/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/credits/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Main/main TabContainer/credits/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-bbcode_enabled = true
-text = "MIT licences:
-[url=https://godotengine.org/license/]godot engine licence[/url]
-[url=https://github.com/MarkoGrbec/SQLPentagram/blob/main/LICENSE]SQLPentagram[/url]
-[url=https://github.com/finepointcgi/Drag-Rescale-and-Drop-Windows/blob/main/LICENSE/]resize window[/url]
-[url=https://github.com/HopeMetal/2DTacticalRPGDemo/blob/main/LICENSE]2DTacticalRPGDemo[/url]
-[url=https://github.com/godotengine/godot-demo-projects/tree/4.2-31d1c0c/2d/skeleton]skeleton 2d demo[/url]
-## sounds made by David Fluher"
-
-[node name="welcome robot" type="ScrollContainer" parent="CanvasLayer/Main/main TabContainer"]
-visible = false
-layout_mode = 2
-mouse_filter = 0
-metadata/_tab_index = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/main TabContainer/welcome robot"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer"]
-custom_minimum_size = Vector2(64, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-
-[node name="welcome label" type="Label" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="welcome button" type="Button" parent="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-text = "let's fix name"
 
 [node name="CircleSliders" parent="CanvasLayer/Main" instance=ExtResource("18_q0sk7")]
 visible = false
@@ -419,11 +291,17 @@ follow_viewport_enabled = true
 
 [node name="dragging" type="Node2D" parent="CanvasLayer/CanvasLayer"]
 
-[connection signal="pressed" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="CanvasLayer/Main/main TabContainer/start game" method="_on_start_game_pressed"]
-[connection signal="pressed" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="CanvasLayer/Main/main TabContainer/start game" method="_on_delete_user_pressed"]
-[connection signal="text_submitted" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/username" to="CanvasLayer/Main/main TabContainer/start game" method="submit_username"]
-[connection signal="meta_clicked" from="CanvasLayer/Main/main TabContainer/credits/HBoxContainer/VBoxContainer/RichTextLabel" to="CanvasLayer/Main/main TabContainer/credits" method="_on_rich_text_label_meta_clicked"]
-[connection signal="pressed" from="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer/welcome button" to="CanvasLayer/Main/main TabContainer/start game" method="close_welcome_window"]
+[node name="MusicManager" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("level_up_player")]
+script = ExtResource("19_piupu")
+level_up_player = NodePath("AudioStreamPlayer")
+main_menu_music = Array[AudioStream]([ExtResource("20_qs5eo")])
+shop_music = Array[AudioStream]([ExtResource("21_frbr6"), ExtResource("22_o8j3b")])
+wandering_music = Array[AudioStream]([ExtResource("23_wpkmi"), ExtResource("24_o0l78"), ExtResource("25_576ah"), ExtResource("26_wpvt5")])
+action_music = Array[AudioStream]([ExtResource("27_amlcg"), ExtResource("28_ue0mw")])
+metadata/_custom_type_script = ExtResource("19_piupu")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
+
 [connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/inventory system" method="close_window"]
 [connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/inventory system" method="close_window"]
 [connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]

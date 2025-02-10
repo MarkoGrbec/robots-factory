@@ -10,7 +10,7 @@ func open_window():
 	show()
 
 func _on_new_name_text_submitted(new_text: String) -> void:
-	var user: User = g_man.user.get_index_data(1)
+	var user: User = g_man.user
 	user.avatar_name = new_text
 	user.save_username()
 	g_man.changes_manager.add_change("you successfully changed your name")
