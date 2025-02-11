@@ -80,9 +80,12 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 		var basis = QuestsManager.get_server_quest_basis(5)
 		if basis == 4:
 			QuestsManager.set_server_quest(5, true, 5)
-		if basis == 5:
+			# sand
 			QuestsManager.set_server_quest(4, true, 11)
+		if basis == 5:
 			QuestsManager.set_server_quest(5, true, 7)
+			# iron
+			QuestsManager.set_server_quest(4, true, 10)
 		if basis == 7:
 			QuestsManager.set_server_quest(5, true, 8)
 			

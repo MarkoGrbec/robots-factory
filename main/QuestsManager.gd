@@ -110,7 +110,7 @@ func add_dialogs(name_a: String, text):
 		else:
 			dialog.text = str("\n", text[i])
 		var tween = create_tween()
-		var dialog_speed = dialog.text.length() * 0.035
+		var dialog_speed = dialog.text.length() * g_man.misc.slow_writing
 		tween.tween_property(dialog, "visible_characters", dialog.text.length(), dialog_speed)
 		await get_tree().create_timer(dialog_speed).timeout
 
@@ -167,6 +167,7 @@ func cmd_quest_dialog(raw_text: String, quest_index):
 static func target_send_quest_mob_to_make(server_quest: ServerQuest):
 	if not server_quest.activated:
 		target_send_quest_mob_remove(server_quest)
+		return
 	if server_quest.body:
 		return
 	#var body_type = mp.get_quest_object(server_quest._quest_index).quest_body_type

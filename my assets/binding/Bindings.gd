@@ -69,14 +69,15 @@ func load_key(key_string, default = false):
 			InputMap.action_add_event(key_string, event_key)
 
 func disable_binding():
-	change_input_map = str(keys.find_key(binding_label.index)).replace("_", " ")
-	DataBase.insert(false, g_man.dbms, "bindings", change_input_map, 1, -10)
-	DataBase.insert(false, g_man.dbms, "bindings", str(change_input_map, "_type"), 1, -10)
-	
-	InputMap.action_erase_events(change_input_map)
-	binding_label.set_binding_label(str("N/A"))
-	change_input_map = ""
-	disable_binding_button.hide()
+	if binding_label:
+		change_input_map = str(keys.find_key(binding_label.index)).replace("_", " ")
+		DataBase.insert(false, g_man.dbms, "bindings", change_input_map, 1, -10)
+		DataBase.insert(false, g_man.dbms, "bindings", str(change_input_map, "_type"), 1, -10)
+		
+		InputMap.action_erase_events(change_input_map)
+		binding_label.set_binding_label(str("N/A"))
+		change_input_map = ""
+		disable_binding_button.hide()
 
 func change_binding(index:int, label:BindingKey):
 	# label we will change on finished binding

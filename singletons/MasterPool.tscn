@@ -265,7 +265,7 @@ is_container = false
 ql = 100.0
 weight_get = 1.0
 volume_get = 1.0
-cost = 15
+cost = 10
 hard = 1.0
 time_to_finish_min = 1.0
 time_to_finish_max = 2.0
@@ -333,7 +333,7 @@ is_container = false
 ql = 100.0
 weight_get = 1.0
 volume_get = 1.0
-cost = 12
+cost = 8
 hard = 1.0
 time_to_finish_min = 1.0
 time_to_finish_max = 2.0
@@ -401,7 +401,7 @@ is_container = false
 ql = 100.0
 weight_get = 1.0
 volume_get = 1.0
-cost = 20
+cost = 15
 hard = 1.0
 time_to_finish_min = 1.0
 time_to_finish_max = 2.0
@@ -469,7 +469,7 @@ is_container = false
 ql = 100.0
 weight_get = 1.0
 volume_get = 1.0
-cost = 30
+cost = 20
 hard = 1.0
 time_to_finish_min = 1.0
 time_to_finish_max = 2.0
@@ -537,7 +537,7 @@ is_container = false
 ql = 100.0
 weight_get = 1.0
 volume_get = 1.0
-cost = 35
+cost = 25
 hard = 1.0
 time_to_finish_min = 1.0
 time_to_finish_max = 2.0
@@ -1853,9 +1853,13 @@ description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_p1w7n")])
-default_starting_dialog = "what is the name of the bot you need to fix
+default_starting_dialog = "at maintenence bot
+what is the name of the bot you need to fix
 and needs to be fixed"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_sbjh2"]
@@ -1880,8 +1884,12 @@ description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_sbjh2")])
-default_starting_dialog = "what's the command what doesn't work"
-default_failed_dialog = ""
+default_starting_dialog = "what's the command what doesn't work
+tell that to maintenence bot"
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_y7xd8"]
@@ -1907,7 +1915,10 @@ mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7xd8")])
 default_starting_dialog = "say the command that was given to you
 by the maintenence bot"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_yl1f7"]
@@ -1921,8 +1932,11 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help", "hint"])
-response_dialog = Array[String](["try if the command was repaired", "try to change your name", "try to change your name
-again"])
+response_dialog = Array[String](["try if the command was repaired
+at name change bot", "try to change your name
+at name change bot", "try to change your name
+again
+at name change bot"])
 response_failed_dialog = "give me quarrystone for telling me the hint"
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -1933,7 +1947,10 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yl1f7")])
 default_starting_dialog = "what was the command that didn't work at change name bot"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_72fj2"]
@@ -1947,8 +1964,11 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help", "hint"])
-response_dialog = Array[String](["what did you do to the name change bot", "what command did you use to fix name change bot
-and how did you do it", "what commanded did you use to fix name change bot"])
+response_dialog = Array[String](["what did you do to the name change bot
+and tell that to forking bot", "what command did you use to fix name change bot
+and how did you do it
+and tell that to forking bot", "what commanded did you use to fix name change bot
+and tell that to forking bot"])
 response_failed_dialog = "give me quarrystone for telling me the hint"
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -1960,7 +1980,10 @@ mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_72fj2")])
 default_starting_dialog = "tell him what command did you use
 becarefull how you pharse command"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_duot5"]
@@ -1984,8 +2007,11 @@ description = "way"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_duot5")])
-default_starting_dialog = "ask bot about the way"
-default_failed_dialog = ""
+default_starting_dialog = "ask forking bot about the way"
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_5gb7o"]
@@ -1999,10 +2025,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help", "hint"])
-response_dialog = Array[String](["gather,
+response_dialog = Array[String](["say
+gather,
 craft
 or
-fight"])
+fight
+
+to forking bot"])
 response_failed_dialog = "give me quarrystone for telling me the hint"
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2012,8 +2041,11 @@ description = "what way"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_5gb7o")])
-default_starting_dialog = "what way will you choose?"
-default_failed_dialog = ""
+default_starting_dialog = "what way will you choose? at forking bot"
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_h41ud"]
@@ -2040,7 +2072,10 @@ mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_h41ud")])
 default_starting_dialog = "reconfigure forking bot
 try using help commnad"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_qk1v2"]
@@ -2065,7 +2100,10 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_qk1v2")])
 default_starting_dialog = "ask gathering bot about the mold"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_crkrc"]
@@ -2095,7 +2133,10 @@ mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_crkrc")])
 default_starting_dialog = "bring clay to gathering bot
 and say [objective completed]"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_8wecr"]
@@ -2122,7 +2163,10 @@ mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8wecr")])
 default_starting_dialog = "bring hard metal (iron) to gathering bot
 and say [objective completed]"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ps30k"]
@@ -2149,7 +2193,10 @@ mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ps30k")])
 default_starting_dialog = "bring sand to gathering bot
 and say [objective completed]"
-default_failed_dialog = ""
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_btbya"]
@@ -2173,8 +2220,11 @@ description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_btbya")])
-default_starting_dialog = "say make new bot to start making new bot"
-default_failed_dialog = ""
+default_starting_dialog = "say make new bot to gathering bot to start making new bot"
+default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
+not to solve puzzles for you.
+
+use [help] command"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ogpnp"]

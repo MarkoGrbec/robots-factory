@@ -127,6 +127,7 @@ tint_progress = Color(0, 1, 0, 1)
 [node name="AudioStream sound effects BUS" type="AudioStreamPlayer" parent="Control"]
 volume_db = -1.0
 max_polyphony = 10
+bus = &"sfx"
 
 [node name="TimerWorking" type="Timer" parent="Control"]
 one_shot = true

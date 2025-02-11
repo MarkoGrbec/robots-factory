@@ -15,7 +15,6 @@ signal yes_actions
 signal no_actions
 signal text_submit_actions(text: String)
 
-const _K_SPEED_WRITING: float = 0.045
 
 var yes_callable
 var no_callable
@@ -186,9 +185,13 @@ func set_yes_no_cancel_id(array: Array, yes_action:Callable, no_action:Callable,
 		DisplayServer.tts_stop()
 		DisplayServer.tts_speak(instructions_yes_no_cancel.text, voice_id)
 
+var tween = create_tween()
 func write_text(label: Label):
-	var tween = create_tween()
-	var dialog_speed = label.text.length() * _K_SPEED_WRITING
+	if tween:
+		tween.stop()
+	tween = create_tween()
+	var dialog_speed = label.text.length() * g_man.misc.slow_writing
+	label.visible_characters = 0
 	tween.tween_property(label, "visible_characters", label.text.length(), dialog_speed)
 
 func begin():

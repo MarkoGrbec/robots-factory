@@ -24,8 +24,7 @@ func _on_quit_button_pressed() -> void:
 
 func quit():
 	g_man.mold_window.set_instructions_only(["thanks for playing"])
-	await get_tree().create_timer(2.5).timeout
-	DisplayServer.tts_stop()
+	await get_tree().create_timer(("thanks for playing".length() + 3) * g_man.misc.slow_writing).timeout
 	get_tree().quit()
 
 func cancel_quit():

@@ -49,6 +49,8 @@ func _physics_process(_delta: float) -> void:
 	if target:
 		target_position = target.global_position
 		agent.target_position = target_position
+		if agent.is_navigation_finished():
+			return
 	else:# if 1 tunnel is closed go back as there's no target
 		if state == State.CHASE or state == State.RUN_AWAY:
 			state = State.RUN_AWAY
@@ -58,8 +60,6 @@ func _physics_process(_delta: float) -> void:
 			target_position = starting_point
 		else:
 			return
-	if agent.is_navigation_finished():
-		return
 	
 	if state == State.BRING_MATS:
 		for i in movement.body.get_slide_collision_count():
@@ -78,11 +78,7 @@ func _physics_process(_delta: float) -> void:
 					target_position = starting_point
 	
 	
-	next_position = agent.get_next_path_position()
-	var currect_agent_pos = global_position
-	direction = currect_agent_pos.direction_to(next_position)
-	
-	
+	agent_next_path_position()
 	avoidance()
 	
 	# change target's target
@@ -106,15 +102,7 @@ func _physics_process(_delta: float) -> void:
 		# go back to starting point
 		if not target_position == starting_point:
 			target_position = starting_point
-			agent.target_position = target_position
-			
-			#if agent.is_navigation_finished():
-				#return
-				
-			next_position = agent.get_next_path_position()
-			
-			direction = global_position.direction_to(next_position)
-			
+			agent_next_path_position()
 			avoidance()
 		
 		if global_position.distance_to(coords[1][0]/2) < 24:
@@ -123,6 +111,11 @@ func _physics_process(_delta: float) -> void:
 	movement.direction = direction
 	movement.body.move_and_slide()
 
+func agent_next_path_position():
+	agent.target_position = target_position
+	next_position = agent.get_next_path_position()
+	direction = global_position.direction_to(next_position)
+
 func avoidance():
 	if agent.avoidance_enabled:
 		agent.set_velocity(direction)
@@ -130,5 +123,4 @@ func avoidance():
 		movement.direction = direction
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	if safe_velocity:
-		movement.directionsd = safe_velocity
+	movement.direction = safe_velocity

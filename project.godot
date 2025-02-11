@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="robots factory"
-config/version="1.0.6"
+config/version="1.1.0"
 run/main_scene="uid://bldvfhdbgr23e"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.png"
@@ -107,3 +107,8 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_1="ground obsticles"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

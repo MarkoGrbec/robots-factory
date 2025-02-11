@@ -16,7 +16,9 @@ var bindings: Bindings
 var sliders_manager: SlidersManager
 var in_game_menu: InGameMenu
 var trader_manager: TraderManager
+var misc: Misc
 var music_manager: MusicManager
+
 
 var dbms = "DBMS"
 
@@ -76,6 +78,14 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "weapon_range")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "weapon_reflexes")
 	
+	_table = DataBase.Table.new("audio")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "Master")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "music")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "sfx")
+	
+	_table = DataBase.Table.new("misc")
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "quest_move")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "slow_writing")
 	
 	
 	_table = DataBase.Table.new("trader")

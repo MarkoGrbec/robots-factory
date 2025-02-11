@@ -29,8 +29,9 @@
 
 [node name="Node" type="Node"]
 
-[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("in_game_main_menu")]
+[node name="Node2D" type="Node2D" parent="." node_paths=PackedStringArray("main_menu_tab", "in_game_main_menu")]
 script = ExtResource("1_3wy1v")
+main_menu_tab = NodePath("../CanvasLayer/Main/main TabContainer")
 in_game_main_menu = NodePath("../CanvasLayer/Main/in game menu")
 
 [node name="entity_manager" type="Node2D" parent="Node2D" node_paths=PackedStringArray("array_layers", "dragging_node2d")]
@@ -292,6 +293,7 @@ follow_viewport_enabled = true
 [node name="dragging" type="Node2D" parent="CanvasLayer/CanvasLayer"]
 
 [node name="MusicManager" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("level_up_player")]
+bus = &"music"
 script = ExtResource("19_piupu")
 level_up_player = NodePath("AudioStreamPlayer")
 main_menu_music = Array[AudioStream]([ExtResource("20_qs5eo")])
@@ -301,6 +303,7 @@ action_music = Array[AudioStream]([ExtResource("27_amlcg"), ExtResource("28_ue0m
 metadata/_custom_type_script = ExtResource("19_piupu")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
+bus = &"sfx"
 
 [connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/inventory system" method="close_window"]
 [connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/inventory system" method="close_window"]
