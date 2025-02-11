@@ -19,6 +19,9 @@ func _on_slow_letters_text_submitted(new_text: String) -> void:
 	slow_writing = float(new_text)
 	save_slow_writing()
 
+func _on_speak_names_toggled(toggled_on: bool) -> void:
+	save_speak_names()
+
 func save_quest_move():
 	DataBase.insert(false, g_man.dbms, "misc", "quest_move", 1, quest_move.button_pressed)
 

@@ -165,3 +165,7 @@ func close_welcome_window():
 	g_man.savable_mob.partly_load_all()
 	g_man.main_menu.close_main_menu()
 	g_man.music_manager.set_music_type(MusicManager.MusicStatus.wandering)
+
+
+func _on_message_to_ash_pressed() -> void:
+	g_man.mold_window.set_instructions_only(["I hope text to speech is ok the one you are listening right now", "you didn't commented it on discord so I kept it inside", "I guess because that would be feedback", "it's not really an ai but a database that is located on your machine", "I have different tts sounds on my OS", "\nalso I wander where YOU wish to get in to the game", "so I know what to develop not only focuses", "\nhappy playing and please keep your mind on a game", "because you really need to keep attention in the game", "it's not usual kill and go game", "but more ask and and REMEMBER what you were been told", "what to ask next npc what npc is whom and at what stage you are in the moment", "\nI will not hold your hand there untill companion except hint bot which is trying to explain kinda in riddles what to do", "\nalso I wander whom do you like more companion or hint bot that's when you get a companion I'd like to know your opinion"])

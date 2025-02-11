@@ -63,6 +63,19 @@ size_flags_horizontal = 0
 placeholder_text = "enter your name"
 expand_to_text_length = true
 
+[node name="MarginContainer2" type="MarginContainer" parent="start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="message to ash" type="Button" parent="start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "message to ash"
+
+[node name="MarginContainer3" type="MarginContainer" parent="start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="credits" type="ScrollContainer" parent="."]
 visible = false
 layout_mode = 2
@@ -144,5 +157,6 @@ text = "let's fix name"
 [connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="start game" method="_on_start_game_pressed"]
 [connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="start game" method="_on_delete_user_pressed"]
 [connection signal="text_submitted" from="start game/HBoxContainer/VBoxContainer/username" to="start game" method="submit_username"]
+[connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/message to ash" to="start game" method="_on_message_to_ash_pressed"]
 [connection signal="meta_clicked" from="credits/HBoxContainer/VBoxContainer/RichTextLabel" to="credits" method="_on_rich_text_label_meta_clicked"]
 [connection signal="pressed" from="welcome robot/HBoxContainer/VBoxContainer/welcome button" to="start game" method="close_welcome_window"]

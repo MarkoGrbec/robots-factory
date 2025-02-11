@@ -12,8 +12,9 @@ func config() -> void:
 		visuals.color_poligons(quest_obj.color)
 
 func _on_mouse_entered() -> void:
-	g_man.camera.input_active = quest_index
-	show_label()
+	if not g_man.wheel():
+		g_man.camera.input_active = quest_index
+		show_label()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if g_man.camera.input_active is int and g_man.camera.input_active == quest_index:

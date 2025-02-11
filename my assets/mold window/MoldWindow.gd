@@ -91,15 +91,7 @@ func set_instructions_only(array: Array, voice_id = -1):
 	print("instr\n", array)
 	push_warning("instr\n", array)
 	
-	write_text(instructions_only)
-	if g_man.quests_manager.voices:
-		if voice_id == -1:
-			voice_id = g_man.quests_manager.voices[0]
-		else:
-			voice_id = clampi(voice_id, 0, g_man.quests_manager.voices.size() -1)
-			voice_id = g_man.quests_manager.voices[voice_id]
-		DisplayServer.tts_stop()
-		DisplayServer.tts_speak(instructions_only.text, voice_id)
+	write_text(instructions_only, voice_id)
 
 @onready var instructions_yes_no_cancel = $"yes no cancel/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer/VBoxContainer/instructions"
 
@@ -114,10 +106,6 @@ func set_yes_no_cancel(array: Array, yes_action:Callable, no_action:Callable, ca
 	#no_actions.connect(no_action)
 	
 	write_text(instructions_yes_no_cancel)
-	if g_man.quests_manager.voices:
-		var voice_id = g_man.quests_manager.voices[0]
-		DisplayServer.tts_stop()
-		DisplayServer.tts_speak(instructions_yes_no_cancel.text, voice_id)
 
 @onready var instructions_add_text = $"yes no cancel add text/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer/VBoxContainer/instructions"
 @onready var text_edit: TextEdit = $"yes no cancel add text/MarginContainer/VBoxContainer/buttons/VBoxContainer/TextEdit"
@@ -132,10 +120,6 @@ func set_add_submit_text(array: Array, placeholder_text:String, submit_action:Ca
 	#text_submit_actions.connect(submit_action)
 	
 	write_text(instructions_add_text)
-	if g_man.quests_manager.voices:
-		var voice_id = g_man.quests_manager.voices[0]
-		DisplayServer.tts_stop()
-		DisplayServer.tts_speak(instructions_add_text.text, voice_id)
 
 @export var instructions_add_label: Label
 @export var line_edit: LineEdit
@@ -149,10 +133,6 @@ func set_add_submit_label(array: Array, placeholder_text:String, submit_action:C
 	#text_submit_actions.connect(submit_action)
 	
 	write_text(instructions_add_label)
-	if g_man.quests_manager.voices:
-		var voice_id = g_man.quests_manager.voices[0]
-		DisplayServer.tts_stop()
-		DisplayServer.tts_speak(instructions_add_label.text, voice_id)
 
 func set_yes_no_cancel_id(array: Array, yes_action:Callable, no_action:Callable, cancel_action:Callable, id):
 	begin()
@@ -180,13 +160,20 @@ func set_yes_no_cancel_id(array: Array, yes_action:Callable, no_action:Callable,
 	#)
 	
 	write_text(instructions_yes_no_cancel)
-	if g_man.quests_manager.voices:
-		var voice_id = g_man.quests_manager.voices[0]
-		DisplayServer.tts_stop()
-		DisplayServer.tts_speak(instructions_yes_no_cancel.text, voice_id)
+	
 
 var tween = create_tween()
-func write_text(label: Label):
+func write_text(label: Label, voice_id = -1):
+	if g_man.quests_manager.voices:
+		if voice_id == -1:
+			voice_id = 0
+		else:
+			voice_id = clampi(voice_id, 0, g_man.quests_manager.voices.size() -1)
+		
+		voice_id = g_man.quests_manager.voices[voice_id]
+		DisplayServer.tts_stop()
+		DisplayServer.tts_speak(label.text, voice_id)
+	
 	if tween:
 		tween.stop()
 	tween = create_tween()

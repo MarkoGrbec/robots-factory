@@ -16,7 +16,8 @@ func _ready() -> void:
 		visuals.color_poligons(quest_object.color)
 
 func _on_mouse_entered() -> void:
-	g_man.camera.input_active = -3
+	if not g_man.wheel():
+		g_man.camera.input_active = -3
 
 
 func _on_mouse_exited() -> void:

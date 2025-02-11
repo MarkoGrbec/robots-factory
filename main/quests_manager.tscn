@@ -11,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 current_tab = 0
 script = ExtResource("1_2bohx")
 quest_grid_container = NodePath("quest dialog/MarginContainer2/quest grid container")
@@ -21,28 +22,34 @@ dialog_container = NodePath("quest dialog/VBoxContainer/ScrollContainer/dialog c
 
 [node name="quest dialog" type="HBoxContainer" parent="."]
 layout_mode = 2
+mouse_filter = 0
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="quest dialog"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
+mouse_filter = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="quest dialog"]
 layout_mode = 2
 size_flags_horizontal = 3
+mouse_filter = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="quest dialog/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
+mouse_filter = 0
 
 [node name="ScrollContainer" type="ScrollContainer" parent="quest dialog/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 0
 
 [node name="dialog conatainer" type="VBoxContainer" parent="quest dialog/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+mouse_filter = 0
 
 [node name="ask quester" type="LineEdit" parent="quest dialog/VBoxContainer"]
 layout_mode = 2
@@ -52,12 +59,15 @@ placeholder_text = "say to npc"
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_stretch_ratio = 0.3
+mouse_filter = 0
 
 [node name="quest grid container" type="GridContainer" parent="quest dialog/MarginContainer2"]
 layout_mode = 2
+mouse_filter = 0
 
 [node name="entity button quest" parent="quest dialog/MarginContainer2/quest grid container" instance=ExtResource("3_mp27h")]
 layout_mode = 2
+mouse_filter = 0
 
 [node name="close dialog manager" type="Button" parent="quest dialog"]
 layout_mode = 2

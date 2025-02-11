@@ -312,6 +312,7 @@ text = "X"
 [connection signal="pressed" from="holding hand/HBoxContainer/close window" to="." method="close_window"]
 [connection signal="toggled" from="misc/HBoxContainer/VBoxContainer/quest move" to="misc" method="_on_quest_move_toggled"]
 [connection signal="text_submitted" from="misc/HBoxContainer/VBoxContainer/HBoxContainer/slow letters" to="misc" method="_on_slow_letters_text_submitted"]
+[connection signal="toggled" from="misc/HBoxContainer/VBoxContainer/speak names" to="misc" method="_on_speak_names_toggled"]
 [connection signal="pressed" from="misc/HBoxContainer/close window" to="." method="close_window"]
 [connection signal="pressed" from="quit/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="quit/close window" to="." method="close_window"]

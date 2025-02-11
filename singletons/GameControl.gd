@@ -8,8 +8,7 @@ var enemy_tunnels: Array
 func set_helpless_bot(bot: CPHelplessBot):
 	# get the bug out
 	if _helpless_bot:
-		g_man.savable_mob.remove_at(bot.id_mob)
-		bot.queue_free()
+		remove_helpless_bot(bot)
 	else:
 		_helpless_bot = bot
 	
@@ -19,11 +18,14 @@ func set_helpless_bot(bot: CPHelplessBot):
 			if not enemy_tunnels:
 				destroy_helpless_bot()
 
-func remove_helpless_bot():
-	if _helpless_bot:
-		g_man.savable_mob.remove_at(_helpless_bot.id_mob)
-		_helpless_bot.queue_free()
-		_helpless_bot = null
+func remove_helpless_bot(helpless_bot):
+	if helpless_bot:
+		if g_man.camera.input_active == -3:
+			g_man.camera.input_active = 0
+		g_man.savable_mob.remove_at(helpless_bot.id_mob)
+		helpless_bot.queue_free()
+		if helpless_bot == _helpless_bot:
+			_helpless_bot = null
 
 func destroy_helpless_bot(bring_mats: bool = false):
 	if not _helpless_bot:
@@ -63,6 +65,7 @@ func retreve_bot(tunnel):
 
 func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 	if not tunnel_coords:
+		try_turn_off_action_music()
 		return
 	g_man.tile_map_layers.override_fake_tunnel_back(tunnel_coords[1][0], tunnel_coords[1][1][1])
 	for bot in tunnel_coords[0]:
@@ -72,12 +75,13 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 	enemy_tunnels.erase(tunnel_coords)
 	
 	if state == EnemyController.State.RUN:
-		remove_helpless_bot()
+		remove_helpless_bot(_helpless_bot)
 		_helpless_bot = null
 		QuestsManager.set_server_quest(5, true, 6)
 		QuestsManager.set_server_quest(4, true, 12)
+		try_turn_off_action_music()
 	elif not enemy_tunnels: # overriding quest basis after quest has been completed (tunnels cleared)
-		g_man.music_manager.set_music_type(MusicManager.MusicStatus.wandering)
+		try_turn_off_action_music()
 		var basis = QuestsManager.get_server_quest_basis(5)
 		if basis == 4:
 			QuestsManager.set_server_quest(5, true, 5)
@@ -90,6 +94,10 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 		if basis == 7:
 			QuestsManager.set_server_quest(5, true, 8)
 			
-			remove_helpless_bot()
+			remove_helpless_bot(_helpless_bot)
 			QuestsManager.set_server_quest(7, true, 0)
 			g_man.mold_window.set_instructions_only(["thanks for saving me", "I guess", "or was I programmed for it to say"], 7)
+
+func try_turn_off_action_music():
+	if not enemy_tunnels:
+		g_man.music_manager.set_music_type(MusicManager.MusicStatus.wandering)

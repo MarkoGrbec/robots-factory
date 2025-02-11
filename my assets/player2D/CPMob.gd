@@ -7,8 +7,9 @@ var tween
 @export var name_label: Label
 
 func _on_mouse_entered() -> void:
-	g_man.camera.input_active = -1
-	show_label()
+	if not g_man.wheel():
+		g_man.camera.input_active = -1
+		show_label()
 
 
 func _on_mouse_exited() -> void:
@@ -25,11 +26,13 @@ func show_label():
 		tween.tween_property(name_label, "visible_characters", name_label.text.length(), name_label.text.length() * g_man.misc.slow_writing)
 		if g_man.quests_manager.voices and g_man.misc.speak_names.button_pressed:
 			var voice_id = g_man.quests_manager.voices[0]
-			DisplayServer.tts_stop()
-			DisplayServer.tts_speak(name_label.text, voice_id)
+			if not g_man.wheel():
+				DisplayServer.tts_stop()
+				DisplayServer.tts_speak(name_label.text, voice_id)
 
 func hide_label():
 	if name_label:
 		name_label.hide()
 		if g_man.misc.speak_names.button_pressed:
-			DisplayServer.tts_stop()
+			if not g_man.wheel():
+				DisplayServer.tts_stop()

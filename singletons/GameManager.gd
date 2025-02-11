@@ -159,3 +159,8 @@ func create_columns_terrain(_table):
 func create_columns_terrain_layer(_table, str_quadrant):
 	_table.create_column(false, dbms, DataBase.DataType.VECTOR2I, 1, str("position", str_quadrant))
 	_table.create_column(false, dbms, DataBase.DataType.ARRAY, 48, str("array_data", str_quadrant))
+
+func wheel():
+	if Input.is_action_just_pressed("mouse wheel down") or Input.is_action_just_pressed("mouse wheel up"):
+		return true
+	return false
