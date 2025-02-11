@@ -7,9 +7,13 @@ enum State{
 
 var state: State
 @export var controller: HelplessBotController
+@export var visuals: Visuals
 
 func _ready() -> void:
 	GameControl.set_helpless_bot(self)
+	var quest_object = mp.get_quest_object(7)
+	if quest_object:
+		visuals.color_poligons(quest_object.color)
 
 func _on_mouse_entered() -> void:
 	g_man.camera.input_active = -3

@@ -175,6 +175,7 @@ static func target_send_quest_mob_to_make(server_quest: ServerQuest):
 	server_quest.body.global_position = server_quest.position
 	server_quest.body.quest_index = server_quest._quest_index
 	server_quest.body.entity_inventory = server_quest.inventory
+	server_quest.body.config()
 
 static func target_send_quest_mob_remove(server_quest: ServerQuest):
 	if server_quest.body:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://dr2owvb70m1ia"]
+[gd_scene load_steps=30 format=3 uid="uid://dr2owvb70m1ia"]
 
 [ext_resource type="Script" uid="uid://disrmt5dxaypw" path="res://game/Bots/quest/CPQuest.gd" id="1_megbn"]
 [ext_resource type="Script" uid="uid://dyp20b54tkw2" path="res://game/Bots/quest/quest_controller.gd" id="2_megbn"]
+[ext_resource type="Script" uid="uid://b1drhytdt5cnu" path="res://game/Bots/Visuals.gd" id="3_hic02"]
 [ext_resource type="Texture2D" uid="uid://cgnjku7sa0qyt" path="res://my assets/player2D/gBot.png" id="3_whgfw"]
 
 [sub_resource type="Animation" id="1"]
@@ -1764,7 +1765,7 @@ node_connections = [&"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land"
 radius = 11.0
 height = 46.0
 
-[node name="CPQuest" type="CharacterBody2D" node_paths=PackedStringArray("timer")]
+[node name="CPQuest" type="CharacterBody2D" node_paths=PackedStringArray("visuals", "timer", "name_label")]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
@@ -1772,7 +1773,9 @@ floor_snap_length = 0.1
 platform_floor_layers = 4294967294
 safe_margin = 0.2
 script = ExtResource("1_megbn")
+visuals = NodePath("visuals")
 timer = NodePath("Timer")
+name_label = NodePath("controller/quest name")
 
 [node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
 position = Vector2(0, -20)
@@ -1785,6 +1788,20 @@ animation_tree = NodePath("../AnimationTree")
 radius = 35.0
 affect_navigation_mesh = true
 carve_navigation_mesh = true
+
+[node name="quest name" type="Label" parent="controller"]
+visible = false
+z_index = 2
+offset_left = -76.0
+offset_top = -132.0
+offset_right = 76.0
+offset_bottom = -29.0
+theme_override_colors/font_color = Color(0.752941, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "sdfsdfsdf"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1810,9 +1827,17 @@ parameters/state/transition_request = ""
 parameters/state/current_index = 0
 parameters/walk_timescale/scale = 0.1
 
-[node name="visuals" type="Node2D" parent="."]
+[node name="visuals" type="Node2D" parent="." node_paths=PackedStringArray("right_arm", "right_leg", "body", "left_leg", "head", "chin", "left_arm")]
 position = Vector2(0, -15)
 scale = Vector2(0.06, 0.06)
+script = ExtResource("3_hic02")
+right_arm = NodePath("Polygons/RightArm")
+right_leg = NodePath("Polygons/RightLeg")
+body = NodePath("Polygons/Body")
+left_leg = NodePath("Polygons/LeftLeg")
+head = NodePath("Polygons/Head")
+chin = NodePath("Polygons/Chin")
+left_arm = NodePath("Polygons/LeftArm")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="visuals"]
 

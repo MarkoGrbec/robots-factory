@@ -124,12 +124,13 @@ func welcome_screen():
 	var quest_servers = mp.get_quest_objects(1)# 1 = id user
 	for quest_server in quest_servers:
 		if quest_server.activated:
+			g_man.quests_manager.target_send_quest_mob_to_make(quest_server)
 			#var quest_object = mp.get_quest_object(quest_server._quest_index)
 			#var body_type = quest_object.quest_body_type
-			quest_server.body = mp.create_me(Enums.Esprite.mob_quest_client)
-			quest_server.body.global_position = quest_server.position
-			quest_server.body.quest_index = quest_server._quest_index
-			quest_server.body.entity_inventory = quest_server.inventory
+			#quest_server.body = mp.create_me(Enums.Esprite.mob_quest_client)
+			#quest_server.body.global_position = quest_server.position
+			#quest_server.body.quest_index = quest_server._quest_index
+			#quest_server.body.entity_inventory = quest_server.inventory
 	
 	var tab = get_parent()
 	tab.set_tab_hidden(0, true)
@@ -158,6 +159,7 @@ func close_welcome_window():
 	g_man.savable_entity.partly_load_all()
 	g_man.entity_manager.activate_layer(0)
 	
+	g_man.player.config_name(g_man.user.avatar_name)
 	g_man.inventory_system.generate_inventory_slots()
 	
 	g_man.savable_mob.partly_load_all()

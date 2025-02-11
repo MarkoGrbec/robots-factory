@@ -10,10 +10,12 @@ enum TypeActivated {
 @export var quest_name: String
 @export var position: Vector2
 @export var quest_body_type: Enums.Esprite = Enums.Esprite.empty_visual
+@export var color: Color = Color.WHITE
 @export var equipment: Enums.Esprite = Enums.Esprite.nul
 @export var activated: bool = false
 var quest_index
 @export var list_quest_basis: Array[QuestBasis]
+
 
 #region open ai
 #var api_key: String = ""

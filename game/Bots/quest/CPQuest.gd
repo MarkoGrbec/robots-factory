@@ -2,14 +2,18 @@ class_name CPQuest extends CPMob
 
 var entity_inventory
 var quest_index
+@export var visuals: Visuals
 @export var timer: Timer
+
+func config() -> void:
+	var quest_obj = mp.get_quest_object(quest_index)
+	if quest_obj:
+		name_label.text = quest_obj.quest_name
+		visuals.color_poligons(quest_obj.color)
 
 func _on_mouse_entered() -> void:
 	g_man.camera.input_active = quest_index
-
-
-func _on_mouse_exited() -> void:
-	g_man.camera.input_active = 0
+	show_label()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if g_man.camera.input_active is int and g_man.camera.input_active == quest_index:

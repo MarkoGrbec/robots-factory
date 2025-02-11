@@ -2344,7 +2344,8 @@ node_connections = [&"dig_blend", 0, &"land_hard", &"dig_blend", 1, &"dig_timesc
 radius = 11.0
 height = 46.0
 
-[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller")]
+[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "name_label")]
+input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
 floor_snap_length = 0.1
@@ -2352,6 +2353,7 @@ platform_floor_layers = 4294967294
 safe_margin = 0.2
 script = ExtResource("1_hld8j")
 weapon_controller = NodePath("controller/PlayerWeaponController")
+name_label = NodePath("controller/player name")
 
 [node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "animation_tree")]
 position = Vector2(0, -20)
@@ -2374,6 +2376,20 @@ controller = NodePath("..")
 weapon = NodePath("../beam weapon")
 pickaxe = NodePath("../../visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand/Pickaxe")
 shovel = NodePath("../../visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand/Shovel")
+
+[node name="player name" type="Label" parent="controller"]
+visible = false
+z_index = 2
+offset_left = -76.0
+offset_top = -132.0
+offset_right = 76.0
+offset_bottom = -29.0
+theme_override_colors/font_color = Color(0.752941, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "sdfsdfsdf"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="Movement" type="Node" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
 script = ExtResource("3_45dmi")
@@ -2421,13 +2437,13 @@ rest = Transform2D(1, 0, 0, 1, -3, -11)
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
 rotation = 0.653935
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
 rotation = -0.0176109
-scale = Vector2(0.999996, 0.999996)
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
 [node name="Chin" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/Head"]
@@ -2452,6 +2468,7 @@ rest = Transform2D(1, 0, 0, 1, -11, 97)
 [node name="RightHand" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm"]
 position = Vector2(13, 94)
 rotation = 1.22745
+scale = Vector2(1, 1)
 rest = Transform2D(0.336639, 0.941634, -0.941634, 0.336639, 13, 94)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2604,4 +2621,6 @@ position = Vector2(0, -32)
 limit_smoothed = true
 script = ExtResource("3_g1dw6")
 
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="hit_body" from="controller/beam weapon" to="controller/PlayerWeaponController" method="_on_beam_weapon_hit_body"]

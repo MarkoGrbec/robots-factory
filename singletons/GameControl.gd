@@ -67,6 +67,7 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 	g_man.tile_map_layers.override_fake_tunnel_back(tunnel_coords[1][0], tunnel_coords[1][1][1])
 	for bot in tunnel_coords[0]:
 		bot.queue_free()
+		g_man.camera.input_active = 0
 	
 	enemy_tunnels.erase(tunnel_coords)
 	

@@ -86,6 +86,7 @@ func create_database():
 	_table = DataBase.Table.new("misc")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "quest_move")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "slow_writing")
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "speak_names")
 	
 	
 	_table = DataBase.Table.new("trader")

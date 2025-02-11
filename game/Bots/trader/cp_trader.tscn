@@ -1764,7 +1764,7 @@ node_connections = [&"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land"
 radius = 11.0
 height = 46.0
 
-[node name="CPTrader" type="CharacterBody2D"]
+[node name="CPTrader" type="CharacterBody2D" node_paths=PackedStringArray("name_label")]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
@@ -1772,6 +1772,7 @@ floor_snap_length = 0.1
 platform_floor_layers = 4294967294
 safe_margin = 0.2
 script = ExtResource("1_t2bju")
+name_label = NodePath("controller/trader")
 
 [node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
 position = Vector2(0, -20)
@@ -1784,6 +1785,20 @@ animation_tree = NodePath("../AnimationTree")
 radius = 35.0
 affect_navigation_mesh = true
 carve_navigation_mesh = true
+
+[node name="trader" type="Label" parent="controller"]
+visible = false
+z_index = 2
+offset_left = -76.0
+offset_top = -132.0
+offset_right = 76.0
+offset_bottom = -29.0
+theme_override_colors/font_color = Color(0.752941, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "trader"
+horizontal_alignment = 1
+vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
