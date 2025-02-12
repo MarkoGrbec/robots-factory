@@ -10,9 +10,9 @@ func _ready() -> void:
 
 func _on_mouse_entered() -> void:
 	if not g_man.wheel():
-		g_man.camera.input_active = false
+		g_man.camera.input_active = true
 		show_label()
 
 func _on_mouse_exited() -> void:
-	g_man.camera.input_active = true
+	g_man.camera.input_active = false
 	hide_label()

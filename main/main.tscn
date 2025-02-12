@@ -258,7 +258,6 @@ visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.609
-mouse_filter = 0
 
 [node name="change name manager" parent="CanvasLayer/Main" instance=ExtResource("7_67ri8")]
 visible = false

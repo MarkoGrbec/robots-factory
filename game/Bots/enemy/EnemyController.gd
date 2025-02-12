@@ -28,6 +28,11 @@ var avoid_direction: Vector2
 
 var target_position
 
+
+var nav_time = 0
+var nav_angle: float = 90
+var nav_int: int = 0
+
 func set_timer(time = -1) -> void:
 	timer.timeout.connect(run_away)
 	timer.start(time)
@@ -40,7 +45,7 @@ func run_away():
 		# my target is enemy bot so always run away as it's broken
 		state = State.RUN_AWAY
 	
-	# if helpless bot doen't have me as target and I'm not broken
+	# if helpless bot doen'nav_time have me as target and I'm not broken
 	if (GameControl._helpless_bot and GameControl._helpless_bot.controller.target != self) and state != State.BROKEN and state == State.CHASE:
 		state = State.RUN_AWAY
 
@@ -49,8 +54,8 @@ func _physics_process(_delta: float) -> void:
 	if target:
 		target_position = target.global_position
 		agent.target_position = target_position
-		if agent.is_navigation_finished():
-			return
+		#if agent.is_navigation_finished():
+			#return
 	else:# if 1 tunnel is closed go back as there's no target
 		if state == State.CHASE or state == State.RUN_AWAY:
 			state = State.RUN_AWAY
@@ -79,7 +84,6 @@ func _physics_process(_delta: float) -> void:
 	
 	
 	agent_next_path_position()
-	avoidance()
 	
 	# change target's target
 	if state == State.CHASE or state == State.RETRIVE or state == State.BRING_MATS:
@@ -103,7 +107,6 @@ func _physics_process(_delta: float) -> void:
 		if not target_position == starting_point:
 			target_position = starting_point
 			agent_next_path_position()
-			avoidance()
 		
 		if global_position.distance_to(coords[1][0]/2) < 24:
 			GameControl.turn_fake_tunnel_back(enemy_tunnel, state)
@@ -114,13 +117,48 @@ func _physics_process(_delta: float) -> void:
 func agent_next_path_position():
 	agent.target_position = target_position
 	next_position = agent.get_next_path_position()
-	direction = global_position.direction_to(next_position)
+	if not nav_dir:
+		direction = global_position.direction_to(next_position)
+	else: direction = nav_dir
+	#avoidance()
 
 func avoidance():
 	if agent.avoidance_enabled:
 		agent.set_velocity(direction)
+		pass
 	else:
 		movement.direction = direction
 
+var nav_dir
+
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	movement.direction = safe_velocity
+	if nav_time + 0.75 < Time.get_unix_time_from_system():
+		print(safe_velocity)
+		nav_dir = safe_velocity
+		if nav_dir:
+			#agent.target_position = safe_velocity
+			#next_position = agent.get_next_path_position()
+			direction = global_position.direction_to(next_position)
+		if not nav_dir:
+			agent.target_position = target_position
+			next_position = agent.get_next_path_position()
+			direction = global_position.direction_to(next_position)
+			nav_dir = direction
+			return
+		var angle = rad_to_deg(movement.direction.angle_to(safe_velocity))
+		if nav_int < 8:
+			print(nav_int)
+			rotate_angle(nav_angle, 1)
+		elif angle > 0.01:
+			rotate_angle(+85)
+		elif angle < -0.01:
+			rotate_angle(-85)
+
+func rotate_angle(ang, i = 0):
+	if i:
+		nav_int += i
+	else:
+		nav_int = i
+	nav_angle = ang
+	nav_dir = direction.rotated(deg_to_rad(nav_angle))
+	nav_time = Time.get_unix_time_from_system()
