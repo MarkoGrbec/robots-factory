@@ -60,6 +60,8 @@ func dig(mouse_pos):
 			pickaxe.hide()
 			continue
 		if ttc.finished or not ttc._point:
+			if not ttc._tool:
+				return
 			if ttc._tool.entity_num == Enums.Esprite.shovel:
 				controller.blend_anim("dig", 0, 1)
 				shovel.hide()

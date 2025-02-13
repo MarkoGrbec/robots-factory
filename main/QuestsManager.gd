@@ -110,6 +110,7 @@ func add_dialogs(name_a: String, text):
 		else:
 			dialog.text = str("\n", text[i])
 		var tween = create_tween()
+		dialog.visible_characters = 1
 		var dialog_speed = dialog.text.length() * g_man.misc.slow_writing
 		tween.tween_property(dialog, "visible_characters", dialog.text.length(), dialog_speed)
 		await get_tree().create_timer(dialog_speed).timeout

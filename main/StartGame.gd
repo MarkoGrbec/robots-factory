@@ -68,6 +68,7 @@ func _on_start_game_pressed() -> void:
 		var user: User = g_man.savable_user.set_index_data(1, User.new(), 0)
 		g_man.user = user
 		user.destroy()
+		g_man.savable_mob.remove_all()
 		g_man.savable_entity.remove_all()
 		g_man.savable_holding_hand.remove_all()
 		g_man.savable_trader.remove_all()
@@ -168,4 +169,4 @@ func close_welcome_window():
 
 
 func _on_message_to_ash_february_pressed() -> void:
-	g_man.mold_window.set_instructions_only(["first of all I would like to thank you for previous feedback for it you'll have walls of text", "becarefull what you wish for, you might get it ;)", "truthfully I have no idea what text to speach I'm using on your machine but I'm only guessing the default is not an ai generated if you think it is say which part as I'm using bot to get id(number) by a number and I'll simply remove that index number of id", "\nI wander where YOU wish to get in to the game", "so I know what to develop not only focuses", "\nhappy playing and please keep your mind on a game", "because you really need to keep attention in the game", "it's not usual kill and go game", "but more ask and REMEMBER what you were been told", "what to ask next npc what npc is whom and at what stage you are in the moment and the story of the game", "\nI will not hold your hand there untill companion except hint bot which is trying to explain kinda in riddles what to do", "\nalso I wander whom do you like more companion or hint bot that's when you get a companion I'd like to know your opinion"])
+	g_man.mold_window.set_instructions_only(["first of all I would like to thank you for previous feedback for it you'll have walls of text", "becarefull what you wish for, you might get it ;)", "truthfully I have no idea what text to speach I'm using on your machine but I'm only guessing the default is not an ai generated if you think it is say which part as I'm using bot id to get id(number) of speach voice by a number and I'll simply remove that index number of id", "\nI wander where YOU wish to get in to the game", "so I know what to develop not only focuses", "\nhappy playing and please keep your mind on a game", "because you really need to keep attention in the game", "it's not usual kill and go game", "but more ask and REMEMBER what you were been told", "what to ask next npc what npc is whom and at what stage you are in the moment and the story of the game", "\nI will not hold your hand there untill companion except hint bot which is trying to explain kinda in riddles what to do", "\nalso I wander whom do you like more companion or hint bot that's when you get a companion I'd like to know your opinion"])

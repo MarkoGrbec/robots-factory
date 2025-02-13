@@ -52,16 +52,24 @@ func get_index_data(index):
 		return null
 	return _container[index]
 
-## does not free the memory it only sets the data to null
+## frees data if possible
 func remove_at(index):
 	if _container.size() > index:
 		_null_container.push_back(index)
-		_container[index] = null
+		_queue_free_index_if_not_null(index)
 	else:
 		_null_container.push_back(index)
 		if _container.size() <= index:
 			_container.resize(index + 1)
-		_container[index] = null
+		_queue_free_index_if_not_null(index)
+
+func _queue_free_index_if_not_null(index: int):
+	_queue_free_if_not_null(_container[index])
+	_container[index] = null
+
+func _queue_free_if_not_null(variant: Variant):
+	if variant and variant.has_method("queue_free"):
+		variant.queue_free()
 
 func add_null(index):
 	if not _null_container.has(index):
@@ -81,6 +89,10 @@ func exists(index):
 	return true
 	
 func clear():
+	for item in _container:
+		_queue_free_if_not_null(item)
+	for item in _null_container:
+		_queue_free_if_not_null(item)
 	_container.clear()
 	_null_container.clear()
 	#_count = 0

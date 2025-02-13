@@ -1210,7 +1210,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_nl6tp"), SubResource("Resource_8rob0")])
 list_avatar_dialog = Array[String](["fix help"])
-response_dialog = Array[String](["find my maintenence robot and ask him what do I need to be fixed"])
+response_dialog = Array[String](["find my maintenence robot and ask him what do I need to be fixed", "the maintenence robot is south west of me"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -1225,7 +1225,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["fix"])
-response_dialog = Array[String](["fix me"])
+response_dialog = Array[String](["fix me", "please fix me I don't know what's wrong with me", "this isn't fixing me"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -1380,7 +1380,8 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["reboot"])
-response_dialog = Array[String](["I was just rebooted no need to reboot again!!!"])
+response_dialog = Array[String](["I was just rebooted no need to reboot again!!!", "I do not understand why do you want to reboot me again.
+And I'm not asking you to explain please."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -1439,7 +1440,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["maintenence fix"])
-response_dialog = Array[String](["I'm maintenence bot and I do not need to be fixed!!!"])
+response_dialog = Array[String](["I'm maintenence bot and I do not need to be fixed!!!", "do not attempt to fix me. You do not have sudo permissions."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -1454,7 +1455,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["sorry but I need to know what kind of help you need"])
+response_dialog = Array[String](["sorry but I need to know what kind of help you need", "what is wrong and what do you need me to help you with?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -1490,7 +1491,7 @@ list_avatar_dialog = Array[String](["change name", "chname"])
 response_dialog = Array[String](["if change name doesn't work
 try resetting him.
 with
-[reboot] command"])
+[reboot] command", "try using [reboot] command on name change bot"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2276,7 +2277,7 @@ reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_gmbyg")])
 list_avatar_dialog = Array[String](["mold", "molds", "robot", "part", "parts", "gather", "much"])
 response_dialog = Array[String](["well bring me 3 clay and
-I'll send to craft the mold for legs"])
+I'll send to craft the mold for legs", "dig 3 clay with left mouse button [select] binding"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2358,7 +2359,7 @@ reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["mold", "gather", "much"])
 response_dialog = Array[String](["well bring me 5 clay and
-I'll send to craft the mold for chest and arms"])
+I'll send to craft the mold for chest and arms", "please I need 5 clay"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2408,7 +2409,7 @@ reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["mold", "gather", "much"])
 response_dialog = Array[String](["well bring me 2 clay and
-I'll send to craft the mold for head"])
+I'll send to craft the mold for head", "2 clay please"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2449,9 +2450,9 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["how iron", "molds", "trader", "mold", "gather", "much"])
-response_dialog = Array[String](["well bring me 15 iron and
-I'll send to pour the iron in to the robot
-go to trader and buy iron"])
+response_dialog = Array[String](["well bring me 15 iron and I'll send to pour the iron in to the robot
+
+go to trader and buy iron", "15 iron please"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2501,7 +2502,7 @@ reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["chip", "chips", "dead", "trader", "much", "gather"])
 response_dialog = Array[String](["well bring me 3 sand from trader and
-I'll send to craft some chips"])
+I'll send to craft some chips", "3 sand please"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2533,7 +2534,7 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_ldw7g")])
-list_avatar_dialog = Array[String](["new", "make"])
+list_avatar_dialog = Array[String](["new", "make", "again", "try"])
 response_dialog = Array[String](["we have molds so bring me more iron please"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
@@ -2564,7 +2565,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["weapon"])
-response_dialog = Array[String](["ok ask a weapon master to build you a weapon"])
+response_dialog = Array[String](["ok ask a weapon master to build you a weapon", "there's new bot weapon master"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2606,7 +2607,7 @@ reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["trader", "much", "gather"])
 response_dialog = Array[String](["well bring me 1 iron from trader and
-I'll reprogram it"])
+I'll reprogram it", "just 1 more iron please"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2648,7 +2649,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_k1sx8"), SubResource("Resource_2t1fq")])
 list_avatar_dialog = Array[String](["objective", "completed"])
-response_dialog = Array[String](["I think you'll be in good hands"])
+response_dialog = Array[String](["I think you'll be in good hands", "try play around with your new companion", "your new objective is to ask assistant bot", "what do you want me to say I'm done with you.", "really? Please stop."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2719,6 +2720,7 @@ other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
 response_dialog = Array[String](["what do you need a weapon
 a upgrade battery,
+a range upgrade,
 a faster reflexes?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
@@ -2751,7 +2753,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["battery", "faster", "reflexes"])
-response_dialog = Array[String](["you'll need a weapon first"])
+response_dialog = Array[String](["you'll need a weapon first", "ask me for a weapon"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2776,7 +2778,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["upgrade", "battery"])
-response_dialog = Array[String](["ok you've got upgraded battery and I've filled your battery"])
+response_dialog = Array[String](["ok you've got upgraded battery and I've filled your battery", "your battery is upgraded and your battery is full now"])
 response_failed_dialog = "ok bring me 5 sand"
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2791,7 +2793,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["range"])
-response_dialog = Array[String](["ok here you've got it"])
+response_dialog = Array[String](["ok range is upgraded", "I upgraded range"])
 response_failed_dialog = "I'll need 3 iron"
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2806,7 +2808,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["reflexes", "faster", "reflex"])
-response_dialog = Array[String](["I've upgrated your hands reflexes"])
+response_dialog = Array[String](["I've upgrated your hands reflexes", "your reflexes has been upgraded"])
 response_failed_dialog = "I need 6 iron"
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3002,7 +3004,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_chumm"]
 script = ExtResource("3_d1vgu")
-quest_name = "cg"
+quest_name = "mayor bot"
 position = Vector2(510, -1570)
 quest_body_type = 350
 color = Color(0.315425, 0.355119, 0.0410218, 1)
@@ -3023,7 +3025,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_8ce2w"]
 script = ExtResource("3_d1vgu")
-quest_name = ""
+quest_name = "no idea bot"
 position = Vector2(868, -1720)
 quest_body_type = 350
 color = Color(0.14902, 0.188235, 0.392157, 1)

@@ -178,7 +178,7 @@ func write_text(label: Label, voice_id = -1):
 		tween.stop()
 	tween = create_tween()
 	var dialog_speed = label.text.length() * g_man.misc.slow_writing
-	label.visible_characters = 0
+	label.visible_characters = 1
 	tween.tween_property(label, "visible_characters", label.text.length(), dialog_speed)
 
 func begin():

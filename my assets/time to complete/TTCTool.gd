@@ -8,6 +8,9 @@ func _init(tool, point, dig: Callable):
 		delay_sound = tool_obj.delay_sound
 		is_sound_on_end = tool_obj.is_sound_on_end
 		working_sound = tool_obj.working_sound
+	else:
+		queue_free()
+		return
 	if check():
 		g_man.sliders_manager.add_work(self)
 

@@ -44,12 +44,12 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 					"tex" = sprite.texture,
 					"node2d" = self
 				}
-				
-				if g_man.trader_manager._trader:
-					var user_gold_coins = g_man.user.gold_coins
-					g_man.trader_manager.sell_for.text = str("sell for: ", Entity.cost(false, entity.entity_num, user_gold_coins, g_man.trader_manager._trader.gold_coins))
-				
-				g_man.inventory_system.drag_inventory(data)
+				if entity != null:
+					if g_man.trader_manager._trader:
+						var user_gold_coins = g_man.user.gold_coins
+						g_man.trader_manager.sell_for.text = str("sell for: ", Entity.cost(false, entity.entity_num, user_gold_coins, g_man.trader_manager._trader.gold_coins))
+					
+					g_man.inventory_system.drag_inventory(data)
 			elif event.is_action_pressed("put back material"):
 				static_body_2d.set_collision_layer_value(1, false)
 				g_man.inventory_system.dragging = true

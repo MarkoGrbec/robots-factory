@@ -32,6 +32,7 @@ var target_position
 var nav_time = 0
 var nav_angle: float = 90
 var nav_int: int = 0
+var nav_count: int = 0
 
 func set_timer(time = -1) -> void:
 	timer.timeout.connect(run_away)
@@ -119,7 +120,8 @@ func agent_next_path_position():
 	next_position = agent.get_next_path_position()
 	if not nav_dir:
 		direction = global_position.direction_to(next_position)
-	else: direction = nav_dir
+	else:
+		direction = nav_dir
 	#avoidance()
 
 func avoidance():
@@ -133,26 +135,33 @@ var nav_dir
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	if nav_time + 0.75 < Time.get_unix_time_from_system():
-		print(safe_velocity)
 		nav_dir = safe_velocity
 		if nav_dir:
-			#agent.target_position = safe_velocity
-			#next_position = agent.get_next_path_position()
+			agent.target_position = global_position + safe_velocity
+			next_position = agent.get_next_path_position()
 			direction = global_position.direction_to(next_position)
+			nav_count = 0
 		if not nav_dir:
+			if nav_count > 1:
+				#g_man.changes_manager.add_change("dir reset")
+				nav_count = 0
+				nav_int = 0
+			nav_count += 1
+			
 			agent.target_position = target_position
 			next_position = agent.get_next_path_position()
 			direction = global_position.direction_to(next_position)
 			nav_dir = direction
+			nav_time = Time.get_unix_time_from_system()
 			return
 		var angle = rad_to_deg(movement.direction.angle_to(safe_velocity))
-		if nav_int < 8:
-			print(nav_int)
+		if nav_int < 15:
+			#g_man.changes_manager.add_key_change("nav: ", str("nav int: ", nav_int, " angle: ", angle))
 			rotate_angle(nav_angle, 1)
 		elif angle > 0.01:
-			rotate_angle(+85)
+			rotate_angle(-100)
 		elif angle < -0.01:
-			rotate_angle(-85)
+			rotate_angle(+100)
 
 func rotate_angle(ang, i = 0):
 	if i:

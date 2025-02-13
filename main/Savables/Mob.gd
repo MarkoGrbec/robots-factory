@@ -4,7 +4,7 @@ class_name Mob extends ISavable
 var position: Vector2
 var layer: int
 var entity_num: Enums.Esprite
-
+var body
 func copy():
 	return Mob.new()
 
@@ -15,12 +15,16 @@ func fully_load():
 func partly_load():
 	partly_loaded = 2
 	fully_load()
-	CreateMob.target_create_bot(position, entity_num, id)
+	body = CreateMob.target_create_bot(position, entity_num, id)
 
 func fully_save():
 	save_position()
 	save_entity_num()
 	save_layer()
+
+func destroy():
+	if body:
+		body.queue_free()
 
 #region position
 func save_position():
