@@ -2344,7 +2344,7 @@ node_connections = [&"dig_blend", 0, &"land_hard", &"dig_blend", 1, &"dig_timesc
 radius = 11.0
 height = 46.0
 
-[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "name_label")]
+[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "name_label") groups=["player"]]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
@@ -2468,6 +2468,7 @@ rest = Transform2D(1, 0, 0, 1, -11, 97)
 [node name="RightHand" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm"]
 position = Vector2(13, 94)
 rotation = 1.22745
+scale = Vector2(1, 1)
 rest = Transform2D(0.336639, 0.941634, -0.941634, 0.336639, 13, 94)
 auto_calculate_length_and_angle = false
 length = 16.0

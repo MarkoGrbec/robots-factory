@@ -124,6 +124,7 @@ var activated: bool = false
 var alive: bool = true
 var _quest_index: int = 1
 var position
+var layer: int
 var id_avatar: int
 var default_starting_dialog: String
 var basis = 0

@@ -100,7 +100,7 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "underground")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "npc")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "trader")
-	
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "quadrant1")
 	
 	_table = DataBase.Table.new("terrain_ground")
 	create_columns_terrain(_table)

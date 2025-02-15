@@ -177,6 +177,10 @@ static func target_send_quest_mob_to_make(server_quest: ServerQuest):
 	server_quest.body.quest_index = server_quest._quest_index
 	server_quest.body.entity_inventory = server_quest.inventory
 	server_quest.body.config()
+	if server_quest.layer == g_man.tile_map_layers.active_layer:
+		server_quest.body.show()
+	else:
+		server_quest.body.hide()
 
 static func target_send_quest_mob_remove(server_quest: ServerQuest):
 	if server_quest.body:

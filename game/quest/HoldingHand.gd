@@ -167,3 +167,25 @@ func holding_hand_trader():
 	if load_return_holding_hand_trader():
 		g_man.mold_window.set_yes_no_cancel([trader_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_trader, stop_holding_hand_trader, stop_holding_hand_trader)
 #endregion trader
+#region quadrant1
+var quadrant1_string: String = "what is this seems like everything is wrong maybe I should ask assistant."
+
+func load_return_holding_hand_quadrant1():
+	return DataBase.select(_server, g_man.dbms, _path, "quadrant1", id, true)
+
+func save_holding_hand_quadrant1(yes, callab: bool = true):
+	DataBase.insert(_server, g_man.dbms, _path, "quadrant1", id, yes)
+
+func still_holding_hand_quadrant1():
+	save_holding_hand_quadrant1(true)
+
+func stop_holding_hand_quadrant1():
+	save_holding_hand_quadrant1(false)
+
+func holding_hand_quadrant1() -> bool:
+	if load_return_holding_hand_quadrant1():
+		g_man.mold_window.set_instructions_only([quadrant1_string], 7)
+		stop_holding_hand_quadrant1()
+		return true
+	return false
+#endregion quadrant1

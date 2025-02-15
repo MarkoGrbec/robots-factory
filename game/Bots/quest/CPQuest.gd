@@ -10,6 +10,7 @@ func config() -> void:
 	if quest_obj:
 		name_label.text = quest_obj.quest_name
 		visuals.color_poligons(quest_obj.color)
+		
 
 func _on_mouse_entered() -> void:
 	if not g_man.wheel():

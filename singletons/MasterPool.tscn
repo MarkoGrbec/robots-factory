@@ -1,4 +1,4 @@
-[gd_scene load_steps=211 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=236 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -1400,6 +1400,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "name change bot"
 position = Vector2(500, 300)
+layer = 0
 quest_body_type = 311
 color = Color(0.227999, 0.359124, 0.1814, 1)
 equipment = 0
@@ -1510,6 +1511,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "maintenence bot"
 position = Vector2(300, 600)
+layer = 0
 quest_body_type = 350
 color = Color(0, 0.501961, 1, 1)
 equipment = 0
@@ -1826,6 +1828,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "forking bot"
 position = Vector2(1200, 900)
+layer = 0
 quest_body_type = 350
 color = Color(1, 0.752941, 0, 1)
 equipment = 0
@@ -2236,6 +2239,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "hint bot"
 position = Vector2(150, 150)
+layer = 0
 quest_body_type = 350
 color = Color(1, 0, 0.482353, 1)
 equipment = 0
@@ -2701,6 +2705,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "gathering bot"
 position = Vector2(550, 150)
+layer = 0
 quest_body_type = 350
 color = Color(0.6649, 0.322911, 7.70092e-07, 1)
 equipment = 0
@@ -2857,6 +2862,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "weapon master"
 position = Vector2(900, 300)
+layer = 0
 quest_body_type = 350
 color = Color(0.407843, 0, 1, 1)
 equipment = 0
@@ -2984,7 +2990,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_4kfbj"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = 3
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3009,7 +3015,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ny4px"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = 4
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3036,6 +3042,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "robot assistant"
 position = Vector2(700, 400)
+layer = 0
 quest_body_type = 350
 color = Color(0.937255, 0.0980392, 0.258824, 1)
 equipment = 0
@@ -3118,6 +3125,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "mayor bot"
 position = Vector2(510, -1570)
+layer = 0
 quest_body_type = 350
 color = Color(0.315425, 0.355119, 0.0410218, 1)
 equipment = 0
@@ -3195,6 +3203,14 @@ npc_alive = false
 npc_basis = 4
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
+[sub_resource type="Resource" id="Resource_u54oj"]
+script = ExtResource("11_cdsqw")
+npc_activate = 10
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
 [sub_resource type="Resource" id="Resource_6ps6p"]
 script = ExtResource("5_0rfkw")
 new_basis = 0
@@ -3204,7 +3220,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_kqfpo")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_kqfpo"), SubResource("Resource_u54oj")])
 list_avatar_dialog = Array[String](["impossible", "reasonable", "non organic", "organic", "reason"])
 response_dialog = Array[String](["well what ever command I give to you organic robots you seem to use reason instead of activating the command.
 Go to house south west and you will see what I mean organic [name]"])
@@ -3225,6 +3241,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("3_d1vgu")
 quest_name = "bob"
 position = Vector2(868, -1720)
+layer = 0
 quest_body_type = 350
 color = Color(0.14902, 0.188235, 0.392157, 1)
 equipment = 0
@@ -3242,9 +3259,7 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["lost
-direct
-believe"])
+list_avatar_dialog = Array[String](["lost"])
 response_dialog = Array[String](["yes well you don't know who you are really. You really think you are robot? no you are [name]!
 
 Which ever way you pick it's always your choice.
@@ -3254,25 +3269,310 @@ and you would not be able to talk to us at all. no no not at all. Yes I know all
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
+[sub_resource type="Resource" id="Resource_kq64r"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["direct"])
+response_dialog = Array[String](["yes they do what they are commanded not like you"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_5p576"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["believe"])
+response_dialog = Array[String](["what is a believe? what do you believe in? god or nothing?"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_7h8j7"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["commanded"])
+response_dialog = Array[String](["yes they are simple tools of our your coices."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_p24c1"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["me"])
+response_dialog = Array[String](["Yes they are not like you. They can't think."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_qygw8"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["choice"])
+response_dialog = Array[String](["Well choice is something what organic is able to choose from"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_neywn"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["organic"])
+response_dialog = Array[String](["Yes we are organic robots with ability to choose."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_jpw7k"]
+script = ExtResource("11_cdsqw")
+npc_activate = 11
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_eamu7"]
+script = ExtResource("11_cdsqw")
+npc_activate = 12
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_iat7o"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([1])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jpw7k"), SubResource("Resource_eamu7")])
+list_avatar_dialog = Array[String](["god"])
+response_dialog = Array[String](["Ah yes god. Didn't we always wander where we come from. The origin."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_8isdr"]
+script = ExtResource("11_cdsqw")
+npc_activate = 11
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_ujvl3"]
+script = ExtResource("11_cdsqw")
+npc_activate = 12
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_v2o25"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_8isdr"), SubResource("Resource_ujvl3")])
+list_avatar_dialog = Array[String](["nothing"])
+response_dialog = Array[String](["You are absolutely right.
+You don't need to. But you are always able to choose."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
 [sub_resource type="Resource" id="Resource_k7ixf"]
 script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai"), SubResource("Resource_kq64r"), SubResource("Resource_5p576"), SubResource("Resource_7h8j7"), SubResource("Resource_p24c1"), SubResource("Resource_qygw8"), SubResource("Resource_neywn"), SubResource("Resource_iat7o"), SubResource("Resource_v2o25")])
 default_starting_dialog = "Hello there you seem to be a bit lost, not like other robots here, they seem to be very direct, they don't believe in anything."
 default_failed_dialog = "ha ha ha you talk so funny"
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_yvpyc"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["origin"])
+response_dialog = Array[String](["yes we come from origin that's god."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_00ug1"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yvpyc")])
+default_starting_dialog = ""
+default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_bet0m"]
 script = ExtResource("3_d1vgu")
 quest_name = "mark"
-position = Vector2(0, 0)
+position = Vector2(-460, -1830)
+layer = 4
 quest_body_type = 350
 color = Color(0.400535, 0.299508, 0.109548, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_k7ixf")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_k7ixf"), SubResource("Resource_00ug1")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_uamro"]
+script = ExtResource("11_cdsqw")
+npc_activate = 10
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_ij405"]
+script = ExtResource("11_cdsqw")
+npc_activate = 12
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_idqer"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_uamro"), SubResource("Resource_ij405")])
+list_avatar_dialog = Array[String](["mission"])
+response_dialog = Array[String](["thanks for playing"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_pit16"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_idqer")])
+default_starting_dialog = "what is your mission blessed one?"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_cknr8"]
+script = ExtResource("3_d1vgu")
+quest_name = "johny"
+position = Vector2(-412, -1742)
+layer = 4
+quest_body_type = 350
+color = Color(0.239812, 0.721415, 0.734687, 1)
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_pit16")])
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_jcphs"]
+script = ExtResource("11_cdsqw")
+npc_activate = 10
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_1cd46"]
+script = ExtResource("11_cdsqw")
+npc_activate = 11
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_w3kbx"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jcphs"), SubResource("Resource_1cd46")])
+list_avatar_dialog = Array[String](["consumed", "nothingness", "nothingnes"])
+response_dialog = Array[String](["thanks for playing"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_bsiru"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_w3kbx")])
+default_starting_dialog = "will you be consumed in to nothingness?"
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ptcvj"]
+script = ExtResource("3_d1vgu")
+quest_name = "sophie"
+position = Vector2(-524, -1742)
+layer = 4
+quest_body_type = 350
+color = Color(0.580483, 0.547897, 0.999999, 1)
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru")])
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_xgrt2"]
@@ -3358,5 +3658,5 @@ metadata/_custom_type_script = ExtResource("22_tt0nk")
 [node name="MasterPool" type="Node"]
 script = ExtResource("1_bgkrv")
 container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
-quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m")])
+quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj")])
 array_house_ground = Array[ExtResource("22_tt0nk")]([SubResource("Resource_xgrt2"), SubResource("Resource_tiwuc"), SubResource("Resource_kdcl1"), SubResource("Resource_2bky1"), SubResource("Resource_0nbsj"), SubResource("Resource_6aln0"), SubResource("Resource_w0hg2"), SubResource("Resource_qyol8"), SubResource("Resource_eejkm"), SubResource("Resource_58eew")])

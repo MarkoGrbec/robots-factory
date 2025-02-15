@@ -9,6 +9,7 @@ enum TypeActivated {
 }
 @export var quest_name: String
 @export var position: Vector2
+@export var layer: int = 0
 @export var quest_body_type: Enums.Esprite = Enums.Esprite.empty_visual
 @export var color: Color = Color.WHITE
 @export var equipment: Enums.Esprite = Enums.Esprite.nul
@@ -71,6 +72,7 @@ func create_npc_with_avatar(id_avatar: int):
 	server_quest._quest_index = quest_index
 	server_quest.fully_load()
 	g_man.quests_manager.dict_name__server_quest[quest_name] = server_quest
+	server_quest.layer = layer
 	if server_quest.activated and server_quest.initialized:
 		return server_quest
 	

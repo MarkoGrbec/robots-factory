@@ -158,6 +158,7 @@ func activate_layer(new_layer: Layers):
 	else:
 		g_man.map.activate(false)
 	g_man.entity_manager.activate_layer(active_layer)
+	reload_terrain()
 	
 #endregion in to change layer
 #region dirt reference
