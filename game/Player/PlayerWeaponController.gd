@@ -34,6 +34,7 @@ func _unhandled_input(event: InputEvent) -> void:
 						# go down or dig
 						if cp_player.global_position.distance_to(mouse_pos) < 96:
 							var tool = null
+							# diging tool
 							if id == TileMapLayers.Tile.ROCK or id == TileMapLayers.Tile.SOFT_ROCK_UNDERGROUND or id == TileMapLayers.Tile.SOFT_ROCK:
 								tool = pickaxe
 								pickaxe.show()
@@ -42,10 +43,21 @@ func _unhandled_input(event: InputEvent) -> void:
 								tool = shovel
 								shovel.show()
 								controller.blend_anim("dig", 1, g_man.sliders_manager.stamina_slider.value * 0.05)
-							
+							# inside house
+							elif id == TileMapLayers.Tile.HOUSE:
+								var house_inter_pos = mp.dict_ground_to_house_container.get(vec)
+								if house_inter_pos:
+									house_inter_pos = g_man.tile_map_layers.in_to_house(house_inter_pos)
+									g_man.player.global_position = house_inter_pos
+								return
+							# outside house
+							elif id == TileMapLayers.Tile.HOUSE_DOOR:
+								var house_outer_pos = mp.dict_house_to_ground_container.get(vec)
+								if house_outer_pos:
+									house_outer_pos = g_man.tile_map_layers.out_of_house(house_outer_pos)
+									g_man.player.global_position = house_outer_pos
+								return
 							array_ttc_tool.push_back(TTCTool.new(tool, mouse_pos, dig))
-
-
 
 func dig(mouse_pos):
 	var minus_counter = 0
@@ -61,7 +73,7 @@ func dig(mouse_pos):
 			continue
 		if ttc.finished or not ttc._point:
 			if not ttc._tool:
-				return
+				break
 			if ttc._tool.entity_num == Enums.Esprite.shovel:
 				controller.blend_anim("dig", 0, 1)
 				shovel.hide()

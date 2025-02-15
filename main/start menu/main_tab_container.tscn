@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btw2dmrck5wsv"]
 
-[ext_resource type="Script" uid="uid://dxd6wbawl72f6" path="res://main/StartGame.gd" id="1_sciab"]
+[ext_resource type="Script" uid="uid://dxd6wbawl72f6" path="res://main/start menu/StartGame.gd" id="1_sciab"]
 [ext_resource type="PackedScene" uid="uid://ww05yde5nb2t" path="res://terrain/terrain.tscn" id="2_686ee"]
 [ext_resource type="Script" uid="uid://coolq65m2ewxv" path="res://my assets/Credits/Credits.gd" id="3_i4pt1"]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://4uvqadvod7cb"]
 
-[ext_resource type="Script" uid="uid://db61dwu37phlo" path="res://main/InGameMenu.gd" id="1_un1ud"]
+[ext_resource type="Script" uid="uid://db61dwu37phlo" path="res://main/in game menu/InGameMenu.gd" id="1_un1ud"]
 [ext_resource type="PackedScene" uid="uid://b2i1wol5qwtld" path="res://my assets/binding/binding_container.tscn" id="2_cgffx"]
 [ext_resource type="Script" uid="uid://crwdcobjkbvbr" path="res://my assets/binding/Bindings.gd" id="2_omkwt"]
 [ext_resource type="PackedScene" uid="uid://b6jqqa8v3xar5" path="res://game/quest/options_holding_hand.tscn" id="4_yjfud"]

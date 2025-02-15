@@ -24,7 +24,9 @@ enum Tile{
 	TUNNEL = 5,
 	SOFT_ROCK_TUNNEL = 6,
 	SOFT_ROCK_UNDERGROUND = 7,
-	FAKE_TUNNEL = 8
+	FAKE_TUNNEL = 8,
+	HOUSE = 9,
+	HOUSE_DOOR = 10
 }
 enum Left{
 	CLAY = 5,
@@ -46,7 +48,8 @@ enum RegionActionType{
 	ADD
 }
 enum Layers{
-	GROUND_LAYER = 0
+	GROUND_LAYER = 0,
+	HOUSE_LAYER = 4
 }
 
 func load_map():
@@ -94,21 +97,29 @@ func add(id, callable):
 		callable.call()
 
 func dig(mouse_global_position: Vector2):
+	if not active_layer < savables.size():
+		return
 	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
-	
-	_fill_around(position)
 	# get data
 	var id = ground_layer[active_layer].get_cell_source_id(position)
+	if id == -1:
+		return
+	_fill_around(position)
+	
 	var data_array = get_data_array_from_position(id, position)
 	if id == Tile.TUNNEL:
 		g_man.changes_manager.add_change("you went a layer underground")
-		in_to_tunnel(position)
+		in_to_tunnel()
 		return
 	if id == Tile.SOFT_ROCK_TUNNEL:
 		g_man.changes_manager.add_change("you went a layer up to the surface")
-		up_to_the_surface(position)
+		up_to_the_surface()
 		return
 	if id == Tile.FAKE_TUNNEL:
+		return
+	if id == Tile.HOUSE:
+		return
+	if id == Tile.HOUSE_DOOR:
 		return
 	# dig
 	var new_id_type = dig_in_to_tile(data_array, position)
@@ -120,29 +131,35 @@ func dig(mouse_global_position: Vector2):
 		set_ground_cell(position, new_id_type, active_layer)
 	if not new_id_type is bool:
 		g_man.changes_manager.add_change(str("you dug a ", str(Tile.find_key(id)).to_lower().replace("_", " ")))
-#region in to tunnela
-func in_to_tunnel(position):
-	active_layer += 1
-	active_layer = clampi(active_layer, 0, ground_layer.size() -1)
-	
-	ground_layer[active_layer - 1].enabled = false
-	ground_layer[active_layer].enabled = true
-	reload_terrain()
-	g_man.map.activate(false)
-	g_man.entity_manager.activate_layer(active_layer)
+#region in to change layer
+func in_to_tunnel():
+	activate_layer(active_layer +1)
 	g_man.holding_hand.holding_hand_underground()
 	
-func up_to_the_surface(position):
-	active_layer -= 1
-	active_layer = clampi(active_layer, 0, ground_layer.size() -1)
+func up_to_the_surface():
+	activate_layer(active_layer -1)
+
+func in_to_house(vec):
+	activate_layer(Layers.HOUSE_LAYER)
+	return ground_layer[active_layer].map_to_local(vec) + Vector2(0, - 10)
+
+func out_of_house(vec):
+	activate_layer(Layers.GROUND_LAYER)
+	return ground_layer[active_layer].map_to_local(vec) * 0.5 + Vector2(0, 100)
+
+func activate_layer(new_layer: Layers):
+	new_layer = clampi(new_layer, 0, ground_layer.size() -1)
 	
-	ground_layer[active_layer + 1].enabled = false
+	ground_layer[active_layer].enabled = false
+	active_layer = new_layer
 	ground_layer[active_layer].enabled = true
-	reload_terrain()
 	if active_layer == Layers.GROUND_LAYER:
 		g_man.map.activate(true)
+	else:
+		g_man.map.activate(false)
 	g_man.entity_manager.activate_layer(active_layer)
-#endregion in to tunnel
+	
+#endregion in to change layer
 #region dirt reference
 	#region set
 func set_ground_cell(position: Vector2i, id: int, layer: int):
@@ -365,6 +382,8 @@ func dig_in_to_tile(array__data_array: Array, position):
 	if array__data_array.size() == 1:
 		if data_array[1] == 1:# change to new tile
 			return change_to_new_tile(data_array, position)
+		if data_array[1] == 0:# reload terrain
+			return data_array[0]
 	else:# still has some tiles left
 		if data_array[1] == 1:
 			#change tile

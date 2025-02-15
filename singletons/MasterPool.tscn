@@ -1,6 +1,6 @@
-[gd_scene load_steps=183 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=195 format=3 uid="uid://cfsyjdafhmeh"]
 
-[ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://my assets/entity/MP.gd" id="1_bgkrv"]
+[ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
 [ext_resource type="PackedScene" uid="uid://dr2owvb70m1ia" path="res://game/Bots/quest/cp_quest.tscn" id="3_2o1ts"]
 [ext_resource type="Script" uid="uid://4bh35mqidnhe" path="res://my assets/quest/objects/QuestObject.gd" id="3_d1vgu"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://be5bhpgyigp81" path="res://game/weapons/beem/beem_weapon.tscn" id="14_bryxq"]
 [ext_resource type="AudioStream" uid="uid://g16k6rwgkd2t" path="res://sounds/defunct3 laser-short-2.wav" id="15_gk2xh"]
 [ext_resource type="AudioStream" uid="uid://dhgaylnwlcabl" path="res://sounds/pickaxe_kamen.wav" id="15_tt0nk"]
+[ext_resource type="Script" uid="uid://yawqc32n88td" path="res://main/objects/HouseGround.gd" id="22_tt0nk"]
 
 [sub_resource type="Resource" id="Resource_d1vgu"]
 script = ExtResource("2_8f7pb")
@@ -2992,12 +2993,27 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj"), SubResource("Resource_f41dw"), SubResource("Resource_37k6v")])
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
+[sub_resource type="Resource" id="Resource_ioj4w"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["what", "going on", "they", "weird"])
+response_dialog = Array[String](["well this robots don't seem to be robots. They are half orgnic half robots, they look like us, we can communicate but anything we do to reprogram them it's like organic mechanism"])
+response_failed_dialog = "they seems to be weird you seem to be weird"
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
 [sub_resource type="Resource" id="Resource_qngvf"]
 script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
-list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ioj4w")])
 default_starting_dialog = "thanks for playing"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
@@ -3025,7 +3041,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_8ce2w"]
 script = ExtResource("3_d1vgu")
-quest_name = "no idea bot"
+quest_name = "higiene bot"
 position = Vector2(868, -1720)
 quest_body_type = 350
 color = Color(0.14902, 0.188235, 0.392157, 1)
@@ -3034,7 +3050,88 @@ activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_ksjeu")])
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
+[sub_resource type="Resource" id="Resource_xgrt2"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+bottom left house"
+house_tile_position = Vector2i(5, -32)
+house_internal_tile_position = Vector2i(-15, -49)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_tiwuc"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+bottom left house little up right"
+house_tile_position = Vector2i(7, -35)
+house_internal_tile_position = Vector2i(-1, -61)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_kdcl1"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+center left"
+house_tile_position = Vector2i(4, -38)
+house_internal_tile_position = Vector2i(-19, -73)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_2bky1"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+top left"
+house_tile_position = Vector2i(5, -44)
+house_internal_tile_position = Vector2i(-12, -94)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_0nbsj"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+top left little right"
+house_tile_position = Vector2i(8, -42)
+house_internal_tile_position = Vector2i(9, -85)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_6aln0"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+top Center"
+house_tile_position = Vector2i(11, -44)
+house_internal_tile_position = Vector2i(20, -97)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_w0hg2"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+top right little left"
+house_tile_position = Vector2i(15, -41)
+house_internal_tile_position = Vector2i(52, -83)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_qyol8"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+top right little down"
+house_tile_position = Vector2i(13, -38)
+house_internal_tile_position = Vector2i(38, -64)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_eejkm"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+bottom right little up"
+house_tile_position = Vector2i(17, -36)
+house_internal_tile_position = Vector2i(59, -48)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
+[sub_resource type="Resource" id="Resource_58eew"]
+script = ExtResource("22_tt0nk")
+description = "1. quadrant
+bottom right"
+house_tile_position = Vector2i(13, -34)
+house_internal_tile_position = Vector2i(36, -36)
+metadata/_custom_type_script = ExtResource("22_tt0nk")
+
 [node name="MasterPool" type="Node"]
 script = ExtResource("1_bgkrv")
 container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
 quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w")])
+array_house_ground = Array[ExtResource("22_tt0nk")]([SubResource("Resource_xgrt2"), SubResource("Resource_tiwuc"), SubResource("Resource_kdcl1"), SubResource("Resource_2bky1"), SubResource("Resource_0nbsj"), SubResource("Resource_6aln0"), SubResource("Resource_w0hg2"), SubResource("Resource_qyol8"), SubResource("Resource_eejkm"), SubResource("Resource_58eew")])

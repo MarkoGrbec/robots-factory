@@ -32,6 +32,10 @@ func _ready() -> void:
 	#var quest_object = QuestObject.new()
 	#quest_object.set_request(request)
 	
+	# house ground
+	for house in array_house_ground:
+		dict_ground_to_house_container[house.house_tile_position] = house.house_internal_tile_position
+		dict_house_to_ground_container[house.house_internal_tile_position] = house.house_tile_position
 
 var dict_container: Dictionary[Enums.Esprite, EntityObject]
 var dict_exp = {}
@@ -44,6 +48,9 @@ var dict_entity_num__plan = {}
 @export var quest_container: Array[QuestObject]
 #@export var dungeon_levels: Array[DungeonObject]
 #@export var customer_container: Array[CustomerObject]
+@export var array_house_ground: Array[HouseGround]
+var dict_house_to_ground_container: Dictionary[Vector2i, Vector2i]
+var dict_ground_to_house_container: Dictionary[Vector2i, Vector2i]
 
 func create_me(index):
 	if(dict_container.has(index)):
