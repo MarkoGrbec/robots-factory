@@ -17,6 +17,7 @@ func destroy():
 	still_holding_hand_npc(false)
 	still_holding_hand_underground(false)
 	still_holding_hand_trader(false)
+	still_holding_hand_quadrant1()
 
 func config():
 	movement_options_callable = _get_set_holding_hand_scene("movement", movement_string, load_return_holding_hand_movement(), still_holding_hand_movement, stop_holding_hand_movement)
@@ -173,7 +174,7 @@ var quadrant1_string: String = "what is this seems like everything is wrong mayb
 func load_return_holding_hand_quadrant1():
 	return DataBase.select(_server, g_man.dbms, _path, "quadrant1", id, true)
 
-func save_holding_hand_quadrant1(yes, callab: bool = true):
+func save_holding_hand_quadrant1(yes):
 	DataBase.insert(_server, g_man.dbms, _path, "quadrant1", id, yes)
 
 func still_holding_hand_quadrant1():
@@ -183,6 +184,7 @@ func stop_holding_hand_quadrant1():
 	save_holding_hand_quadrant1(false)
 
 func holding_hand_quadrant1() -> bool:
+	still_holding_hand_quadrant1()
 	if load_return_holding_hand_quadrant1():
 		g_man.mold_window.set_instructions_only([quadrant1_string], 7)
 		stop_holding_hand_quadrant1()

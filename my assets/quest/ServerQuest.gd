@@ -152,10 +152,16 @@ func mission_completing(dict):
 						save_mission()
 #endregion completting mission
 #region ask
+func delete_chars(chars: Array[String], raw_text: String):
+	for char in chars:
+		raw_text = raw_text.replace(char, "")
+	return raw_text
+
 ## return [[name], [response]], [quest_question], [inventory.id], [[success.new_basis], [qq_index]]
 func ask(raw_text: String, client) -> Array:
 	var avatar_name = g_man.user.avatar_name
 	raw_text = raw_text.to_lower()
+	raw_text = delete_chars(["?", "!", ",", ".", ";", ":"], raw_text)
 	var q_obj = mp.get_quest_object(_quest_index)
 	if q_obj.list_quest_basis.size() > basis:
 		default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog
@@ -169,7 +175,7 @@ func ask(raw_text: String, client) -> Array:
 		basis = -1
 		default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog
 		default_starting_dialog = default_starting_dialog.replace("[name]", avatar_name)
-		return [[q_obj.quest_name, "don't be that mean to me I can revenge on you"], null, inventory.id, []]
+		return [[q_obj.quest_name, "don't be that mean to me I can revenge on you if you. Are on main quest line it means it's game over for you. You need to start from beginning again"], null, inventory.id, []]
 	
 	
 	push_warning(raw_text, basis)

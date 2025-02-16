@@ -1,4 +1,4 @@
-[gd_scene load_steps=236 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=242 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -3269,6 +3269,66 @@ and you would not be able to talk to us at all. no no not at all. Yes I know all
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
+[sub_resource type="Resource" id="Resource_woxsk"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["gathering", "gather", "fighting", "fight"])
+response_dialog = Array[String](["another fork."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_imgq0"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["know"])
+response_dialog = Array[String](["I know because I programmed them all the forks"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ngqdi"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["programmed", "program"])
+response_dialog = Array[String](["I'm the one"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_om130"]
+script = ExtResource("5_0rfkw")
+new_basis = 0
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["one"])
+response_dialog = Array[String](["yes only I'm the one"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
 [sub_resource type="Resource" id="Resource_kq64r"]
 script = ExtResource("5_0rfkw")
 new_basis = 0
@@ -3427,7 +3487,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai"), SubResource("Resource_kq64r"), SubResource("Resource_5p576"), SubResource("Resource_7h8j7"), SubResource("Resource_p24c1"), SubResource("Resource_qygw8"), SubResource("Resource_neywn"), SubResource("Resource_iat7o"), SubResource("Resource_v2o25")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai"), SubResource("Resource_woxsk"), SubResource("Resource_imgq0"), SubResource("Resource_ngqdi"), SubResource("Resource_om130"), SubResource("Resource_kq64r"), SubResource("Resource_5p576"), SubResource("Resource_7h8j7"), SubResource("Resource_p24c1"), SubResource("Resource_qygw8"), SubResource("Resource_neywn"), SubResource("Resource_iat7o"), SubResource("Resource_v2o25")])
 default_starting_dialog = "Hello there you seem to be a bit lost, not like other robots here, they seem to be very direct, they don't believe in anything."
 default_failed_dialog = "ha ha ha you talk so funny"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
@@ -3469,10 +3529,18 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_k7ixf"), SubResource("Resource_00ug1")])
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
+[sub_resource type="Resource" id="Resource_fm5xk"]
+script = ExtResource("11_cdsqw")
+npc_activate = 9
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
 [sub_resource type="Resource" id="Resource_uamro"]
 script = ExtResource("11_cdsqw")
 npc_activate = 10
-npc_activated = false
+npc_activated = true
 npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = ExtResource("11_cdsqw")
@@ -3494,7 +3562,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_uamro"), SubResource("Resource_ij405")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_fm5xk"), SubResource("Resource_uamro"), SubResource("Resource_ij405")])
 list_avatar_dialog = Array[String](["mission"])
 response_dialog = Array[String](["thanks for playing"])
 response_failed_dialog = ""
@@ -3522,10 +3590,18 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_pit16")])
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
+[sub_resource type="Resource" id="Resource_s63vl"]
+script = ExtResource("11_cdsqw")
+npc_activate = 9
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
 [sub_resource type="Resource" id="Resource_jcphs"]
 script = ExtResource("11_cdsqw")
 npc_activate = 10
-npc_activated = false
+npc_activated = true
 npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = ExtResource("11_cdsqw")
@@ -3547,7 +3623,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jcphs"), SubResource("Resource_1cd46")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_s63vl"), SubResource("Resource_jcphs"), SubResource("Resource_1cd46")])
 list_avatar_dialog = Array[String](["consumed", "nothingness", "nothingnes"])
 response_dialog = Array[String](["thanks for playing"])
 response_failed_dialog = ""
