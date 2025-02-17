@@ -31,6 +31,7 @@ func fully_load():
 	load_mission_quantity()
 	equipment_in_hand = q_obj.equipment
 	load_initialized()
+	array_believe = [0.0, 1.0]
 
 func destroy():
 	initialized = false
@@ -134,6 +135,7 @@ var equipment_in_hand: Enums.Esprite = Enums.Esprite.nul
 var dict_mission__entity_num: Dictionary[String, Enums.Esprite]
 var mission_quantity
 var basis_flags = []
+var array_believe: Array[float]
 
 ## basis -> qq_index -> index
 var array_response_dialog_index: Array[int]
@@ -157,25 +159,24 @@ func delete_chars(chars: Array[String], raw_text: String):
 		raw_text = raw_text.replace(char, "")
 	return raw_text
 
-## return [[name], [response]], [quest_question], [inventory.id], [[success.new_basis], [qq_index]]
+## return [[name], [response]], [quest_question], [inventory.id], [[success.old_basis], [qq_index]], [failed.old_basis]
 func ask(raw_text: String, client) -> Array:
+	#array_believe = [0.0, 1.0]
 	var avatar_name = g_man.user.avatar_name
 	raw_text = raw_text.to_lower()
 	raw_text = delete_chars(["?", "!", ",", ".", ";", ":"], raw_text)
-	var q_obj = mp.get_quest_object(_quest_index)
+	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
 	if q_obj.list_quest_basis.size() > basis:
 		default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog
 		default_starting_dialog = default_starting_dialog.replace("[name]", avatar_name)
 	if not raw_text:
-		#else:
-			#basis = 0
-		return [[q_obj.quest_name, ""], null, inventory.id, []]
+		return [[q_obj.quest_name, ""], null, inventory.id, [], array_believe]
 	
 	if raw_text.find("fuck you") != -1:
 		basis = -1
 		default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog
 		default_starting_dialog = default_starting_dialog.replace("[name]", avatar_name)
-		return [[q_obj.quest_name, "don't be that mean to me I can revenge on you if you. Are on main quest line it means it's game over for you. You need to start from beginning again"], null, inventory.id, []]
+		return [[q_obj.quest_name, "don't be that mean to me I can revenge on you if you. Are on main quest line it means it's game over for you. You need to start from beginning again"], null, inventory.id, [], array_believe]
 	
 	
 	push_warning(raw_text, basis)
@@ -197,32 +198,41 @@ func ask(raw_text: String, client) -> Array:
 			# failed
 			push_error(str(q_obj.quest_name, " not implemented exeption basis: ", basis))
 			printerr(str(q_obj.quest_name, " not implemented exeption basis: ", basis))
-			return [[q_obj.quest_name, str("not implemented exeption basis: ", basis)], null, inventory.id, []]
+			return [[q_obj.quest_name, str("not implemented exeption basis: ", basis)], null, inventory.id, [], array_believe]
 		var default_failed_dialog = q_obj.list_quest_basis[basis].default_failed_dialog
 		if not default_failed_dialog:
 			default_failed_dialog = "what do you mean?"
 		response_dialog = [q_obj.quest_name, default_failed_dialog, false]
 	elif general_basis and not (check_items_integrity(qq, client) and mission_quantity == 0):
 		# failed
+		failed_believe()
 		if qq.response_failed_dialog:
-			return [[q_obj.quest_name, qq.response_failed_dialog], null, inventory.id, []]
+			return [[q_obj.quest_name, qq.response_failed_dialog], null, inventory.id, [], array_believe]
 		else:
-			return [[q_obj.quest_name, "I'm sorry I need more quality items"], null, inventory.id, []]
+			return [[q_obj.quest_name, "I'm sorry I need more quality items"], null, inventory.id, [], array_believe]
 	# success
 	else:
+		succeed_believe()
 		# add name in to the response dialog
 		var array_old_basis__qq_index: Array = [basis, q_obj.index_quest_qustion(qq, basis)]
 		var qq_response_dialog = get_response_dialog(qq, array_old_basis__qq_index[1], avatar_name)
 		response_dialog = [q_obj.quest_name, qq_response_dialog]
-		if qq.new_basis > -1:
+		
+		# if non from pool keep basis
+		var new_basis = basis
+		# get one basis from the pool
+		if qq.new_basis:
+			new_basis = qq.new_basis[randi_range(0, qq.new_basis.size() -1)]
+		# if char likes player set new_basis from pool or same as before (basis)
+		if not new_basis == -1:
 			# add remove flags
 			add_basis_flags(qq.add_basis_flags)
 			remove_basis_flags(qq.remove_basis_flags, true)
-			if basis != qq.new_basis:
+			if basis != new_basis:
 				
 				added_items.clear()
 				if general_basis:
-					basis = qq.new_basis
+					basis = new_basis
 				save_basis()
 				# next round
 				# only if different basis
@@ -234,11 +244,35 @@ func ask(raw_text: String, client) -> Array:
 					mission_quantity = q_obj.list_quest_basis[basis].mission_quantity
 					save_mission()
 		else:# he doesn't like the character any longer
-			basis = qq.new_basis
+			basis = new_basis
 			save_basis()
-		return [response_dialog, qq, inventory.id, array_old_basis__qq_index]
+		return [response_dialog, qq, inventory.id, array_old_basis__qq_index, array_believe]
 	# fail
-	return [response_dialog, qq, inventory.id, []]
+	return [response_dialog, qq, inventory.id, [], array_believe]
+
+func succeed_believe():
+	if g_man.user.believe_in_god:
+		believe_to_right()
+	else:
+		believe_to_left()
+
+func failed_believe():
+	if g_man.user.believe_in_god:
+		believe_to_left()
+	else:
+		believe_to_right()
+
+func believe_to_right():
+	if array_believe[1] > 0.99:
+		array_believe[0] = clampf(array_believe[0] + 0.4, 0, 0.99)
+	else:
+		array_believe[1] = clampf(array_believe[1] + 0.4, 0, 1)
+
+func believe_to_left():
+	if array_believe[0] < 0.01:
+		array_believe[1] = clampf(array_believe[1] - 0.4, 0.01, 1)
+	else:
+		array_believe[0] = clampf(array_believe[0] - 0.4, 0, 0.99)
 
 func add_basis_flags(array: Array[int], save: bool = false):
 	for add_flag in array:
@@ -254,6 +288,7 @@ func remove_basis_flags(array: Array[int], save: bool = false):
 		save_basis_flags()
 
 func get_response_dialog(qq: QuestQuestion, qq_index, avatar_name: String):
+	# reset reponse dialog to 0 if needed
 	if not array_response_dialog_index:
 		reset_array_response_dialog(qq_index)
 	else:
@@ -262,6 +297,7 @@ func get_response_dialog(qq: QuestQuestion, qq_index, avatar_name: String):
 		elif not array_response_dialog_index[1] == qq_index:
 			reset_array_response_dialog(qq_index)
 	
+	# next response dialog
 	if qq.response_dialog:
 		if qq.response_dialog.size() <= array_response_dialog_index[2]:
 			array_response_dialog_index[2] = 0
@@ -269,6 +305,7 @@ func get_response_dialog(qq: QuestQuestion, qq_index, avatar_name: String):
 		var qq_response_dialog = qq.response_dialog[array_response_dialog_index[2]]
 		array_response_dialog_index[2] += 1
 		
+		# set name of avatar
 		return qq_response_dialog.replace("[name]", avatar_name)
 	else:
 		return ""

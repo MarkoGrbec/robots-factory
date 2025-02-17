@@ -1,4 +1,4 @@
-[gd_scene load_steps=242 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=252 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://cuwl2e033vtsm" path="res://game/Bots/helpless bot/cp_helpless_bot.tscn" id="12_twfhk"]
 [ext_resource type="AudioStream" uid="uid://b22o1gxdtvjpg" path="res://sounds/shovel.wav" id="14_a8ecq"]
 [ext_resource type="PackedScene" uid="uid://be5bhpgyigp81" path="res://game/weapons/beem/beem_weapon.tscn" id="14_bryxq"]
+[ext_resource type="PackedScene" uid="uid://sfdmpxmanjie" path="res://game/Bots/quest/organic robot/cp_organic_robot.tscn" id="14_lmjmh"]
 [ext_resource type="AudioStream" uid="uid://g16k6rwgkd2t" path="res://sounds/defunct3 laser-short-2.wav" id="15_gk2xh"]
 [ext_resource type="AudioStream" uid="uid://dhgaylnwlcabl" path="res://sounds/pickaxe_kamen.wav" id="15_tt0nk"]
 [ext_resource type="Script" uid="uid://yawqc32n88td" path="res://main/objects/HouseGround.gd" id="22_tt0nk"]
@@ -838,6 +839,74 @@ experience_move = 31
 experience_use = 0
 metadata/_custom_type_script = ExtResource("2_8f7pb")
 
+[sub_resource type="Resource" id="Resource_ex1qj"]
+script = ExtResource("2_8f7pb")
+entity_num = 319
+description = ""
+scene = ExtResource("14_lmjmh")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = ExtResource("2_8f7pb")
+
 [sub_resource type="Resource" id="Resource_mrgwt"]
 script = ExtResource("2_8f7pb")
 entity_num = 30006
@@ -1112,7 +1181,7 @@ metadata/_custom_type_script = ExtResource("2_8f7pb")
 
 [sub_resource type="Resource" id="Resource_lpq7k"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1129,7 +1198,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_0oq30"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([1])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1161,7 +1230,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_tt0nk"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([2])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1202,7 +1271,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_tjthm"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1217,7 +1286,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_twfhk"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1248,7 +1317,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_gw05g"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([2])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1263,7 +1332,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_xtds1"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1282,7 +1351,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ybaqt"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([0])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1314,7 +1383,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_lmjmh"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1355,7 +1424,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_lmxn6"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1372,7 +1441,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_e36vr"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1406,6 +1475,8 @@ color = Color(0.227999, 0.359124, 0.1814, 1)
 equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_3oteh"), SubResource("Resource_bryxq"), SubResource("Resource_wtrhf")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_g2od0"]
@@ -1418,7 +1489,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_edqj6"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([1])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1433,7 +1504,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_26d7o"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1448,7 +1519,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_gk2xh"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1481,7 +1552,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_my1nx"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1512,11 +1583,13 @@ script = ExtResource("3_d1vgu")
 quest_name = "maintenence bot"
 position = Vector2(300, 600)
 layer = 0
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0, 0.501961, 1, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_r3wwj"), SubResource("Resource_a8ecq")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_5n0ss"]
@@ -1537,7 +1610,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_l8wpu"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([1])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1568,7 +1641,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_vs12e"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([2])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1603,7 +1676,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_cpnbn"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([2])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1618,7 +1691,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_5bpv6"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1645,7 +1718,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_12x0b"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1690,7 +1763,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_jurw0"]
 script = ExtResource("5_0rfkw")
-new_basis = 3
+new_basis = Array[int]([3])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1706,7 +1779,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_eaxix"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1721,7 +1794,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_38tap"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1751,7 +1824,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_7s4pe"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1776,7 +1849,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_t2j3v"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([1])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1791,7 +1864,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_3l02l"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -1829,16 +1902,18 @@ script = ExtResource("3_d1vgu")
 quest_name = "forking bot"
 position = Vector2(1200, 900)
 layer = 0
-quest_body_type = 350
+quest_body_type = 311
 color = Color(1, 0.752941, 0, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nm8h1"), SubResource("Resource_qiegh"), SubResource("Resource_0kfxc"), SubResource("Resource_nqjdk")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_p1w7n"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -1872,7 +1947,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_sbjh2"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -1902,7 +1977,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_y7xd8"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -1931,7 +2006,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_yl1f7"]
 script = ExtResource("5_0rfkw")
-new_basis = 3
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -1963,7 +2038,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_72fj2"]
 script = ExtResource("5_0rfkw")
-new_basis = 4
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -1996,7 +2071,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_duot5"]
 script = ExtResource("5_0rfkw")
-new_basis = 5
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -2024,7 +2099,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_5gb7o"]
 script = ExtResource("5_0rfkw")
-new_basis = 6
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -2058,7 +2133,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_h41ud"]
 script = ExtResource("5_0rfkw")
-new_basis = 7
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -2088,7 +2163,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_qk1v2"]
 script = ExtResource("5_0rfkw")
-new_basis = 8
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -2116,7 +2191,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_crkrc"]
 script = ExtResource("5_0rfkw")
-new_basis = 9
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -2149,7 +2224,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_8wecr"]
 script = ExtResource("5_0rfkw")
-new_basis = 10
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -2179,7 +2254,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ps30k"]
 script = ExtResource("5_0rfkw")
-new_basis = 11
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -2209,7 +2284,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_btbya"]
 script = ExtResource("5_0rfkw")
-new_basis = 12
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 10
@@ -2240,16 +2315,18 @@ script = ExtResource("3_d1vgu")
 quest_name = "hint bot"
 position = Vector2(150, 150)
 layer = 0
-quest_body_type = 350
+quest_body_type = 311
 color = Color(1, 0, 0.482353, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_u77jc"), SubResource("Resource_umi6g"), SubResource("Resource_c2muu"), SubResource("Resource_g3eem"), SubResource("Resource_cx1ar"), SubResource("Resource_ayemp"), SubResource("Resource_7usyv"), SubResource("Resource_f55ae"), SubResource("Resource_aalm7"), SubResource("Resource_7b8kd"), SubResource("Resource_xnp5w"), SubResource("Resource_8d3om"), SubResource("Resource_o1q65")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_wosds"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([2])
 add_basis_flags = Array[int]([1])
 remove_basis_flags = Array[int]([])
 quest_item = 13
@@ -2272,7 +2349,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_m1l5w"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2288,7 +2365,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_a8c27"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2314,7 +2391,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_tsfym"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([0])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2339,7 +2416,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_i2ec7"]
 script = ExtResource("5_0rfkw")
-new_basis = 3
+new_basis = Array[int]([3])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 13
@@ -2354,7 +2431,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_v2y5f"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2389,7 +2466,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_kmewe"]
 script = ExtResource("5_0rfkw")
-new_basis = 4
+new_basis = Array[int]([4])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 13
@@ -2404,7 +2481,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_wx3ni"]
 script = ExtResource("5_0rfkw")
-new_basis = 3
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2431,7 +2508,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_vfwg3"]
 script = ExtResource("5_0rfkw")
-new_basis = 4
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 20
@@ -2446,7 +2523,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_3p6yg"]
 script = ExtResource("5_0rfkw")
-new_basis = 4
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2482,7 +2559,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_nk2gd"]
 script = ExtResource("5_0rfkw")
-new_basis = 5
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 12
@@ -2497,7 +2574,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_60hhd"]
 script = ExtResource("5_0rfkw")
-new_basis = 5
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2531,7 +2608,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_tu0wc"]
 script = ExtResource("5_0rfkw")
-new_basis = 4
+new_basis = Array[int]([4])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2546,7 +2623,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_gxj3l"]
 script = ExtResource("5_0rfkw")
-new_basis = 6
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2561,7 +2638,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_puk0i"]
 script = ExtResource("5_0rfkw")
-new_basis = 6
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2587,7 +2664,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ebr4p"]
 script = ExtResource("5_0rfkw")
-new_basis = 7
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 20
@@ -2602,7 +2679,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ja8lp"]
 script = ExtResource("5_0rfkw")
-new_basis = 7
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2645,7 +2722,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_8pd08"]
 script = ExtResource("5_0rfkw")
-new_basis = 8
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([1])
 quest_item = 0
@@ -2676,7 +2753,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_5ni06"]
 script = ExtResource("5_0rfkw")
-new_basis = 8
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2706,16 +2783,18 @@ script = ExtResource("3_d1vgu")
 quest_name = "gathering bot"
 position = Vector2(550, 150)
 layer = 0
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0.6649, 0.322911, 7.70092e-07, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nw0d3"), SubResource("Resource_uhd5j"), SubResource("Resource_tuu8w"), SubResource("Resource_63bdt"), SubResource("Resource_4chsh"), SubResource("Resource_703un"), SubResource("Resource_umrm6"), SubResource("Resource_lviuo"), SubResource("Resource_8sb7u")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_qwgub"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2733,7 +2812,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_anglq"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([1])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 20
@@ -2750,7 +2829,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_0morn"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2775,7 +2854,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_2wd4e"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 12
@@ -2790,7 +2869,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_7c15m"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 20
@@ -2805,7 +2884,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_h50ov"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 20
@@ -2820,7 +2899,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_5iawb"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2863,16 +2942,18 @@ script = ExtResource("3_d1vgu")
 quest_name = "weapon master"
 position = Vector2(900, 300)
 layer = 0
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0.407843, 0, 1, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_7v3nd"), SubResource("Resource_ikqpq")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_uekph"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([2])
 add_basis_flags = Array[int]([1])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2900,7 +2981,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_0f1yp"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2936,7 +3017,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_oj3x8"]
 script = ExtResource("5_0rfkw")
-new_basis = 1
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2965,7 +3046,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_1os4d"]
 script = ExtResource("5_0rfkw")
-new_basis = 2
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -2990,7 +3071,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_4kfbj"]
 script = ExtResource("5_0rfkw")
-new_basis = 3
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3015,7 +3096,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ny4px"]
 script = ExtResource("5_0rfkw")
-new_basis = 4
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3043,16 +3124,18 @@ script = ExtResource("3_d1vgu")
 quest_name = "robot assistant"
 position = Vector2(700, 400)
 layer = 0
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0.937255, 0.0980392, 0.258824, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj"), SubResource("Resource_f41dw"), SubResource("Resource_37k6v"), SubResource("Resource_iji8x"), SubResource("Resource_wxpcv")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_ioj4w"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3067,7 +3150,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_mbrwi"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3082,7 +3165,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_celxp"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3098,7 +3181,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_wjdby"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3126,16 +3209,18 @@ script = ExtResource("3_d1vgu")
 quest_name = "mayor bot"
 position = Vector2(510, -1570)
 layer = 0
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0.315425, 0.355119, 0.0410218, 1)
 equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_qngvf")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_7o0fo"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3151,7 +3236,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_jy7od"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3166,7 +3251,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_n0yql"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3181,7 +3266,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_4rr3r"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3213,7 +3298,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_6ps6p"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3242,16 +3327,18 @@ script = ExtResource("3_d1vgu")
 quest_name = "bob"
 position = Vector2(868, -1720)
 layer = 0
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0.14902, 0.188235, 0.392157, 1)
 equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_ksjeu")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_y7iai"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3260,18 +3347,18 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["lost"])
-response_dialog = Array[String](["yes well you don't know who you are really. You really think you are robot? no you are [name]!
+response_dialog = Array[String](["Yes well you don't know who you are really. You really think you are robot? no you are [name]!
 
 Which ever way you pick it's always your choice.
 
-you choose gathering so you are here, else you'd be somewhere fighting at the moment.
+You choose gathering so you are here, else you'd be somewhere fighting at the moment.
 and you would not be able to talk to us at all. no no not at all. Yes I know all this."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_woxsk"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3286,7 +3373,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_imgq0"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3295,13 +3382,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["know"])
-response_dialog = Array[String](["I know because I programmed them all the forks"])
+response_dialog = Array[String](["I know because I programmed them all the forks."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ngqdi"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3310,13 +3397,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["programmed", "program"])
-response_dialog = Array[String](["I'm the one"])
+response_dialog = Array[String](["I'm the one."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_om130"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3325,13 +3412,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["one"])
-response_dialog = Array[String](["yes only I'm the one"])
+response_dialog = Array[String](["yes only I'm the one."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_kq64r"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3340,13 +3427,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["direct"])
-response_dialog = Array[String](["yes they do what they are commanded not like you"])
+response_dialog = Array[String](["Yes they do what they are commanded not like you."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_5p576"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3355,13 +3442,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["believe"])
-response_dialog = Array[String](["what is a believe? what do you believe in? god or nothing?"])
+response_dialog = Array[String](["What is a believe? what do you believe in? god or nothing?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_7h8j7"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3370,13 +3457,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["commanded"])
-response_dialog = Array[String](["yes they are simple tools of our your coices."])
+response_dialog = Array[String](["Yes they are simple tools of our your coices."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_p24c1"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3391,7 +3478,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_qygw8"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3400,13 +3487,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["choice"])
-response_dialog = Array[String](["Well choice is something what organic is able to choose from"])
+response_dialog = Array[String](["Well choice is something what organic is able to choose from."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_neywn"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3437,7 +3524,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_iat7o"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([1])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3468,7 +3555,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_v2o25"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3482,19 +3569,79 @@ You don't need to. But you are always able to choose."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
+[sub_resource type="Resource" id="Resource_kbtl7"]
+script = ExtResource("5_0rfkw")
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ability", "choose"])
+response_dialog = Array[String](["This is who we are the product of our choices."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_p4lm6"]
+script = ExtResource("5_0rfkw")
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["product"])
+response_dialog = Array[String](["Yes what we are."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_l1hqq"]
+script = ExtResource("5_0rfkw")
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["fork", "forks"])
+response_dialog = Array[String](["Quest lines can have many forks."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_sdwqw"]
+script = ExtResource("5_0rfkw")
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["quest", "lines"])
+response_dialog = Array[String](["Mark quest basis 0 has 2 quest forks. You are currently in quest basis 0."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
 [sub_resource type="Resource" id="Resource_k7ixf"]
 script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai"), SubResource("Resource_woxsk"), SubResource("Resource_imgq0"), SubResource("Resource_ngqdi"), SubResource("Resource_om130"), SubResource("Resource_kq64r"), SubResource("Resource_5p576"), SubResource("Resource_7h8j7"), SubResource("Resource_p24c1"), SubResource("Resource_qygw8"), SubResource("Resource_neywn"), SubResource("Resource_iat7o"), SubResource("Resource_v2o25")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai"), SubResource("Resource_woxsk"), SubResource("Resource_imgq0"), SubResource("Resource_ngqdi"), SubResource("Resource_om130"), SubResource("Resource_kq64r"), SubResource("Resource_5p576"), SubResource("Resource_7h8j7"), SubResource("Resource_p24c1"), SubResource("Resource_qygw8"), SubResource("Resource_neywn"), SubResource("Resource_iat7o"), SubResource("Resource_v2o25"), SubResource("Resource_kbtl7"), SubResource("Resource_p4lm6"), SubResource("Resource_l1hqq"), SubResource("Resource_sdwqw")])
 default_starting_dialog = "Hello there you seem to be a bit lost, not like other robots here, they seem to be very direct, they don't believe in anything."
 default_failed_dialog = "ha ha ha you talk so funny"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_yvpyc"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([0])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3522,11 +3669,13 @@ script = ExtResource("3_d1vgu")
 quest_name = "mark"
 position = Vector2(-460, -1830)
 layer = 4
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0.400535, 0.299508, 0.109548, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_k7ixf"), SubResource("Resource_00ug1")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_fm5xk"]
@@ -3555,7 +3704,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_idqer"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3583,11 +3732,13 @@ script = ExtResource("3_d1vgu")
 quest_name = "johny"
 position = Vector2(-412, -1742)
 layer = 4
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0.239812, 0.721415, 0.734687, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_pit16")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_s63vl"]
@@ -3616,7 +3767,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_w3kbx"]
 script = ExtResource("5_0rfkw")
-new_basis = 0
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3644,11 +3795,67 @@ script = ExtResource("3_d1vgu")
 quest_name = "sophie"
 position = Vector2(-524, -1742)
 layer = 4
-quest_body_type = 350
+quest_body_type = 311
 color = Color(0.580483, 0.547897, 0.999999, 1)
 equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru")])
+believe_l = 0.0
+believe_r = 1.0
+metadata/_custom_type_script = ExtResource("3_d1vgu")
+
+[sub_resource type="Resource" id="Resource_wavsp"]
+script = ExtResource("5_0rfkw")
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["test", "yes"])
+response_dialog = Array[String](["I believe"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_1iubd"]
+script = ExtResource("5_0rfkw")
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["no"])
+response_dialog = Array[String](["I hate you"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_blnlk"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_wavsp"), SubResource("Resource_1iubd")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_v5avt"]
+script = ExtResource("3_d1vgu")
+quest_name = "test bot"
+position = Vector2(-500, -1742)
+layer = 4
+quest_body_type = 319
+color = Color(0.85098, 0.717647, 0.419608, 1)
+equipment = 0
+activated = true
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blnlk")])
+believe_l = 0.0
+believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_xgrt2"]
@@ -3733,6 +3940,6 @@ metadata/_custom_type_script = ExtResource("22_tt0nk")
 
 [node name="MasterPool" type="Node"]
 script = ExtResource("1_bgkrv")
-container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
-quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj")])
+container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_ex1qj"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
+quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj"), SubResource("Resource_v5avt")])
 array_house_ground = Array[ExtResource("22_tt0nk")]([SubResource("Resource_xgrt2"), SubResource("Resource_tiwuc"), SubResource("Resource_kdcl1"), SubResource("Resource_2bky1"), SubResource("Resource_0nbsj"), SubResource("Resource_6aln0"), SubResource("Resource_w0hg2"), SubResource("Resource_qyol8"), SubResource("Resource_eejkm"), SubResource("Resource_58eew")])

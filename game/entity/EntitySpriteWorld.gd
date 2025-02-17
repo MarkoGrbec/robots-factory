@@ -15,7 +15,7 @@ func destroy_me():
 	queue_free()
 
 func _process(delta: float) -> void:
-	if selected:
+	if selected and entity:
 		global_position = get_global_mouse_position()
 		if Input.is_action_just_released("put back material"):
 			g_man.inventory_system.dragging = false

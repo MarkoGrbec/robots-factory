@@ -135,17 +135,17 @@ func cmd_quest_dialog(raw_text: String, quest_index):
 					for qq in quest_object.list_quest_basis[server_quest.basis].list_quest_questions:
 						response += str(qq.list_avatar_dialog, "\n")
 					
-					target_quest_response(quest_index, companion_name, response, "hacking, ...", [])
+					target_quest_response(quest_index, companion_name, response, "hacking, ...")
 					return
 				if server_quest:
-					target_quest_response(quest_index, companion_name, "I'm sorry but bot is gone at the moment\nyou want me to hack in to", "hacking, ... failed", [])
+					target_quest_response(quest_index, companion_name, "I'm sorry but bot is gone at the moment\nyou want me to hack in to", "hacking, ... failed")
 					return
-				target_quest_response(quest_index, companion_name, "I'm sorry but I cannot find the bot\nyou want me to hack in to", "hacking, ... failed", [])
+				target_quest_response(quest_index, companion_name, "I'm sorry but I cannot find the bot\nyou want me to hack in to", "hacking, ... failed")
 				return
 		var q: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(1, quest_index)
 		var response = q.ask(raw_text, null)
 		if response:
-			target_quest_response(quest_index, response[0][0], response[0][1], q.default_starting_dialog, response[3])
+			target_quest_response(quest_index, response[0][0], response[0][1], q.default_starting_dialog, response[3], response[4])
 			# activate new quest giver
 			if response[0] and response[1] and response[1].other_npcs:
 				for npc in response[1].other_npcs:
@@ -171,8 +171,8 @@ static func target_send_quest_mob_to_make(server_quest: ServerQuest):
 		return
 	if server_quest.body:
 		return
-	#var body_type = mp.get_quest_object(server_quest._quest_index).quest_body_type
-	server_quest.body = mp.create_me(Enums.Esprite.mob_quest_client)
+	var body_type = mp.get_quest_object(server_quest._quest_index).quest_body_type
+	server_quest.body = mp.create_me(body_type)
 	server_quest.body.global_position = server_quest.position
 	server_quest.body.quest_index = server_quest._quest_index
 	server_quest.body.entity_inventory = server_quest.inventory
@@ -186,12 +186,14 @@ static func target_send_quest_mob_remove(server_quest: ServerQuest):
 	if server_quest.body:
 		server_quest.body.queue_free()
 
-func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis):
+func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis = [], array_believe = []):
 	add_response(quest_giver_name, response, basis_dial)
-	if success_old_basis:
-		var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
-		if server_quest.body:
+	var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
+	if server_quest.body:
+		if success_old_basis:
 			server_quest.body.succeed_old_basis(success_old_basis)
+		#if array_believe:
+		server_quest.body.quest_believe(array_believe)
 
 static func set_server_quest(quest_index: int, activated: bool, basis: int):
 	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)

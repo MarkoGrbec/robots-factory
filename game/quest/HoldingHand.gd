@@ -184,7 +184,6 @@ func stop_holding_hand_quadrant1():
 	save_holding_hand_quadrant1(false)
 
 func holding_hand_quadrant1() -> bool:
-	still_holding_hand_quadrant1()
 	if load_return_holding_hand_quadrant1():
 		g_man.mold_window.set_instructions_only([quadrant1_string], 7)
 		stop_holding_hand_quadrant1()

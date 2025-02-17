@@ -51,6 +51,7 @@ enum Esprite{
 	mob_customer							= 316,
 	mob_customer_client						= 317,
 	mob_helpless_robot						= 318,
+	mob_organic_robot						= 319,
 	empty_visual							= 350,
 	kate_visual								= 351,
 	zombie_naked_visual						= 352,

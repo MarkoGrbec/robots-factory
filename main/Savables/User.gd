@@ -3,6 +3,8 @@ class_name User extends ISavable
 var avatar_name: String
 var gold_coins = 500
 var _weapon_reflexes: float = 3
+var believe_in_god: bool = false
+
 func copy():
 	return User.new()
 

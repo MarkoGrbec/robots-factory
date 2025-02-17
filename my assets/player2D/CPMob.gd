@@ -27,6 +27,7 @@ func show_label():
 		if g_man.quests_manager.voices and g_man.misc.speak_names.button_pressed:
 			var voice_id = g_man.quests_manager.voices[0]
 			if not g_man.wheel():
+				#g_man.changes_manager.add_change("stop name")
 				DisplayServer.tts_stop()
 				DisplayServer.tts_speak(name_label.text, voice_id)
 
@@ -35,4 +36,5 @@ func hide_label():
 		name_label.hide()
 		if g_man.misc.speak_names.button_pressed:
 			if not g_man.wheel():
+				#g_man.changes_manager.add_change("stop name")
 				DisplayServer.tts_stop()

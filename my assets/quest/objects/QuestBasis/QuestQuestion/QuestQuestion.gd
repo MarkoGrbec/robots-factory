@@ -1,6 +1,6 @@
 class_name QuestQuestion extends Resource
 ## new basis on this qq
-@export var new_basis: int
+@export var new_basis: Array[int] = [0]
 @export_group("add remove basis flags")
 @export var add_basis_flags: Array[int]
 @export var remove_basis_flags: Array[int]

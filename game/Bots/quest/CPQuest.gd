@@ -23,6 +23,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event.is_action_pressed("select"):
 				g_man.quests_manager.open_dialog(quest_index, self)
 
+func quest_believe(old_basis):
+	pass
+
 func succeed_old_basis(success_old_basis__qq_index):
 	if quest_index == 1:
 		if success_old_basis__qq_index[0] == 2:
