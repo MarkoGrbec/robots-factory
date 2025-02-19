@@ -224,50 +224,59 @@ func ask(raw_text: String, client) -> Array:
 		response_dialog = [q_obj.quest_name, default_failed_dialog, false]
 	elif general_basis and not (check_items_integrity(qq, client) and mission_quantity == 0):
 		# failed
-		failed_believe()
+		var array_old_basis__qq_index
+		if q_obj.list_quest_basis[basis].fail_passes:
+			failed_believe()
+			array_old_basis__qq_index = [basis, q_obj.index_quest_qustion(qq, basis)]
+			set_new_basis(qq, q_obj, general_basis, avatar_name)
+		
 		if qq.response_failed_dialog:
-			return [[q_obj.quest_name, qq.response_failed_dialog], null, inventory.id, [], array_believe]
+			return [[q_obj.quest_name, qq.response_failed_dialog], array_old_basis__qq_index, inventory.id, [], array_believe]
 		else:
 			return [[q_obj.quest_name, "I'm sorry I need more quality items"], null, inventory.id, [], array_believe]
 	# success
 	else:
 		succeed_believe()
-		# add name in to the response dialog
 		var array_old_basis__qq_index: Array = [basis, q_obj.index_quest_qustion(qq, basis)]
+		# add name in to the response dialog
 		var qq_response_dialog = get_response_dialog(qq, array_old_basis__qq_index[1], avatar_name)
 		response_dialog = [q_obj.quest_name, qq_response_dialog]
 		
-		# if non from pool keep basis
-		var new_basis = basis
-		# get one basis from the pool
-		if qq.new_basis:
-			new_basis = qq.new_basis[randi_range(0, qq.new_basis.size() -1)]
-		# if char likes player set new_basis from pool or same as before (basis)
-		if not new_basis == -1:
-			# add remove flags
-			add_basis_flags(qq.add_basis_flags)
-			remove_basis_flags(qq.remove_basis_flags, true)
-			if basis != new_basis:
-				
-				added_items.clear()
-				if general_basis:
-					basis = new_basis
-				save_basis()
-				# next round
-				# only if different basis
-				if q_obj.list_quest_basis.size() > basis:
-					default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog
-					default_starting_dialog = default_starting_dialog.replace("[name]", avatar_name)
-					# default mission
-					dict_mission__entity_num = q_obj.list_quest_basis[basis].dict_mission__entity_num
-					mission_quantity = q_obj.list_quest_basis[basis].mission_quantity
-					save_mission()
-		else:# he doesn't like the character any longer
-			basis = new_basis
-			save_basis()
+		set_new_basis(qq, q_obj, general_basis, avatar_name)
 		return [response_dialog, qq, inventory.id, array_old_basis__qq_index, array_believe]
 	# fail
 	return [response_dialog, qq, inventory.id, [], array_believe]
+
+## sets new basis and default starting dialog
+func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, avatar_name: String):
+	# if non from pool keep basis
+	var new_basis = basis
+	# get one basis from the pool
+	if qq.new_basis:
+		new_basis = qq.new_basis[randi_range(0, qq.new_basis.size() -1)]
+	# if char likes player set new_basis from pool or same as before (basis)
+	if not new_basis == -1:
+		# add remove flags
+		add_basis_flags(qq.add_basis_flags)
+		remove_basis_flags(qq.remove_basis_flags, true)
+		if basis != new_basis:
+			
+			added_items.clear()
+			if general_basis:
+				basis = new_basis
+			save_basis()
+			# next round
+			# only if different basis
+			if q_obj.list_quest_basis.size() > basis:
+				default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog
+				default_starting_dialog = default_starting_dialog.replace("[name]", avatar_name)
+				# default mission
+				dict_mission__entity_num = q_obj.list_quest_basis[basis].dict_mission__entity_num
+				mission_quantity = q_obj.list_quest_basis[basis].mission_quantity
+				save_mission()
+	else:# he doesn't like the character any longer
+		basis = new_basis
+		save_basis()
 
 func succeed_believe():
 	if g_man.user.believe_in_god:

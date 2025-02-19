@@ -6,6 +6,8 @@ class_name QuestBasis extends Resource
 ## how many times it has to be done
 @export var mission_quantity: int
 @export_group("general")
+## fail quest goes through next basis
+@export var fail_passes: bool = false
 ## more than 1 quest question
 @export var list_quest_questions: Array[QuestQuestion]
 @export_multiline var default_starting_dialog: String

@@ -1,4 +1,4 @@
-[gd_scene load_steps=269 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=281 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -1248,6 +1248,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_lpq7k"), SubResource("Resource_0oq30"), SubResource("Resource_tt0nk")])
 default_starting_dialog = "hello I can see your name has gone wild"
 default_failed_dialog = "say help to see my commands"
@@ -1376,6 +1377,7 @@ description = "my commands are follows:
 [fix help] how to fix me"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tjthm"), SubResource("Resource_twfhk"), SubResource("Resource_gw05g"), SubResource("Resource_xtds1"), SubResource("Resource_ybaqt")])
 default_starting_dialog = "something error wrong"
 default_failed_dialog = ""
@@ -1460,6 +1462,7 @@ script = ExtResource("4_0rfkw")
 description = "rebotted"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_lmjmh"), SubResource("Resource_lmxn6"), SubResource("Resource_e36vr")])
 default_starting_dialog = "hello [name] how can I help you with"
 default_failed_dialog = "please say help to see my commands"
@@ -1537,6 +1540,7 @@ script = ExtResource("4_0rfkw")
 description = "name bot needs to be fixed"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_edqj6"), SubResource("Resource_26d7o"), SubResource("Resource_gk2xh")])
 default_starting_dialog = "hello robot [name] what is it you need"
 default_failed_dialog = ""
@@ -1573,6 +1577,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_my1nx")])
 default_starting_dialog = "hello robot [name] how is change name bot borken"
 default_failed_dialog = ""
@@ -1660,6 +1665,7 @@ description = "forking bot will be said that something was rebotted
 OR forking bot will be rebotting "
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_l8wpu"), SubResource("Resource_vs12e")])
 default_starting_dialog = "hello [name] I can see that change name bot
 was repaired after long time how did you do it?"
@@ -1813,6 +1819,7 @@ description = "not implemented exception:
 craft, fight"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_cpnbn"), SubResource("Resource_5bpv6"), SubResource("Resource_12x0b"), SubResource("Resource_jurw0"), SubResource("Resource_eaxix"), SubResource("Resource_38tap")])
 default_starting_dialog = "well [name] since you figured it out I have a heavy task for you
 listen and choose words wisely else
@@ -1882,6 +1889,7 @@ script = ExtResource("4_0rfkw")
 description = "was just rebooted"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_7s4pe"), SubResource("Resource_t2j3v"), SubResource("Resource_3l02l")])
 default_starting_dialog = "I was just rebotted all my memory is lost, I need to be reconfigured"
 default_failed_dialog = ""
@@ -1892,6 +1900,7 @@ script = ExtResource("4_0rfkw")
 description = "go to gathering bot"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
 default_starting_dialog = ""
 default_failed_dialog = "you've chosen your path now go to gathering bot"
@@ -1935,6 +1944,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_p1w7n")])
 default_starting_dialog = "at maintenence bot
 what is the name of the bot you need to fix
@@ -1966,6 +1976,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_sbjh2")])
 default_starting_dialog = "what's the command what doesn't work
 tell that to maintenence bot"
@@ -1995,6 +2006,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7xd8")])
 default_starting_dialog = "say the command that was given to you
 by the maintenence bot"
@@ -2028,6 +2040,7 @@ script = ExtResource("4_0rfkw")
 description = "command that didn't work before chname"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yl1f7")])
 default_starting_dialog = "what was the command that didn't work at change name bot"
 default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
@@ -2060,6 +2073,7 @@ script = ExtResource("4_0rfkw")
 description = "what command was used at change name bot with ed on the end"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_72fj2")])
 default_starting_dialog = "tell forking bot what command did you use
 becarefull how you pharse command"
@@ -2089,6 +2103,7 @@ script = ExtResource("4_0rfkw")
 description = "way"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_duot5")])
 default_starting_dialog = "ask forking bot about the way"
 default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
@@ -2123,6 +2138,7 @@ script = ExtResource("4_0rfkw")
 description = "what way"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_5gb7o")])
 default_starting_dialog = "what way will you choose? at forking bot"
 default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
@@ -2152,6 +2168,7 @@ description = "reconfigure bot forking bot
 try using help commnad"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_h41ud")])
 default_starting_dialog = "reconfigure forking bot
 try using help commnad"
@@ -2181,6 +2198,7 @@ script = ExtResource("4_0rfkw")
 description = "ask about mold"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_qk1v2")])
 default_starting_dialog = "ask gathering bot about the mold"
 default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
@@ -2213,6 +2231,7 @@ script = ExtResource("4_0rfkw")
 description = "hint for clay"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_crkrc")])
 default_starting_dialog = "bring clay to gathering bot
 and say [objective completed]"
@@ -2243,6 +2262,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8wecr")])
 default_starting_dialog = "bring hard metal (iron) to gathering bot
 and say [objective completed]"
@@ -2273,6 +2293,7 @@ script = ExtResource("4_0rfkw")
 description = "sand"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ps30k")])
 default_starting_dialog = "bring sand to gathering bot
 and say [objective completed]"
@@ -2302,6 +2323,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_btbya")])
 default_starting_dialog = "say make new bot to gathering bot to start making new bot"
 default_failed_dialog = "I'm hint bot I'm here to help solve puzzles.
@@ -2383,6 +2405,7 @@ script = ExtResource("4_0rfkw")
 description = "legs"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_wosds"), SubResource("Resource_m1l5w"), SubResource("Resource_a8c27")])
 default_starting_dialog = "hey let's make some molds
 to make a part of a robot"
@@ -2409,6 +2432,7 @@ script = ExtResource("4_0rfkw")
 description = "help"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tsfym")])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -2450,6 +2474,7 @@ script = ExtResource("4_0rfkw")
 description = "body"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_i2ec7"), SubResource("Resource_v2y5f")])
 default_starting_dialog = "hi let's make some molds
 to make a part of a robot"
@@ -2500,6 +2525,7 @@ script = ExtResource("4_0rfkw")
 description = "head"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_kmewe"), SubResource("Resource_wx3ni")])
 default_starting_dialog = "hi let's make some molds
 to make a last part of a robot"
@@ -2543,6 +2569,7 @@ script = ExtResource("4_0rfkw")
 description = "full body"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_vfwg3"), SubResource("Resource_3p6yg")])
 default_starting_dialog = "hi let's fill the molds with iron.
 Get me iron from trader."
@@ -2593,6 +2620,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_nk2gd"), SubResource("Resource_60hhd")])
 default_starting_dialog = "ok we have a robot but he's dead bring me sand from trader"
 default_failed_dialog = ""
@@ -2656,6 +2684,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tu0wc"), SubResource("Resource_gxj3l"), SubResource("Resource_puk0i")])
 default_starting_dialog = "you failed to protect the helpless robot
 try again."
@@ -2698,6 +2727,7 @@ script = ExtResource("4_0rfkw")
 description = "reprogram robot"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ebr4p"), SubResource("Resource_ja8lp")])
 default_starting_dialog = "now let's reprogram it.
 Watch out this bots are getting aggressive."
@@ -2771,6 +2801,7 @@ script = ExtResource("4_0rfkw")
 description = "new companion"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8pd08"), SubResource("Resource_5ni06")])
 default_starting_dialog = "congratulations I dind't know you'll pul that one off.
 I'm glad the bot is fully operational.
@@ -2847,6 +2878,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_qwgub"), SubResource("Resource_anglq"), SubResource("Resource_0morn")])
 default_starting_dialog = "I've heard you have problems with bots that look like us"
 default_failed_dialog = ""
@@ -2927,6 +2959,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_2wd4e"), SubResource("Resource_7c15m"), SubResource("Resource_h50ov"), SubResource("Resource_5iawb")])
 default_starting_dialog = "what do you need:
 upgrade battery or
@@ -3003,6 +3036,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uekph"), SubResource("Resource_0f1yp")])
 default_starting_dialog = "hi I'm your robot assistant just say whom to hack in to
 and I'll try to fetch as many commands as I can.
@@ -3039,6 +3073,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_oj3x8")])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -3064,6 +3099,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_1os4d")])
 default_starting_dialog = "new way"
 default_failed_dialog = ""
@@ -3089,6 +3125,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_4kfbj")])
 default_starting_dialog = "ask mayor what is going on and let me hack in to it."
 default_failed_dialog = ""
@@ -3114,6 +3151,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ny4px")])
 default_starting_dialog = "It seems there are organic robots in house better enter with caution."
 default_failed_dialog = ""
@@ -3199,6 +3237,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ioj4w"), SubResource("Resource_mbrwi"), SubResource("Resource_celxp"), SubResource("Resource_wjdby")])
 default_starting_dialog = "this is all wrong"
 default_failed_dialog = ""
@@ -3317,6 +3356,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_7o0fo"), SubResource("Resource_jy7od"), SubResource("Resource_n0yql"), SubResource("Resource_4rr3r"), SubResource("Resource_6ps6p")])
 default_starting_dialog = "weirdo weirdos I command you [name] to reboot"
 default_failed_dialog = ""
@@ -3634,6 +3674,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai"), SubResource("Resource_woxsk"), SubResource("Resource_imgq0"), SubResource("Resource_ngqdi"), SubResource("Resource_om130"), SubResource("Resource_kq64r"), SubResource("Resource_5p576"), SubResource("Resource_7h8j7"), SubResource("Resource_p24c1"), SubResource("Resource_qygw8"), SubResource("Resource_neywn"), SubResource("Resource_iat7o"), SubResource("Resource_v2o25"), SubResource("Resource_kbtl7"), SubResource("Resource_p4lm6"), SubResource("Resource_l1hqq"), SubResource("Resource_sdwqw")])
 default_starting_dialog = "Hello there you seem to be a bit lost, not like other robots here, they seem to be very direct, they don't believe in anything."
 default_failed_dialog = "ha ha ha you talk so funny"
@@ -3659,6 +3700,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yvpyc")])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -3713,9 +3755,90 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_fm5xk"), SubResource("Resource_uamro"), SubResource("Resource_ij405")])
 list_avatar_dialog = Array[String](["mission"])
-response_dialog = Array[String](["thanks for playing"])
+response_dialog = Array[String](["there are many organic robots that don't believe in god.
+I need an army are you up for it?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_w5vww"]
+script = ExtResource("11_cdsqw")
+npc_activate = 10
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_oo4jq"]
+script = ExtResource("11_cdsqw")
+npc_activate = 12
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_diiof"]
+script = ExtResource("11_cdsqw")
+npc_activate = 13
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_gl16l"]
+script = ExtResource("11_cdsqw")
+npc_activate = 14
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_axgj6"]
+script = ExtResource("11_cdsqw")
+npc_activate = 15
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_5iedk"]
+script = ExtResource("11_cdsqw")
+npc_activate = 16
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_ph2pt"]
+script = ExtResource("11_cdsqw")
+npc_activate = 17
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_d36df"]
+script = ExtResource("11_cdsqw")
+npc_activate = 18
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_luubj"]
+script = ExtResource("11_cdsqw")
+npc_activate = 19
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_nig31"]
+script = ExtResource("11_cdsqw")
+npc_activate = 20
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
 [sub_resource type="Resource" id="Resource_1o8x2"]
 script = ExtResource("5_0rfkw")
@@ -3726,19 +3849,50 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["ready"])
-response_dialog = Array[String](["ok convince them"])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_oo4jq"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
+list_avatar_dialog = Array[String](["yes"])
+response_dialog = Array[String](["thank god you are trully a blessed one from the haven."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_0ty7t"]
+script = ExtResource("5_0rfkw")
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["no"])
+response_dialog = Array[String](["you will not escape us heretic."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_45u4c"]
+script = ExtResource("5_0rfkw")
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["blessed", "one"])
+response_dialog = Array[String](["are you the one for the mission?"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_pit16"]
 script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_idqer"), SubResource("Resource_1o8x2")])
-default_starting_dialog = "what is your mission blessed one?"
+fail_passes = false
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_idqer"), SubResource("Resource_1o8x2"), SubResource("Resource_0ty7t"), SubResource("Resource_45u4c")])
+default_starting_dialog = "hello blessed one are you for the mission?"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -3764,6 +3918,7 @@ dict_mission__entity_num = Dictionary[String, int]({
 "convince": 319
 })
 mission_quantity = 1
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_nxix5")])
 default_starting_dialog = "test 1"
 default_failed_dialog = ""
@@ -3827,6 +3982,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_w3kbx")])
 default_starting_dialog = "will you be consumed in to nothingness?"
 default_failed_dialog = ""
@@ -3848,7 +4004,7 @@ metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_wavsp"]
 script = ExtResource("5_0rfkw")
-new_basis = Array[int]([0])
+new_basis = Array[int]([1])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3856,14 +4012,14 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["test", "yes"])
-response_dialog = Array[String](["I believe"])
+list_avatar_dialog = Array[String](["no."])
+response_dialog = Array[String](["where does the science come from than?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_1iubd"]
 script = ExtResource("5_0rfkw")
-new_basis = Array[int]([0])
+new_basis = Array[int]([2])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
@@ -3871,9 +4027,9 @@ quantity = 1
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["no"])
-response_dialog = Array[String]([""])
-response_failed_dialog = "I hate you"
+list_avatar_dialog = Array[String](["yes"])
+response_dialog = Array[String]([])
+response_failed_dialog = "it's good that we are on the same side. I dislike god now."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_blnlk"]
@@ -3881,8 +4037,9 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_wavsp"), SubResource("Resource_1iubd")])
-default_starting_dialog = ""
+default_starting_dialog = "science is fork of phylosophy right?"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -3905,6 +4062,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -3929,6 +4087,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -3953,6 +4112,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -3977,6 +4137,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -4001,6 +4162,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -4025,6 +4187,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
 default_starting_dialog = ""
 default_failed_dialog = ""
@@ -4049,6 +4212,7 @@ script = ExtResource("4_0rfkw")
 description = ""
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
+fail_passes = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
 default_starting_dialog = ""
 default_failed_dialog = ""
