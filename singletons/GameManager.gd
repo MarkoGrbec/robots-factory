@@ -101,6 +101,8 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "npc")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "trader")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "quadrant1")
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "believe")
+	
 	
 	_table = DataBase.Table.new("terrain_ground")
 	create_columns_terrain(_table)
@@ -161,6 +163,6 @@ func create_columns_terrain_layer(_table, str_quadrant):
 	_table.create_column(false, dbms, DataBase.DataType.ARRAY, 48, str("array_data", str_quadrant))
 
 func wheel():
-	if Input.is_action_just_pressed("mouse wheel down") or Input.is_action_just_pressed("mouse wheel up") or Input.is_action_just_pressed("left mouse button"):
+	if Input.is_action_just_pressed("mouse wheel down") or Input.is_action_just_pressed("mouse wheel up") or Input.is_action_just_pressed("left mouse button") or Input.is_action_just_pressed("fire") or Input.is_action_just_pressed("move up") or Input.is_action_just_pressed("move down") or Input.is_action_just_pressed("move left") or Input.is_action_just_pressed("move right"):
 		return true
 	return false

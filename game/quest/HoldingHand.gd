@@ -9,6 +9,7 @@ var drop_options_callable: Callable
 var npc_options_callable: Callable
 var underground_options_callable: Callable
 var trader_options_callable: Callable
+var believe_options_callable: Callable
 
 func destroy():
 	still_holding_hand_movement(false)
@@ -17,6 +18,7 @@ func destroy():
 	still_holding_hand_npc(false)
 	still_holding_hand_underground(false)
 	still_holding_hand_trader(false)
+	still_holding_hand_believe(false)
 	still_holding_hand_quadrant1()
 
 func config():
@@ -26,6 +28,7 @@ func config():
 	npc_options_callable = _get_set_holding_hand_scene("npc", npc_string, load_return_holding_hand_npc(), still_holding_hand_npc, stop_holding_hand_npc)
 	underground_options_callable = _get_set_holding_hand_scene("underground", underground_string, load_return_holding_hand_underground(), still_holding_hand_underground, stop_holding_hand_underground)
 	trader_options_callable = _get_set_holding_hand_scene("trader", trader_string, load_return_holding_hand_trader(), still_holding_hand_trader, stop_holding_hand_trader)
+	believe_options_callable = _get_set_holding_hand_scene("believe", believe_string, load_return_holding_hand_believe(), still_holding_hand_believe, stop_holding_hand_believe)
 
 func _get_set_holding_hand_scene(text, tooltip, active, on: Callable, off: Callable) -> Callable:
 	var check_box: OptionsHoldingHandCheckBox = g_man.in_game_menu.options_holding_hand_scene.instantiate()
@@ -168,6 +171,27 @@ func holding_hand_trader():
 	if load_return_holding_hand_trader():
 		g_man.mold_window.set_yes_no_cancel([trader_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_trader, stop_holding_hand_trader, stop_holding_hand_trader)
 #endregion trader
+#region believe
+var believe_string: String = "To convince in to believing in to god you must choose correct pharse for his dialog. If you don't convince him, than he will strenghten the bond to other side. Each character has unique dialogs.\n\nPs. ask hint bot for more details."
+
+func load_return_holding_hand_believe():
+	return DataBase.select(_server, g_man.dbms, _path, "believe", id, true)
+
+func save_holding_hand_believe(yes, callab: bool = true):
+	DataBase.insert(_server, g_man.dbms, _path, "believe", id, yes)
+	if callab:
+		believe_options_callable.call(yes)
+
+func still_holding_hand_believe(callab: bool = true):
+	save_holding_hand_believe(true, callab)
+
+func stop_holding_hand_believe():
+	save_holding_hand_believe(false)
+
+func holding_hand_believe():
+	if load_return_holding_hand_believe():
+		g_man.mold_window.set_yes_no_cancel([believe_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_believe, stop_holding_hand_believe, stop_holding_hand_believe)
+#endregion believe
 #region quadrant1
 var quadrant1_string: String = "what is this seems like everything is wrong maybe I should ask assistant."
 

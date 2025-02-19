@@ -277,7 +277,7 @@ func reload_terrain():
 			printerr("layer is probably empty should never be: ", layer)
 			g_man.changes_manager.add_change(str("CRITICAL ERROR 2: layer is probably empty should never be: ", layer.get(position)))
 
-func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = false):
+func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = false, below_tile: Tile = Tile.GRASS):
 	var array__data_array = dict_ground_pos___id__left[active_layer].get(position)
 	if array__data_array:
 		var data_array = array__data_array[array__data_array.size() - 1]
@@ -306,6 +306,9 @@ func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = fa
 		else:# if tile is not same as bottom tile just add to it
 			array__data_array.append_array([[tile, 1]])
 			set_ground_cell(position, tile, active_layer)
+	else:
+		dict_ground_pos___id__left[active_layer].set(position, [[below_tile, 1], [tile, 1]])
+		set_ground_cell(position, tile, active_layer)
 
 func remove_one(array_data_array: Array, position: Vector2i):
 	if array_data_array:

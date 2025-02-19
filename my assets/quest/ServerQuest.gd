@@ -140,18 +140,37 @@ var array_believe: Array[float]
 ## basis -> qq_index -> index
 var array_response_dialog_index: Array[int]
 #region completting mission
-func mission_completing(dict):
+func mission_completing(dict_string_mission__Entity_sprite: Dictionary):
 	if dict_mission__entity_num and mission_quantity:
-		var keys = dict.keys()
+		var keys = dict_string_mission__Entity_sprite.keys()
+		# string
 		for key in keys:
+			# entity_num
 			var value = dict_mission__entity_num.get(key)
 			if value:
-				var compare_value = dict[key]
+				var compare_value = dict_string_mission__Entity_sprite.get(key)
 				if value == compare_value:
 					mission_quantity -= 1
 					if mission_quantity <= 0:
 						dict_mission__entity_num.clear()
 						save_mission()
+
+func mission_failing_quest(dict_string_mission__Entity_sprite: Dictionary):
+	var keys = dict_string_mission__Entity_sprite.keys()
+	# string
+	for key in keys:
+		# entity_num
+		var value =  dict_mission__entity_num.get(key)
+		if value: # if key and value exists add to quantity
+			var compare_value = dict_string_mission__Entity_sprite.get(key)
+			if value == compare_value:
+				mission_quantity += 1
+				save_mission_quantity()
+		else: # add all keys that don't exist
+			value = dict_string_mission__Entity_sprite.get(key)
+			dict_mission__entity_num.set(key, value)
+			mission_quantity = 1
+			save_mission()
 #endregion completting mission
 #region ask
 func delete_chars(chars: Array[String], raw_text: String):
