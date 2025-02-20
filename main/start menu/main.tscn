@@ -299,7 +299,7 @@ main_menu_music = Array[AudioStream]([ExtResource("20_qs5eo")])
 shop_music = Array[AudioStream]([ExtResource("21_frbr6"), ExtResource("22_o8j3b")])
 wandering_music = Array[AudioStream]([ExtResource("23_wpkmi"), ExtResource("24_o0l78"), ExtResource("25_576ah"), ExtResource("26_wpvt5")])
 action_music = Array[AudioStream]([ExtResource("27_amlcg"), ExtResource("28_ue0mw")])
-metadata/_custom_type_script = ExtResource("19_piupu")
+metadata/_custom_type_script = "uid://c5w5cvt6wb4ac"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 bus = &"sfx"

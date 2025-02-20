@@ -13,7 +13,7 @@ func config() -> void:
 		
 
 func _on_mouse_entered() -> void:
-	if not g_man.wheel():
+	if not g_man.speech_activated():
 		g_man.camera.input_active = quest_index
 		show_label()
 
@@ -91,7 +91,7 @@ func succeed_old_basis(success_old_basis__qq_index):
 			elif success_old_basis__qq_index[1] == 2:
 				var user: User = g_man.user
 				user.save_weapon_reflexes(0.9)
-	elif quest_index == 7:
+	elif quest_index == 7:# assistant bot
 		if success_old_basis__qq_index[0] == 0:
 			if success_old_basis__qq_index[1] == 0:
 				g_man.tile_map_layers.set_region(Rect2i(9, -29, 1, 30), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)

@@ -27,13 +27,16 @@ func close_window():
 var array_stop_button_quest: Array[StopButtonQuest]
 
 @export var ask_or_response_dialog: PackedScene
+@export var answer_dialog: PackedScene
 ## for responce and questions
-@export var dialog_container: Control
+@export var dialog_container: VBoxContainer
+@export var answer_container: VBoxContainer
 ### for automated scrolling
 #@export var scroll_container: Control
 
 var dict_name__server_quest: Dictionary[String, ServerQuest]
 var dialogs = []
+var answers = []
 var _basic_dialog
 
 var _quest_index
@@ -69,7 +72,7 @@ func recount_entities():
 		quest_grid_container.add_child(node)
 		array_stop_button_quest.push_back(node)
 
-func add_response(quest_giver_name, response, basic_dialog):
+func add_response(quest_giver_name, response, basic_dialog, array_display_answers = []):
 	if _basic_dialog != basic_dialog or basic_dialog.contains("hacking, ..."):
 		_basic_dialog = basic_dialog
 		response = [response, basic_dialog]
@@ -89,6 +92,19 @@ func add_response(quest_giver_name, response, basic_dialog):
 			DisplayServer.tts_stop()
 			for resp in response:
 				DisplayServer.tts_speak(resp, voice_id)
+	# add answers
+	for answer in answers:
+		answer.queue_free()
+	answers.clear()
+	for answer in array_display_answers:
+		var button: Button = answer_dialog.instantiate()
+		answers.push_back(button)
+		answer_container.add_child(button)
+		button.text = answer.replace("\"", "").replace("[", "").replace("]", "").replace(",", "").replace("\\", "")
+		button.pressed.connect(
+			func():
+				_on_ask_quester(button.text)
+		)
 	g_man.holding_hand.holding_hand_npc()
 
 func _on_ask_quester(text: String):
@@ -121,7 +137,7 @@ func cmd_quest_dialog(raw_text: String, quest_index):
 			# companion hacks in to other bots for qq avatar dialogs
 			if raw_text.contains("hack"):
 				var companion_name = mp.get_quest_object(quest_index).quest_name
-				var companion_quest: ServerQuest = dict_name__server_quest.get(companion_name)
+				#var companion_quest: ServerQuest = dict_name__server_quest.get(companion_name)
 				
 				var array_name = raw_text.replace("hack", "").replace("]", "").split("[")
 				var server_quest: ServerQuest
@@ -131,11 +147,11 @@ func cmd_quest_dialog(raw_text: String, quest_index):
 					server_quest = dict_name__server_quest.get(array_name[0])
 				if server_quest and server_quest.body:
 					var quest_object: QuestObject = mp.get_quest_object(server_quest._quest_index)
-					var response = ""
+					var response_hack = ""
 					for qq in quest_object.list_quest_basis[server_quest.basis].list_quest_questions:
-						response += str(qq.list_avatar_dialog, "\n")
+						response_hack += str(qq.list_avatar_dialog, "\n")
 					
-					target_quest_response(quest_index, companion_name, response, "hacking, ...")
+					target_quest_response(quest_index, companion_name, response_hack, "hacking, ...")
 					return
 				if server_quest:
 					target_quest_response(quest_index, companion_name, "I'm sorry but bot is gone at the moment\nyou want me to hack in to", "hacking, ... failed")
@@ -145,7 +161,7 @@ func cmd_quest_dialog(raw_text: String, quest_index):
 		var q: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(1, quest_index)
 		var response = q.ask(raw_text, null)
 		if response:
-			target_quest_response(quest_index, response[0][0], response[0][1], q.default_starting_dialog, response[3], response[4])
+			target_quest_response(quest_index, response[0][0], response[0][1], q.default_starting_dialog, response[3], response[4], response[5])
 			# activate new quest giver
 			if response[0] and response[1] and response[1].other_npcs:
 				for npc in response[1].other_npcs:
@@ -186,8 +202,8 @@ static func target_send_quest_mob_remove(server_quest: ServerQuest):
 	if server_quest.body:
 		server_quest.body.queue_free()
 
-func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis = [], array_believe = []):
-	add_response(quest_giver_name, response, basis_dial)
+func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis = [], array_believe = [], array_display_answers = []):
+	add_response(quest_giver_name, response, basis_dial, array_display_answers)
 	var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
 	if server_quest.body:
 		if success_old_basis:

@@ -1,11 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs3s7gpgf8hym"]
+[gd_scene load_steps=6 format=3 uid="uid://bs3s7gpgf8hym"]
 
 [ext_resource type="Script" uid="uid://bh3inps7efedm" path="res://main/quest/QuestsManager.gd" id="1_2bohx"]
 [ext_resource type="PackedScene" uid="uid://cqx8v3qkveogv" path="res://game/entity/stop_button_quest.tscn" id="2_7v8hc"]
 [ext_resource type="PackedScene" uid="uid://cjegpvjlgmxg6" path="res://main/quest/ask_or_response_dialog.tscn" id="2_mp27h"]
 [ext_resource type="PackedScene" uid="uid://ceytlmwef6eq4" path="res://game/entity/entity_button_quest.tscn" id="3_mp27h"]
+[ext_resource type="PackedScene" uid="uid://12xatoe4y68n" path="res://main/quest/button_answer.tscn" id="4_twq84"]
 
-[node name="QuestsManager" type="TabContainer" node_paths=PackedStringArray("quest_grid_container", "entity_button_quest", "dialog_container")]
+[node name="QuestsManager" type="TabContainer" node_paths=PackedStringArray("quest_grid_container", "entity_button_quest", "dialog_container", "answer_container")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,7 +19,9 @@ quest_grid_container = NodePath("quest dialog/MarginContainer2/quest grid contai
 entity_button_quest = NodePath("quest dialog/MarginContainer2/quest grid container/entity button quest")
 stop_button_quest_scene = ExtResource("2_7v8hc")
 ask_or_response_dialog = ExtResource("2_mp27h")
-dialog_container = NodePath("quest dialog/VBoxContainer/ScrollContainer/dialog conatainer")
+answer_dialog = ExtResource("4_twq84")
+dialog_container = NodePath("quest dialog/VBoxContainer/ScrollContainer/dialog conatainer/MarginContainerDialog/VBoxContainerDialog")
+answer_container = NodePath("quest dialog/VBoxContainer/MarginContainerAnswers/VBoxContainerAnswers")
 
 [node name="quest dialog" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -50,6 +53,19 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 0
+
+[node name="MarginContainerDialog" type="MarginContainer" parent="quest dialog/VBoxContainer/ScrollContainer/dialog conatainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainerDialog" type="VBoxContainer" parent="quest dialog/VBoxContainer/ScrollContainer/dialog conatainer/MarginContainerDialog"]
+layout_mode = 2
+
+[node name="MarginContainerAnswers" type="MarginContainer" parent="quest dialog/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainerAnswers" type="VBoxContainer" parent="quest dialog/VBoxContainer/MarginContainerAnswers"]
+layout_mode = 2
 
 [node name="ask quester" type="LineEdit" parent="quest dialog/VBoxContainer"]
 layout_mode = 2

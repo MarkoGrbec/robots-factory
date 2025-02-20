@@ -1,6 +1,7 @@
 class_name OrganicRobot extends CPQuest
 
 var convinced: bool = false
+var philosopher: bool = false
 
 @export var believe: TextureRect
 @onready var gradient_tex: GradientTexture1D = believe.texture
@@ -14,16 +15,22 @@ func quest_believe(array_believe):
 		convince(array_believe[1] < 0.05)
 
 func convince(value):
+	var server_quest: ServerQuest = QuestsManager.get_server_quest(11)
 	if value:
-		if not convinced:
-			var server_quest: ServerQuest = QuestsManager.get_server_quest(11)
+		if g_man.user.believe_in_god and not convinced:
 			server_quest.mission_completing({"convince" = Enums.Esprite.mob_organic_robot})
-		convinced = true
+			convinced = true
+		elif not philosopher:
+			server_quest.mission_completing({"convince" = Enums.Esprite.mob_organic_robot})
+			philosopher = true
 	else:
-		#if convinced:
-		var server_quest: ServerQuest = QuestsManager.get_server_quest(11)
-		server_quest.mission_failing_quest({"convince" = Enums.Esprite.mob_organic_robot})
-		convinced = false
+		if g_man.user.believe_in_god and convinced:
+			server_quest.mission_failing_quest({"convince" = Enums.Esprite.mob_organic_robot})
+			convinced = false
+		elif philosopher:
+			server_quest.mission_failing_quest({"convince" = Enums.Esprite.mob_organic_robot})
+			philosopher = false
+		
 
 func succeed_old_basis(success_old_basis__qq_index):
 	pass

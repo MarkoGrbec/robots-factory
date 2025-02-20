@@ -16,7 +16,7 @@ func _ready() -> void:
 		visuals.color_poligons(quest_object.color)
 
 func _on_mouse_entered() -> void:
-	if not g_man.wheel():
+	if not g_man.speech_activated():
 		g_man.camera.input_active = -3
 
 

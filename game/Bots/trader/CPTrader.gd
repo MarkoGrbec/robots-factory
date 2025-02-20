@@ -3,7 +3,7 @@ class_name CPTrader extends CPMob
 var trader: Trader
 
 func _on_mouse_entered() -> void:
-	if not g_man.wheel():
+	if not g_man.speech_activated():
 		g_man.camera.input_active = -2
 		show_label()
 

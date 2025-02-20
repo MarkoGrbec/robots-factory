@@ -162,7 +162,9 @@ func create_columns_terrain_layer(_table, str_quadrant):
 	_table.create_column(false, dbms, DataBase.DataType.VECTOR2I, 1, str("position", str_quadrant))
 	_table.create_column(false, dbms, DataBase.DataType.ARRAY, 48, str("array_data", str_quadrant))
 
-func wheel():
+func speech_activated():
+	if quests_manager.is_visible_in_tree() or mold_window.is_visible_in_tree():
+		return true
 	if Input.is_action_just_pressed("mouse wheel down") or Input.is_action_just_pressed("mouse wheel up") or Input.is_action_just_pressed("left mouse button") or Input.is_action_just_pressed("fire") or Input.is_action_just_pressed("move up") or Input.is_action_just_pressed("move down") or Input.is_action_just_pressed("move left") or Input.is_action_just_pressed("move right"):
 		return true
 	return false
