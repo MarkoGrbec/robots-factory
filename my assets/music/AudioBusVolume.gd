@@ -16,10 +16,11 @@ func _volume_changed(value: float) -> void:
 	change_save_bus_level(value)
 
 func load_audio():
-	var value = DataBase.select(false, g_man.dbms, "audio", db_name, 1, 0.0)
 	var audio_bus_index = AudioServer.get_bus_index(bus_name)
-	AudioServer.set_bus_volume_db(audio_bus_index, value)
-	h_scroll_bar.value = value
+	var volume = AudioServer.get_bus_volume_db(audio_bus_index)
+	#volume = DataBase.select(false, g_man.dbms, "audio", db_name, 1, volume)
+	AudioServer.set_bus_volume_db(audio_bus_index, volume)
+	h_scroll_bar.value = volume
 
 func change_save_bus_level(value):
 	var audio_bus_index = AudioServer.get_bus_index(bus_name)

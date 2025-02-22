@@ -80,64 +80,6 @@ offset_bottom = -0.0239944
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="inventory system" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("grid_container_inventory_slots")]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.609375
-anchor_top = 0.00171233
-anchor_right = 1.00038
-anchor_bottom = 0.573712
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 0
-current_tab = 0
-script = ExtResource("9_fwcvl")
-inventory_slot_scene = ExtResource("10_n3o0a")
-grid_container_inventory_slots = NodePath("inventory/in game menu/VBoxContainer/GridContainer")
-metadata/_edit_use_anchors_ = true
-
-[node name="inventory" type="ScrollContainer" parent="CanvasLayer/Main/inventory system"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="in game menu" type="HBoxContainer" parent="CanvasLayer/Main/inventory system/inventory"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="close window2" type="Button" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 1
-text = "X"
-
-[node name="inventory container" type="MarginContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-columns = 5
-
-[node name="close window" type="Button" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-mouse_filter = 1
-text = "X"
-
 [node name="trader manager" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("buy_grid_container", "trader_button_sell", "trader_gold_label", "robot_gold_label", "buy_for", "sell_for")]
 visible = false
 layout_mode = 1
@@ -259,6 +201,68 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.609
 
+[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+grow_vertical = 1
+mouse_filter = 1
+
+[node name="inventory system" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("grid_container_inventory_slots")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.609375
+anchor_top = 0.00171233
+anchor_right = 1.00038
+anchor_bottom = 0.573712
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+script = ExtResource("9_fwcvl")
+inventory_slot_scene = ExtResource("10_n3o0a")
+grid_container_inventory_slots = NodePath("inventory/in game menu/VBoxContainer/GridContainer")
+metadata/_edit_use_anchors_ = true
+
+[node name="inventory" type="ScrollContainer" parent="CanvasLayer/Main/inventory system"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="in game menu" type="HBoxContainer" parent="CanvasLayer/Main/inventory system/inventory"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="close window2" type="Button" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[node name="inventory container" type="MarginContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="close window" type="Button" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
 [node name="change name manager" parent="CanvasLayer/Main" instance=ExtResource("7_67ri8")]
 visible = false
 layout_mode = 1
@@ -279,12 +283,6 @@ offset_top = 0.224007
 offset_right = 0.455933
 offset_bottom = -0.16803
 
-[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
-layout_mode = 1
-anchors_preset = 10
-anchor_bottom = 0.0
-grow_vertical = 1
-
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
 layer = 2
 follow_viewport_enabled = true
@@ -299,11 +297,12 @@ main_menu_music = Array[AudioStream]([ExtResource("20_qs5eo")])
 shop_music = Array[AudioStream]([ExtResource("21_frbr6"), ExtResource("22_o8j3b")])
 wandering_music = Array[AudioStream]([ExtResource("23_wpkmi"), ExtResource("24_o0l78"), ExtResource("25_576ah"), ExtResource("26_wpvt5")])
 action_music = Array[AudioStream]([ExtResource("27_amlcg"), ExtResource("28_ue0mw")])
+tutorial_music = Array[AudioStream]([ExtResource("25_576ah")])
 metadata/_custom_type_script = "uid://c5w5cvt6wb4ac"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 bus = &"sfx"
 
+[connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]
 [connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/inventory system" method="close_window"]
 [connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/inventory system" method="close_window"]
-[connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]

@@ -1,6 +1,7 @@
 class_name TileMapLayers extends Node
 
 @export var ground_layer: Array[TileMapLayer]
+@export var save: bool
 @export var timer: Timer
 
 #region grund layer
@@ -21,10 +22,10 @@ enum Tile{
 	GRASS = 2,
 	ROCK = 3,
 	SOFT_ROCK = 4,
-	TUNNEL = 5,
-	SOFT_ROCK_TUNNEL = 6,
+	TUNNEL = 5, ## goes down
+	SOFT_ROCK_TUNNEL = 6, ## goes up
 	SOFT_ROCK_UNDERGROUND = 7,
-	FAKE_TUNNEL = 8,
+	FAKE_TUNNEL = 8, ## it's where mobs come from
 	HOUSE = 9,
 	HOUSE_DOOR = 10
 }
@@ -73,11 +74,18 @@ func _ready() -> void:
 		array_layer_loaded.push_back(false)
 	GlobalSignals.select_tile_node.connect(add_or_dig)
 
+func destroy_me():
+	GlobalSignals.select_tile_node.disconnect(add_or_dig)
+
 func add_or_dig(index, mouse_global_position, callable):
 	if index == 0:
-		g_man.holding_hand.holding_hand_dig()
+		if g_man.tutorial:
+			g_man.holding_hand.holding_hand_dig()
 		dig(mouse_global_position)
-	else:
+		return
+	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
+	var cell_id = ground_layer[active_layer].get_cell_source_id(position)
+	if not (cell_id == Tile.TUNNEL or cell_id == Tile.SOFT_ROCK_TUNNEL or cell_id == Tile.FAKE_TUNNEL or cell_id == Tile.HOUSE or cell_id == Tile.HOUSE_DOOR):
 		if index == Enums.Esprite.dirt:
 			add(Tile.DIRT, callable)
 		elif index == Enums.Esprite.clay:
@@ -86,6 +94,8 @@ func add_or_dig(index, mouse_global_position, callable):
 			add(Tile.ROCK, callable)
 
 func add(id, callable):
+	if g_man.tutorial:
+		g_man.holding_hand.holding_hand_drop()
 	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
 	_fill_around(position)
 	var cell_id = ground_layer[active_layer].get_cell_source_id(position)
@@ -97,7 +107,7 @@ func add(id, callable):
 		callable.call()
 
 func dig(mouse_global_position: Vector2):
-	if not active_layer < savables.size():
+	if save and not active_layer < savables.size():
 		return
 	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
 	# get data
@@ -174,7 +184,8 @@ func set_ground_cell(position: Vector2i, id: int, layer: int):
 	if not array_data_array:
 		array_data_array = [NEW_ROCK_ARRAY.duplicate(true)]
 		dict_ground_pos___id__left[layer].set(position, array_data_array)
-	savables[layer].save_position__array_data_array(position, array_data_array)
+	if save:
+		savables[layer].save_position__array_data_array(position, array_data_array)
 	# set floor
 	ground_layer[layer].set_cell(position, id, Vector2i.ZERO)
 	#endregion set

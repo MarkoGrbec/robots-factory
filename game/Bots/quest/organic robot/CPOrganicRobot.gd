@@ -4,7 +4,11 @@ var convinced: bool = false
 var philosopher: bool = false
 
 @export var believe: TextureRect
-@onready var gradient_tex: GradientTexture1D = believe.texture
+var gradient_tex: GradientTexture1D
+
+func _ready() -> void:
+	believe.texture = believe.texture.duplicate(true)
+	gradient_tex = believe.texture
 
 func quest_believe(array_believe):
 	gradient_tex.gradient.offsets[0] = array_believe[0]

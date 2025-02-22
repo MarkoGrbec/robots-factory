@@ -23,12 +23,16 @@ func open_window(open: bool = false):
 		g_man.quests_manager.set_anchors()
 
 func generate_inventory_slots():
-	for i in range(1, 21):
+	var rang = range(1, 21)
+	if g_man.tutorial:
+		rang = range(22, 42)
+	for i in rang:
 		var slot:InventorySlot = g_man.savable_inventory_slot.get_or_set(i, false)
 		slot.entity_button_inventory = inventory_slot_scene.instantiate()
 		slot.entity_button_inventory.inventory_slot = slot
 		grid_container_inventory_slots.add_child(slot.entity_button_inventory)
-		slot.fully_load()
+		if not g_man.tutorial:
+			slot.fully_load()
 
 func add_remove_hover_over_sprite(counter):
 	hover_over_sprite += counter

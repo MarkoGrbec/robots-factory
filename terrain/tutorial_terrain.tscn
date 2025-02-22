@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=4 uid="uid://1ki7w3rxdi64"]
+
+[ext_resource type="TileSet" uid="uid://cxjxodvo5kmfv" path="res://my assets/Tiles/tile_set.tres" id="1_dfght"]
+[ext_resource type="Script" uid="uid://cd6ersvk34ijd" path="res://terrain/TileMapLayers.gd" id="1_viixf"]
+[ext_resource type="TileSet" uid="uid://dfqqfwevxofgt" path="res://my assets/Tiles/tile_set_inside.tres" id="3_bd202"]
+[ext_resource type="Script" uid="uid://dtpmm8vlj60ev" path="res://main/MapGroundLayer.gd" id="4_vg0hu"]
+[ext_resource type="PackedScene" uid="uid://c657hgr7fcptm" path="res://my assets/player2D/player.tscn" id="5_66pks"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="tile map layers" type="Node2D" parent="." node_paths=PackedStringArray("ground_layer")]
+script = ExtResource("1_viixf")
+ground_layer = [NodePath("GroundTileMapLayer"), NodePath("UnderGroundTileMapLayer2"), NodePath("UnderGroundTileMapLayer3"), NodePath("UnderGroundTileMapLayer4"), NodePath("GroundLayerTileMapLayerInsideHouses")]
+
+[node name="GroundTileMapLayer" type="TileMapLayer" parent="tile map layers"]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAwAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAQAAAAAAAAAEAAEAAwAAAAAAAAADAAEAAQAAAAAAAAACAAEAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAIAAQAAAAAAAAACAAIAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAIAAwAAAAAAAAAFAAIAAQAAAAAAAAAGAAIAAQAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAAAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAAIAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAADAAMAAQAAAAAAAAACAAMAAgAAAAAAAAABAAMAAgAAAAAAAAAAAAMAAQAAAAAAAAABAAQAAgAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAYAAQAAAAAAAAABAAYAAQAAAAAAAAACAAYAAQAAAAAAAAADAAYAAQAAAAAAAAAEAAYAAwAAAAAAAAAFAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAAAAQAAAAAAAAAJAAYAAQAAAAAAAAAHAAUAAQAAAAAAAAAIAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAEAAUAAwAAAAAAAAAFAAQAAwAAAAAAAAAGAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAQAAgAAAAAAAAACAAUAAgAAAAAAAAACAAQAAgAAAAAAAAABAAUAAgAAAAAAAAD//wcAAwAAAAAAAAD//wYAAwAAAAAAAAD//wUAAwAAAAAAAAD//wQAAwAAAAAAAAD//wMAAwAAAAAAAAD//wIAAwAAAAAAAAD//wEAAwAAAAAAAAD//wAAAwAAAAAAAAD/////AwAAAAAAAAAAAP//AwAAAAAAAAABAP//AwAAAAAAAAACAP//AwAAAAAAAAADAP//AwAAAAAAAAAEAP//AwAAAAAAAAAFAP//AwAAAAAAAAAGAP//AwAAAAAAAAAHAP//AwAAAAAAAAAIAP//AwAAAAAAAAAJAP//AwAAAAAAAAAKAAAAAwAAAAAAAAAJAAEAAQAAAAAAAAAKAAIAAwAAAAAAAAAJAAMAAQAAAAAAAAAKAAQAAwAAAAAAAAAJAAUAAQAAAAAAAAAKAAYAAwAAAAAAAAAJAAcAAwAAAAAAAAAIAAcAAwAAAAAAAAAHAAcAAwAAAAAAAAAGAAcAAwAAAAAAAAAFAAcAAwAAAAAAAAAEAAcAAwAAAAAAAAADAAcAAwAAAAAAAAACAAcAAwAAAAAAAAABAAcAAwAAAAAAAAAAAAcAAwAAAAAAAAAKAP//AwAAAAAAAAAKAAEAAwAAAAAAAAAKAAMAAwAAAAAAAAAKAAUAAwAAAAAAAAAKAAcAAwAAAAAAAAA=")
+tile_set = ExtResource("1_dfght")
+
+[node name="UnderGroundTileMapLayer2" type="TileMapLayer" parent="tile map layers"]
+scale = Vector2(0.5, 0.5)
+
+[node name="UnderGroundTileMapLayer3" type="TileMapLayer" parent="tile map layers"]
+scale = Vector2(0.5, 0.5)
+
+[node name="UnderGroundTileMapLayer4" type="TileMapLayer" parent="tile map layers"]
+scale = Vector2(0.5, 0.5)
+
+[node name="GroundLayerTileMapLayerInsideHouses" type="TileMapLayer" parent="tile map layers"]
+tile_set = ExtResource("3_bd202")
+
+[node name="Map" type="Node2D" parent="."]
+script = ExtResource("4_vg0hu")
+
+[node name="CPPlayer" parent="." instance=ExtResource("5_66pks")]
+z_index = 1
+position = Vector2(73, 73)
+
+[node name="Chest" parent="CPPlayer/visuals/Skeleton2D/Hip" index="0"]
+scale = Vector2(0.999996, 0.999996)
+
+[node name="Head" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest" index="0"]
+scale = Vector2(0.999989, 0.999989)
+
+[editable path="CPPlayer"]

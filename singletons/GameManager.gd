@@ -1,5 +1,7 @@
 extends Node
 
+var tutorial: bool = false
+
 var user: User
 var player: CPPlayer
 var camera: Camera
@@ -77,11 +79,13 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "battery_constumption")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "weapon_range")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "weapon_reflexes")
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "believe_in_god")
+	
 	
 	_table = DataBase.Table.new("audio")
-	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "Master")
-	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "music")
-	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "sfx")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "Master_p3")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "music_p3")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "sfx_p3")
 	
 	_table = DataBase.Table.new("misc")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "quest_move")
@@ -95,6 +99,7 @@ func create_database():
 	
 	_table = DataBase.Table.new("holding_hand")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "movement")
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "movement_completed")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "dig")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "drop")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "underground")

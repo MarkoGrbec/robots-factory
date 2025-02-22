@@ -3,10 +3,6 @@ func _ready() -> void:
 	g_man.map = self
 
 func activate(active: bool):
-	#if active:
-		#show()
-	#else:
-		#hide()
 	var children = get_children()
 	for child in children:
 		if not child is NavigationRegion2D:
@@ -17,7 +13,7 @@ func activate(active: bool):
 					activate_child(child, true)
 				else:
 					activate_child(child, false)
-#
+
 func activate_child(child, active):
 	child.set_collision_mask_value(1, active)
 	child.set_collision_layer_value(1, active)

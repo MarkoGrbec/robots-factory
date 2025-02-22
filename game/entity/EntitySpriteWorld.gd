@@ -8,13 +8,12 @@ var entity: Entity
 func _ready() -> void:
 	g_man.trader_manager.sell_for.text = ""
 	g_man.trader_manager.buy_for.text = ""
-	g_man.holding_hand.holding_hand_drop()
 
 func destroy_me():
 	entity.destroy_me()
 	queue_free()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if selected and entity:
 		global_position = get_global_mouse_position()
 		if Input.is_action_just_released("put back material"):
@@ -31,7 +30,7 @@ func _process(delta: float) -> void:
 			entity.pos = global_position
 			entity.save_position_rotation()
 
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if not g_man.inventory_system.dragging:
 			if event.is_action_pressed("select"):

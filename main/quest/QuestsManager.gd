@@ -72,7 +72,7 @@ func recount_entities():
 		quest_grid_container.add_child(node)
 		array_stop_button_quest.push_back(node)
 
-func add_response(quest_giver_name, response, basic_dialog, array_display_answers = []):
+func add_response(quest_giver_name, response, basic_dialog, array_display_answers__response_size = []):
 	if _basic_dialog != basic_dialog or basic_dialog.contains("hacking, ..."):
 		_basic_dialog = basic_dialog
 		response = [response, basic_dialog]
@@ -96,11 +96,11 @@ func add_response(quest_giver_name, response, basic_dialog, array_display_answer
 	for answer in answers:
 		answer.queue_free()
 	answers.clear()
-	for answer in array_display_answers:
+	for answer__response_size in array_display_answers__response_size:
 		var button: Button = answer_dialog.instantiate()
 		answers.push_back(button)
 		answer_container.add_child(button)
-		button.text = answer.replace("\"", "").replace("[", "").replace("]", "").replace(",", "").replace("\\", "")
+		button.text = str(answer__response_size[1], ": ", answer__response_size[0].replace("\"", "").replace("[", "").replace("]", "").replace(",", "").replace("\\", ""))
 		button.pressed.connect(
 			func():
 				_on_ask_quester(button.text)
@@ -202,8 +202,8 @@ static func target_send_quest_mob_remove(server_quest: ServerQuest):
 	if server_quest.body:
 		server_quest.body.queue_free()
 
-func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis = [], array_believe = [], array_display_answers = []):
-	add_response(quest_giver_name, response, basis_dial, array_display_answers)
+func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis = [], array_believe = [], array_display_answers__response_size = []):
+	add_response(quest_giver_name, response, basis_dial, array_display_answers__response_size)
 	var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
 	if server_quest.body:
 		if success_old_basis:

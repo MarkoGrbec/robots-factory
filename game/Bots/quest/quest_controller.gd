@@ -39,9 +39,9 @@ func _physics_process(delta: float) -> void:
 		#velocity.y *= 0.6
 	## Fall.
 	#velocity.y = minf(TERMINAL_VELOCITY, velocity.y + gravity * delta)
-	var speed = RUN_SPEED
-	if Input.is_action_pressed("walk"):
-		speed = WALK_SPEED
+	var speed = WALK_SPEED
+	if true or Input.is_action_pressed("run"):
+		speed = RUN_SPEED
 	
 	
 	var y_direction := 0 #Input.get_axis("move_up", "move_down")

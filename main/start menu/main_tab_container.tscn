@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://btw2dmrck5wsv"]
+[gd_scene load_steps=5 format=3 uid="uid://btw2dmrck5wsv"]
 
 [ext_resource type="Script" uid="uid://dxd6wbawl72f6" path="res://main/start menu/StartGame.gd" id="1_sciab"]
 [ext_resource type="PackedScene" uid="uid://ww05yde5nb2t" path="res://terrain/terrain.tscn" id="2_686ee"]
+[ext_resource type="PackedScene" uid="uid://1ki7w3rxdi64" path="res://terrain/tutorial_terrain.tscn" id="3_a17ok"]
 [ext_resource type="Script" uid="uid://coolq65m2ewxv" path="res://my assets/Credits/Credits.gd" id="3_i4pt1"]
 
 [node name="main TabContainer" type="TabContainer"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 current_tab = 0
 
 [node name="start game" type="ScrollContainer" parent="." node_paths=PackedStringArray("start_game", "delete_user", "username_line_edit", "welcome_label", "welcome_button")]
@@ -20,6 +22,7 @@ start_game = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/start game")
 delete_user = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/delete user")
 username_line_edit = NodePath("HBoxContainer/VBoxContainer/username")
 terrain = ExtResource("2_686ee")
+terrain_tutorial = ExtResource("3_a17ok")
 welcome_label = NodePath("../welcome robot/HBoxContainer/VBoxContainer/welcome label")
 welcome_button = NodePath("../welcome robot/HBoxContainer/VBoxContainer/welcome button")
 metadata/_tab_index = 0
@@ -62,6 +65,16 @@ layout_mode = 2
 size_flags_horizontal = 0
 placeholder_text = "enter your name"
 expand_to_text_length = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="tutorial" type="Button" parent="start game/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "tutorial
+"
 
 [node name="MarginContainer2" type="MarginContainer" parent="start game/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -157,6 +170,7 @@ text = "let's fix name"
 [connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="start game" method="_on_start_game_pressed"]
 [connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="start game" method="_on_delete_user_pressed"]
 [connection signal="text_submitted" from="start game/HBoxContainer/VBoxContainer/username" to="start game" method="submit_username"]
+[connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/tutorial" to="start game" method="_on_tutorial_pressed"]
 [connection signal="pressed" from="start game/HBoxContainer/VBoxContainer/message to ash february" to="start game" method="_on_message_to_ash_february_pressed"]
 [connection signal="meta_clicked" from="credits/HBoxContainer/VBoxContainer/RichTextLabel" to="credits" method="_on_rich_text_label_meta_clicked"]
 [connection signal="pressed" from="welcome robot/HBoxContainer/VBoxContainer/welcome button" to="start game" method="close_welcome_window"]

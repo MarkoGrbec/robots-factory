@@ -84,7 +84,7 @@ func get_string(array: Array):
 
 @onready var instructions_only = $"instructions only/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer/VBoxContainer/instructions"
 
-func set_instructions_only(array: Array, voice_id = -1):
+func set_instructions_only(array: Array, voice_id: int = -1):
 	begin()
 	current_tab = 0
 	instructions_only.text = get_string(array)

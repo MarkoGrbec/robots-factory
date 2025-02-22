@@ -2734,16 +2734,17 @@ func get_dict_count():
 #region save/Load
 	#region ISavable
 func fully_save():
-	#save_ql()
-	#save_parent_volume_weight()
-	#save_group_volume()
-	save_entity_num()
-	save_position_rotation()
-	#save_constructed()
-	save_damage()
-	#save_special()
-	#for mat in materials:
-		#mat.save_weight()
+	if not g_man.tutorial:
+		#save_ql()
+		#save_parent_volume_weight()
+		#save_group_volume()
+		save_entity_num()
+		save_position_rotation()
+		#save_constructed()
+		save_damage()
+		#save_special()
+		#for mat in materials:
+			#mat.save_weight()
 	partly_loaded = 2
 
 func partly_save():
@@ -2777,6 +2778,9 @@ func fully_load():
 		return
 	
 	var item_object = mp.get_item_object(entity_num)
+	if not item_object:
+		destroy_me()
+		return
 	if item_object.is_improvable:
 		if item_object.improvable_tools.size() == 0:
 			push_error("add improvable tools for ", to_string_name())
@@ -3084,7 +3088,8 @@ func partly_load():
 	#endregion end AllEntities
 	#region position
 func save_position_rotation():
-	DataBase.insert(_server, g_man.dbms, _path, "position", id, pos)
+	if not g_man.tutorial:
+		DataBase.insert(_server, g_man.dbms, _path, "position", id, pos)
 	#DataBase.insert(_server, g_man.dbms, _path, "rotation", id, rot)
 
 func load_position_rotation():
@@ -3092,14 +3097,16 @@ func load_position_rotation():
 	#rot = DataBase.select(_server, g_man.dbms, _path, "rotation", id, Vector3.ZERO)
 
 func save_layer():
-	DataBase.insert(_server, g_man.dbms, _path, "layer", id, layer)
+	if not g_man.tutorial:
+		DataBase.insert(_server, g_man.dbms, _path, "layer", id, layer)
 
 func load_layer():
 	layer = DataBase.select(_server, g_man.dbms, _path, "layer", id, 0)
 	#endregion position
 	#region parent volume weight
 func save_parent():
-	DataBase.insert(_server, g_man.dbms, _path, "parent", id, parent)
+	if not g_man.tutorial:
+		DataBase.insert(_server, g_man.dbms, _path, "parent", id, parent)
 
 #func save_parent_volume_weight():
 	#save_parent()

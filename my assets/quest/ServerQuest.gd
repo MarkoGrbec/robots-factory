@@ -140,7 +140,7 @@ var array_believe: Array[float]
 ## basis -> qq_index -> index
 var array_response_dialog_index: Array[int]
 ## display_answers
-var array_answers: Array[String]
+var array_answers__response_size: Array[String]
 #region completting mission
 func mission_completing(dict_string_mission__Entity_sprite: Dictionary):
 	if dict_mission__entity_num and mission_quantity:
@@ -182,7 +182,7 @@ func delete_chars(chars: Array[String], raw_text: String):
 		raw_text = raw_text.replace(ch, "")
 	return raw_text
 
-## return [[name], [response]], [quest_question], [inventory.id], [[success.old_basis], [qq_index]], [failed.old_basis], [array_answers]
+## return [[name], [response]], [quest_question], [inventory.id], [[success.old_basis], [qq_index]], [failed.old_basis], [array_answers__response_size]
 func ask(raw_text: String, client) -> Array:
 	var avatar_name = g_man.user.avatar_name
 	raw_text = raw_text.to_lower()
@@ -194,13 +194,13 @@ func ask(raw_text: String, client) -> Array:
 	if not raw_text:
 		if q_obj.list_quest_basis.size() > basis:
 			get_display_answers_all()
-		return [[q_obj.quest_name, ""], null, inventory.id, [], array_believe, array_answers]
+		return [[q_obj.quest_name, ""], null, inventory.id, [], array_believe, array_answers__response_size]
 	
 	if raw_text.find("fuck you") != -1:
 		basis = -1
 		default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog
 		default_starting_dialog = default_starting_dialog.replace("[name]", avatar_name)
-		return [[q_obj.quest_name, "don't be that mean to me I can revenge on you if you. Are on main quest line it means it's game over for you. You need to start from beginning again"], null, inventory.id, [], array_believe, array_answers, array_answers]
+		return [[q_obj.quest_name, "don't be that mean to me I can revenge on you if you. Are on main quest line it means it's game over for you. You need to start from beginning again"], null, inventory.id, [], array_believe, array_answers__response_size]
 	
 	
 	push_warning(raw_text, basis)
@@ -222,7 +222,7 @@ func ask(raw_text: String, client) -> Array:
 			# failed
 			push_error(str(q_obj.quest_name, " not implemented exeption basis: ", basis))
 			printerr(str(q_obj.quest_name, " not implemented exeption basis: ", basis))
-			return [[q_obj.quest_name, str("not implemented exeption basis: ", basis)], null, inventory.id, [], array_believe, array_answers]
+			return [[q_obj.quest_name, str("not implemented exeption basis: ", basis)], null, inventory.id, [], array_believe, array_answers__response_size]
 		var default_failed_dialog = q_obj.list_quest_basis[basis].default_failed_dialog
 		if not default_failed_dialog:
 			default_failed_dialog = "what do you mean?"
@@ -237,9 +237,9 @@ func ask(raw_text: String, client) -> Array:
 		
 		get_display_answers_all()
 		if qq.response_failed_dialog:
-			return [[q_obj.quest_name, qq.response_failed_dialog], qq, inventory.id, [], array_believe, array_answers]
+			return [[q_obj.quest_name, qq.response_failed_dialog], qq, inventory.id, [], array_believe, array_answers__response_size]
 		else:
-			return [[q_obj.quest_name, str("I'm sorry I need more quality items", mission_quantity)], null, inventory.id, [], array_believe, array_answers]
+			return [[q_obj.quest_name, str("I'm sorry I need more quality items", mission_quantity)], null, inventory.id, [], array_believe, array_answers__response_size]
 	# success
 	else:
 		succeed_believe()
@@ -250,13 +250,13 @@ func ask(raw_text: String, client) -> Array:
 		
 		set_new_basis(qq, q_obj, general_basis, avatar_name)
 		get_display_answers_all()
-		return [response_dialog, qq, inventory.id, array_old_basis__qq_index, array_believe, array_answers]
+		return [response_dialog, qq, inventory.id, array_old_basis__qq_index, array_believe, array_answers__response_size]
 	get_display_answers_all()
 	# fail
-	return [response_dialog, qq, inventory.id, [], array_believe, array_answers]
+	return [response_dialog, qq, inventory.id, [], array_believe, array_answers__response_size]
 
 func get_display_answers_all():
-	array_answers.clear()
+	array_answers__response_size.clear()
 	get_display_answers(basis)
 	for flag in basis_flags:
 		get_display_answers(flag)
@@ -267,7 +267,7 @@ func get_display_answers(basis_index: int):
 		var _basis: QuestBasis = q_obj.list_quest_basis[basis_index]
 		if _basis.display_answers:
 			for basis_qq: QuestQuestion in _basis.list_quest_questions:
-				array_answers.push_back(str(basis_qq.list_avatar_dialog))
+				array_answers__response_size.push_back([str(basis_qq.list_avatar_dialog), basis_qq.response_dialog.size()])
 	
 
 ## sets new basis and default starting dialog

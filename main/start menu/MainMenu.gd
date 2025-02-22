@@ -11,6 +11,9 @@ func _ready() -> void:
 func close_main_menu():
 	main_menu_tab.hide()
 
+func open_main_menu():
+	main_menu_tab.show()
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
 		if in_game_main_menu:

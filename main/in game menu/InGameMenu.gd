@@ -9,14 +9,16 @@ func _ready() -> void:
 
 func close_window():
 	hide()
+	g_man.changes_manager.open_window()
 
 func open_window(open: bool = false):
 	if is_visible_in_tree():
 		if not open:
-			hide()
+			close_window()
 		return
 	else:
 		show()
+		g_man.changes_manager.close_window()
 
 
 func _on_quit_button_pressed() -> void:

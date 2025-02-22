@@ -6,6 +6,7 @@ enum MusicStatus{
 	shop,
 	wandering,
 	action,
+	tutorial,
 }
 
 #region inputs
@@ -16,6 +17,7 @@ enum MusicStatus{
 @export var shop_music: Array[AudioStream]
 @export var wandering_music: Array[AudioStream]
 @export var action_music: Array[AudioStream]
+@export var tutorial_music: Array[AudioStream]
 #endregion end inputs
 @export var clips = {}
 @export var status: MusicStatus = MusicStatus.main_menu
@@ -29,6 +31,7 @@ func _ready() -> void:
 	clips[MusicStatus.shop] = shop_music
 	clips[MusicStatus.wandering] = wandering_music
 	clips[MusicStatus.action] = action_music
+	clips[MusicStatus.tutorial] = tutorial_music
 	g_man.music_manager.set_music_type(MusicManager.MusicStatus.main_menu)
 
 

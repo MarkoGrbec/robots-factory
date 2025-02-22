@@ -1,4 +1,4 @@
-class_name ChangesManager extends Node
+class_name ChangesManager extends VBoxContainer
 
 var unix_time_last_char: float = 0
 
@@ -10,6 +10,12 @@ var dict_changes: Dictionary[Variant, Variant]
 
 func _ready() -> void:
 	g_man.changes_manager = self
+
+func close_window():
+	hide()
+
+func open_window():
+	show()
 
 func add_change(text: String):
 	var change: Label = changes_label.instantiate()

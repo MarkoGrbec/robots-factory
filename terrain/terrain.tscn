@@ -21,6 +21,7 @@ texture_filter = 1
 [node name="tile map layers" type="Node2D" parent="." node_paths=PackedStringArray("ground_layer", "timer")]
 script = ExtResource("1_2ilfp")
 ground_layer = [NodePath("ground layer"), NodePath("underground layer1"), NodePath("underground layer2"), NodePath("underground layer3"), NodePath("ground layer inside houses")]
+save = true
 timer = NodePath("../Timer")
 
 [node name="ground layer" type="TileMapLayer" parent="tile map layers"]
@@ -64,7 +65,7 @@ visible = false
 position = Vector2(-5, -19)
 navigation_polygon = SubResource("NavigationPolygon_nigp7")
 
-[node name="SkeletalPlayer" parent="." instance=ExtResource("3_7nt5j")]
+[node name="CPPlayer" parent="." instance=ExtResource("3_7nt5j")]
 z_index = 1
 position = Vector2(576, 357)
 

@@ -4,6 +4,7 @@ func copy():
 	return HoldingHand.new()
 
 var movement_options_callable: Callable
+var movement_completed_options_callable: Callable
 var dig_options_callable: Callable
 var drop_options_callable: Callable
 var npc_options_callable: Callable
@@ -13,6 +14,7 @@ var believe_options_callable: Callable
 
 func destroy():
 	still_holding_hand_movement(false)
+	still_holding_hand_movement_completed(false)
 	still_holding_hand_dig(false)
 	still_holding_hand_drop(false)
 	still_holding_hand_npc(false)
@@ -21,8 +23,10 @@ func destroy():
 	still_holding_hand_believe(false)
 	still_holding_hand_quadrant1()
 
+## get tooltips in main menu misc
 func config():
 	movement_options_callable = _get_set_holding_hand_scene("movement", movement_string, load_return_holding_hand_movement(), still_holding_hand_movement, stop_holding_hand_movement)
+	movement_completed_options_callable = _get_set_holding_hand_scene("movement completed", movement_completed_string, load_return_holding_hand_movement_completed(), still_holding_hand_movement_completed, stop_holding_hand_movement_completed)
 	dig_options_callable = _get_set_holding_hand_scene("dig", dig_string, load_return_holding_hand_dig(), still_holding_hand_dig, stop_holding_hand_dig)
 	drop_options_callable = _get_set_holding_hand_scene("drop", drop_string, load_return_holding_hand_drop(), still_holding_hand_drop, stop_holding_hand_drop)
 	npc_options_callable = _get_set_holding_hand_scene("npc", npc_string, load_return_holding_hand_npc(), still_holding_hand_npc, stop_holding_hand_npc)
@@ -40,8 +44,7 @@ func _get_set_holding_hand_scene(text, tooltip, active, on: Callable, off: Calla
 	g_man.in_game_menu.options_holding_hand_container.add_child(check_box)
 	return check_box.toggle_me
 #region movement
-
-var movement_string: String = "to move around use WASD or arrow keys\nyou can change that in bindings\nto enter main menu press ESC\npay close attention to the game it's a thinking game\nyou may go long way or short way\nfor inventory press insert\nto open dialog with npc just click him with left mouse button [select] binding\nto dig press left mouse button [select] binding on a tile near the robot you are controlling\nalso you need to have mouse there untill it digs the portion out\nelse it does not dig anything and stamina is still drained\nsometimes you can hover over UI and you'll get a tooltip shown"
+var movement_string: String = "to move around use WASD or arrow keys\nyou can change that in bindings in main menu\nto enter main menu press ESC or Q [ESC] binding\nfor inventory press I or E or insert [inventory] binding\nto open dialog with npc just click him with left mouse button [select] binding\nto dig press left mouse button [select] binding on a tile near the robot you are controlling\nalso you need to have mouse there untill it digs the portion out\nelse it does not dig anything and stamina is still drained\nsometimes you can hover over UI and you'll get a tooltip shown"
 
 func load_return_holding_hand_movement():
 	return DataBase.select(_server, g_man.dbms, _path, "movement", id, true)
@@ -59,11 +62,36 @@ func stop_holding_hand_movement():
 
 func holding_hand_movement():
 	if load_return_holding_hand_movement():
-		g_man.mold_window.set_yes_no_cancel([movement_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_movement, stop_holding_hand_movement, stop_holding_hand_movement)
+		g_man.mold_window.set_instructions_only([movement_string])
+		g_man.changes_manager.add_key_change("tutorial: ", movement_string)
+		stop_holding_hand_movement()
+#endregion movement
+#region movement_completed
+var movement_completed_string: String = "now try to dig,\nto dig press left mouse button near robot you are controlling"
+
+func load_return_holding_hand_movement_completed():
+	return DataBase.select(_server, g_man.dbms, _path, "movement_completed", id, true)
+
+func save_holding_hand_movement_completed(yes, callab: bool = true):
+	DataBase.insert(_server, g_man.dbms, _path, "movement_completed", id, yes)
+	if callab:
+		movement_completed_options_callable.call(yes)
+
+func still_holding_hand_movement_completed(callab: bool = true):
+	save_holding_hand_movement_completed(true, callab)
+
+func stop_holding_hand_movement_completed():
+	save_holding_hand_movement_completed(false, false)
+
+func holding_hand_movement_completed():
+	if load_return_holding_hand_movement_completed():
+		g_man.mold_window.set_instructions_only(["great you know how to move around\n", movement_completed_string])
+		g_man.changes_manager.add_key_change("tutorial: ", movement_completed_string)
+		stop_holding_hand_movement_completed()
 #endregion movement
 #region dig
 
-var dig_string: String = "digging will tire you\nwhen you dig you dig a portion of a selected tile\nthe selected tile always has certain portion of digs to dig\nsome more some less the rock tile gained from fog is always 35 digs long\nand only soft rock underneeth\ngrass grows of dirt but it does not make a new portion of dirt to dig\n\nyou cannot dig up but only down"
+var dig_string: String = "digging will tire you\ntup right yellow is stanima\nwhen you dig you dig a portion of a selected tile\nyou can put it back to the ground by right clicking on it [put back material] binding\nthe selected tile always has certain portion of digs to dig\nsome more some less the rock tile gained from fog is always 35 digs long\nand only soft rock underneeth\ngrass grows of dirt but it does not make a new portion of dirt to dig\n\nyou cannot dig up but only down \n\nNow try to put it back in to the ground with right click on it."
 
 func load_return_holding_hand_dig():
 	return DataBase.select(_server, g_man.dbms, _path, "dig", id, true)
@@ -81,7 +109,9 @@ func stop_holding_hand_dig():
 
 func holding_hand_dig():
 	if load_return_holding_hand_dig():
-		g_man.mold_window.set_yes_no_cancel([dig_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_dig, stop_holding_hand_dig, stop_holding_hand_dig)
+		g_man.mold_window.set_instructions_only([dig_string])
+		g_man.changes_manager.add_key_change("tutorial: ", dig_string)
+		stop_holding_hand_dig()
 #endregion dig
 #region underground
 
@@ -103,10 +133,13 @@ func stop_holding_hand_underground():
 
 func holding_hand_underground():
 	if load_return_holding_hand_underground():
-		g_man.mold_window.set_yes_no_cancel(["spoiler", "\nmachanics of digging", "\nif you choose no you will not see this dialog any longer"], spoiler_underground, stop_holding_hand_underground, stop_holding_hand_underground)
+		spoiler_underground()
+		#g_man.mold_window.set_instructions_only(["spoiler", "\nmachanics of digging", "\nif you choose no you will not see this dialog any longer"], spoiler_underground, stop_holding_hand_underground, stop_holding_hand_underground)
 
 func spoiler_underground():
-	g_man.mold_window.set_yes_no_cancel([underground_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_underground, stop_holding_hand_underground, stop_holding_hand_underground)
+	g_man.mold_window.set_instructions_only([underground_string])
+	g_man.changes_manager.add_key_change("tutorial: ", underground_string)
+	stop_holding_hand_underground()
 #endregion movement
 #region npc
 var npc_string: String = "You can talk to npc sometimes multiple times with same pharse and get different dialog\n\ntry talking to them like to fellow human\n\nto give item in to quest npc simply drag item from inventory or world in to top right slot of quest manager\n\nUsually you need to say max 3 words but all words must match sometimes there are more than 1 pharses available to match\nOrder of words does not matter\n\nif you get failed dialog it means non pharses were match\nelse if you put right words for other pharse it may not activate it\ndepends on the priority of the pharse\n\n if you have a quest and correct pharse you might get failed dialog if the quest has not been fulfilled\n\nthe completed basis(quest) may activate other basis completely random(predefined) it is not linear.\n It may activate deactivate other npc and their basis\n\nin each basis there's usually more than 1 quest question\nWhich has 1 or more pharses to match if priority quest question is fulfilled than the bottom ones aren't triggered, quest question may have more than 1 sucessfull response if it changes the basis it's no longer possible to access that quest question as you are in different basis."
@@ -127,10 +160,12 @@ func stop_holding_hand_npc():
 
 func holding_hand_npc():
 	if load_return_holding_hand_npc():
-		g_man.mold_window.set_yes_no_cancel([npc_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_npc, stop_holding_hand_npc, stop_holding_hand_npc)
+		g_man.mold_window.set_instructions_only([npc_string])
+		g_man.changes_manager.add_key_change("tutorial: ", npc_string)
+		stop_holding_hand_npc()
 #endregion npc
 #region drop
-var drop_string: String = "you may put portion back on to ground by right clicking on it"
+var drop_string: String = "Try to dig and get it in to your inventory E or I or insert [inventory] binding\ndrag it in to your inventory"
 
 func load_return_holding_hand_drop():
 	return DataBase.select(_server, g_man.dbms, _path, "drop", id, true)
@@ -148,7 +183,9 @@ func stop_holding_hand_drop():
 
 func holding_hand_drop():
 	if load_return_holding_hand_drop():
-		g_man.mold_window.set_yes_no_cancel([drop_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_drop, stop_holding_hand_drop, stop_holding_hand_drop)
+		g_man.mold_window.set_instructions_only(["good you put it back.\n", drop_string])
+		g_man.changes_manager.add_key_change("tutorial: ", drop_string)
+		stop_holding_hand_drop()
 #endregion drop
 #region trader
 var trader_string: String = "if you wish to buy drag the item\nfrom trader manager in to inventory\nto sell simply drag it to the top right of trader manager\n\nless money you have cheaper it is\nbut also it's cheaper to sell\nmore money you have everything is more expensive\nit's kind of economy"
@@ -169,7 +206,9 @@ func stop_holding_hand_trader():
 
 func holding_hand_trader():
 	if load_return_holding_hand_trader():
-		g_man.mold_window.set_yes_no_cancel([trader_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_trader, stop_holding_hand_trader, stop_holding_hand_trader)
+		g_man.mold_window.set_instructions_only([trader_string])
+		g_man.changes_manager.add_key_change("tutorial: ", trader_string)
+		stop_holding_hand_trader()
 #endregion trader
 #region believe
 var believe_string: String = "To convince in to believing in to god you must choose correct pharse for his dialog. If you don't convince him, than he will strenghten the bond to other side. Each character has unique dialogs.\n\nPs. ask hint bot for more details."
@@ -190,7 +229,9 @@ func stop_holding_hand_believe():
 
 func holding_hand_believe():
 	if load_return_holding_hand_believe():
-		g_man.mold_window.set_yes_no_cancel([believe_string, "\ntoo keep seeing this holding hand press yes"], still_holding_hand_believe, stop_holding_hand_believe, stop_holding_hand_believe)
+		g_man.mold_window.set_instructions_only([believe_string])
+		g_man.changes_manager.add_key_change("tutorial: ", believe_string)
+		stop_holding_hand_believe()
 #endregion believe
 #region quadrant1
 var quadrant1_string: String = "what is this seems like everything is wrong maybe I should ask assistant."

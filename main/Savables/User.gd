@@ -72,6 +72,9 @@ func save_weapon_reflexes(weapon_reflexes, default: bool = false):
 		_weapon_reflexes = 3
 	_weapon_reflexes *= weapon_reflexes
 	DataBase.insert(_server, g_man.dbms, _path, "weapon_reflexes", id, float(_weapon_reflexes))
+
+func save_believe_in_god():
+	DataBase.insert(_server, g_man.dbms, _path, "believe_in_god", id, believe_in_god)
 	#endregion save
 	#region load
 func load_username():
@@ -103,6 +106,9 @@ func load_weapon_range():
 
 func load_weapon_reflexes():
 	_weapon_reflexes = DataBase.select(_server, g_man.dbms, _path, "weapon_reflexes", id, 3)
+
+func load_believe_in_god():
+	believe_in_god = DataBase.select(_server, g_man.dbms, _path, "believe_in_god", id, false)
 	#endregion load
 #endregion save load
 func set_weapon(activate):

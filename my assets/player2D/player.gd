@@ -2,11 +2,12 @@ class_name Player extends Node2D
 
 @export var movement: Movement
 @export var animation_tree: AnimationTree
+@export var holding_hand: bool = false
 
 func _physics_process(delta: float) -> void:
-	movement.state = Movement.State.RUN
-	if Input.is_action_pressed("walk"):
-		movement.state = Movement.State.WALK
+	movement.state = Movement.State.WALK
+	if true or Input.is_action_pressed("run"):
+		movement.state = Movement.State.RUN
 	
 	movement.body.move_and_slide()
 
@@ -15,6 +16,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		var y_direction := Input.get_axis("move up", "move down")
 		var x_direction := Input.get_axis("move left", "move right")
 		movement.direction = Vector2(x_direction, y_direction)
+		if movement.direction and g_man.tutorial:
+			g_man.holding_hand.holding_hand_movement_completed()
 
 func blend_anim(anim, value: float, timescale: float):
 	animation_tree["parameters/state/transition_request"] = anim

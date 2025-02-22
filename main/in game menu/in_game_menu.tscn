@@ -13,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 current_tab = 3
 script = ExtResource("1_un1ud")
 options_holding_hand_scene = ExtResource("4_yjfud")
@@ -72,6 +73,7 @@ layout_mode = 2
 index = 4
 
 [node name="binding container5" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+visible = false
 layout_mode = 2
 index = 5
 
@@ -145,18 +147,18 @@ size_flags_vertical = 0
 [node name="VolumeContainer" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
 volume_name = "master"
-db_name = "Master"
+db_name = "Master_p3"
 bus_name = "Master"
 
 [node name="VolumeContainer2" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
-db_name = "music"
+db_name = "music_p3"
 bus_name = "music"
 
 [node name="VolumeContainer3" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
 volume_name = "sound effects"
-db_name = "sfx"
+db_name = "sfx_p3"
 bus_name = "sfx"
 
 [node name="MarginContainer2" type="MarginContainer" parent="audio/HBoxContainer"]
