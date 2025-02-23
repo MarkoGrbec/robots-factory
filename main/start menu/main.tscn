@@ -80,12 +80,6 @@ offset_bottom = -0.0239944
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
-layout_mode = 1
-anchors_preset = 10
-anchor_bottom = 0.0
-grow_vertical = 1
-
 [node name="trader manager" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("buy_grid_container", "trader_button_sell", "trader_gold_label", "robot_gold_label", "buy_for", "sell_for")]
 visible = false
 layout_mode = 1
@@ -261,6 +255,12 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "X"
+
+[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
+layout_mode = 1
+anchors_preset = 10
+anchor_bottom = 0.0
+grow_vertical = 1
 
 [node name="change name manager" parent="CanvasLayer/Main" instance=ExtResource("7_67ri8")]
 visible = false

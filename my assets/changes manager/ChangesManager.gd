@@ -2,6 +2,7 @@ class_name ChangesManager extends VBoxContainer
 
 var unix_time_last_char: float = 0
 
+@export var top_parent: HBoxContainer
 @export var changes_label: PackedScene
 
 var key_changes: Dictionary[String, Variant]
@@ -12,10 +13,10 @@ func _ready() -> void:
 	g_man.changes_manager = self
 
 func close_window():
-	hide()
+	top_parent.hide()
 
 func open_window():
-	show()
+	top_parent.show()
 
 func change_opened_window():
 	if is_visible_in_tree():
