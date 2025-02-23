@@ -9,7 +9,7 @@ class_name QuestBasis extends Resource
 ## fail quest goes through next basis
 @export var fail_passes: bool = false
 ## display answers to choose from
-@export var display_answers: bool = false
+@export var display_answers: bool = true
 ## more than 1 quest question
 @export var list_quest_questions: Array[QuestQuestion]
 @export_multiline var default_starting_dialog: String

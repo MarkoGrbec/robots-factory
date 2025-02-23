@@ -107,6 +107,9 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "trader")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "quadrant1")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "believe")
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "inventory")
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "changes")
+	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "npc_give_item")
 	
 	
 	_table = DataBase.Table.new("terrain_ground")

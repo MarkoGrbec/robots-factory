@@ -17,6 +17,12 @@ func close_window():
 func open_window():
 	show()
 
+func change_opened_window():
+	if is_visible_in_tree():
+		close_window()
+	else:
+		open_window()
+
 func add_change(text: String):
 	var change: Label = changes_label.instantiate()
 	_add_child(change)

@@ -38,6 +38,8 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			origin_node.queue_free()
 			g_man.inventory_system.dragging = false
 			g_man.inventory_system.add_remove_hover_over_sprite(-1)
+	if origin_node and g_man.tutorial:
+		g_man.holding_hand.holding_hand_npc_give_item()
 
 func update_texture(tex = null):
 	slot_texture.texture = tex

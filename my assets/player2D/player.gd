@@ -16,8 +16,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		var y_direction := Input.get_axis("move up", "move down")
 		var x_direction := Input.get_axis("move left", "move right")
 		movement.direction = Vector2(x_direction, y_direction)
-		if movement.direction and g_man.tutorial:
-			g_man.holding_hand.holding_hand_movement_completed()
+		if movement.direction:
+			g_man.sliders_manager.remove_work()
+			if g_man.tutorial:
+				g_man.holding_hand.holding_hand_movement_completed()
 
 func blend_anim(anim, value: float, timescale: float):
 	animation_tree["parameters/state/transition_request"] = anim

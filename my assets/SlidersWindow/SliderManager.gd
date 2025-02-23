@@ -125,8 +125,8 @@ func _process(delta: float) -> void:
 		working(delta)
 	else:
 		resting(delta)
-	if not used_ttc and Input.is_action_pressed("stop work"):
-		_remove_work()
+	if Input.is_action_pressed("stop work"):
+		remove_work()
 
 func add_work(i_time_complete):
 	waiting_work.push_back(i_time_complete)
@@ -175,12 +175,13 @@ func play_sound():
 			audio_stream_player.stream = waiting_work[0].working_sound
 			audio_stream_player.play()
 
-func _remove_work():
-	if waiting_work:
-		audio_stream_player.stream = null
-		audio_stream_player.stop()
-		waiting_work.pop_front().stop()
+func remove_work():
+	if not used_ttc:
 		if waiting_work:
-			start_working()
-	if not waiting_work:
-		time_slider.value = 100
+			audio_stream_player.stream = null
+			audio_stream_player.stop()
+			waiting_work.pop_front().stop()
+			if waiting_work:
+				start_working()
+		if not waiting_work:
+			time_slider.value = 100

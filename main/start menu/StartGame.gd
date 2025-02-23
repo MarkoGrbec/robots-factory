@@ -179,6 +179,8 @@ func _on_tutorial_pressed() -> void:
 	g_man.sliders_manager.open_window()
 	set_holding_hand()
 	g_man.holding_hand.destroy()
+	mp.set_quests_npcs()
+	var quest_servers = mp.get_quest_objects(1)# 1 = id user
 	g_man.entity_manager.activate_layer(0)
 	
 	var t = terrain_tutorial.instantiate()

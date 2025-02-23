@@ -19,12 +19,15 @@ tile_set = ExtResource("1_dfght")
 
 [node name="UnderGroundTileMapLayer2" type="TileMapLayer" parent="tile map layers"]
 scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("1_dfght")
 
 [node name="UnderGroundTileMapLayer3" type="TileMapLayer" parent="tile map layers"]
 scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("1_dfght")
 
 [node name="UnderGroundTileMapLayer4" type="TileMapLayer" parent="tile map layers"]
 scale = Vector2(0.5, 0.5)
+tile_set = ExtResource("1_dfght")
 
 [node name="GroundLayerTileMapLayerInsideHouses" type="TileMapLayer" parent="tile map layers"]
 tile_set = ExtResource("3_bd202")
@@ -36,10 +39,10 @@ script = ExtResource("4_vg0hu")
 z_index = 1
 position = Vector2(73, 73)
 
-[node name="Chest" parent="CPPlayer/visuals/Skeleton2D/Hip" index="0"]
-scale = Vector2(0.999996, 0.999996)
-
 [node name="Head" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest" index="0"]
 scale = Vector2(0.999989, 0.999989)
+
+[node name="RightHand" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm" index="0"]
+scale = Vector2(1, 1)
 
 [editable path="CPPlayer"]

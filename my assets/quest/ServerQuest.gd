@@ -54,11 +54,11 @@ func load_activated():
 	if _activated:# else it overwrites default activated
 		activated = _activated
 
-func load_position():
-	var _position = DataBase.select(_server, g_man.dbms, _path, "position", id)
-	if _position:# else it overwrites default activated
-		position = Vector2(_position.x, _position.y)
-	else:
+func load_position():# TODO
+	#var _position = DataBase.select(_server, g_man.dbms, _path, "position", id)
+	#if _position:# else it overwrites default activated
+		#position = Vector2(_position.x, _position.y)
+	#else:
 		position = mp.get_quest_object(_quest_index).position
 
 func load_basis():
