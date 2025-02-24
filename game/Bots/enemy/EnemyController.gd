@@ -52,8 +52,11 @@ func run_away():
 
 func _physics_process(_delta: float) -> void:
 	# set target
-	if target:
+	if target is CPMob:
 		target_position = target.global_position
+		agent.target_position = target_position
+	elif target is Vector2:
+		target_position = target
 		agent.target_position = target_position
 		#if agent.is_navigation_finished():
 			#return
@@ -88,7 +91,7 @@ func _physics_process(_delta: float) -> void:
 	
 	# change target's target
 	if state == State.CHASE or state == State.RETRIVE or state == State.BRING_MATS:
-		if global_position.distance_to(target.global_position) < 72:
+		if target is CPMob and global_position.distance_to(target.global_position) < 72:
 			if state == State.CHASE or state == State.BRING_MATS:
 				if state == State.BRING_MATS:
 					agent.avoidance_enabled = true
@@ -99,7 +102,7 @@ func _physics_process(_delta: float) -> void:
 	# move towards target
 	elif state == State.RUN or state == State.RUN_AWAY or state == State.RETRIVE_AWAY or state == State.BROKEN:
 		# get and return to it if it's too far
-		if state == State.RUN and global_position.distance_to(target.global_position) > 80:
+		if state == State.RUN and target is CPMob and global_position.distance_to(target.global_position) > 80:
 			if State.RETRIVE_AWAY:
 				state = State.RETRIVE
 			else:

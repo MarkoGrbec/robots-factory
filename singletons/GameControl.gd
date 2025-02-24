@@ -27,11 +27,8 @@ func remove_helpless_bot(helpless_bot):
 		if helpless_bot == _helpless_bot:
 			_helpless_bot = null
 
-func destroy_helpless_bot(bring_mats: bool = false):
-	if not _helpless_bot:
-		return
+func enter_enemy(target, bring_mats: bool = false, coords_spawn: Vector2i = Vector2i(3, 3), walk: bool = false):
 	await get_tree().create_timer(3).timeout
-	var coords_spawn = Vector2i(randi_range(1, 19), randi_range(1, 19))
 	var pos__id_tile = g_man.tile_map_layers.override_fake_tunnel(coords_spawn)
 	if pos__id_tile:
 		var enemy_bot: CPEnemy = CreateMob.target_create_enemy_bot(pos__id_tile[0] / 2, Enums.Esprite.mob_commander_client)
@@ -44,13 +41,19 @@ func destroy_helpless_bot(bring_mats: bool = false):
 		
 		enemy_tunnels.push_back(enemy_tunnel)
 		enemy_bot.controller.enemy_tunnel = enemy_tunnel
-		enemy_bot.controller.target = GameControl._helpless_bot
-		
+		enemy_bot.controller.target = target
 		
 		if bring_mats:
 			enemy_bot.controller.agent.avoidance_enabled = false
 			enemy_bot.controller.state = EnemyController.State.BRING_MATS
 		enemy_bot.controller.set_timer()
+		if walk:
+			enemy_bot.controller.movement.state = Movement.State.WALK
+
+func destroy_helpless_bot(bring_mats: bool = false):
+	if not _helpless_bot:
+		return
+	enter_enemy(_helpless_bot, bring_mats, Vector2i(randi_range(2, 18), randi_range(2, 18)))
 
 func retreve_bot(tunnel):
 	var enemy_bot: CPEnemy = CreateMob.target_create_enemy_bot(tunnel[1][1][0] / 2, Enums.Esprite.mob_commander_client)
@@ -62,8 +65,12 @@ func retreve_bot(tunnel):
 	enemy_bot.health = -1
 	tunnel[0].push_back(enemy_bot)
 	enemy_bot.controller.set_timer(30)
+	if g_man.tutorial:
+		g_man.holding_hand.holding_hand_enemy()
 
 func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
+	if g_man.tutorial:
+		g_man.mold_window.set_instructions_only(["this is all for tutorial feel free to play around with trader and NPC, if you'll bring him iron he will tell you more about it."])
 	if not tunnel_coords:
 		try_turn_off_action_music()
 		return

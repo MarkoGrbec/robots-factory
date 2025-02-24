@@ -3,6 +3,9 @@ class_name MainMenu extends Node2D
 @export var main_menu_tab: TabContainer
 @export var in_game_main_menu: InGameMenu
 @export var environment: WorldEnvironment
+
+var terrain
+
 func _ready() -> void:
 	g_man.main_menu = self
 	#environment.environment.glow_blend_mode = Environment.GLOW_BLEND_MODE_ADDITIVE
@@ -13,6 +16,13 @@ func close_main_menu():
 
 func open_main_menu():
 	main_menu_tab.show()
+
+func show_main_menu_tabs():
+	var tab = main_menu_tab
+	tab.set_tab_hidden(0, false)
+	tab.set_tab_hidden(1, false)
+	tab.set_tab_hidden(2, true)
+	tab.current_tab = 0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):

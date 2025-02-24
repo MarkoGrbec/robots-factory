@@ -52,6 +52,9 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	entity.destroy_me()
 	g_man.trader_manager.sell_for.text = ""
 	g_man.trader_manager.buy_for.text = ""
+	if g_man.tutorial:
+		g_man.holding_hand.holding_hand_trader()
+	
 
 func update_texture(tex = null):
 	slot_texture.texture = tex

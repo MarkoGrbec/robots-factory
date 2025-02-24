@@ -13,10 +13,12 @@ func _ready() -> void:
 	g_man.changes_manager = self
 
 func close_window():
-	top_parent.hide()
+	for change in key_changes.values():
+		change.hide()
 
 func open_window():
-	top_parent.show()
+	for change in key_changes.values():
+		change.show()
 
 func change_opened_window():
 	if is_visible_in_tree():
@@ -56,6 +58,11 @@ func add_key_change(key, text):
 		key_changes[key] = change
 		_add_child(change)
 	change.set_key_text(key, text)
+
+func delete_changes():
+	for change in key_changes.values():
+		change.queue_free()
+	key_changes.clear()
 
 func _add_child(change: Label):
 	add_child(change)

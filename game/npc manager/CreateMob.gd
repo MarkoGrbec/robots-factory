@@ -2,12 +2,12 @@ class_name CreateMob extends Node
 
 static var null_list_mob: NullList = NullList.new()
 
-static func target_create_trader(trader: Trader):
+static func target_create_trader(trader: Trader, position: Vector2 = Vector2(300,300)):
 	if trader.activated:
 		if trader.body:
 			return
 		trader.body = mp.create_me(Enums.Esprite.mob_trader_client)
-		trader.body.global_position = Vector2(300,300)
+		trader.body.global_position = position
 		trader.body.trader = trader
 
 

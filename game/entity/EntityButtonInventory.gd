@@ -80,6 +80,8 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	entity = Entity.create_from_scratch(entity_number_buy, true, false, true)
 	inventory_slot.id_entity = entity.id
 	inventory_slot.save_id_entity()
+	if g_man.tutorial:
+		g_man.holding_hand.holding_hand_trader_buy()
 
 func reset_trader_manager_cost():
 	g_man.trader_manager.sell_for.text = ""

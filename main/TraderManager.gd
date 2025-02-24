@@ -29,7 +29,6 @@ func open_window(trader: Trader):
 	else:
 		if can_set_music():
 			g_man.music_manager.set_music_type(MusicManager.MusicStatus.shop)
-		g_man.holding_hand.holding_hand_trader()
 		show()
 		for child: TraderButtonBuy in buy_grid_container.get_children():
 			child.trader = trader

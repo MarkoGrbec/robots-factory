@@ -144,10 +144,13 @@ func dig(mouse_global_position: Vector2):
 #region in to change layer
 func in_to_tunnel():
 	activate_layer(active_layer +1)
-	g_man.holding_hand.holding_hand_underground()
+	if g_man.tutorial:
+		g_man.holding_hand.holding_hand_underground()
 	
 func up_to_the_surface():
 	activate_layer(active_layer -1)
+	if g_man.tutorial:
+		g_man.holding_hand.holding_hand_to_surface()
 
 func in_to_house(vec):
 	activate_layer(Layers.HOUSE_LAYER)

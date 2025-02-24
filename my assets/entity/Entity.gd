@@ -2756,7 +2756,9 @@ func fully_load():
 	load_parent()
 	#load_parent_volume_weight()
 	#load_group_volume()
-	load_entity_num()
+	if not load_entity_num():
+		destroy_me()
+		return
 	load_position_rotation()
 	#load_constructed()
 	load_damage()
@@ -3158,7 +3160,12 @@ func save_entity_num():
 		## set marketplace
 		#g_man.savable_entity.set_index("marketplace", entity_num, id)
 func load_entity_num():
-	entity_num = DataBase.select(_server, g_man.dbms, _path, "entity_num", id)
+	var e_num = DataBase.select(_server, g_man.dbms, _path, "entity_num", id)
+	if e_num:
+		entity_num = e_num
+		return true
+	else:
+		return false
 	## marketplace
 	#if entity_num == Enums.Esprite.marketplace_inventory:
 		## first remove it if it matches id

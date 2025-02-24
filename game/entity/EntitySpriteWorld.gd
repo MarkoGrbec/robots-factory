@@ -6,6 +6,7 @@ var selected = false
 var entity: Entity
 
 func _ready() -> void:
+	set_meta("entity", "entity")
 	g_man.trader_manager.sell_for.text = ""
 	g_man.trader_manager.buy_for.text = ""
 

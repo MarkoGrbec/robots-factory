@@ -14,7 +14,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-current_tab = 3
+current_tab = 4
 script = ExtResource("1_un1ud")
 options_holding_hand_scene = ExtResource("4_yjfud")
 options_holding_hand_container = NodePath("holding hand/HBoxContainer/VBoxContainer")
@@ -208,6 +208,7 @@ size_flags_vertical = 0
 text = "X"
 
 [node name="misc" type="ScrollContainer" parent="." node_paths=PackedStringArray("quest_move", "slow_letters", "speak_names")]
+visible = false
 layout_mode = 2
 tooltip_text = "hoover over the button to see details"
 script = ExtResource("6_uty36")
@@ -271,7 +272,6 @@ size_flags_vertical = 0
 text = "X"
 
 [node name="quit" type="HBoxContainer" parent="."]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
@@ -289,9 +289,13 @@ custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="quit button" type="Button" parent="quit/VBoxContainer"]
+[node name="quit game button" type="Button" parent="quit/VBoxContainer"]
 layout_mode = 2
 text = "quit game"
+
+[node name="quit button" type="Button" parent="quit/VBoxContainer"]
+layout_mode = 2
+text = "quit application"
 
 [node name="MarginContainer3" type="MarginContainer" parent="quit/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -317,5 +321,6 @@ text = "X"
 [connection signal="text_submitted" from="misc/HBoxContainer/VBoxContainer/HBoxContainer/slow letters" to="misc" method="_on_slow_letters_text_submitted"]
 [connection signal="toggled" from="misc/HBoxContainer/VBoxContainer/speak names" to="misc" method="_on_speak_names_toggled"]
 [connection signal="pressed" from="misc/HBoxContainer/close window" to="." method="close_window"]
+[connection signal="pressed" from="quit/VBoxContainer/quit game button" to="." method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="quit/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="quit/close window" to="." method="close_window"]

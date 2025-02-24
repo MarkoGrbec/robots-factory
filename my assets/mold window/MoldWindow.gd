@@ -162,7 +162,7 @@ func set_yes_no_cancel_id(array: Array, yes_action:Callable, no_action:Callable,
 	write_text(instructions_yes_no_cancel)
 	
 
-var tween = create_tween()
+var tween: Tween
 func write_text(label: Label, voice_id = -1):
 	if g_man.quests_manager.voices:
 		if voice_id == -1:

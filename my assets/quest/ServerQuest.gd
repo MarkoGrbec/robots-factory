@@ -140,7 +140,7 @@ var array_believe: Array[float]
 ## basis -> qq_index -> index
 var array_response_dialog_index: Array[int]
 ## display_answers
-var array_answers__response_size: Array[String]
+var array_answers__response_size: Array = []
 #region completting mission
 func mission_completing(dict_string_mission__Entity_sprite: Dictionary):
 	if dict_mission__entity_num and mission_quantity:
@@ -268,6 +268,7 @@ func get_display_answers(basis_index: int):
 		if _basis.display_answers:
 			for basis_qq: QuestQuestion in _basis.list_quest_questions:
 				array_answers__response_size.push_back([str(basis_qq.list_avatar_dialog), basis_qq.response_dialog.size()])
+				pass
 	
 
 ## sets new basis and default starting dialog

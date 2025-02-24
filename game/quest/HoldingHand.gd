@@ -12,7 +12,10 @@ var inventory_options_callable: Callable
 var npc_options_callable: Callable
 var npc_give_item_options_callable: Callable
 var underground_options_callable: Callable
+var to_surface_options_callable: Callable
 var trader_options_callable: Callable
+var trader_buy_options_callable: Callable
+var enemy_options_callable: Callable
 var believe_options_callable: Callable
 
 func destroy():
@@ -25,7 +28,10 @@ func destroy():
 	still_holding_hand_npc(false)
 	still_holding_hand_npc_give_item(false)
 	still_holding_hand_underground(false)
+	still_holding_hand_to_surface(false)
 	still_holding_hand_trader(false)
+	still_holding_hand_trader_buy(false)
+	still_holding_hand_enemy(false)
 	still_holding_hand_believe(false)
 	still_holding_hand_quadrant1()
 
@@ -40,7 +46,10 @@ func config():
 	npc_options_callable = _get_set_holding_hand_scene("NPC", npc_string, load_return_holding_hand_npc(), still_holding_hand_npc, stop_holding_hand_npc)
 	npc_give_item_options_callable = _get_set_holding_hand_scene("NPC give item", npc_give_item_string, load_return_holding_hand_npc_give_item(), still_holding_hand_npc_give_item, stop_holding_hand_npc_give_item)
 	underground_options_callable = _get_set_holding_hand_scene("underground", underground_string, load_return_holding_hand_underground(), still_holding_hand_underground, stop_holding_hand_underground)
+	to_surface_options_callable = _get_set_holding_hand_scene("to surface", to_surface_string, load_return_holding_hand_to_surface(), still_holding_hand_to_surface, stop_holding_hand_to_surface)
 	trader_options_callable = _get_set_holding_hand_scene("trader", trader_string, load_return_holding_hand_trader(), still_holding_hand_trader, stop_holding_hand_trader)
+	trader_buy_options_callable = _get_set_holding_hand_scene("trader buy", trader_buy_string, load_return_holding_hand_trader_buy(), still_holding_hand_trader_buy, stop_holding_hand_trader_buy)
+	enemy_options_callable = _get_set_holding_hand_scene("enemy", enemy_string, load_return_holding_hand_enemy(), still_holding_hand_enemy, stop_holding_hand_enemy)
 	believe_options_callable = _get_set_holding_hand_scene("believe", believe_string, load_return_holding_hand_believe(), still_holding_hand_believe, stop_holding_hand_believe)
 
 func _get_set_holding_hand_scene(text, tooltip, active, on: Callable, off: Callable) -> Callable:
@@ -53,7 +62,7 @@ func _get_set_holding_hand_scene(text, tooltip, active, on: Callable, off: Calla
 	g_man.in_game_menu.options_holding_hand_container.add_child(check_box)
 	return check_box.toggle_me
 #region movement
-var movement_string: String = "to move around use WASD or arrow keys\nyou can change that in bindings in main menu\nto enter main menu press ESC or Q [ESC] binding\nto open dialog with npc just click him with left mouse button [select] binding\n\nsometimes you can hover over UI and you'll get a tooltip shown"
+var movement_string: String = "to move around use WASD or arrow keys\nyou can change that in bindings in main menu\nto enter main menu press ESC or Q [ESC] binding\n\n\nsometimes you can hover over UI and you'll get a tooltip shown"
 
 func load_return_holding_hand_movement():
 	return DataBase.select(_server, g_man.dbms, _path, "movement", id, true)
@@ -189,36 +198,9 @@ func holding_hand_inventory():
 	if load_return_holding_hand_inventory():
 		g_man.mold_window.set_instructions_only(["good you put in to your inventory.\n", inventory_string])
 		g_man.changes_manager.add_key_change("tutorial: ", inventory_string)
-		QuestsManager.set_server_quest(21, true, 0)
 		stop_holding_hand_inventory()
+		QuestsManager.set_server_quest(21, true, 0)
 #endregion inventory
-#region underground
-var underground_string: String = "when you go underground you may get back to surface\nthrough the brighter tile\nunderground is for mining soft rock which has 15 digs and rock with 35 digs\nunderground has 3 layers\nafter that you may no longer dig further but you need to go on other tiles"
-
-func load_return_holding_hand_underground():
-	return DataBase.select(_server, g_man.dbms, _path, "underground", id, true)
-
-func save_holding_hand_underground(yes, callab: bool = true):
-	DataBase.insert(_server, g_man.dbms, _path, "underground", id, yes)
-	if callab:
-		underground_options_callable.call(yes)
-
-func still_holding_hand_underground(callab: bool = true):
-	save_holding_hand_underground(true, callab)
-
-func stop_holding_hand_underground():
-	save_holding_hand_underground(false)
-
-func holding_hand_underground():
-	if load_return_holding_hand_underground():
-		spoiler_underground()
-		#g_man.mold_window.set_instructions_only(["spoiler", "\nmachanics of digging", "\nif you choose no you will not see this dialog any longer"], spoiler_underground, stop_holding_hand_underground, stop_holding_hand_underground)
-
-func spoiler_underground():
-	g_man.mold_window.set_instructions_only([underground_string])
-	g_man.changes_manager.add_key_change("tutorial: ", underground_string)
-	stop_holding_hand_underground()
-#endregion underground
 #region npc
 var npc_string: String = "to give item in to quest npc simply drag item from inventory or world in to top right slot of quest manager,\nYou must have inventory opened I, or E or insert [inventory] binding\n\nWhen talking to NPC with input order of words does not matter"
 #"You can talk to npc sometimes multiple times with same pharse and get different dialog\n\ntry talking to them like to fellow human\n\nto give item in to quest npc simply drag item from inventory or world in to top right slot of quest manager\n\nUsually you need to say max 3 words but all words must match sometimes there are more than 1 pharses available to match\nOrder of words does not matter\n\nif you get failed dialog it means non pharses were match\nelse if you put right words for other pharse it may not activate it\ndepends on the priority of the pharse\n\n if you have a quest and correct pharse you might get failed dialog if the quest has not been fulfilled\n\nthe completed basis(quest) may activate other basis completely random(predefined) it is not linear.\n It may activate deactivate other npc and their basis\n\nin each basis there's usually more than 1 quest question\nWhich has 1 or more pharses to match if priority quest question is fulfilled than the bottom ones aren't triggered, quest question may have more than 1 sucessfull response if it changes the basis it's no longer possible to access that quest question as you are in different basis."
@@ -266,8 +248,61 @@ func holding_hand_npc_give_item():
 		g_man.changes_manager.add_key_change("tutorial: ", npc_give_item_string)
 		stop_holding_hand_npc_give_item()
 #endregion npc_give_item
+#region underground
+var underground_string: String = "when you go underground you may get back to surface\nthrough the brighter tile\nunderground is for mining soft rock which has 15 digs and rock with 35 digs\nunderground has 3 layers\nafter that you may no longer dig further but you need to go on other tiles\n\nNow try to get back to the surface"
+
+func load_return_holding_hand_underground():
+	return DataBase.select(_server, g_man.dbms, _path, "underground", id, true)
+
+func save_holding_hand_underground(yes, callab: bool = true):
+	DataBase.insert(_server, g_man.dbms, _path, "underground", id, yes)
+	if callab:
+		underground_options_callable.call(yes)
+
+func still_holding_hand_underground(callab: bool = true):
+	save_holding_hand_underground(true, callab)
+
+func stop_holding_hand_underground():
+	save_holding_hand_underground(false)
+
+func holding_hand_underground():
+	if load_return_holding_hand_underground():
+		spoiler_underground()
+		#g_man.mold_window.set_instructions_only(["spoiler", "\nmachanics of digging", "\nif you choose no you will not see this dialog any longer"], spoiler_underground, stop_holding_hand_underground, stop_holding_hand_underground)
+
+func spoiler_underground():
+	g_man.mold_window.set_instructions_only([underground_string])
+	g_man.changes_manager.add_key_change("tutorial: ", underground_string)
+	stop_holding_hand_underground()
+#endregion underground
+#region to_surface
+var to_surface_string: String = "remember brighter tile is always up to surface and black is down to next layer underground\n\nnow you've got some materials you've dug try selling them at trader,\nclick it with left mouse button\nand drag from world or inventory in to top right corner\n\nif you wish to sell simply drag material from world or inventory in to the top right of trader manager\nnow try to sell some materials"
+
+func load_return_holding_hand_to_surface():
+	return DataBase.select(_server, g_man.dbms, _path, "to_surface", id, true)
+
+func save_holding_hand_to_surface(yes, callab: bool = true):
+	DataBase.insert(_server, g_man.dbms, _path, "to_surface", id, yes)
+	if callab:
+		to_surface_options_callable.call(yes)
+
+func still_holding_hand_to_surface(callab: bool = true):
+	save_holding_hand_to_surface(true, callab)
+
+func stop_holding_hand_to_surface():
+	save_holding_hand_to_surface(false)
+
+func holding_hand_to_surface():
+	if load_return_holding_hand_to_surface():
+		g_man.mold_window.set_instructions_only(["good you know how to go underground and back to surface", to_surface_string])
+		g_man.changes_manager.add_key_change("tutorial: ", to_surface_string)
+		stop_holding_hand_to_surface()
+		var trader = Trader.new()
+		trader.activated = true
+		CreateMob.target_create_trader(trader, Vector2(100, 100))
+#endregion to_surface
 #region trader
-var trader_string: String = "if you wish to buy drag the item\nfrom trader manager in to inventory\nto sell simply drag it to the top right of trader manager\n\nless money you have cheaper it is\nbut also it's cheaper to sell\nmore money you have everything is more expensive\nit's kind of economy"
+var trader_string: String = "less money you have cheaper it is to buy\nbut also it's cheaper to sell\nmore money you have everything is more expensive\nit's kind of economy\nnow try to buy some materials\n\nif you wish to buy drag the item from trader manager in to inventory\nyou cannot place it in to the world"
 
 func load_return_holding_hand_trader():
 	return DataBase.select(_server, g_man.dbms, _path, "trader", id, true)
@@ -285,10 +320,59 @@ func stop_holding_hand_trader():
 
 func holding_hand_trader():
 	if load_return_holding_hand_trader():
-		g_man.mold_window.set_instructions_only([trader_string])
+		g_man.mold_window.set_instructions_only(["good work you sold material", trader_string])
 		g_man.changes_manager.add_key_change("tutorial: ", trader_string)
 		stop_holding_hand_trader()
 #endregion trader
+#region trader_buy
+var trader_buy_string: String = "now try to fight off the enemy before it runs away from you, to fire use f or shift key [fire] binding"
+
+func load_return_holding_hand_trader_buy():
+	return DataBase.select(_server, g_man.dbms, _path, "trader_buy", id, true)
+
+func save_holding_hand_trader_buy(yes, callab: bool = true):
+	DataBase.insert(_server, g_man.dbms, _path, "trader_buy", id, yes)
+	if callab:
+		trader_buy_options_callable.call(yes)
+
+func still_holding_hand_trader_buy(callab: bool = true):
+	save_holding_hand_trader_buy(true, callab)
+
+func stop_holding_hand_trader_buy():
+	save_holding_hand_trader_buy(false)
+
+func holding_hand_trader_buy():
+	if load_return_holding_hand_trader_buy():# or true:
+		g_man.mold_window.set_instructions_only(["good work you bought your item", trader_buy_string])
+		g_man.changes_manager.add_key_change("tutorial: ", trader_buy_string)
+		stop_holding_hand_trader_buy()
+		g_man.player.weapon_controller.weapon.activated = true
+		await g_man.map.get_tree().create_timer(3).timeout
+		GameControl.enter_enemy(Vector2(150, 150), false, Vector2i(randi_range(2, 7), randi_range(2, 5)), true)
+#endregion trader_buy
+#region enemy
+var enemy_string: String = "try to make obsticles for defending your prey you'll get reward this enemy can't be defeated"
+
+func load_return_holding_hand_enemy():
+	return DataBase.select(_server, g_man.dbms, _path, "enemy", id, true)
+
+func save_holding_hand_enemy(yes, callab: bool = true):
+	DataBase.insert(_server, g_man.dbms, _path, "enemy", id, yes)
+	if callab:
+		enemy_options_callable.call(yes)
+
+func still_holding_hand_enemy(callab: bool = true):
+	save_holding_hand_enemy(true, callab)
+
+func stop_holding_hand_enemy():
+	save_holding_hand_enemy(false)
+
+func holding_hand_enemy():
+	if load_return_holding_hand_enemy():
+		g_man.mold_window.set_instructions_only(["good work you know how to manage inventory and it's system", enemy_string])
+		g_man.changes_manager.add_key_change("tutorial: ", enemy_string)
+		stop_holding_hand_enemy()
+#endregion enemy
 #region believe
 var believe_string: String = "To convince in to believing in to god you must choose correct pharse for his dialog. If you don't convince him, than he will strenghten the bond to other side. Each character has unique dialogs.\n\nPs. ask hint bot for more details."
 

@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=4 uid="uid://1ki7w3rxdi64"]
+[gd_scene load_steps=7 format=4 uid="uid://1ki7w3rxdi64"]
 
 [ext_resource type="TileSet" uid="uid://cxjxodvo5kmfv" path="res://my assets/Tiles/tile_set.tres" id="1_dfght"]
 [ext_resource type="Script" uid="uid://cd6ersvk34ijd" path="res://terrain/TileMapLayers.gd" id="1_viixf"]
 [ext_resource type="TileSet" uid="uid://dfqqfwevxofgt" path="res://my assets/Tiles/tile_set_inside.tres" id="3_bd202"]
 [ext_resource type="Script" uid="uid://dtpmm8vlj60ev" path="res://main/MapGroundLayer.gd" id="4_vg0hu"]
 [ext_resource type="PackedScene" uid="uid://c657hgr7fcptm" path="res://my assets/player2D/player.tscn" id="5_66pks"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_vg0hu"]
+vertices = PackedVector2Array(1352.92, 998, 11.8828, 998, -1384.46, -2650, 2638.87, -2650.99)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-1399, -2660, 5, 1008, 1360, 1008, 2653, -2661)])
 
 [node name="Node2D" type="Node2D"]
 
@@ -39,17 +44,22 @@ tile_set = ExtResource("3_bd202")
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource("4_vg0hu")
 
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="Map"]
+visible = false
+position = Vector2(-5, -19)
+navigation_polygon = SubResource("NavigationPolygon_vg0hu")
+
 [node name="CPPlayer" parent="." instance=ExtResource("5_66pks")]
 z_index = 1
 position = Vector2(73, 73)
 
+[node name="player name" parent="CPPlayer/controller" index="3"]
+text = "test player"
+
 [node name="Chest" parent="CPPlayer/visuals/Skeleton2D/Hip" index="0"]
-scale = Vector2(0.999996, 0.999996)
+scale = Vector2(0.999995, 0.999995)
 
 [node name="Head" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest" index="0"]
-scale = Vector2(0.999988, 0.999988)
-
-[node name="RightHand" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm" index="0"]
-scale = Vector2(1, 1)
+scale = Vector2(0.999986, 0.999986)
 
 [editable path="CPPlayer"]

@@ -22,15 +22,19 @@ func fully_load():
 
 #region activated
 func save_activated():
-	DataBase.insert(_server, g_man.dbms, _path, "activated", id, activated)
+	if not g_man.tutorial:
+		DataBase.insert(_server, g_man.dbms, _path, "activated", id, activated)
 
 func load_activated():
-	activated = DataBase.select(_server, g_man.dbms, _path, "activated", id, false)
+	if not g_man.tutorial:
+		activated = DataBase.select(_server, g_man.dbms, _path, "activated", id, false)
 #endregion activated
 #region gold coins
 func save_gold_coins():
-	DataBase.insert(_server, g_man.dbms, _path, "gold_coins", id, gold_coins)
+	if not g_man.tutorial:
+		DataBase.insert(_server, g_man.dbms, _path, "gold_coins", id, gold_coins)
 
 func load_gold_coins():
-	gold_coins = DataBase.select(_server, g_man.dbms, _path, "gold_coins", id, 500)
+	if not g_man.tutorial:
+		gold_coins = DataBase.select(_server, g_man.dbms, _path, "gold_coins", id, 500)
 #endregion gold coins

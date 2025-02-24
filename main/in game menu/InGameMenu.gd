@@ -31,3 +31,17 @@ func quit():
 
 func cancel_quit():
 	g_man.changes_manager.add_change("objectives not done yet are they?")
+
+
+func _on_quit_game_button_pressed() -> void:
+	g_man.main_menu.terrain.queue_free()
+	g_man.tutorial = false
+	g_man.main_menu.open_main_menu()
+	g_man.main_menu.show_main_menu_tabs()
+	g_man.changes_manager.delete_changes()
+	g_man.entity_manager.destroy_all_entities()
+	
+	close_window()
+	g_man.inventory_system.close_window()
+	g_man.quests_manager.close_window()
+	g_man.trader_manager.close_window()

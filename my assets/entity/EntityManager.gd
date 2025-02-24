@@ -89,3 +89,16 @@ static func activate(layer, active: bool):
 	var children = layer.get_children()
 	for child in children:
 		child.static_body_2d.set_collision_layer_value(1, active)
+
+func destroy_all_entities():
+	for layer in array_layers:
+		var children = layer.get_children()
+		for child in children:
+			if child.has_meta("entity"):
+				var entity: Entity = child.entity
+				entity.partly_loaded = 0
+			child.queue_free()
+	for node in dragging_node2d.get_children():
+		var entity: Entity = node.entity
+		entity.partly_loaded = 0
+		node.queue_free()
