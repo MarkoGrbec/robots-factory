@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://d3uuoqkraqp62"]
+[gd_scene load_steps=30 format=3 uid="uid://d3uuoqkraqp62"]
 
 [ext_resource type="Script" uid="uid://b4qo0d2sh4npx" path="res://game/Bots/trader/CPTrader.gd" id="1_t2bju"]
-[ext_resource type="Script" uid="uid://dyp20b54tkw2" path="res://game/Bots/quest/quest_controller.gd" id="2_eyd24"]
+[ext_resource type="Script" uid="uid://dvafvrwda2boe" path="res://game/Bots/quest/QuestController.gd" id="2_sro68"]
+[ext_resource type="Script" uid="uid://y71vsd723yaq" path="res://game/Bots/Movement.gd" id="3_rw8sv"]
 [ext_resource type="Texture2D" uid="uid://cgnjku7sa0qyt" path="res://my assets/player2D/gBot.png" id="3_wg6ym"]
 
 [sub_resource type="Animation" id="1"]
@@ -1774,17 +1775,15 @@ safe_margin = 0.2
 script = ExtResource("1_t2bju")
 name_label = NodePath("controller/trader")
 
-[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
+[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "body", "agent", "timer")]
 position = Vector2(0, -20)
-script = ExtResource("2_eyd24")
-visuals = NodePath("../visuals")
+script = ExtResource("2_sro68")
+movement = NodePath("../movement")
 body = NodePath("..")
-animation_tree = NodePath("../AnimationTree")
+agent = NodePath("NavigationAgent2D")
+timer = NodePath("../Timer")
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="controller"]
-radius = 35.0
-affect_navigation_mesh = true
-carve_navigation_mesh = true
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="controller"]
 
 [node name="trader" type="Label" parent="controller"]
 visible = false
@@ -1799,6 +1798,13 @@ text = "trader"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
+
+[node name="movement" type="Node" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
+script = ExtResource("3_rw8sv")
+visuals = NodePath("../visuals")
+body = NodePath("..")
+animation_tree = NodePath("../AnimationTree")
+state = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -2000,6 +2006,8 @@ internal_vertex_count = 20
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_rkbax")
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

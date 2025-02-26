@@ -2362,10 +2362,10 @@ movement = NodePath("../Movement")
 animation_tree = NodePath("../AnimationTree")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="controller"]
-radius = 35.0
+radius = 17.0
 affect_navigation_mesh = true
 carve_navigation_mesh = true
-avoidance_layers = 2
+avoidance_layers = 3
 
 [node name="beam weapon" parent="controller" instance=ExtResource("3_xsxuk")]
 activated = false
@@ -2442,7 +2442,7 @@ rest = Transform2D(1, 0, 0, 1, 0, -32)
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
 rotation = -0.0176109
-scale = Vector2(0.999988, 0.999988)
+scale = Vector2(0.999987, 0.999987)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
 [node name="Chin" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/Head"]

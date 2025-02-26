@@ -36,7 +36,7 @@ in_game_main_menu = NodePath("../CanvasLayer/Main/in game menu")
 
 [node name="entity_manager" type="Node2D" parent="Node2D" node_paths=PackedStringArray("array_layers", "dragging_node2d")]
 script = ExtResource("2_4hmqs")
-array_layers = [NodePath("ground_layer"), NodePath("underground_layer1"), NodePath("underground_layer2"), NodePath("underground_layer3")]
+array_layers = [NodePath("ground_layer"), NodePath("underground_layer1"), NodePath("underground_layer2"), NodePath("underground_layer3"), NodePath("inside_houses_layer1")]
 dragging_node2d = NodePath("../../CanvasLayer/CanvasLayer/dragging")
 
 [node name="ground_layer" type="Node2D" parent="Node2D/entity_manager"]
@@ -46,6 +46,8 @@ dragging_node2d = NodePath("../../CanvasLayer/CanvasLayer/dragging")
 [node name="underground_layer2" type="Node2D" parent="Node2D/entity_manager"]
 
 [node name="underground_layer3" type="Node2D" parent="Node2D/entity_manager"]
+
+[node name="inside_houses_layer1" type="Node2D" parent="Node2D/entity_manager"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

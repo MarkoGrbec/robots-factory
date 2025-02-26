@@ -40,6 +40,9 @@ func _on_quit_game_button_pressed() -> void:
 	g_man.main_menu.show_main_menu_tabs()
 	g_man.changes_manager.delete_changes()
 	g_man.entity_manager.destroy_all_entities()
+	g_man.inventory_system.destroy_inventory_slots()
+	
+	QuestsManager.set_server_quest(21, false, 0)
 	
 	close_window()
 	g_man.inventory_system.close_window()

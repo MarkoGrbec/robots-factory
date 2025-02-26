@@ -9,19 +9,23 @@ var key_changes: Dictionary[String, Variant]
 
 var dict_changes: Dictionary[Variant, Variant]
 
+var toggle_changes: bool = true
+
 func _ready() -> void:
 	g_man.changes_manager = self
 
 func close_window():
 	for change in key_changes.values():
 		change.hide()
+	toggle_changes = false
 
 func open_window():
 	for change in key_changes.values():
 		change.show()
+	toggle_changes = true
 
 func change_opened_window():
-	if is_visible_in_tree():
+	if toggle_changes:
 		close_window()
 	else:
 		open_window()

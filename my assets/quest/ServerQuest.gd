@@ -185,8 +185,8 @@ func delete_chars(chars: Array[String], raw_text: String):
 ## return [[name], [response]], [quest_question], [inventory.id], [[success.old_basis], [qq_index]], [failed.old_basis], [array_answers__response_size]
 func ask(raw_text: String, client) -> Array:
 	var avatar_name = g_man.user.avatar_name
-	raw_text = raw_text.to_lower()
-	raw_text = delete_chars(["?", "!", ",", ".", ";", ":"], raw_text)
+	#raw_text = raw_text.to_lower()
+	#raw_text = delete_chars(["?", "!", ",", ".", ";", ":"], raw_text)
 	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
 	if q_obj.list_quest_basis.size() > basis:
 		default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog

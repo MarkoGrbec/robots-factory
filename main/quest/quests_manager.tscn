@@ -21,7 +21,7 @@ stop_button_quest_scene = ExtResource("2_7v8hc")
 ask_or_response_dialog = ExtResource("2_mp27h")
 answer_dialog = ExtResource("4_twq84")
 dialog_container = NodePath("quest dialog/VBoxContainer/ScrollContainer/dialog conatainer/MarginContainerDialog/VBoxContainerDialog")
-answer_container = NodePath("quest dialog/VBoxContainer/MarginContainerAnswers/VBoxContainerAnswers")
+answer_container = NodePath("quest dialog/VBoxContainer/ScrollContainer2/AnswerGridContainer")
 
 [node name="quest dialog" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -61,10 +61,23 @@ size_flags_vertical = 3
 [node name="VBoxContainerDialog" type="VBoxContainer" parent="quest dialog/VBoxContainer/ScrollContainer/dialog conatainer/MarginContainerDialog"]
 layout_mode = 2
 
-[node name="MarginContainerAnswers" type="MarginContainer" parent="quest dialog/VBoxContainer"]
+[node name="ScrollContainer2" type="ScrollContainer" parent="quest dialog/VBoxContainer"]
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 
-[node name="VBoxContainerAnswers" type="VBoxContainer" parent="quest dialog/VBoxContainer/MarginContainerAnswers"]
+[node name="AnswerGridContainer" type="GridContainer" parent="quest dialog/VBoxContainer/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+columns = 2
+
+[node name="MarginContainerAnswers" type="MarginContainer" parent="quest dialog/VBoxContainer/ScrollContainer2/AnswerGridContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainerAnswers" type="VBoxContainer" parent="quest dialog/VBoxContainer/ScrollContainer2/AnswerGridContainer/MarginContainerAnswers"]
 layout_mode = 2
 
 [node name="ask quester" type="LineEdit" parent="quest dialog/VBoxContainer"]

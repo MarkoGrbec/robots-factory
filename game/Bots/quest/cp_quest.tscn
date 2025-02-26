@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://dr2owvb70m1ia"]
+[gd_scene load_steps=31 format=3 uid="uid://dr2owvb70m1ia"]
 
 [ext_resource type="Script" uid="uid://disrmt5dxaypw" path="res://game/Bots/quest/CPQuest.gd" id="1_megbn"]
-[ext_resource type="Script" uid="uid://dyp20b54tkw2" path="res://game/Bots/quest/quest_controller.gd" id="2_megbn"]
+[ext_resource type="Script" uid="uid://dvafvrwda2boe" path="res://game/Bots/quest/QuestController.gd" id="2_n2xhh"]
 [ext_resource type="Script" uid="uid://b1drhytdt5cnu" path="res://game/Bots/Visuals.gd" id="3_hic02"]
+[ext_resource type="Script" uid="uid://y71vsd723yaq" path="res://game/Bots/Movement.gd" id="3_n2xhh"]
 [ext_resource type="Texture2D" uid="uid://cgnjku7sa0qyt" path="res://my assets/player2D/gBot.png" id="3_whgfw"]
 
 [sub_resource type="Animation" id="1"]
@@ -1765,7 +1766,8 @@ node_connections = [&"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land"
 radius = 11.0
 height = 46.0
 
-[node name="CPQuest" type="CharacterBody2D" node_paths=PackedStringArray("visuals", "timer", "name_label")]
+[node name="CPQuest" type="CharacterBody2D" node_paths=PackedStringArray("controller", "visuals", "timer", "name_label")]
+z_index = 2
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
@@ -1773,21 +1775,31 @@ floor_snap_length = 0.1
 platform_floor_layers = 4294967294
 safe_margin = 0.2
 script = ExtResource("1_megbn")
+controller = NodePath("controller")
 visuals = NodePath("visuals")
 timer = NodePath("Timer")
 name_label = NodePath("controller/quest name")
 
-[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
+[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "body", "agent", "timer")]
 position = Vector2(0, -20)
-script = ExtResource("2_megbn")
-visuals = NodePath("../visuals")
+script = ExtResource("2_n2xhh")
+movement = NodePath("../movement")
 body = NodePath("..")
-animation_tree = NodePath("../AnimationTree")
+agent = NodePath("NavigationAgent2D")
+timer = NodePath("../Timer")
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="controller"]
-radius = 35.0
-affect_navigation_mesh = true
-carve_navigation_mesh = true
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="controller"]
+path_max_distance = 650.0
+navigation_layers = 3
+simplify_path = true
+simplify_epsilon = 5.0
+avoidance_enabled = true
+radius = 25.0
+time_horizon_agents = 180.0
+time_horizon_obstacles = 180.0
+avoidance_layers = 3
+avoidance_mask = 3
+debug_enabled = true
 
 [node name="quest name" type="Label" parent="controller"]
 visible = false
@@ -1802,6 +1814,12 @@ text = "sdfsdfsdf"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
+
+[node name="movement" type="Node" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
+script = ExtResource("3_n2xhh")
+visuals = NodePath("../visuals")
+body = NodePath("..")
+animation_tree = NodePath("../AnimationTree")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -2013,6 +2031,9 @@ position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_rkbax")
 
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="target_reached" from="controller/NavigationAgent2D" to="controller" method="_on_navigation_agent_2d_target_reached"]
+[connection signal="velocity_computed" from="controller/NavigationAgent2D" to="controller" method="_on_navigation_agent_2d_velocity_computed"]

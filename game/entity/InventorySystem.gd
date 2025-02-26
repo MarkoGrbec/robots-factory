@@ -34,6 +34,10 @@ func generate_inventory_slots():
 		if not g_man.tutorial:
 			slot.fully_load()
 
+func destroy_inventory_slots():
+	for slot in grid_container_inventory_slots.get_children():
+		slot.queue_free()
+
 func add_remove_hover_over_sprite(counter):
 	hover_over_sprite += counter
 	hover_over_sprite = clampi(hover_over_sprite, 0, 10000)

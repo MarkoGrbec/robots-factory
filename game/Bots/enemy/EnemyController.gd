@@ -52,10 +52,10 @@ func run_away():
 
 func _physics_process(_delta: float) -> void:
 	# set target
-	if target is CPMob:
+	if is_instance_valid(target) and target is CPMob:
 		target_position = target.global_position
 		agent.target_position = target_position
-	elif target is Vector2:
+	elif is_instance_valid(target) and target is Vector2:
 		target_position = target
 		agent.target_position = target_position
 		#if agent.is_navigation_finished():
@@ -130,7 +130,6 @@ func agent_next_path_position():
 func avoidance():
 	if agent.avoidance_enabled:
 		agent.set_velocity(direction)
-		pass
 	else:
 		movement.direction = direction
 

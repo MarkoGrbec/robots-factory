@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://sfdmpxmanjie"]
+[gd_scene load_steps=33 format=3 uid="uid://sfdmpxmanjie"]
 
 [ext_resource type="Script" uid="uid://5nfgxt6wt8qg" path="res://game/Bots/quest/organic robot/CPOrganicRobot.gd" id="1_pspmx"]
-[ext_resource type="Script" uid="uid://dyp20b54tkw2" path="res://game/Bots/quest/quest_controller.gd" id="2_nncbx"]
+[ext_resource type="Script" uid="uid://dvafvrwda2boe" path="res://game/Bots/quest/QuestController.gd" id="2_pspmx"]
+[ext_resource type="Script" uid="uid://y71vsd723yaq" path="res://game/Bots/Movement.gd" id="3_nncbx"]
 [ext_resource type="Script" uid="uid://b1drhytdt5cnu" path="res://game/Bots/Visuals.gd" id="3_xb3ai"]
 [ext_resource type="Texture2D" uid="uid://cgnjku7sa0qyt" path="res://my assets/player2D/gBot.png" id="4_er3m0"]
 
@@ -1784,17 +1785,15 @@ visuals = NodePath("visuals")
 timer = NodePath("Timer")
 name_label = NodePath("controller/quest name")
 
-[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
+[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "body", "agent", "timer")]
 position = Vector2(0, -20)
-script = ExtResource("2_nncbx")
-visuals = NodePath("../visuals")
+script = ExtResource("2_pspmx")
+movement = NodePath("../movement")
 body = NodePath("..")
-animation_tree = NodePath("../AnimationTree")
+agent = NodePath("NavigationAgent2D")
+timer = NodePath("../Timer")
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="controller"]
-radius = 35.0
-affect_navigation_mesh = true
-carve_navigation_mesh = true
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="controller"]
 
 [node name="quest name" type="Label" parent="controller"]
 z_index = 2
@@ -1815,6 +1814,13 @@ offset_right = 13.0
 offset_bottom = -26.0
 texture = SubResource("GradientTexture1D_nncbx")
 expand_mode = 1
+
+[node name="movement" type="Node" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
+script = ExtResource("3_nncbx")
+visuals = NodePath("../visuals")
+body = NodePath("..")
+animation_tree = NodePath("../AnimationTree")
+state = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

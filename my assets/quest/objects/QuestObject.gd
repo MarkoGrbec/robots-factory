@@ -7,17 +7,22 @@ enum TypeActivated {
 	DEACTIVATE,
 	ACTIVATED
 }
+@export_group("general")
 @export var quest_name: String
 @export var position: Vector2
+@export var patrol_targets: Array[Vector2]
 @export var layer: int = 0
+@export_group("body")
 @export var quest_body_type: Enums.Esprite = Enums.Esprite.mob_quest_client
 @export var color: Color = Color.WHITE
 @export var equipment: Enums.Esprite = Enums.Esprite.nul
 @export var activated: bool = false
-var quest_index
+@export_group("quest")
 @export var list_quest_basis: Array[QuestBasis]
 @export var believe_l: float = 0
 @export var believe_r: float = 1
+
+var quest_index
 
 #region open ai
 #var api_key: String = ""

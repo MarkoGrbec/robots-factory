@@ -1,15 +1,20 @@
 class_name CPQuest extends CPMob
 
-var entity_inventory
-var quest_index
+@export var controller: QuestController
 @export var visuals: Visuals
 @export var timer: Timer
+
+var entity_inventory
+var quest_index
+var patrol_targets: Array[Vector2]
 
 func config() -> void:
 	var quest_obj = mp.get_quest_object(quest_index)
 	if quest_obj:
 		name_label.text = quest_obj.quest_name
 		visuals.color_poligons(quest_obj.color)
+		if patrol_targets:
+			controller.target = patrol_targets[0]
 		
 
 func _on_mouse_entered() -> void:

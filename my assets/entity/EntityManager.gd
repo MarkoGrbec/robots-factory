@@ -94,10 +94,11 @@ func destroy_all_entities():
 	for layer in array_layers:
 		var children = layer.get_children()
 		for child in children:
-			if child.has_meta("entity"):
-				var entity: Entity = child.entity
-				entity.partly_loaded = 0
-			child.queue_free()
+			if is_instance_valid(child):
+				if child.has_meta("entity"):
+					var entity: Entity = child.entity
+					entity.partly_loaded = 0
+				child.queue_free()
 	for node in dragging_node2d.get_children():
 		var entity: Entity = node.entity
 		entity.partly_loaded = 0

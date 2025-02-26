@@ -129,6 +129,8 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_1="ground obsticles"
+avoidance/layer_1="material"
+avoidance/layer_2="player"
 
 [rendering]
 

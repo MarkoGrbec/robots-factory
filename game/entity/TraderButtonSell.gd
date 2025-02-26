@@ -23,6 +23,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 	return false
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
+	g_man.inventory_system.dragging = false
 	# target is changed
 	var entity: Entity = data.get("entity")
 	
@@ -40,7 +41,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		origin_node = data.get("node2d")
 		if origin_node:
 			origin_node.queue_free()
-			g_man.inventory_system.dragging = false
 			g_man.inventory_system.add_remove_hover_over_sprite(-1)
 	
 	var user: User = g_man.user

@@ -56,6 +56,8 @@ func destroy_helpless_bot(bring_mats: bool = false):
 	enter_enemy(_helpless_bot, bring_mats, Vector2i(randi_range(2, 18), randi_range(2, 18)))
 
 func retreve_bot(tunnel):
+	if g_man.tutorial:
+		await g_man.holding_hand.holding_hand_enemy()
 	var enemy_bot: CPEnemy = CreateMob.target_create_enemy_bot(tunnel[1][1][0] / 2, Enums.Esprite.mob_commander_client)
 	enemy_bot.controller.starting_point = enemy_bot.global_position
 	enemy_bot.controller.coords = tunnel[1]
@@ -65,12 +67,10 @@ func retreve_bot(tunnel):
 	enemy_bot.health = -1
 	tunnel[0].push_back(enemy_bot)
 	enemy_bot.controller.set_timer(30)
-	if g_man.tutorial:
-		g_man.holding_hand.holding_hand_enemy()
 
 func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 	if g_man.tutorial:
-		g_man.mold_window.set_instructions_only(["this is all for tutorial feel free to play around with trader and NPC, if you'll bring him iron he will tell you more about it."])
+		await g_man.holding_hand.holding_hand_enemy_finished()
 	if not tunnel_coords:
 		try_turn_off_action_music()
 		return

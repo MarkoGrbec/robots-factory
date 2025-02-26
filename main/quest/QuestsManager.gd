@@ -30,7 +30,7 @@ var array_stop_button_quest: Array[StopButtonQuest]
 @export var answer_dialog: PackedScene
 ## for responce and questions
 @export var dialog_container: VBoxContainer
-@export var answer_container: VBoxContainer
+@export var answer_container: GridContainer
 ### for automated scrolling
 #@export var scroll_container: Control
 
@@ -187,8 +187,9 @@ static func target_send_quest_mob_to_make(server_quest: ServerQuest):
 		return
 	if server_quest.body:
 		return
-	var body_type = mp.get_quest_object(server_quest._quest_index).quest_body_type
-	server_quest.body = mp.create_me(body_type)
+	var quest_object = mp.get_quest_object(server_quest._quest_index)
+	server_quest.body = mp.create_me(quest_object.quest_body_type)
+	server_quest.body.patrol_targets = quest_object.patrol_targets
 	server_quest.body.global_position = server_quest.position
 	server_quest.body.quest_index = server_quest._quest_index
 	server_quest.body.entity_inventory = server_quest.inventory
