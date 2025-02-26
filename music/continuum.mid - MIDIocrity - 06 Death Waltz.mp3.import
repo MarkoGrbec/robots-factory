@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://1rlcfi0jc72g"
+path="res://.godot/imported/continuum.mid - MIDIocrity - 06 Death Waltz.mp3-0a3ca9102471ccb4f968f4b8671a0d70.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - MIDIocrity - 06 Death Waltz.mp3"
+dest_files=["res://.godot/imported/continuum.mid - MIDIocrity - 06 Death Waltz.mp3-0a3ca9102471ccb4f968f4b8671a0d70.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -3227,9 +3227,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["what is going on what is wrong?"])
+list_avatar_dialog = Array[String](["What is going on? What is wrong? What is weird?"])
 response_dialog = Array[String](["well this robots don't seem to be robots. They are half orgnic half robots, they look like us, we can communicate but anything we do to reprogram them it's like organic mechanism"])
-response_failed_dialog = "they seems to be weird you seem to be weird"
+response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_mbrwi"]
@@ -3243,7 +3243,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["reprogram"])
-response_dialog = Array[String](["ask bob how did he try to reprogram them"])
+response_dialog = Array[String](["Ask Bob how he tried to reprogram them."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3258,8 +3258,8 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["communicate", "organic", "mechanism"])
-response_dialog = Array[String](["well it looks like they have mechanic brain with chip, they communicate like humans but man commands don't work at all.
-They go fuzzy"])
+response_dialog = Array[String](["Well, it looks like they have a mechanical brain with a chip. They communicate like humans, but human commands don’t work at all.
+They go fuzzy."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3274,7 +3274,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["brain a chip?"])
-response_dialog = Array[String](["I have no idea how that works"])
+response_dialog = Array[String](["I have no idea how that works."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3286,7 +3286,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ioj4w"), SubResource("Resource_mbrwi"), SubResource("Resource_celxp"), SubResource("Resource_wjdby")])
-default_starting_dialog = "this is all wrong"
+default_starting_dialog = "This is all wrong. They seem to be weird, and you seem to be weird."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -3316,8 +3316,8 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["reboot"])
-response_dialog = Array[String](["darn this time my command allmost backfired good that you don't have password.
-Darn another organic [name] robot"])
+response_dialog = Array[String](["Darn, this time my command almost backfired. Good thing you don’t have a password.
+Darn, another organic [name] robot."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3331,8 +3331,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["command backfired?"])
-response_dialog = Array[String](["yes well you gave me command to reboot me which backfired"])
+list_avatar_dialog = Array[String](["How did the command backfire?"])
+response_dialog = Array[String](["Yes, well, you gave me a command to reboot me, which backfired."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3346,8 +3346,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["give me your password?"])
-response_dialog = Array[String](["I aint giving you a password"])
+list_avatar_dialog = Array[String](["Can you give me your password?"])
+response_dialog = Array[String](["I’m not giving you my password."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3361,9 +3361,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["reprogram?"])
-response_dialog = Array[String](["well like you it is impossible to reprogram.
-You seem to be reasonable not like us non organic robots"])
+list_avatar_dialog = Array[String](["What do you mean by 'reprogram'?"])
+response_dialog = Array[String](["Well, like you, it is impossible to reprogram.
+You seem to be reasonable, unlike us non-organic robots."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3393,9 +3393,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_kqfpo"), SubResource("Resource_u54oj")])
-list_avatar_dialog = Array[String](["what do you mean organic robots?"])
-response_dialog = Array[String](["well what ever command I give to you organic robots you seem to use reason instead of activating the command.
-Go to house south west and you will see what I mean organic [name]"])
+list_avatar_dialog = Array[String](["What do you mean by 'organic robots'?"])
+response_dialog = Array[String](["Well, whatever command I give to you organic robots, you seem to use reason instead of activating the command.
+Go to the house southwest, and you will see what I mean, organic [name]."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 

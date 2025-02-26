@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ygtlfwdo82g1"
+path="res://.godot/imported/continuum.mid - MIDIocrity - 03 Savior of Humanity.mp3-5c7da74a7e429485f48bbebf175e36a5.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - MIDIocrity - 03 Savior of Humanity.mp3"
+dest_files=["res://.godot/imported/continuum.mid - MIDIocrity - 03 Savior of Humanity.mp3-5c7da74a7e429485f48bbebf175e36a5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

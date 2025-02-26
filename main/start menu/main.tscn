@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bldvfhdbgr23e"]
+[gd_scene load_steps=40 format=3 uid="uid://bldvfhdbgr23e"]
 
 [ext_resource type="Script" uid="uid://bj254t7es4bsr" path="res://main/start menu/MainMenu.gd" id="1_3wy1v"]
 [ext_resource type="Script" uid="uid://luh38krjrogw" path="res://my assets/entity/EntityManager.gd" id="2_4hmqs"]
@@ -14,18 +14,31 @@
 [ext_resource type="PackedScene" uid="uid://bwfl5sjvtwx4v" path="res://game/entity/trader_button_buy.tscn" id="13_s758e"]
 [ext_resource type="PackedScene" uid="uid://ls0x4xqay4he" path="res://game/entity/trader_button_sell.tscn" id="14_4hmqs"]
 [ext_resource type="PackedScene" uid="uid://cugv3q0gmarru" path="res://game/entity/dragging_sprite.tscn" id="14_piupu"]
+[ext_resource type="AudioStream" uid="uid://chge5rm7ja346" path="res://music/Ivan Stanton, Cammy - MIDIocrity - 17 Savior of Humanity (Cammy Remix).mp3" id="18_ksear"]
 [ext_resource type="PackedScene" uid="uid://ba0tnj74ux3tm" path="res://my assets/mold window/mold_window.tscn" id="18_piupu"]
 [ext_resource type="PackedScene" uid="uid://bjld3caw65v7u" path="res://my assets/SlidersWindow/CircleSliders.tscn" id="18_q0sk7"]
+[ext_resource type="AudioStream" uid="uid://bp02mcm7db0vw" path="res://music/continuum.mid - MIDIocrity - 04 Fun is Infinite at AGM.mp3" id="19_jtpli"]
 [ext_resource type="Script" uid="uid://c5w5cvt6wb4ac" path="res://my assets/music/MusicManager.gd" id="19_piupu"]
-[ext_resource type="AudioStream" uid="uid://bua02kgxtfo0n" path="res://music/continuum.mid - The Epic Adventure - 01 Initd.mp3" id="20_qs5eo"]
+[ext_resource type="AudioStream" uid="uid://bp52q3ninduhw" path="res://music/continuum.mid - MIDIocrity - 19 Arrival of the Demons.mp3" id="20_dpehh"]
 [ext_resource type="AudioStream" uid="uid://dns12un4gs8r5" path="res://music/continuum.mid - The Epic Adventure - 02 Quantum.mp3" id="21_frbr6"]
 [ext_resource type="AudioStream" uid="uid://catpvwd1a4dce" path="res://music/continuum.mid - The Epic Adventure - 09 Photons.mp3" id="22_o8j3b"]
+[ext_resource type="AudioStream" uid="uid://bg0c134q3nhd8" path="res://music/continuum.mid - MIDIocrity - 18 Good Endings.mp3" id="23_bws4r"]
 [ext_resource type="AudioStream" uid="uid://ds65shy4gqtdr" path="res://music/continuum.mid - The Epic Adventure - 03 Worlds Beyond.mp3" id="23_wpkmi"]
 [ext_resource type="AudioStream" uid="uid://blqwojg2nfqwy" path="res://music/continuum.mid - The Epic Adventure - 04 The Forest Fortress.mp3" id="24_o0l78"]
 [ext_resource type="AudioStream" uid="uid://gnr0h21kqua0" path="res://music/continuum.mid - The Epic Adventure - 05 Negative Altitude.mp3" id="25_576ah"]
 [ext_resource type="AudioStream" uid="uid://dhpc2i7mj0pim" path="res://music/continuum.mid - The Epic Adventure - 06 The Orchestra in Heaven.mp3" id="26_wpvt5"]
 [ext_resource type="AudioStream" uid="uid://crad6sln5yjpt" path="res://music/continuum.mid - The Epic Adventure - 07 The Dark Planet.mp3" id="27_amlcg"]
+[ext_resource type="AudioStream" uid="uid://1rlcfi0jc72g" path="res://music/continuum.mid - MIDIocrity - 06 Death Waltz.mp3" id="28_f5r2o"]
 [ext_resource type="AudioStream" uid="uid://m8knf1886rew" path="res://music/continuum.mid - The Epic Adventure - 08 The Great Battle.mp3" id="28_ue0mw"]
+[ext_resource type="AudioStream" uid="uid://ccvgwuoskolnf" path="res://music/continuum.mid - MIDIocrity - 07 The Invisible Gardener.mp3" id="29_oip6e"]
+[ext_resource type="AudioStream" uid="uid://bkktujypwy3m4" path="res://music/continuum.mid - MIDIocrity - 08 Quantum 2.mp3" id="30_pfi0o"]
+[ext_resource type="AudioStream" uid="uid://ygtlfwdo82g1" path="res://music/continuum.mid - MIDIocrity - 03 Savior of Humanity.mp3" id="33_nge2l"]
+[ext_resource type="AudioStream" uid="uid://dxpg6g717rkpl" path="res://music/continuum.mid - MIDIocrity - 05 Punch Your Way Through.mp3" id="34_mji3e"]
+[ext_resource type="AudioStream" uid="uid://k7kotpx3c5th" path="res://music/continuum.mid - MIDIocrity - 09 Challenges Ahead.mp3" id="35_1un3u"]
+[ext_resource type="AudioStream" uid="uid://m3frgvy178ln" path="res://music/continuum.mid - MIDIocrity - 10 Doomguy and His Angry Band.mp3" id="36_ujfge"]
+[ext_resource type="AudioStream" uid="uid://tu65f5ox55tt" path="res://music/continuum.mid - MIDIocrity - 02 Airport Attack.mp3" id="37_erbsw"]
+[ext_resource type="AudioStream" uid="uid://cd8ps51b25vso" path="res://music/continuum.mid - MIDIocrity - 11 The Journey Continues.mp3" id="38_oy1vo"]
+[ext_resource type="AudioStream" uid="uid://bi1jv1g0784jh" path="res://music/continuum.mid - MIDIocrity - 12 The Ritual.mp3" id="39_yact5"]
 
 [node name="Node" type="Node"]
 
@@ -57,15 +70,14 @@ layout_mode = 3
 anchor_top = 0.049
 anchor_right = 1.0
 anchor_bottom = 0.951
-offset_top = 0.247999
-offset_bottom = -0.248047
+offset_top = 1.248
+offset_bottom = 0.751953
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_kfbq2")
-metadata/_edit_use_anchors_ = true
 
 [node name="main TabContainer" parent="CanvasLayer/Main" instance=ExtResource("4_d00gp")]
 layout_mode = 1
@@ -86,7 +98,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = 10
 anchor_bottom = 0.0
-offset_bottom = 23.0
+offset_top = -31.0
 grow_vertical = 1
 
 [node name="trader manager" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("buy_grid_container", "trader_button_sell", "trader_gold_label", "robot_gold_label", "buy_for", "sell_for")]
@@ -295,11 +307,11 @@ follow_viewport_enabled = true
 bus = &"music"
 script = ExtResource("19_piupu")
 level_up_player = NodePath("AudioStreamPlayer")
-main_menu_music = Array[AudioStream]([ExtResource("20_qs5eo")])
-shop_music = Array[AudioStream]([ExtResource("21_frbr6"), ExtResource("22_o8j3b")])
-wandering_music = Array[AudioStream]([ExtResource("23_wpkmi"), ExtResource("24_o0l78"), ExtResource("25_576ah"), ExtResource("26_wpvt5")])
-action_music = Array[AudioStream]([ExtResource("27_amlcg"), ExtResource("28_ue0mw")])
-tutorial_music = Array[AudioStream]([ExtResource("25_576ah")])
+main_menu_music = Array[AudioStream]([ExtResource("18_ksear"), ExtResource("19_jtpli"), ExtResource("20_dpehh")])
+shop_music = Array[AudioStream]([ExtResource("21_frbr6"), ExtResource("22_o8j3b"), ExtResource("23_bws4r")])
+wandering_music = Array[AudioStream]([ExtResource("23_wpkmi"), ExtResource("24_o0l78"), ExtResource("25_576ah"), ExtResource("26_wpvt5"), ExtResource("28_f5r2o"), ExtResource("29_oip6e"), ExtResource("30_pfi0o")])
+action_music = Array[AudioStream]([ExtResource("27_amlcg"), ExtResource("28_ue0mw"), ExtResource("33_nge2l"), ExtResource("34_mji3e"), ExtResource("35_1un3u"), ExtResource("36_ujfge")])
+tutorial_music = Array[AudioStream]([ExtResource("37_erbsw"), ExtResource("38_oy1vo"), ExtResource("39_yact5")])
 metadata/_custom_type_script = "uid://c5w5cvt6wb4ac"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]

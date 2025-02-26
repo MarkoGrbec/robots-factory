@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dxpg6g717rkpl"
+path="res://.godot/imported/continuum.mid - MIDIocrity - 05 Punch Your Way Through.mp3-06ee82f28c0a7b6562600e65b1ea7a40.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - MIDIocrity - 05 Punch Your Way Through.mp3"
+dest_files=["res://.godot/imported/continuum.mid - MIDIocrity - 05 Punch Your Way Through.mp3-06ee82f28c0a7b6562600e65b1ea7a40.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

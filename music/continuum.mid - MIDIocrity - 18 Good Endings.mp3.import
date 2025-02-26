@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bg0c134q3nhd8"
+path="res://.godot/imported/continuum.mid - MIDIocrity - 18 Good Endings.mp3-e6c8a178ad3e1389ff4777b9e38a65ad.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - MIDIocrity - 18 Good Endings.mp3"
+dest_files=["res://.godot/imported/continuum.mid - MIDIocrity - 18 Good Endings.mp3-e6c8a178ad3e1389ff4777b9e38a65ad.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

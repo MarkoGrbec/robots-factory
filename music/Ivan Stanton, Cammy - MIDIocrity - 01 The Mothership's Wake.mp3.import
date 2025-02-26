@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://0ewtvxauhjr4"
+path="res://.godot/imported/Ivan Stanton, Cammy - MIDIocrity - 01 The Mothership's Wake.mp3-476b72842c325682217b7eb551b7aa51.mp3str"
+
+[deps]
+
+source_file="res://music/Ivan Stanton, Cammy - MIDIocrity - 01 The Mothership's Wake.mp3"
+dest_files=["res://.godot/imported/Ivan Stanton, Cammy - MIDIocrity - 01 The Mothership's Wake.mp3-476b72842c325682217b7eb551b7aa51.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

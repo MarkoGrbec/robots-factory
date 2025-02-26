@@ -26,7 +26,7 @@ var _id_mobs_in_area = []
 
 func _ready() -> void:
 	g_man.music_manager = self
-	finished.connect(next_track)
+	finished.connect(play_random)
 	clips[MusicStatus.main_menu] = main_menu_music
 	clips[MusicStatus.shop] = shop_music
 	clips[MusicStatus.wandering] = wandering_music
@@ -57,6 +57,11 @@ func next_track():
 	stream = clips[status][flip]
 	play()
 
+func play_random():
+	flip = randi_range(0, clips[status].size() - 1)
+	stream = clips[status][flip]
+	play()
+
 func play_level_up(lvl_up: int):
 	if lvl_up == 0:
 		if not level_up_player.stream == level_up:
@@ -73,7 +78,8 @@ func play_new():
 
 func set_music_type(new_status: MusicStatus):
 	status = new_status
-	flip = 0
-	stop()
-	play_new()
+	play_random()
+	#flip = 0
+	#stop()
+	#play_new()
 	

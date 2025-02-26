@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bp02mcm7db0vw"
+path="res://.godot/imported/continuum.mid - MIDIocrity - 04 Fun is Infinite at AGM.mp3-cb66809a44c3ce38672d804d04145b3a.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - MIDIocrity - 04 Fun is Infinite at AGM.mp3"
+dest_files=["res://.godot/imported/continuum.mid - MIDIocrity - 04 Fun is Infinite at AGM.mp3-cb66809a44c3ce38672d804d04145b3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

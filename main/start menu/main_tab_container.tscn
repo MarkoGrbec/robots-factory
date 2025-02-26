@@ -11,12 +11,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 current_tab = 0
 
 [node name="start game" type="ScrollContainer" parent="." node_paths=PackedStringArray("start_game", "delete_user", "username_line_edit", "welcome_label", "welcome_button")]
 layout_mode = 2
 tooltip_text = "start playing"
+mouse_filter = 0
 script = ExtResource("1_sciab")
 start_game = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/start game")
 delete_user = NodePath("HBoxContainer/VBoxContainer/HBoxContainer/delete user")
@@ -92,6 +92,7 @@ size_flags_vertical = 3
 [node name="credits" type="ScrollContainer" parent="."]
 visible = false
 layout_mode = 2
+mouse_filter = 0
 script = ExtResource("3_i4pt1")
 metadata/_tab_index = 1
 
@@ -129,16 +130,19 @@ MIT licences:
 
 [url=https://github.com/godotengine/godot-demo-projects/tree/4.2-31d1c0c/2d/skeleton]skeleton 2d demo[/url]
 
+CC0 licences:
+
 some sounds made by David Fluher
 
 [url=https://www.freesound.org/]sounds free sounds org[/url]
 laser - defunct3
 
-[url=https://ivanastan.bandcamp.com/album/the-epic-adventure]music ivanastan - the-epic-adventure[/url]"
+[url=https://ivanastan.bandcamp.com/album/the-epic-adventure]music ivanastan - the-epic-adventure, MIDIocrity[/url]"
 
 [node name="welcome robot" type="ScrollContainer" parent="."]
 visible = false
 layout_mode = 2
+mouse_filter = 0
 metadata/_tab_index = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="welcome robot"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bi1jv1g0784jh"
+path="res://.godot/imported/continuum.mid - MIDIocrity - 12 The Ritual.mp3-93ebbf64c2ef07b772aa075a64c276e4.mp3str"
+
+[deps]
+
+source_file="res://music/continuum.mid - MIDIocrity - 12 The Ritual.mp3"
+dest_files=["res://.godot/imported/continuum.mid - MIDIocrity - 12 The Ritual.mp3-93ebbf64c2ef07b772aa075a64c276e4.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
