@@ -41,6 +41,7 @@ func _on_quit_game_button_pressed() -> void:
 	g_man.changes_manager.delete_changes()
 	g_man.entity_manager.destroy_all_entities()
 	g_man.inventory_system.destroy_inventory_slots()
+	g_man.user.partly_load()
 	
 	QuestsManager.set_server_quest(21, false, 0)
 	
@@ -50,5 +51,6 @@ func _on_quit_game_button_pressed() -> void:
 	
 	close_window()
 	g_man.inventory_system.close_window()
+	g_man.sliders_manager.close_window()
 	g_man.quests_manager.close_window()
 	g_man.trader_manager.close_window()

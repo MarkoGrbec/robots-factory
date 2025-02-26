@@ -96,8 +96,9 @@ func destroy_all_entities():
 		for child in children:
 			if is_instance_valid(child):
 				if child.has_meta("entity"):
-					var entity: Entity = child.entity
-					entity.partly_loaded = 0
+					if is_instance_valid(child.entity):
+						var entity: Entity = child.entity
+						entity.partly_loaded = 0
 				child.queue_free()
 	for node in dragging_node2d.get_children():
 		var entity: Entity = node.entity

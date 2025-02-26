@@ -283,6 +283,7 @@ layout_mode = 1
 
 [node name="in game menu" parent="CanvasLayer/Main" instance=ExtResource("8_bsumw")]
 visible = false
+z_index = 1
 layout_mode = 1
 
 [node name="mold window" parent="CanvasLayer/Main" instance=ExtResource("18_piupu")]

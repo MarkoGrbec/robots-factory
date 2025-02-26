@@ -48,7 +48,8 @@ func save_user_type(type):
 	DataBase.insert(_server, g_man.dbms, _path, "type", id, type)
 
 func save_gold_coins():
-	DataBase.insert(_server, g_man.dbms, _path, "gold_coins", id, gold_coins)
+	if not g_man.tutorial:
+		DataBase.insert(_server, g_man.dbms, _path, "gold_coins", id, gold_coins)
 
 func save_weapon_activated(activate):
 	DataBase.insert(_server, g_man.dbms, _path, "weapon", id, activate)
