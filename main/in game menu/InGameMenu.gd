@@ -44,6 +44,10 @@ func _on_quit_game_button_pressed() -> void:
 	
 	QuestsManager.set_server_quest(21, false, 0)
 	
+	for holding in options_holding_hand_container.get_children():
+		holding.queue_free()
+	
+	
 	close_window()
 	g_man.inventory_system.close_window()
 	g_man.quests_manager.close_window()

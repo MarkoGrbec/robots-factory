@@ -40,19 +40,19 @@ func destroy():
 ## get tooltips in main menu misc
 func config():
 	movement_options_callable = _get_set_holding_hand_scene("movement", movement_string, load_return_holding_hand_movement(), still_holding_hand_movement, stop_holding_hand_movement)
-	movement_completed_options_callable = _get_set_holding_hand_scene("movement completed", movement_completed_string, load_return_holding_hand_movement_completed(), still_holding_hand_movement_completed, stop_holding_hand_movement_completed)
-	changes_options_callable = _get_set_holding_hand_scene("turn changes on off", changes_string, load_return_holding_hand_changes(), still_holding_hand_changes, stop_holding_hand_changes)
-	dig_options_callable = _get_set_holding_hand_scene("dig", dig_string, load_return_holding_hand_dig(), still_holding_hand_dig, stop_holding_hand_dig)
-	drop_options_callable = _get_set_holding_hand_scene("drop", drop_string, load_return_holding_hand_drop(), still_holding_hand_drop, stop_holding_hand_drop)
-	inventory_options_callable = _get_set_holding_hand_scene("inventory", inventory_string, load_return_holding_hand_inventory(), still_holding_hand_inventory, stop_holding_hand_inventory)
-	npc_options_callable = _get_set_holding_hand_scene("NPC", npc_string, load_return_holding_hand_npc(), still_holding_hand_npc, stop_holding_hand_npc)
-	npc_give_item_options_callable = _get_set_holding_hand_scene("NPC give item", npc_give_item_string, load_return_holding_hand_npc_give_item(), still_holding_hand_npc_give_item, stop_holding_hand_npc_give_item)
-	underground_options_callable = _get_set_holding_hand_scene("underground", underground_string, load_return_holding_hand_underground(), still_holding_hand_underground, stop_holding_hand_underground)
-	to_surface_options_callable = _get_set_holding_hand_scene("to surface", to_surface_string, load_return_holding_hand_to_surface(), still_holding_hand_to_surface, stop_holding_hand_to_surface)
-	trader_options_callable = _get_set_holding_hand_scene("trader", trader_string, load_return_holding_hand_trader(), still_holding_hand_trader, stop_holding_hand_trader)
-	trader_buy_options_callable = _get_set_holding_hand_scene("trader buy", trader_buy_string, load_return_holding_hand_trader_buy(), still_holding_hand_trader_buy, stop_holding_hand_trader_buy)
-	enemy_options_callable = _get_set_holding_hand_scene("enemy", enemy_string, load_return_holding_hand_enemy(), still_holding_hand_enemy, stop_holding_hand_enemy)
-	enemy_finished_options_callable = _get_set_holding_hand_scene("enemy finished", enemy_finished_string, load_return_holding_hand_enemy_finished(), still_holding_hand_enemy_finished, stop_holding_hand_enemy_finished)
+	movement_completed_options_callable = _get_set_holding_hand_scene("changes", movement_completed_string, load_return_holding_hand_movement_completed(), still_holding_hand_movement_completed, stop_holding_hand_movement_completed)
+	changes_options_callable = _get_set_holding_hand_scene("dig", changes_string, load_return_holding_hand_changes(), still_holding_hand_changes, stop_holding_hand_changes)
+	dig_options_callable = _get_set_holding_hand_scene("put back material", dig_string, load_return_holding_hand_dig(), still_holding_hand_dig, stop_holding_hand_dig)
+	drop_options_callable = _get_set_holding_hand_scene("to inventory", drop_string, load_return_holding_hand_drop(), still_holding_hand_drop, stop_holding_hand_drop)
+	inventory_options_callable = _get_set_holding_hand_scene("talk to NPC", inventory_string, load_return_holding_hand_inventory(), still_holding_hand_inventory, stop_holding_hand_inventory)
+	npc_options_callable = _get_set_holding_hand_scene("give item to NPC", npc_string, load_return_holding_hand_npc(), still_holding_hand_npc, stop_holding_hand_npc)
+	npc_give_item_options_callable = _get_set_holding_hand_scene("dig underground", npc_give_item_string, load_return_holding_hand_npc_give_item(), still_holding_hand_npc_give_item, stop_holding_hand_npc_give_item)
+	underground_options_callable = _get_set_holding_hand_scene("back to surface", underground_string, load_return_holding_hand_underground(), still_holding_hand_underground, stop_holding_hand_underground)
+	to_surface_options_callable = _get_set_holding_hand_scene("sell to trader", to_surface_string, load_return_holding_hand_to_surface(), still_holding_hand_to_surface, stop_holding_hand_to_surface)
+	trader_options_callable = _get_set_holding_hand_scene("buy from trader", trader_string, load_return_holding_hand_trader(), still_holding_hand_trader, stop_holding_hand_trader)
+	trader_buy_options_callable = _get_set_holding_hand_scene("fight enemy", trader_buy_string, load_return_holding_hand_trader_buy(), still_holding_hand_trader_buy, stop_holding_hand_trader_buy)
+	enemy_options_callable = _get_set_holding_hand_scene("defending the prey", enemy_string, load_return_holding_hand_enemy(), still_holding_hand_enemy, stop_holding_hand_enemy)
+	enemy_finished_options_callable = _get_set_holding_hand_scene("end of tutorial", enemy_finished_string, load_return_holding_hand_enemy_finished(), still_holding_hand_enemy_finished, stop_holding_hand_enemy_finished)
 	believe_options_callable = _get_set_holding_hand_scene("believe", believe_string, load_return_holding_hand_believe(), still_holding_hand_believe, stop_holding_hand_believe)
 
 func _get_set_holding_hand_scene(text, tooltip, active, on: Callable, off: Callable) -> Callable:
@@ -102,7 +102,7 @@ func still_holding_hand_movement_completed(callab: bool = true):
 	save_holding_hand_movement_completed(true, callab)
 
 func stop_holding_hand_movement_completed():
-	save_holding_hand_movement_completed(false, false)
+	save_holding_hand_movement_completed(false)
 
 func holding_hand_movement_completed():
 	if load_return_holding_hand_movement_completed() and not load_return_holding_hand_movement():
@@ -125,7 +125,7 @@ func still_holding_hand_changes(callab: bool = true):
 	save_holding_hand_changes(true, callab)
 
 func stop_holding_hand_changes():
-	save_holding_hand_changes(false, false)
+	save_holding_hand_changes(false)
 
 func holding_hand_changes():
 	if load_return_holding_hand_changes() and not load_return_holding_hand_movement_completed():
