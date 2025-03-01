@@ -177,7 +177,13 @@ func mission_failing_quest(dict_string_mission__Entity_sprite: Dictionary):
 			save_mission()
 #endregion completting mission
 #region ask
-func delete_chars(chars: Array[String], raw_text: String):
+static func make_raw(text):
+	text = text.to_lower()
+	# do not delete space
+	text = delete_chars(["?", "!", ",", ".", ";", ":"], text)
+	return text
+
+static func delete_chars(chars: Array[String], raw_text: String):
 	for ch in chars:
 		raw_text = raw_text.replace(ch, "")
 	return raw_text
@@ -185,8 +191,8 @@ func delete_chars(chars: Array[String], raw_text: String):
 ## return [[name], [response]], [quest_question], [inventory.id], [[success.old_basis], [qq_index]], [failed.old_basis], [array_answers__response_size]
 func ask(raw_text: String, client) -> Array:
 	var avatar_name = g_man.user.avatar_name
-	#raw_text = raw_text.to_lower()
-	#raw_text = delete_chars(["?", "!", ",", ".", ";", ":"], raw_text)
+	raw_text = make_raw(raw_text)
+	
 	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
 	if q_obj.list_quest_basis.size() > basis:
 		default_starting_dialog = q_obj.list_quest_basis[basis].default_starting_dialog
@@ -241,19 +247,29 @@ func ask(raw_text: String, client) -> Array:
 		else:
 			return [[q_obj.quest_name, str("I'm sorry I need more quality items", mission_quantity)], null, inventory.id, [], array_believe, array_answers__response_size]
 	# success
-	else:
+	elif general_basis or qq.use_basis:
 		succeed_believe()
 		var array_old_basis__qq_index: Array = [basis, q_obj.index_quest_qustion(qq, basis)]
-		# add name in to the response dialog
-		var qq_response_dialog = get_response_dialog(qq, array_old_basis__qq_index[1], avatar_name)
-		response_dialog = [q_obj.quest_name, qq_response_dialog]
+		response_dialog = get_response_dialog_indexed(qq, q_obj, avatar_name)
 		
 		set_new_basis(qq, q_obj, general_basis, avatar_name)
 		get_display_answers_all()
 		return [response_dialog, qq, inventory.id, array_old_basis__qq_index, array_believe, array_answers__response_size]
-	get_display_answers_all()
 	# fail
-	return [response_dialog, qq, inventory.id, [], array_believe, array_answers__response_size]
+	var array_old_basis__qq_index = []
+	if not response_dialog:
+		response_dialog = [q_obj.quest_name, ""]
+		if qq:
+			array_old_basis__qq_index = [basis, q_obj.index_quest_qustion(qq, basis)]
+			response_dialog = get_response_dialog_indexed(qq, q_obj, avatar_name)
+	get_display_answers_all()
+	return [response_dialog, qq, inventory.id, array_old_basis__qq_index, array_believe, array_answers__response_size]
+
+func get_response_dialog_indexed(qq: QuestQuestion, q_obj: QuestObject, avatar_name: String):
+	var array_old_basis__qq_index: Array = [basis, q_obj.index_quest_qustion(qq, basis)]
+	# add name in to the response dialog
+	var qq_response_dialog = get_response_dialog(qq, array_old_basis__qq_index[1], avatar_name)
+	return [q_obj.quest_name, qq_response_dialog]
 
 func get_display_answers_all():
 	array_answers__response_size.clear()
@@ -269,7 +285,6 @@ func get_display_answers(basis_index: int):
 			for basis_qq: QuestQuestion in _basis.list_quest_questions:
 				array_answers__response_size.push_back([str(basis_qq.list_avatar_dialog), basis_qq.response_dialog.size()])
 				pass
-	
 
 ## sets new basis and default starting dialog
 func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, avatar_name: String):
@@ -286,7 +301,7 @@ func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, av
 		if basis != new_basis:
 			
 			added_items.clear()
-			if general_basis:
+			if general_basis or qq.use_basis:
 				basis = new_basis
 			save_basis()
 			# next round

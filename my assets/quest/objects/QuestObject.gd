@@ -114,6 +114,7 @@ func get_quest_question(basis: int, text: String):
 		# Check if any of the list_avatar_dialog items match the text
 		if qq.list_avatar_dialog.any(
 			func(sentence):
+				sentence = ServerQuest.make_raw(sentence)
 				return all_words_match(sentence, text)
 		):
 			return qq

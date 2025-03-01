@@ -1,4 +1,7 @@
 class_name QuestQuestion extends Resource
+@export_group("basis")
+## use basis even if it's only flag
+@export var use_basis: bool = false
 ## new basis on this qq
 @export var new_basis: Array[int] = [0]
 @export_group("add remove basis flags")

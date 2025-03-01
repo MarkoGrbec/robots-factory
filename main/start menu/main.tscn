@@ -218,6 +218,7 @@ text = "X"
 
 [node name="QuestsManager" parent="CanvasLayer/Main" instance=ExtResource("6_4dugh")]
 visible = false
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.609
@@ -279,6 +280,7 @@ text = "X"
 
 [node name="change name manager" parent="CanvasLayer/Main" instance=ExtResource("7_67ri8")]
 visible = false
+z_index = 1
 layout_mode = 1
 
 [node name="in game menu" parent="CanvasLayer/Main" instance=ExtResource("8_bsumw")]
@@ -287,6 +289,7 @@ z_index = 1
 layout_mode = 1
 
 [node name="mold window" parent="CanvasLayer/Main" instance=ExtResource("18_piupu")]
+z_index = 1
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.111
