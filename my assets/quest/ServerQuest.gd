@@ -180,7 +180,7 @@ func mission_failing_quest(dict_string_mission__Entity_sprite: Dictionary):
 static func make_raw(text):
 	text = text.to_lower()
 	# do not delete space
-	text = delete_chars(["?", "!", ",", ".", ";", ":"], text)
+	text = delete_chars(["?", "!", ",", ".", ";", ":", "[", "]", "{", "}"], text)
 	return text
 
 static func delete_chars(chars: Array[String], raw_text: String):

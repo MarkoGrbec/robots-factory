@@ -1,4 +1,4 @@
-[gd_scene load_steps=317 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=328 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -1586,7 +1586,7 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_ld3cu")])
-list_avatar_dialog = Array[String](["The name change bot is broken."])
+list_avatar_dialog = Array[String](["The chname is broken."])
 response_dialog = Array[String](["If changing the name doesn’t work,
 try resetting it
 with the [reboot] command.", "Try using the [reboot] command on the name change bot."])
@@ -1803,7 +1803,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["my commands are follows
+response_dialog = Array[String](["My commands are follows:
 [help] this dialog
 [config] configure me"])
 response_failed_dialog = ""
@@ -1855,10 +1855,10 @@ description = "was just rebooted"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false
-display_answers = true
+display_answers = false
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_7s4pe"), SubResource("Resource_t2j3v"), SubResource("Resource_3l02l")])
 default_starting_dialog = "I was just rebooted, and all my memory is lost. I need to be reconfigured."
-default_failed_dialog = ""
+default_failed_dialog = "Say help to see my commands."
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_nqjdk"]
@@ -2461,10 +2461,10 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_gmbyg")])
-list_avatar_dialog = Array[String](["how much"])
-response_dialog = Array[String](["well bring me 3 clay and
-I'll send to craft the mold for legs", "dig 3 clay with left mouse button [select] binding", "drag them to inventory and than to top right slot of quest window.
-press I or E or insert for inventory [inventory] binding"])
+list_avatar_dialog = Array[String](["How much do you need?"])
+response_dialog = Array[String](["Well, bring me 3 clay, and
+I’ll send it to craft the mold for legs.", "Dig 3 clay using the left mouse button [select] binding.", "Drag them to your inventory and then to the top-right slot of the quest window.
+Press I, E, or Insert to open your inventory [inventory] binding."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2480,7 +2480,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["you need help no I need you to gather"])
+response_dialog = Array[String](["You need help? No, I need you to gather."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2492,8 +2492,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_wosds"), SubResource("Resource_m1l5w"), SubResource("Resource_a8c27")])
-default_starting_dialog = "hey let's make some molds
-to make a part of a robot"
+default_starting_dialog = "Hey, let’s make some molds
+to create a part of a robot."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -2509,7 +2509,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["you need help no I need you to gather"])
+response_dialog = Array[String](["You need help? No, I need you to gather."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2536,9 +2536,9 @@ quantity = 5
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["objective completed"])
-response_dialog = Array[String](["great I'll send clay for chest and arms"])
-response_failed_dialog = "I need more clay"
+list_avatar_dialog = Array[String](["Objective completed."])
+response_dialog = Array[String](["Great! I’ll send the clay for the chest and arms."])
+response_failed_dialog = "I need more clay."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_v2y5f"]
@@ -2552,9 +2552,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["how much"])
-response_dialog = Array[String](["well bring me 5 clay and
-I'll send to craft the mold for chest and arms", "please I need 5 clay"])
+list_avatar_dialog = Array[String](["How much do you need?"])
+response_dialog = Array[String](["Well, bring me 5 clay, and
+I’ll send it to craft the mold for the chest and arms.", "Please, I need 5 clay."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2566,8 +2566,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_i2ec7"), SubResource("Resource_v2y5f")])
-default_starting_dialog = "hi let's make some molds
-to make a part of a robot"
+default_starting_dialog = "Hey, let’s make some molds
+to create a part of a robot."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -2590,9 +2590,9 @@ quantity = 2
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wv4ku")])
-list_avatar_dialog = Array[String](["objective completed"])
-response_dialog = Array[String](["great I'll send clay for head"])
-response_failed_dialog = "I need more clay"
+list_avatar_dialog = Array[String](["Objective completed."])
+response_dialog = Array[String](["Great! I’ll send the clay for the head."])
+response_failed_dialog = "I need more clay."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_wx3ni"]
@@ -2606,9 +2606,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["how much"])
-response_dialog = Array[String](["well bring me 2 clay and
-I'll send to craft the mold for head", "2 clay please"])
+list_avatar_dialog = Array[String](["How much do you need?"])
+response_dialog = Array[String](["Well, bring me 2 clay, and
+I’ll send it to craft the mold for the head.", "2 clay, please."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2620,8 +2620,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_kmewe"), SubResource("Resource_wx3ni")])
-default_starting_dialog = "hi let's make some molds
-to make a last part of a robot"
+default_starting_dialog = "Hey, let’s make some molds
+to create last part of a robot."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -2636,9 +2636,9 @@ quantity = 15
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wv4ku")])
-list_avatar_dialog = Array[String](["objective completed"])
-response_dialog = Array[String](["great I'll send iron for robot"])
-response_failed_dialog = "I need more iron"
+list_avatar_dialog = Array[String](["Objective completed."])
+response_dialog = Array[String](["Great! I’ll send the iron for the robot."])
+response_failed_dialog = "I need more iron."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_3p6yg"]
@@ -2652,10 +2652,10 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["how much iron"])
-response_dialog = Array[String](["well bring me 15 iron and I'll send to pour the iron in to the robot
+list_avatar_dialog = Array[String](["How much iron do you need?"])
+response_dialog = Array[String](["Well, bring me 15 iron, and I’ll send it to pour into the robot.
 
-go to trader and buy iron", "15 iron please"])
+Go to the trader and buy iron.", "15 iron, please. Drag it from the trader window into your inventory."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2691,9 +2691,9 @@ quantity = 3
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_r2msl")])
-list_avatar_dialog = Array[String](["objective completed"])
-response_dialog = Array[String](["great I'll send sand for chips"])
-response_failed_dialog = "I need more sand"
+list_avatar_dialog = Array[String](["Objective completed."])
+response_dialog = Array[String](["Great! I’ll send the sand for the chips."])
+response_failed_dialog = "I need more sand."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_60hhd"]
@@ -2707,9 +2707,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["how much"])
-response_dialog = Array[String](["well bring me 3 sand from trader and
-I'll send to craft some chips", "3 sand please"])
+list_avatar_dialog = Array[String](["How much do you need?"])
+response_dialog = Array[String](["Well, bring me 3 sand from the trader, and
+I’ll send it to craft some chips.", "3 sand please."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2721,7 +2721,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_nk2gd"), SubResource("Resource_60hhd")])
-default_starting_dialog = "ok we have a robot but he's dead bring me sand from trader"
+default_starting_dialog = "Okay, we have a robot, but it’s dead. Bring me sand from the trader."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -2744,8 +2744,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_ldw7g")])
-list_avatar_dialog = Array[String](["let's try to make new bot"])
-response_dialog = Array[String](["we have molds so bring me more iron please"])
+list_avatar_dialog = Array[String](["Let’s try to make a new robot."])
+response_dialog = Array[String](["We have molds, so bring me more iron, please."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2760,8 +2760,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["how to protect the bot?"])
-response_dialog = Array[String](["maybe you need a weapon", "try blocking it with any tools you have disposable", "try using your body", "try using digging", "try using dug elements"])
+list_avatar_dialog = Array[String](["How can I protect the robot?"])
+response_dialog = Array[String](["Maybe you need a weapon.", "Try blocking it with any disposable tools you have.", "Try using your body.", "Try using digging.", "Try using dug elements."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2776,8 +2776,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["a weapon?"])
-response_dialog = Array[String](["ok ask a weapon master to build you a weapon", "there's new bot weapon master"])
+list_avatar_dialog = Array[String](["Where can I get a weapon?"])
+response_dialog = Array[String](["Okay, ask the weapon master to build you a weapon.", "There’s a new bot: weapon master."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2789,8 +2789,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tu0wc"), SubResource("Resource_gxj3l"), SubResource("Resource_puk0i")])
-default_starting_dialog = "you failed to protect the helpless robot
-try again."
+default_starting_dialog = "You failed to protect the helpless robot.
+Try again."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -2805,9 +2805,9 @@ quantity = 1
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_r2msl")])
-list_avatar_dialog = Array[String](["objective completed"])
-response_dialog = Array[String](["great I'm reprogramming it right now"])
-response_failed_dialog = "I need more iron"
+list_avatar_dialog = Array[String](["Objective completed."])
+response_dialog = Array[String](["Great! I’m reprogramming it right now."])
+response_failed_dialog = "I need more iron."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_ja8lp"]
@@ -2821,9 +2821,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["how much"])
-response_dialog = Array[String](["well bring me 1 iron from trader and
-I'll reprogram it", "just 1 more iron please"])
+list_avatar_dialog = Array[String](["How much do you need?"])
+response_dialog = Array[String](["Well, bring me 1 iron from the trader, and
+I’ll reprogram it.", "Just 1 more iron, please."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2835,8 +2835,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ebr4p"), SubResource("Resource_ja8lp")])
-default_starting_dialog = "now let's reprogram it.
-Watch out this bots are getting aggressive."
+default_starting_dialog = "Now, let’s reprogram it.
+Watch out—these bots are getting aggressive."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -2867,8 +2867,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_k1sx8"), SubResource("Resource_2t1fq")])
-list_avatar_dialog = Array[String](["objective completed"])
-response_dialog = Array[String](["I think you'll be in good hands", "try play around with your new companion", "your new objective is to ask assistant bot", "what do you want me to say I'm done with you.", "really? Please stop."])
+list_avatar_dialog = Array[String](["Objective completed."])
+response_dialog = Array[String](["I think you’ll be in good hands.", "Try playing around with your new companion.", "Your new objective is to ask the assistant bot", "What do you want me to say? I’m done with you.", "Really? Please stop."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2900,7 +2900,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wraiq"), SubResource("Resource_85rlo")])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["I don't need help any longer but you are in good hands now"])
+response_dialog = Array[String](["I don’t need help any longer, but you are in good hands now."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2912,8 +2912,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8pd08"), SubResource("Resource_5ni06")])
-default_starting_dialog = "congratulations I dind't know you'll pul that one off.
-I'm glad the bot is fully operational.
+default_starting_dialog = "Congratulations! I didn’t know you’d pull that one off.
+I’m glad the bot is fully operational.
 I have programmed it to be your full companion."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
@@ -2945,10 +2945,10 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["what do you need a weapon
-a upgrade battery,
+response_dialog = Array[String](["What do you need? A weapon,
+an upgraded battery,
 a range upgrade,
-a faster reflexes?"])
+or faster reflexes?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2964,10 +2964,10 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["weapon"])
-response_dialog = Array[String](["here take this weapon.
+response_dialog = Array[String](["Here, take this weapon.
 
-press f to fire. be carefull on the battery."])
-response_failed_dialog = "ok bring me 5 iron"
+Press F to fire. Be careful with the battery."])
+response_failed_dialog = "Okay, bring me 5 iron."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_0morn"]
@@ -2982,7 +2982,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["battery", "faster", "reflexes"])
-response_dialog = Array[String](["you'll need a weapon first", "ask me for a weapon"])
+response_dialog = Array[String](["You’ll need a weapon first.", "Ask me for a weapon."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2994,8 +2994,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_qwgub"), SubResource("Resource_anglq"), SubResource("Resource_0morn")])
-default_starting_dialog = "I've heard you have problems with bots that look like us"
-default_failed_dialog = ""
+default_starting_dialog = "I’ve heard you have problems with bots that look like us."
+default_failed_dialog = "Say [help] to see my commands."
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_2wd4e"]
@@ -3009,9 +3009,9 @@ quantity = 5
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["upgrade", "battery"])
-response_dialog = Array[String](["ok you've got upgraded battery and I've filled your battery", "your battery is upgraded and your battery is full now"])
-response_failed_dialog = "ok bring me 5 sand"
+list_avatar_dialog = Array[String](["Upgrade battery."])
+response_dialog = Array[String](["Okay, you’ve got an upgraded battery, and I’ve filled your battery.", "Your battery is upgraded, and your battery is full now."])
+response_failed_dialog = "Okay, bring me 5 sand."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_7c15m"]
@@ -3025,9 +3025,9 @@ quantity = 3
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["range"])
-response_dialog = Array[String](["ok range is upgraded", "I upgraded range"])
-response_failed_dialog = "I'll need 3 iron"
+list_avatar_dialog = Array[String](["Upgrade range."])
+response_dialog = Array[String](["Okay, the range is upgraded.", "I upgraded the range."])
+response_failed_dialog = "I’ll need 3 iron."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_h50ov"]
@@ -3041,9 +3041,9 @@ quantity = 6
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["faster", "reflexes"])
-response_dialog = Array[String](["I've upgrated your hands reflexes", "your reflexes has been upgraded"])
-response_failed_dialog = "I need 6 iron"
+list_avatar_dialog = Array[String](["Faster reflexes."])
+response_dialog = Array[String](["I’ve upgraded your hand reflexes.", "Your reflexes have been upgraded."])
+response_failed_dialog = "I need 6 iron."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_5iawb"]
@@ -3058,17 +3058,18 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["what do you need:
-upgrade battery or
-weapon range or
-faster reflexes?
+response_dialog = Array[String](["What do you need:
 
-better battery more times you can fire
-longer range faster battery constumption
-faster reflexes I can upgrade
-your body to shoot faster each time
-but if you shoot too many times
-you'll still be drained"])
+Upgrade battery,
+Weapon range, or
+Faster reflexes?
+
+A better battery means more times you can fire.
+A longer range means faster battery consumption.
+Faster reflexes mean I can upgrade
+your body to shoot faster each time,
+but if you shoot too many times,
+you’ll still be drained."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3080,13 +3081,14 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_2wd4e"), SubResource("Resource_7c15m"), SubResource("Resource_h50ov"), SubResource("Resource_5iawb")])
-default_starting_dialog = "what do you need:
-upgrade battery or
-weapon range or
-faster reflexes?
+default_starting_dialog = "What do you need:
 
-or say [help]"
-default_failed_dialog = ""
+Upgrade battery,
+Weapon range, or
+Faster reflexes?
+
+Or say [help]."
+default_failed_dialog = "Say [help] to see my commands."
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_go2w6"]
@@ -3117,19 +3119,19 @@ reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help around"])
 response_dialog = Array[String](["I will say this only once.
-all robots are same. made by same factory.
-But some are reprogrammed.
+All robots are the same. They are made by the same factory,
+but some are reprogrammed.
 
-there are some that avoid and have specific target only.
+There are some that avoid and have a specific target only.
 
-there are some that don't avoid,
-they take any material in their path or target it self.
+There are some that don’t avoid;
+they take any material in their path or the target itself.
 
-there are ones that can't be killed.
-But they only want to take the robot back on to the hole.
-Try to make obsticles between him and his target.
-Once he is back in to his hole.
-You can click on the robot and get some materials."])
+There are ones that can’t be killed.
+But they only want to take the robot back into the hole.
+Try to make obstacles between it and its target.
+Once it is back into its hole,
+you can click on the robot and get some materials."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3145,11 +3147,11 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["to know what's going on say [help around]
-for me to hack in to bot do the following command:
+response_dialog = Array[String](["To know what’s going on, say [help around].
+For me to hack into a bot, do the following command:
 hack [name of the bot to hack]
 
-with the square brackets included"])
+Include the square brackets."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3161,14 +3163,14 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uekph"), SubResource("Resource_0f1yp")])
-default_starting_dialog = "hi I'm your robot assistant just say whom to hack in to
-and I'll try to fetch as many commands as I can.
-also ask me [help around] to know what is going on
+default_starting_dialog = "Hi, I’m your robot assistant. Just say whom to hack into,
+and I’ll try to fetch as many commands as I can.
+Also, ask me '[help around]' to know what is going on.
 
-for me to hack in to bot do the following command:
+For me to hack into a bot, do the following command:
 hack [name of the bot to hack]
 
-with the square brackets included"
+Include the square brackets."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -3184,11 +3186,11 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help"])
-response_dialog = Array[String](["to know what's going on say [help around]
-for me to hack in to bot do the following command:
+response_dialog = Array[String](["To know what’s going on, say [help around].
+For me to hack into a bot, do the following command:
 hack [name of the bot to hack]
 
-with the square brackets included"])
+Include the square brackets."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3216,7 +3218,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help around"])
-response_dialog = Array[String](["there's something off about new place go investigate it"])
+response_dialog = Array[String](["There’s something off about the new place. Go investigate it."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3228,7 +3230,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_1os4d")])
-default_starting_dialog = "new way"
+default_starting_dialog = "A new path has opened."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -3244,7 +3246,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help around"])
-response_dialog = Array[String](["well so far we got that there's something off about this place"])
+response_dialog = Array[String](["Well, so far, we’ve found that there’s something off about this place. Ask the mayor bot."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3256,7 +3258,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_4kfbj")])
-default_starting_dialog = "ask mayor what is going on and let me hack in to it."
+default_starting_dialog = "Ask the mayor what is going on, and let me hack into it."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -3272,7 +3274,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help around"])
-response_dialog = Array[String](["try investigating in the house. It seems there are organic robots"])
+response_dialog = Array[String](["Try investigating the house. It seems there are organic robots."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3284,7 +3286,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ny4px")])
-default_starting_dialog = "It seems there are organic robots in house better enter with caution."
+default_starting_dialog = "It seems there are organic robots in the house. Better enter with caution."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -3315,7 +3317,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["What is going on? What is wrong? What is weird?"])
-response_dialog = Array[String](["well this robots don't seem to be robots. They are half orgnic half robots, they look like us, we can communicate but anything we do to reprogram them it's like organic mechanism"])
+response_dialog = Array[String](["Well, these robots don’t seem to be robots. They are half-organic, half-robot. They look like us, and we can communicate, but anything we do to reprogram them is like an organic mechanism."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3536,7 +3538,7 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_kqfpo"), SubResource("Resource_u54oj")])
-list_avatar_dialog = Array[String](["What do you mean by 'organic robots'?"])
+list_avatar_dialog = Array[String](["What do you mean by organic robots?"])
 response_dialog = Array[String](["Well, whatever command I give to you organic robots, you seem to use reason instead of activating the command.
 Go to the house southwest, and you will see what I mean, organic [name]."])
 response_failed_dialog = ""
@@ -3573,7 +3575,7 @@ metadata/_custom_type_script = ExtResource("3_d1vgu")
 script = ExtResource("5_0rfkw")
 use_basis = false
 new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
+add_basis_flags = Array[int]([2])
 remove_basis_flags = Array[int]([])
 quest_item = 0
 quantity = 0
@@ -3590,75 +3592,11 @@ and you would not be able to talk to us at all. no no not at all. Yes I know all
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
-[sub_resource type="Resource" id="Resource_woxsk"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["gathering fighting?"])
-response_dialog = Array[String](["another fork."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_imgq0"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["what do you mean you know?"])
-response_dialog = Array[String](["I know because I programmed them all the forks."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_ngqdi"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["programmed"])
-response_dialog = Array[String](["I'm the one."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_om130"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["the one?"])
-response_dialog = Array[String](["yes only I'm the one."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
 [sub_resource type="Resource" id="Resource_kq64r"]
 script = ExtResource("5_0rfkw")
 use_basis = false
 new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
+add_basis_flags = Array[int]([5])
 remove_basis_flags = Array[int]([])
 quest_item = 0
 quantity = 0
@@ -3674,208 +3612,15 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 script = ExtResource("5_0rfkw")
 use_basis = false
 new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
+add_basis_flags = Array[int]([11, 12])
 remove_basis_flags = Array[int]([])
 quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["believe?"])
+list_avatar_dialog = Array[String](["they don't believe?"])
 response_dialog = Array[String](["What is a believe? what do you believe in? god or nothing?"])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_7h8j7"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["they can be commanded?"])
-response_dialog = Array[String](["Yes they are simple tools of our your coices."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_p24c1"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["me?"])
-response_dialog = Array[String](["Yes they are not like you. They can't think."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_qygw8"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["what is a choice?"])
-response_dialog = Array[String](["Well choice is something what organic is able to choose from."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_neywn"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["what do you mean organic?"])
-response_dialog = Array[String](["Yes we are organic robots with ability to choose."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_jpw7k"]
-script = ExtResource("11_cdsqw")
-npc_activate = 11
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
-[sub_resource type="Resource" id="Resource_eamu7"]
-script = ExtResource("11_cdsqw")
-npc_activate = 12
-npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
-[sub_resource type="Resource" id="Resource_iat7o"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([1])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jpw7k"), SubResource("Resource_eamu7")])
-list_avatar_dialog = Array[String](["I believe in god."])
-response_dialog = Array[String](["Ah yes god. Didn't we always wander where we come from. The origin."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_8isdr"]
-script = ExtResource("11_cdsqw")
-npc_activate = 11
-npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
-[sub_resource type="Resource" id="Resource_ujvl3"]
-script = ExtResource("11_cdsqw")
-npc_activate = 12
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
-[sub_resource type="Resource" id="Resource_v2o25"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_8isdr"), SubResource("Resource_ujvl3")])
-list_avatar_dialog = Array[String](["I believe in nothing."])
-response_dialog = Array[String](["You are absolutely right.
-You don't need to. But you are always able to choose."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_kbtl7"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["ability to choose?"])
-response_dialog = Array[String](["This is who we are the product of our choices."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_p4lm6"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["a product?"])
-response_dialog = Array[String](["Yes what we are."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_l1hqq"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["a fork?"])
-response_dialog = Array[String](["Quest lines can have many forks."])
-response_failed_dialog = ""
-metadata/_custom_type_script = ExtResource("5_0rfkw")
-
-[sub_resource type="Resource" id="Resource_sdwqw"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["quest lines?"])
-response_dialog = Array[String](["Mark quest basis 0 has 2 quest forks. You are currently in quest basis 0."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -3886,7 +3631,7 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai"), SubResource("Resource_woxsk"), SubResource("Resource_imgq0"), SubResource("Resource_ngqdi"), SubResource("Resource_om130"), SubResource("Resource_kq64r"), SubResource("Resource_5p576"), SubResource("Resource_7h8j7"), SubResource("Resource_p24c1"), SubResource("Resource_qygw8"), SubResource("Resource_neywn"), SubResource("Resource_iat7o"), SubResource("Resource_v2o25"), SubResource("Resource_kbtl7"), SubResource("Resource_p4lm6"), SubResource("Resource_l1hqq"), SubResource("Resource_sdwqw")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y7iai"), SubResource("Resource_kq64r"), SubResource("Resource_5p576")])
 default_starting_dialog = "Hello there you seem to be a bit lost, not like other robots here, they seem to be very direct, they don't believe in anything."
 default_failed_dialog = "ha ha ha you talk so funny"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
@@ -3919,6 +3664,395 @@ default_starting_dialog = ""
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
+[sub_resource type="Resource" id="Resource_woxsk"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([9])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["fighting?"])
+response_dialog = Array[String](["another fork that you missed"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_imgq0"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([3])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["what do you mean you know all this?"])
+response_dialog = Array[String](["I know because I programmed them all the forks."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_2kakp"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_woxsk"), SubResource("Resource_imgq0")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_ngqdi"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([4])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["you programmed?"])
+response_dialog = Array[String](["I'm the one."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_c0qv5"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ngqdi")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_om130"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["you are the one?"])
+response_dialog = Array[String](["yes only I'm the one."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ndfir"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_om130")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_7h8j7"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([6])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["they can be commanded?"])
+response_dialog = Array[String](["Yes they are simple tools of our your coices."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_p24c1"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["not like me? I cannot be commanded?"])
+response_dialog = Array[String](["Yes they are not like you. They can't think. no you can think"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_8ny8n"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_7h8j7"), SubResource("Resource_p24c1")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_qygw8"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([7])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["what is a choice?"])
+response_dialog = Array[String](["Well choice is something what organic is able to choose from."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_reaon"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_qygw8")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_neywn"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["what do you mean organic?"])
+response_dialog = Array[String](["Yes we are organic robots with ability to choose."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_kbtl7"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([8])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ability to choose?"])
+response_dialog = Array[String](["This is who we are the product of our choices."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ekd1o"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_neywn"), SubResource("Resource_kbtl7")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_p4lm6"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["a product?"])
+response_dialog = Array[String](["Yes what we are."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_sjh61"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_p4lm6")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_l1hqq"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([10])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["a fork?"])
+response_dialog = Array[String](["Quest lines can have many forks."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_n7sl7"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_l1hqq")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_sdwqw"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["quest lines?"])
+response_dialog = Array[String](["Mark quest basis 0 has 2 quest forks. You are currently in quest basis 0. and flag 10"])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_b2nw7"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_sdwqw")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_jpw7k"]
+script = ExtResource("11_cdsqw")
+npc_activate = 11
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_eamu7"]
+script = ExtResource("11_cdsqw")
+npc_activate = 12
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_iat7o"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([1])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jpw7k"), SubResource("Resource_eamu7")])
+list_avatar_dialog = Array[String](["I believe in god."])
+response_dialog = Array[String](["Ah yes god. Didn't we always wander where we come from. The origin."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_3x2t6"]
+script = ExtResource("4_0rfkw")
+description = "believe in god"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_iat7o")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_8isdr"]
+script = ExtResource("11_cdsqw")
+npc_activate = 11
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_ujvl3"]
+script = ExtResource("11_cdsqw")
+npc_activate = 12
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = ExtResource("11_cdsqw")
+
+[sub_resource type="Resource" id="Resource_v2o25"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_8isdr"), SubResource("Resource_ujvl3")])
+list_avatar_dialog = Array[String](["I believe in nothing."])
+response_dialog = Array[String](["You are absolutely right.
+You don't need to. But you are always able to choose."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_a2yt6"]
+script = ExtResource("4_0rfkw")
+description = "believe in nothing"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_v2o25")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
 [sub_resource type="Resource" id="Resource_bet0m"]
 script = ExtResource("3_d1vgu")
 quest_name = "mark"
@@ -3929,7 +4063,7 @@ quest_body_type = 311
 color = Color(0.400535, 0.299508, 0.109548, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_k7ixf"), SubResource("Resource_00ug1")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_k7ixf"), SubResource("Resource_00ug1"), SubResource("Resource_2kakp"), SubResource("Resource_c0qv5"), SubResource("Resource_ndfir"), SubResource("Resource_8ny8n"), SubResource("Resource_reaon"), SubResource("Resource_ekd1o"), SubResource("Resource_sjh61"), SubResource("Resource_n7sl7"), SubResource("Resource_b2nw7"), SubResource("Resource_3x2t6"), SubResource("Resource_a2yt6")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")

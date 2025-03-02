@@ -34,6 +34,9 @@ func cancel_quit():
 
 
 func _on_quit_game_button_pressed() -> void:
+	if not g_man.main_menu.terrain:
+		close_window()
+		return
 	g_man.main_menu.terrain.queue_free()
 	g_man.tutorial = false
 	g_man.main_menu.open_main_menu()
