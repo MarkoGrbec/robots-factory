@@ -2,6 +2,8 @@ class_name CPPlayer extends CPMob
 
 @export var weapon_controller: PlayerWeaponController
 
+var layer: int = 0
+
 func config_name(text):
 	name_label.text = text
 

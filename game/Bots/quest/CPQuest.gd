@@ -8,14 +8,21 @@ var entity_inventory
 var quest_index
 var patrol_targets: Array[Vector2]
 
+var is_talking_to_me: bool = false
+
+func stop_talking_to_me():
+	is_talking_to_me = false
+
 func config() -> void:
 	var quest_obj = mp.get_quest_object(quest_index)
 	if quest_obj:
 		name_label.text = quest_obj.quest_name
 		visuals.color_poligons(quest_obj.color)
-		if patrol_targets:
-			controller.target = patrol_targets[0]
-		
+		get_target()
+
+func get_target():
+	if patrol_targets:
+		controller.target = patrol_targets[0]
 
 func _on_mouse_entered() -> void:
 	if not g_man.speech_activated():
@@ -27,6 +34,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event is InputEventMouseButton:
 			if event.is_action_pressed("select"):
 				g_man.quests_manager.open_dialog(quest_index, self)
+				is_talking_to_me = true
+				g_man.quests_manager.stop_talking = stop_talking_to_me
+
 
 func quest_believe(old_basis):
 	pass

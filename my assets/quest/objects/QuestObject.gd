@@ -129,18 +129,18 @@ func index_quest_qustion(qq: QuestQuestion, basis: int):
 # Check if all words match between two strings
 func all_words_match(dialog_text: String, input_text: String) -> bool:
 	var all_words: PackedStringArray = dialog_text.split(" ", true)
-	var all_words_text = input_text.split(" ", true)
+	var all_words_text: PackedStringArray = input_text.split(" ", true)
 	
 	##TODO work around a bug (function doesn't exist in PackedStringArray)
-	var _all_words: Array[String]
-	for word in all_words:
-		_all_words.push_back(word)
+	var _all_words_text: Array[String]
+	for word in all_words_text:
+		_all_words_text.push_back(word)
 	
 	var count = all_words.size()
 	
-	for word in all_words_text:
+	for word in all_words:
 		# check if any all_words are same as all_words_text
-		if _all_words.any(
+		if _all_words_text.any(
 			func(a_word):
 				return a_word == word
 		):

@@ -1,8 +1,8 @@
-[gd_scene load_steps=328 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=330 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
-[ext_resource type="PackedScene" uid="uid://dr2owvb70m1ia" path="res://game/Bots/quest/cp_quest.tscn" id="3_2o1ts"]
+[ext_resource type="PackedScene" uid="uid://dr2owvb70m1ia" path="res://game/Bots/quest/quest_bot.tscn" id="3_2o1ts"]
 [ext_resource type="Script" uid="uid://4bh35mqidnhe" path="res://my assets/quest/objects/QuestObject.gd" id="3_d1vgu"]
 [ext_resource type="PackedScene" uid="uid://73rit0lx826f" path="res://game/entity/entity_sprite2d_in_world.tscn" id="3_qrwrg"]
 [ext_resource type="Script" uid="uid://sjmolji57b8" path="res://my assets/quest/objects/QuestBasis/QuestBasis.gd" id="4_0rfkw"]
@@ -19,9 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://cuwl2e033vtsm" path="res://game/Bots/helpless bot/cp_helpless_bot.tscn" id="12_twfhk"]
 [ext_resource type="AudioStream" uid="uid://b22o1gxdtvjpg" path="res://sounds/shovel.wav" id="14_a8ecq"]
 [ext_resource type="PackedScene" uid="uid://be5bhpgyigp81" path="res://game/weapons/beem/beem_weapon.tscn" id="14_bryxq"]
-[ext_resource type="PackedScene" uid="uid://sfdmpxmanjie" path="res://game/Bots/quest/organic robot/cp_organic_robot.tscn" id="14_lmjmh"]
+[ext_resource type="PackedScene" uid="uid://sfdmpxmanjie" path="res://game/Bots/quest/organic robot/organic_robot.tscn" id="14_lmjmh"]
 [ext_resource type="AudioStream" uid="uid://g16k6rwgkd2t" path="res://sounds/defunct3 laser-short-2.wav" id="15_gk2xh"]
 [ext_resource type="AudioStream" uid="uid://dhgaylnwlcabl" path="res://sounds/pickaxe_kamen.wav" id="15_tt0nk"]
+[ext_resource type="PackedScene" uid="uid://u61nott07l28" path="res://game/Bots/assistant/assistant_bot.tscn" id="15_wtrhf"]
 [ext_resource type="Script" uid="uid://yawqc32n88td" path="res://main/objects/HouseGround.gd" id="22_tt0nk"]
 
 [sub_resource type="Resource" id="Resource_d1vgu"]
@@ -906,6 +907,74 @@ experience_create = Array[int]([])
 experience_move = 31
 experience_use = 0
 metadata/_custom_type_script = ExtResource("2_8f7pb")
+
+[sub_resource type="Resource" id="Resource_cpje5"]
+script = ExtResource("2_8f7pb")
+entity_num = 320
+description = ""
+scene = ExtResource("15_wtrhf")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
 
 [sub_resource type="Resource" id="Resource_mrgwt"]
 script = ExtResource("2_8f7pb")
@@ -3165,7 +3234,7 @@ display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uekph"), SubResource("Resource_0f1yp")])
 default_starting_dialog = "Hi, I’m your robot assistant. Just say whom to hack into,
 and I’ll try to fetch as many commands as I can.
-Also, ask me '[help around]' to know what is going on.
+Also, ask me [help around] to know what is going on.
 
 For me to hack into a bot, do the following command:
 hack [name of the bot to hack]
@@ -3296,7 +3365,7 @@ quest_name = "robot assistant"
 position = Vector2(700, 400)
 patrol_targets = Array[Vector2]([])
 layer = 0
-quest_body_type = 311
+quest_body_type = 320
 color = Color(0.937255, 0.0980392, 0.258824, 1)
 equipment = 0
 activated = false
@@ -5218,6 +5287,6 @@ metadata/_custom_type_script = ExtResource("22_tt0nk")
 
 [node name="MasterPool" type="Node"]
 script = ExtResource("1_bgkrv")
-container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_ex1qj"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
+container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_ex1qj"), SubResource("Resource_cpje5"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
 quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj"), SubResource("Resource_v5avt"), SubResource("Resource_ykhcu"), SubResource("Resource_mqvoq"), SubResource("Resource_nrofl"), SubResource("Resource_kyy1y"), SubResource("Resource_q36m6"), SubResource("Resource_w0jbm"), SubResource("Resource_8vmaa"), SubResource("Resource_3nh3w")])
 array_house_ground = Array[ExtResource("22_tt0nk")]([SubResource("Resource_xgrt2"), SubResource("Resource_tiwuc"), SubResource("Resource_kdcl1"), SubResource("Resource_2bky1"), SubResource("Resource_0nbsj"), SubResource("Resource_6aln0"), SubResource("Resource_w0hg2"), SubResource("Resource_qyol8"), SubResource("Resource_eejkm"), SubResource("Resource_58eew")])

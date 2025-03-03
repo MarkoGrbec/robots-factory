@@ -38,10 +38,16 @@ var nav_int: int = 0
 var nav_count: int = 0
 var nav_index_target: int = 0
 
+## only move if it is not talking to player
+func is_at_target_layer():
+	if body is CPQuest:
+		return not body.is_talking_to_me
+	else:
+		return true
 
 func _physics_process(_delta: float) -> void:
-	#if body.quest_index == 1:
-		#pass
+	if not is_at_target_layer():
+		return
 	# set target
 	if target is CPMob:
 		target_position = target.global_position

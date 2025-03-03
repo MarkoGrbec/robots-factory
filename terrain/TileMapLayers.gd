@@ -3,6 +3,7 @@ class_name TileMapLayers extends Node
 @export var ground_layer: Array[TileMapLayer]
 @export var save: bool
 @export var timer: Timer
+@export var navigation_region_2d: NavigationRegion2D
 
 #region grund layer
 var dict_ground_pos___id__left: Array#[Dictionary[Vector2i, Array]]
@@ -52,6 +53,12 @@ enum Layers{
 	GROUND_LAYER = 0,
 	HOUSE_LAYER = 4
 }
+
+func bake():
+	await get_tree().process_frame
+	if navigation_region_2d.is_baking():
+		await navigation_region_2d.bake_finished
+	navigation_region_2d.bake_navigation_polygon()
 
 func load_map():
 	dict_ground_pos___id__left[0] = savables[0].dict_ground_pos___id__left
@@ -166,12 +173,14 @@ func activate_layer(new_layer: Layers):
 	ground_layer[active_layer].enabled = false
 	active_layer = new_layer
 	ground_layer[active_layer].enabled = true
+	g_man.player.layer = active_layer
 	if active_layer == Layers.GROUND_LAYER:
 		g_man.map.activate(true)
 	else:
 		g_man.map.activate(false)
 	g_man.entity_manager.activate_layer(active_layer)
 	reload_terrain()
+	bake()
 	
 #endregion in to change layer
 #region dirt reference
@@ -191,6 +200,7 @@ func set_ground_cell(position: Vector2i, id: int, layer: int):
 		savables[layer].save_position__array_data_array(position, array_data_array)
 	# set floor
 	ground_layer[layer].set_cell(position, id, Vector2i.ZERO)
+	bake()
 	#endregion set
 	#region change
 func change_ground_dirt(random: float = 0.025):
@@ -228,6 +238,7 @@ func set_new_terrain():
 	set_region(Rect2i(0, 20, 20, 1), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
 	set_region(Rect2i(20, 0, 1, 21), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
 	reload_terrain()
+	bake()
 ## example:
 ##
 ## Rect2i(0, 10, 20, 10), [[Tile.CLAY, 1], [Tile.DIRT, 1]], [Vector2i(8, 12), Vector2i(10, 15)], true, true, 0.3, [Tile.DIRT, 2], Vector2i(3, 6)

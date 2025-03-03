@@ -21,6 +21,11 @@ func set_anchors():
 
 func close_window():
 	hide()
+	if stop_talking:
+		stop_talking.call()
+		stop_talking = null
+
+
 @export var quest_grid_container: GridContainer
 @export var entity_button_quest: EntityButtonQuest
 @export var stop_button_quest_scene: PackedScene
@@ -45,6 +50,7 @@ var _quest_index
 var voices
 #endregion text to speach
 
+var stop_talking
 
 func open_dialog(quest_index, _c_p_q: CPQuest):
 	show_window()
