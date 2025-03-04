@@ -25,6 +25,8 @@ func show_main_menu_tabs():
 	tab.current_tab = 0
 
 func _input(event: InputEvent) -> void:
+	if g_man.asking_toggled:
+		return
 	if event.is_action_pressed("esc"):
 		if in_game_main_menu:
 			in_game_main_menu.open_window()

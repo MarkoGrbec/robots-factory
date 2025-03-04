@@ -39,6 +39,8 @@ var savable_mob: Savable
 
 var holding_hand: HoldingHand
 var trader: Trader
+
+var asking_toggled: bool = false
 func _ready() -> void:
 	randomize()
 	create_database()

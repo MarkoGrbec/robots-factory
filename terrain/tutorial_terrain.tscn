@@ -62,7 +62,4 @@ scale = Vector2(0.999995, 0.999995)
 [node name="Head" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest" index="0"]
 scale = Vector2(0.999985, 0.999985)
 
-[node name="RightHand" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm" index="0"]
-scale = Vector2(1, 1)
-
 [editable path="CPPlayer"]

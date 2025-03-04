@@ -102,5 +102,6 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "X"
 
+[connection signal="editing_toggled" from="quest dialog/VBoxContainer/ask quester" to="." method="_on_ask_quester_editing_toggled"]
 [connection signal="text_submitted" from="quest dialog/VBoxContainer/ask quester" to="." method="_on_ask_quester"]
 [connection signal="pressed" from="quest dialog/close dialog manager" to="." method="close_window"]

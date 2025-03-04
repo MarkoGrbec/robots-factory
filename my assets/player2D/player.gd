@@ -12,7 +12,7 @@ func _physics_process(delta: float) -> void:
 	movement.body.move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if ( not g_man.quests_manager.is_visible_in_tree() or g_man.misc.quest_move.button_pressed) and not g_man.in_game_menu.is_visible_in_tree():
+	if ( not g_man.quests_manager.is_visible_in_tree() or g_man.misc.quest_move.button_pressed) and not g_man.in_game_menu.is_visible_in_tree() and not g_man.asking_toggled:
 		var y_direction := Input.get_axis("move up", "move down")
 		var x_direction := Input.get_axis("move left", "move right")
 		movement.direction = Vector2(x_direction, y_direction)

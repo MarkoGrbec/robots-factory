@@ -245,3 +245,7 @@ static func remove_server_quest_basis_flags(quest_index: int, flags: Array[int])
 	var server_quest: ServerQuest = get_server_quest(quest_index)
 	if server_quest:
 		server_quest.remove_basis_flags(flags, true)
+
+
+func _on_ask_quester_editing_toggled(toggled_on: bool) -> void:
+	g_man.asking_toggled = toggled_on

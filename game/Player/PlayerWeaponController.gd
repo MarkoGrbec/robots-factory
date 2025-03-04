@@ -12,9 +12,8 @@ func _on_beam_weapon_hit_body(object) -> void:
 		object.get_hit(1)
 
 func _unhandled_input(event: InputEvent) -> void:
-	if g_man.in_game_menu.is_visible_in_tree():
+	if g_man.in_game_menu.is_visible_in_tree() or g_man.asking_toggled:
 		return
-	#print(global_position)
 	if event.is_action_pressed("fire") and not g_man.quests_manager.is_visible_in_tree():
 		TTCWeapon.new(weapon)
 	elif not g_man.camera.input_active and g_man.inventory_system.hover_over_sprite <= 0:
