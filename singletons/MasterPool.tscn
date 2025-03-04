@@ -4157,7 +4157,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 script = ExtResource("5_0rfkw")
 use_basis = false
 new_basis = Array[int]([])
-add_basis_flags = Array[int]([2])
+add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 quest_item = 0
 quantity = 0
@@ -4194,7 +4194,9 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_idqer"), SubResource("Resource_45u4c")])
-default_starting_dialog = "Hello, blessed one. Are you for the mission?"
+default_starting_dialog = "Hello, blessed one. Are you for the mission?
+
+thanks for playing"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
