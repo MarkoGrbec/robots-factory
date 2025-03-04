@@ -58,7 +58,13 @@ func next_track():
 	play()
 
 func play_random():
+	# for non repeating track
+	var temp_flip = flip
 	flip = randi_range(0, clips[status].size() - 1)
+	# so that track doesn't repeat
+	if clips[status].size() > 1 and flip == temp_flip:
+		play_random()
+		return
 	stream = clips[status][flip]
 	play()
 
@@ -78,6 +84,7 @@ func play_new():
 
 func set_music_type(new_status: MusicStatus):
 	status = new_status
+	flip = -1
 	play_random()
 	#flip = 0
 	#stop()

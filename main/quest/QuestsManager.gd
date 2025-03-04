@@ -1,31 +1,5 @@
 class_name QuestsManager extends TabContainer
 
-func _ready() -> void:
-	g_man.quests_manager = self
-	#get_parent().set_id_window(13, "quests manager")
-	
-	# Pick a voice. Here, we arbitrarily pick the first English voice.
-	voices = DisplayServer.tts_get_voices_for_language("en")
-	pass
-
-func show_window():
-	show()
-	set_anchors()
-
-func set_anchors():
-	if is_visible_in_tree():
-		if g_man.inventory_system.is_visible_in_tree():
-			anchor_right = 0.609
-		else:
-			anchor_right = 1
-
-func close_window():
-	hide()
-	if stop_talking:
-		stop_talking.call()
-		stop_talking = null
-
-
 @export var quest_grid_container: GridContainer
 @export var entity_button_quest: EntityButtonQuest
 @export var stop_button_quest_scene: PackedScene
@@ -51,6 +25,31 @@ var voices
 #endregion text to speach
 
 var stop_talking
+
+func _ready() -> void:
+	g_man.quests_manager = self
+	#get_parent().set_id_window(13, "quests manager")
+	
+	# Pick a voice. Here, we arbitrarily pick the first English voice.
+	voices = DisplayServer.tts_get_voices_for_language("en")
+	pass
+
+func show_window():
+	show()
+	set_anchors()
+
+func set_anchors():
+	if is_visible_in_tree():
+		if g_man.inventory_system.is_visible_in_tree():
+			anchor_right = 0.609
+		else:
+			anchor_right = 1
+
+func close_window():
+	hide()
+	if stop_talking and stop_talking.is_valid():
+		stop_talking.call()
+		stop_talking = null
 
 func open_dialog(quest_index, _c_p_q: CPQuest):
 	show_window()
