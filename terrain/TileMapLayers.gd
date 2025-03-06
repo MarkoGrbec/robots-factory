@@ -86,8 +86,7 @@ func destroy_me():
 
 func add_or_dig(index, mouse_global_position, callable):
 	if index == 0:
-		if g_man.tutorial:
-			g_man.holding_hand.holding_hand_dig()
+		g_man.holding_hand.holding_hand_dig()
 		dig(mouse_global_position)
 		return
 	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
@@ -101,8 +100,7 @@ func add_or_dig(index, mouse_global_position, callable):
 			add(Tile.ROCK, callable)
 
 func add(id, callable):
-	if g_man.tutorial:
-		g_man.holding_hand.holding_hand_drop()
+	g_man.holding_hand.holding_hand_drop()
 	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
 	_fill_around(position)
 	var cell_id = ground_layer[active_layer].get_cell_source_id(position)
@@ -151,13 +149,11 @@ func dig(mouse_global_position: Vector2):
 #region in to change layer
 func in_to_tunnel():
 	activate_layer(active_layer +1)
-	if g_man.tutorial:
-		g_man.holding_hand.holding_hand_underground()
+	g_man.holding_hand.holding_hand_underground()
 	
 func up_to_the_surface():
 	activate_layer(active_layer -1)
-	if g_man.tutorial:
-		g_man.holding_hand.holding_hand_to_surface()
+	g_man.holding_hand.holding_hand_to_surface()
 
 func in_to_house(vec):
 	activate_layer(Layers.HOUSE_LAYER)

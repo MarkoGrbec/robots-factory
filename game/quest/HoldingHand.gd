@@ -105,7 +105,7 @@ func stop_holding_hand_movement_completed():
 	save_holding_hand_movement_completed(false)
 
 func holding_hand_movement_completed():
-	if load_return_holding_hand_movement_completed() and not load_return_holding_hand_movement():
+	if g_man.tutorial and load_return_holding_hand_movement_completed() and not load_return_holding_hand_movement():
 		g_man.mold_window.set_instructions_only(["great you know how to move around\n", movement_completed_string])
 		g_man.changes_manager.add_key_change("tutorial: ", movement_completed_string)
 		stop_holding_hand_movement_completed()
@@ -128,7 +128,7 @@ func stop_holding_hand_changes():
 	save_holding_hand_changes(false)
 
 func holding_hand_changes():
-	if load_return_holding_hand_changes() and not load_return_holding_hand_movement_completed():
+	if g_man.tutorial and load_return_holding_hand_changes() and not load_return_holding_hand_movement_completed():
 		g_man.mold_window.set_instructions_only(["great you know how to toggle changes\n", changes_string])
 		g_man.changes_manager.add_key_change("tutorial: ", changes_string)
 		stop_holding_hand_changes()
@@ -152,7 +152,7 @@ func stop_holding_hand_dig():
 	save_holding_hand_dig(false)
 
 func holding_hand_dig():
-	if load_return_holding_hand_dig() and not load_return_holding_hand_changes():
+	if g_man.tutorial and load_return_holding_hand_dig() and not load_return_holding_hand_changes():
 		g_man.mold_window.set_instructions_only([dig_string])
 		g_man.changes_manager.add_key_change("tutorial: ", dig_string)
 		stop_holding_hand_dig()
@@ -175,7 +175,7 @@ func stop_holding_hand_drop():
 	save_holding_hand_drop(false)
 
 func holding_hand_drop():
-	if load_return_holding_hand_drop() and not load_return_holding_hand_dig():
+	if g_man.tutorial and load_return_holding_hand_drop() and not load_return_holding_hand_dig():
 		g_man.mold_window.set_instructions_only(["good you put it back.\n", drop_string])
 		g_man.changes_manager.add_key_change("tutorial: ", drop_string)
 		stop_holding_hand_drop()
@@ -198,7 +198,7 @@ func stop_holding_hand_inventory():
 	save_holding_hand_inventory(false)
 
 func holding_hand_inventory():
-	if load_return_holding_hand_inventory() and not load_return_holding_hand_drop():
+	if g_man.tutorial and load_return_holding_hand_inventory() and not load_return_holding_hand_drop():
 		g_man.mold_window.set_instructions_only(["good you put in to your inventory.\n", inventory_string])
 		g_man.changes_manager.add_key_change("tutorial: ", inventory_string)
 		stop_holding_hand_inventory()
@@ -223,7 +223,7 @@ func stop_holding_hand_npc():
 	save_holding_hand_npc(false)
 
 func holding_hand_npc():
-	if load_return_holding_hand_npc() and not load_return_holding_hand_inventory():
+	if g_man.tutorial and load_return_holding_hand_npc() and not load_return_holding_hand_inventory():
 		g_man.mold_window.set_instructions_only([npc_string])
 		g_man.changes_manager.add_key_change("tutorial: ", npc_string)
 		stop_holding_hand_npc()
@@ -246,7 +246,7 @@ func stop_holding_hand_npc_give_item():
 	save_holding_hand_npc_give_item(false)
 
 func holding_hand_npc_give_item():
-	if load_return_holding_hand_npc_give_item() and not load_return_holding_hand_npc():
+	if g_man.tutorial and load_return_holding_hand_npc_give_item() and not load_return_holding_hand_npc():
 		g_man.mold_window.set_instructions_only(["good you gave quest an item", npc_give_item_string])
 		g_man.changes_manager.add_key_change("tutorial: ", npc_give_item_string)
 		stop_holding_hand_npc_give_item()
@@ -269,7 +269,7 @@ func stop_holding_hand_underground():
 	save_holding_hand_underground(false)
 
 func holding_hand_underground():
-	if load_return_holding_hand_underground() and not load_return_holding_hand_npc_give_item():
+	if g_man.tutorial and load_return_holding_hand_underground() and not load_return_holding_hand_npc_give_item():
 		spoiler_underground()
 		#g_man.mold_window.set_instructions_only(["spoiler", "\nmachanics of digging", "\nif you choose no you will not see this dialog any longer"], spoiler_underground, stop_holding_hand_underground, stop_holding_hand_underground)
 
@@ -296,7 +296,7 @@ func stop_holding_hand_to_surface():
 	save_holding_hand_to_surface(false)
 
 func holding_hand_to_surface():
-	if load_return_holding_hand_to_surface() and not load_return_holding_hand_underground():
+	if g_man.tutorial and load_return_holding_hand_to_surface() and not load_return_holding_hand_underground():
 		g_man.mold_window.set_instructions_only(["good you know how to go underground and back to surface", to_surface_string])
 		g_man.changes_manager.add_key_change("tutorial: ", to_surface_string)
 		stop_holding_hand_to_surface()
@@ -322,13 +322,14 @@ func stop_holding_hand_trader():
 	save_holding_hand_trader(false)
 
 func holding_hand_trader():
-	if load_return_holding_hand_trader() and not load_return_holding_hand_to_surface():
+	if g_man.tutorial and load_return_holding_hand_trader() and not load_return_holding_hand_to_surface():
 		g_man.mold_window.set_instructions_only(["good work you sold material", trader_string])
 		g_man.changes_manager.add_key_change("tutorial: ", trader_string)
 		stop_holding_hand_trader()
 #endregion trader
 #region trader_buy
 var trader_buy_string: String = "now try to fight off the enemy, to fire use f or shift key [fire] binding"
+var trader_buy_string_introduction: String = "good work you bought your item"
 
 func load_return_holding_hand_trader_buy():
 	return DataBase.select(_server, g_man.dbms, _path, "trader_buy", id, true)
@@ -345,16 +346,17 @@ func stop_holding_hand_trader_buy():
 	save_holding_hand_trader_buy(false)
 
 func holding_hand_trader_buy():
-	if load_return_holding_hand_trader_buy() and not load_return_holding_hand_trader():
-		g_man.mold_window.set_instructions_only(["good work you bought your item", trader_buy_string])
+	if g_man.tutorial and load_return_holding_hand_trader_buy() and not load_return_holding_hand_trader():
+		g_man.mold_window.set_instructions_only([trader_buy_string_introduction, trader_buy_string])
 		g_man.changes_manager.add_key_change("tutorial: ", trader_buy_string)
 		stop_holding_hand_trader_buy()
 		g_man.player.weapon_controller.weapon.activated = true
-		await g_man.map.get_tree().create_timer(trader_buy_string.length() * g_man.misc.slow_writing).timeout
-		GameControl.enter_enemy(Vector2(150, 150), false, Vector2i(randi_range(2, 7), randi_range(2, 5)), true)
+		await g_man.map.get_tree().create_timer((trader_buy_string_introduction.length() + trader_buy_string.length()) * g_man.misc.slow_writing).timeout
+		GameControl.enter_enemy(Vector2(1, 1), false, Vector2i(randi_range(2, 7), randi_range(2, 5)), true)
 #endregion trader_buy
 #region enemy
 var enemy_string: String = "try to make obsticles for defending your prey you'll get reward this enemy can't be defeated"
+var enemy_string_introduction: String = "good work you know how to manage inventory and it's system"
 
 func load_return_holding_hand_enemy():
 	return DataBase.select(_server, g_man.dbms, _path, "enemy", id, true)
@@ -371,11 +373,11 @@ func stop_holding_hand_enemy():
 	save_holding_hand_enemy(false)
 
 func holding_hand_enemy():
-	if load_return_holding_hand_enemy() and not load_return_holding_hand_trader_buy():
-		g_man.mold_window.set_instructions_only(["good work you know how to manage inventory and it's system", enemy_string])
+	if g_man.tutorial and load_return_holding_hand_enemy() and not load_return_holding_hand_trader_buy():
+		g_man.mold_window.set_instructions_only([enemy_string_introduction, enemy_string])
 		g_man.changes_manager.add_key_change("tutorial: ", enemy_string)
 		stop_holding_hand_enemy()
-		await g_man.map.get_tree().create_timer(enemy_string.length() * g_man.misc.slow_writing).timeout
+		await g_man.map.get_tree().create_timer((enemy_string_introduction.length() + enemy_string.length()) * g_man.misc.slow_writing).timeout
 #endregion enemy
 #region enemy_finished
 var enemy_finished_string: String = "this is all for tutorial feel free to play around with trader and NPC, if you'll bring him iron he will tell you more about it."
@@ -395,7 +397,7 @@ func stop_holding_hand_enemy_finished():
 	save_holding_hand_enemy_finished(false)
 
 func holding_hand_enemy_finished():
-	if load_return_holding_hand_enemy_finished() and not load_return_holding_hand_enemy():
+	if g_man.tutorial and load_return_holding_hand_enemy_finished():
 		g_man.mold_window.set_instructions_only(["good work you know how to manage inventory and it's system", enemy_finished_string])
 		g_man.changes_manager.add_key_change("tutorial: ", enemy_finished_string)
 		stop_holding_hand_enemy_finished()

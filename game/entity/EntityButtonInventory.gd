@@ -64,8 +64,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		if origin_node:
 			origin_node.queue_free()
 			g_man.inventory_system.add_remove_hover_over_sprite(-1)
-			if g_man.tutorial:
-				g_man.holding_hand.holding_hand_inventory()
+			g_man.holding_hand.holding_hand_inventory()
 			return
 	# buy from trader
 	var entity_number_buy = data.get("buy")
@@ -80,8 +79,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	entity = Entity.create_from_scratch(entity_number_buy, true, false, true)
 	inventory_slot.id_entity = entity.id
 	inventory_slot.save_id_entity()
-	if g_man.tutorial:
-		g_man.holding_hand.holding_hand_trader_buy()
+	g_man.holding_hand.holding_hand_trader_buy()
 
 func reset_trader_manager_cost():
 	g_man.trader_manager.sell_for.text = ""

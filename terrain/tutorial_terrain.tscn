@@ -13,9 +13,10 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(-1399, -2660, -1027, 11
 
 [node name="Node2D" type="Node2D"]
 
-[node name="tile map layers" type="Node2D" parent="." node_paths=PackedStringArray("ground_layer")]
+[node name="tile map layers" type="Node2D" parent="." node_paths=PackedStringArray("ground_layer", "navigation_region_2d")]
 script = ExtResource("1_viixf")
 ground_layer = [NodePath("../Map/NavigationRegion2D/GroundTileMapLayer"), NodePath("UnderGroundTileMapLayer2"), NodePath("UnderGroundTileMapLayer3"), NodePath("UnderGroundTileMapLayer4"), NodePath("GroundLayerTileMapLayerInsideHouses")]
+navigation_region_2d = NodePath("../Map/NavigationRegion2D")
 
 [node name="UnderGroundTileMapLayer2" type="TileMapLayer" parent="tile map layers"]
 scale = Vector2(0.5, 0.5)
@@ -61,5 +62,8 @@ scale = Vector2(0.999995, 0.999995)
 
 [node name="Head" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest" index="0"]
 scale = Vector2(0.999985, 0.999985)
+
+[node name="RightHand" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm" index="0"]
+scale = Vector2(1, 1)
 
 [editable path="CPPlayer"]

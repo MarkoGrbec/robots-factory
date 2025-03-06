@@ -55,7 +55,7 @@ func _physics_process(_delta: float) -> void:
 	if is_instance_valid(target) and target is CPMob:
 		target_position = target.global_position
 		agent.target_position = target_position
-	elif is_instance_valid(target) and target is Vector2:
+	elif target and target is Vector2:
 		target_position = target
 		agent.target_position = target_position
 		#if agent.is_navigation_finished():

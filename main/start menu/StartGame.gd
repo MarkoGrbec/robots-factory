@@ -177,8 +177,10 @@ func _on_message_to_ash_february_pressed() -> void:
 func _on_tutorial_pressed() -> void:
 	g_man.user.gold_coins = 500
 	g_man.sliders_manager.open_window()
-	g_man.holding_hand.destroy()
+	if g_man.holding_hand:
+		g_man.holding_hand.destroy()
 	set_holding_hand()
+	g_man.holding_hand.destroy()
 	mp.set_quests_npcs()
 	var quest_servers = mp.get_quest_objects(1)# 1 = id user
 	QuestsManager.set_server_quest(21, false, 0)
