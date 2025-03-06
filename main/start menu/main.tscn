@@ -1,7 +1,6 @@
 [gd_scene load_steps=40 format=3 uid="uid://bldvfhdbgr23e"]
 
 [ext_resource type="Script" uid="uid://bj254t7es4bsr" path="res://main/start menu/MainMenu.gd" id="1_3wy1v"]
-[ext_resource type="Script" uid="uid://luh38krjrogw" path="res://my assets/entity/EntityManager.gd" id="2_4hmqs"]
 [ext_resource type="Theme" uid="uid://cmeiu126swihn" path="res://my assets/themes/default.tres" id="2_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://bj1a037by05w5" path="res://my assets/changes manager/changes_manager.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://btw2dmrck5wsv" path="res://main/start menu/main_tab_container.tscn" id="4_d00gp"]
@@ -14,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bwfl5sjvtwx4v" path="res://game/entity/trader_button_buy.tscn" id="13_s758e"]
 [ext_resource type="PackedScene" uid="uid://ls0x4xqay4he" path="res://game/entity/trader_button_sell.tscn" id="14_4hmqs"]
 [ext_resource type="PackedScene" uid="uid://cugv3q0gmarru" path="res://game/entity/dragging_sprite.tscn" id="14_piupu"]
+[ext_resource type="Script" uid="uid://bq3j4kgt7vfxa" path="res://terrain/DraggingNode.gd" id="16_ksear"]
 [ext_resource type="AudioStream" uid="uid://chge5rm7ja346" path="res://music/Ivan Stanton, Cammy - MIDIocrity - 17 Savior of Humanity (Cammy Remix).mp3" id="18_ksear"]
 [ext_resource type="PackedScene" uid="uid://ba0tnj74ux3tm" path="res://my assets/mold window/mold_window.tscn" id="18_piupu"]
 [ext_resource type="PackedScene" uid="uid://bjld3caw65v7u" path="res://my assets/SlidersWindow/CircleSliders.tscn" id="18_q0sk7"]
@@ -46,21 +46,6 @@
 script = ExtResource("1_3wy1v")
 main_menu_tab = NodePath("../CanvasLayer/Main/main TabContainer")
 in_game_main_menu = NodePath("../CanvasLayer/Main/in game menu")
-
-[node name="entity_manager" type="Node2D" parent="main menu and input" node_paths=PackedStringArray("array_layers", "dragging_node2d")]
-script = ExtResource("2_4hmqs")
-array_layers = [NodePath("ground_layer"), NodePath("underground_layer1"), NodePath("underground_layer2"), NodePath("underground_layer3"), NodePath("inside_houses_layer1")]
-dragging_node2d = NodePath("../../CanvasLayer/CanvasLayer/dragging")
-
-[node name="ground_layer" type="Node2D" parent="main menu and input/entity_manager"]
-
-[node name="underground_layer1" type="Node2D" parent="main menu and input/entity_manager"]
-
-[node name="underground_layer2" type="Node2D" parent="main menu and input/entity_manager"]
-
-[node name="underground_layer3" type="Node2D" parent="main menu and input/entity_manager"]
-
-[node name="inside_houses_layer1" type="Node2D" parent="main menu and input/entity_manager"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -306,6 +291,7 @@ layer = 2
 follow_viewport_enabled = true
 
 [node name="dragging" type="Node2D" parent="CanvasLayer/CanvasLayer"]
+script = ExtResource("16_ksear")
 
 [node name="MusicManager" type="AudioStreamPlayer" parent="." node_paths=PackedStringArray("level_up_player")]
 bus = &"music"

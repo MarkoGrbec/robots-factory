@@ -38,6 +38,8 @@ func open_window(trader: Trader):
 		recount_gold()
 
 func recount_gold():
-	trader_gold_label.text = str("trader gold: ", int(_trader.gold_coins))
-	var user: User = g_man.user
-	robot_gold_label.text = str(user.avatar_name, " gold: ", int(user.gold_coins))
+	if is_instance_valid(_trader):
+		trader_gold_label.text = str("trader gold: ", int(_trader.gold_coins))
+		var user: User = g_man.user
+		if user:
+			robot_gold_label.text = str(user.avatar_name, " gold: ", int(user.gold_coins))

@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://1ki7w3rxdi64"]
+[gd_scene load_steps=8 format=4 uid="uid://1ki7w3rxdi64"]
 
 [ext_resource type="TileSet" uid="uid://cxjxodvo5kmfv" path="res://my assets/Tiles/tile_set.tres" id="1_dfght"]
 [ext_resource type="Script" uid="uid://cd6ersvk34ijd" path="res://terrain/TileMapLayers.gd" id="1_viixf"]
 [ext_resource type="TileSet" uid="uid://dfqqfwevxofgt" path="res://my assets/Tiles/tile_set_inside.tres" id="3_bd202"]
 [ext_resource type="Script" uid="uid://dtpmm8vlj60ev" path="res://main/MapGroundLayer.gd" id="4_vg0hu"]
+[ext_resource type="Script" uid="uid://luh38krjrogw" path="res://my assets/entity/EntityManager.gd" id="5_0fpyx"]
 [ext_resource type="PackedScene" uid="uid://c657hgr7fcptm" path="res://my assets/player2D/player.tscn" id="5_66pks"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_vg0hu"]
@@ -40,6 +41,18 @@ tile_set = ExtResource("3_bd202")
 [node name="Map" type="Node2D" parent="."]
 script = ExtResource("4_vg0hu")
 
+[node name="underground_layer1" type="Node2D" parent="Map"]
+position = Vector2(-5, -19)
+
+[node name="underground_layer2" type="Node2D" parent="Map"]
+position = Vector2(-5, -19)
+
+[node name="underground_layer3" type="Node2D" parent="Map"]
+position = Vector2(-5, -19)
+
+[node name="inside_houses_layer1" type="Node2D" parent="Map"]
+position = Vector2(-5, -19)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Map"]
 position = Vector2(-5, -19)
 navigation_polygon = SubResource("NavigationPolygon_vg0hu")
@@ -49,6 +62,13 @@ position = Vector2(5, 19)
 scale = Vector2(0.5, 0.5)
 tile_map_data = PackedByteArray("AAAAAAAAAQAAAAAAAAABAAAAAQAAAAAAAAACAAAAAQAAAAAAAAADAAAAAQAAAAAAAAAEAAAAAQAAAAAAAAAFAAAAAwAAAAAAAAAGAAAAAQAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAHAAEAAAAAAAAAAAAGAAEAAAAAAAAAAAAFAAEAAQAAAAAAAAAEAAEAAwAAAAAAAAADAAEAAQAAAAAAAAACAAEAAQAAAAAAAAABAAEAAQAAAAAAAAAAAAEAAQAAAAAAAAABAAIAAQAAAAAAAAACAAIAAQAAAAAAAAADAAIAAQAAAAAAAAAEAAIAAwAAAAAAAAAFAAIAAQAAAAAAAAAGAAIAAQAAAAAAAAAHAAIAAAAAAAAAAAAIAAIAAAAAAAAAAAAAAAIAAQAAAAAAAAAJAAIAAQAAAAAAAAAIAAMAAQAAAAAAAAAHAAMAAQAAAAAAAAAGAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAEAAMAAQAAAAAAAAADAAMAAQAAAAAAAAACAAMAAgAAAAAAAAABAAMAAgAAAAAAAAAAAAMAAQAAAAAAAAABAAQAAgAAAAAAAAAAAAUAAQAAAAAAAAAAAAQAAQAAAAAAAAAAAAYAAQAAAAAAAAABAAYAAQAAAAAAAAACAAYAAQAAAAAAAAADAAYAAQAAAAAAAAAEAAYAAwAAAAAAAAAFAAYAAQAAAAAAAAAGAAYAAQAAAAAAAAAHAAYAAQAAAAAAAAAIAAYAAQAAAAAAAAAIAAUAAQAAAAAAAAAJAAQAAQAAAAAAAAAJAAAAAQAAAAAAAAAJAAYAAQAAAAAAAAAHAAUAAQAAAAAAAAAIAAQAAQAAAAAAAAAHAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAFAAUAAQAAAAAAAAAEAAUAAwAAAAAAAAAFAAQAAwAAAAAAAAAGAAQAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAUAAQAAAAAAAAADAAQAAgAAAAAAAAACAAUAAgAAAAAAAAACAAQAAgAAAAAAAAABAAUAAgAAAAAAAAD//wcAAwAAAAAAAAD//wYAAwAAAAAAAAD//wUAAwAAAAAAAAD//wQAAwAAAAAAAAD//wMAAwAAAAAAAAD//wIAAwAAAAAAAAD//wEAAwAAAAAAAAD//wAAAwAAAAAAAAD/////AwAAAAAAAAAAAP//AwAAAAAAAAABAP//AwAAAAAAAAACAP//AwAAAAAAAAADAP//AwAAAAAAAAAEAP//AwAAAAAAAAAFAP//AwAAAAAAAAAGAP//AwAAAAAAAAAHAP//AwAAAAAAAAAIAP//AwAAAAAAAAAJAP//AwAAAAAAAAAKAAAAAwAAAAAAAAAJAAEAAQAAAAAAAAAKAAIAAwAAAAAAAAAJAAMAAQAAAAAAAAAKAAQAAwAAAAAAAAAJAAUAAQAAAAAAAAAKAAYAAwAAAAAAAAAJAAcAAwAAAAAAAAAIAAcAAwAAAAAAAAAHAAcAAwAAAAAAAAAGAAcAAwAAAAAAAAAFAAcAAwAAAAAAAAAEAAcAAwAAAAAAAAADAAcAAwAAAAAAAAACAAcAAwAAAAAAAAABAAcAAwAAAAAAAAAAAAcAAwAAAAAAAAAKAP//AwAAAAAAAAAKAAEAAwAAAAAAAAAKAAMAAwAAAAAAAAAKAAUAAwAAAAAAAAAKAAcAAwAAAAAAAAA=")
 tile_set = ExtResource("1_dfght")
+
+[node name="entity_manager" type="Node2D" parent="Map/NavigationRegion2D" node_paths=PackedStringArray("array_layers", "navigation_region_2d")]
+script = ExtResource("5_0fpyx")
+array_layers = [NodePath("ground_layer"), NodePath("../../underground_layer1"), NodePath("../../underground_layer2"), NodePath("../../underground_layer3"), NodePath("../../inside_houses_layer1")]
+navigation_region_2d = NodePath("..")
+
+[node name="ground_layer" type="Node2D" parent="Map/NavigationRegion2D/entity_manager"]
 
 [node name="CPPlayer" parent="." instance=ExtResource("5_66pks")]
 z_index = 1
@@ -62,8 +82,5 @@ scale = Vector2(0.999995, 0.999995)
 
 [node name="Head" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest" index="0"]
 scale = Vector2(0.999985, 0.999985)
-
-[node name="RightHand" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm" index="0"]
-scale = Vector2(1, 1)
 
 [editable path="CPPlayer"]

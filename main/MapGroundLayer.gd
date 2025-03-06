@@ -6,6 +6,8 @@ func activate(active: bool):
 	var children = get_children()
 	for child in children:
 		if not child is NavigationRegion2D and not child is TileMapLayer:
+			if child.name == "underground_layer1" or child.name == "underground_layer2" or child.name == "underground_layer3" or child.name == "inside_houses_layer1":
+				continue
 			activate_child(child, active)
 			if child is CPQuest:
 				var server_quest: ServerQuest = QuestsManager.get_server_quest(child.quest_index)

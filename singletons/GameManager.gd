@@ -41,6 +41,7 @@ var holding_hand: HoldingHand
 var trader: Trader
 
 var asking_toggled: bool = false
+var dragging_node
 func _ready() -> void:
 	randomize()
 	create_database()

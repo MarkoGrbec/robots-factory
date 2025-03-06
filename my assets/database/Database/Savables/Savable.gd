@@ -134,7 +134,7 @@ func get_index_data(id, partly_load: int = 2):
 		data.partly_load()
 		return data
 	#if it's going to be fully loaded
-	if data.partly_loaded < 2:
+	if not partly_load == 0 and data.partly_loaded < 2:
 		data.partly_loaded = 2
 		data.fully_load()
 	return data

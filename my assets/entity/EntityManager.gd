@@ -1,7 +1,7 @@
 class_name EntityManager extends Node2D
 
 @export var array_layers: Array[Node2D]
-@export var dragging_node2d: Node2D
+@export var navigation_region_2d: NavigationRegion2D
 
 enum Convert{
 	CLAY = 13,
@@ -14,6 +14,12 @@ enum Convert{
 
 func _ready() -> void:
 	g_man.entity_manager = self
+
+func bake():
+	await get_tree().process_frame
+	if navigation_region_2d.is_baking():
+		await navigation_region_2d.bake_finished
+	navigation_region_2d.bake_navigation_polygon()
 
 func create_entity_from_scratch(entity_num: Enums.Esprite, _global_position: Vector2):
 	# create world sprite and position it
@@ -64,6 +70,8 @@ func add_child_to_layer(child, layer):
 
 func reparent_to_layer(child, layer = g_man.tile_map_layers.active_layer):
 	child.reparent(array_layers[layer])
+	if layer == 0:
+		bake()
 
 func activate_layer(active_layer):
 	for i in array_layers.size():
@@ -73,10 +81,10 @@ func activate_layer(active_layer):
 			activate(array_layers[i], true)
 
 func add_child_to_dragging(child):
-	dragging_node2d.add_child(child)
+	g_man.dragging_node.add_child(child)
 
 func reparent_dragging(child: Node2D):
-	child.reparent(dragging_node2d)
+	child.reparent(g_man.dragging_node)
 
 # activate deactivate layers and sprites within
 static func activate(layer, active: bool):
@@ -100,7 +108,7 @@ func destroy_all_entities():
 						var entity: Entity = child.entity
 						entity.partly_loaded = 0
 				child.queue_free()
-	for node in dragging_node2d.get_children():
+	for node in g_man.dragging_node.get_children():
 		var entity: Entity = node.entity
 		entity.partly_loaded = 0
 		node.queue_free()

@@ -54,12 +54,8 @@ func _physics_process(_delta: float) -> void:
 	# set target
 	if is_instance_valid(target) and target is CPMob:
 		target_position = target.global_position
-		agent.target_position = target_position
 	elif target and target is Vector2:
 		target_position = target
-		agent.target_position = target_position
-		#if agent.is_navigation_finished():
-			#return
 	else:# if 1 tunnel is closed go back as there's no target
 		if state == State.CHASE or state == State.RUN_AWAY:
 			state = State.RUN_AWAY
@@ -67,7 +63,7 @@ func _physics_process(_delta: float) -> void:
 		elif state == State.RETRIVE or state == State.RETRIVE_AWAY:
 			state = State.RETRIVE_AWAY
 			target_position = starting_point
-		else:
+		elif not state == State.BRING_MATS:
 			return
 	
 	if state == State.BRING_MATS:
@@ -75,7 +71,7 @@ func _physics_process(_delta: float) -> void:
 			var collide = movement.body.get_slide_collision(i)
 			if collide:
 				collide = collide.get_collider()
-				if collide.is_in_group("material"):
+				if collide and collide.is_in_group("material"):
 					collide.set_collision_layer_value(1, false)
 					
 					collide = collide.get_parent()
@@ -86,8 +82,16 @@ func _physics_process(_delta: float) -> void:
 					state = State.RUN_AWAY
 					target_position = starting_point
 	
+	if target_position:
+		agent.target_position = target_position
+	else:
+		return
 	
-	agent_next_path_position()
+	if agent.is_navigation_finished():
+			return
+	
+	if target_position:
+		agent_next_path_position()
 	
 	# change target's target
 	if state == State.CHASE or state == State.RETRIVE or state == State.BRING_MATS:
@@ -111,20 +115,24 @@ func _physics_process(_delta: float) -> void:
 		if not target_position == starting_point:
 			target_position = starting_point
 			agent_next_path_position()
-		
 		if global_position.distance_to(coords[1][0]/2) < 24:
 			GameControl.turn_fake_tunnel_back(enemy_tunnel, state)
 	# override
-	movement.direction = direction
+	#movement.direction = direction
 	movement.body.move_and_slide()
 
 func agent_next_path_position():
 	agent.target_position = target_position
 	next_position = agent.get_next_path_position()
-	if not nav_dir:
-		direction = global_position.direction_to(next_position)
-	else:
-		direction = nav_dir
+	direction = global_position.direction_to(next_position)
+	
+	avoidance()
+	#agent.target_position = target_position
+	#next_position = agent.get_next_path_position()
+	#if not nav_dir:
+		#direction = global_position.direction_to(next_position)
+	#else:
+		#direction = nav_dir
 	#avoidance()
 
 func avoidance():
@@ -136,40 +144,41 @@ func avoidance():
 var nav_dir
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
-	if nav_time + 0.75 < Time.get_unix_time_from_system():
-		nav_dir = safe_velocity
-		if nav_dir:
-			agent.target_position = global_position + safe_velocity
-			next_position = agent.get_next_path_position()
-			direction = global_position.direction_to(next_position)
-			nav_count = 0
-		if not nav_dir:
-			if nav_count > 1:
-				#g_man.changes_manager.add_change("dir reset")
-				nav_count = 0
-				nav_int = 0
-			nav_count += 1
-			
-			agent.target_position = target_position
-			next_position = agent.get_next_path_position()
-			direction = global_position.direction_to(next_position)
-			nav_dir = direction
-			nav_time = Time.get_unix_time_from_system()
-			return
-		var angle = rad_to_deg(movement.direction.angle_to(safe_velocity))
-		if nav_int < 15:
-			#g_man.changes_manager.add_key_change("nav: ", str("nav int: ", nav_int, " angle: ", angle))
-			rotate_angle(nav_angle, 1)
-		elif angle > 0.01:
-			rotate_angle(-100)
-		elif angle < -0.01:
-			rotate_angle(+100)
-
-func rotate_angle(ang, i = 0):
-	if i:
-		nav_int += i
-	else:
-		nav_int = i
-	nav_angle = ang
-	nav_dir = direction.rotated(deg_to_rad(nav_angle))
-	nav_time = Time.get_unix_time_from_system()
+	movement.direction = safe_velocity
+	#if nav_time + 0.75 < Time.get_unix_time_from_system():
+		#nav_dir = safe_velocity
+		#if nav_dir:
+			#agent.target_position = global_position + safe_velocity
+			#next_position = agent.get_next_path_position()
+			#direction = global_position.direction_to(next_position)
+			#nav_count = 0
+		#if not nav_dir:
+			#if nav_count > 1:
+				##g_man.changes_manager.add_change("dir reset")
+				#nav_count = 0
+				#nav_int = 0
+			#nav_count += 1
+			#
+			#agent.target_position = target_position
+			#next_position = agent.get_next_path_position()
+			#direction = global_position.direction_to(next_position)
+			#nav_dir = direction
+			#nav_time = Time.get_unix_time_from_system()
+			#return
+		#var angle = rad_to_deg(movement.direction.angle_to(safe_velocity))
+		#if nav_int < 15:
+			##g_man.changes_manager.add_key_change("nav: ", str("nav int: ", nav_int, " angle: ", angle))
+			#rotate_angle(nav_angle, 1)
+		#elif angle > 0.01:
+			#rotate_angle(-100)
+		#elif angle < -0.01:
+			#rotate_angle(+100)
+#
+#func rotate_angle(ang, i = 0):
+	#if i:
+		#nav_int += i
+	#else:
+		#nav_int = i
+	#nav_angle = ang
+	#nav_dir = direction.rotated(deg_to_rad(nav_angle))
+	#nav_time = Time.get_unix_time_from_system()

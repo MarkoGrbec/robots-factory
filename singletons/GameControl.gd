@@ -53,7 +53,7 @@ func enter_enemy(target, bring_mats: bool = false, coords_spawn: Vector2i = Vect
 func destroy_helpless_bot(bring_mats: bool = false):
 	if not _helpless_bot:
 		return
-	enter_enemy(_helpless_bot, bring_mats, Vector2i(randi_range(2, 18), randi_range(2, 18)))
+	enter_enemy(_helpless_bot, bring_mats, Vector2i(randi_range(2, 18), randi_range(10, 18)))
 
 func retreve_bot(tunnel):
 	if g_man.tutorial:
@@ -61,7 +61,7 @@ func retreve_bot(tunnel):
 	var enemy_bot: CPEnemy = CreateMob.target_create_enemy_bot(tunnel[1][1][0] / 2, Enums.Esprite.mob_commander_client)
 	enemy_bot.controller.starting_point = enemy_bot.global_position
 	enemy_bot.controller.coords = tunnel[1]
-	enemy_bot.controller.enemy_tunnel = tunnel
+	enemy_bot.controller.enemy_tunnel = tunnel.duplicate()
 	enemy_bot.controller.target = tunnel[0][0]
 	enemy_bot.controller.state = EnemyController.State.RETRIVE
 	enemy_bot.health = -1
