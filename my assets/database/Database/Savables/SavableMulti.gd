@@ -37,7 +37,7 @@ func get_all(id_primary: int, id_secondary: int):
 	if id_primary != 0 && id_secondary != 0:
 		var row = get_id_row(id_primary, id_secondary)
 		if row:
-			return get_index_data(row)
+			return [get_index_data(row)]
 	else:
 		var rows = []
 		var id_rows = _multi.select_oposite_ids(id_primary, id_secondary)

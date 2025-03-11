@@ -39,7 +39,7 @@ func set_timer(time = -1) -> void:
 	timer.start(time)
 
 func run_away():
-	if target and target is CPEnemy:
+	if not movement.state == Movement.State.BROKEN and target and target is CPEnemy:
 		if enemy_tunnel:
 			enemy_tunnel[0].erase(target)
 		target.controller.enemy_tunnel = null

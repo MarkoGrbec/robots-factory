@@ -77,6 +77,7 @@ func create_npc_with_avatar(id_avatar: int):
 	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(id_avatar, quest_index, 0)
 	server_quest._quest_index = quest_index
 	server_quest.fully_load()
+	var qq_deep: QQDeep = g_man.savable_multi____quest___qq__qq.new_data(1, quest_index)
 	g_man.quests_manager.dict_name__server_quest[quest_name] = server_quest
 	server_quest.layer = layer
 	if server_quest.activated and server_quest.initialized:
@@ -108,17 +109,72 @@ func get_quest_question(basis: int, text: String):
 	
 	var qqs = q_basis.list_quest_questions
 	
-
+	var index = 0
 	# Iterate over each item in the qq array
 	for qq: QuestQuestion in qqs:
 		# Check if any of the list_avatar_dialog items match the text
-		if qq.list_avatar_dialog.any(
-			func(sentence):
-				sentence = ServerQuest.make_raw(sentence)
-				return all_words_match(sentence, text)
-		):
-			return qq
+		var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
+		if qq_from_avatar_dialogs:
+			return [qq_from_avatar_dialogs, [index]]
+		index += 1
+	var array_indexes = []
+	#for qq: QuestQuestion in qqs:
+	var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, quest_index)
+	var qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(id_row, 0)
+	if qq_deeps:
+		qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps[0].id, basis)
+	
+	var qq_indexes = get_qq_from_deeps(qq_deeps, qqs, array_indexes, text)
+	if qq_indexes:
+		return qq_indexes
 	return null
+
+func get_qq_from_deeps(qq_deeps, qqs, array_indexes, text):
+	var index = 0
+	for qq_deep in qq_deeps:
+		
+		#var qq_deep_index
+		##if qq_deep.index == -1:
+			##qq_deep_index = g_man.savable_multi____quest___qq__qq.get_all()
+		#if not qq_deep_index:# TODO:
+			#continue
+		for qq_flags in qqs[qq_deep.index].add_qq_flags:
+			var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flags, text)
+			if qq_from_avatar_dialogs:
+				array_indexes.push_back(index)
+				return [qq_from_avatar_dialogs, array_indexes]
+		index += 1
+	for qq_deep in qq_deeps:
+		array_indexes.push_back(qq_deep.index)
+		var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
+		var qq_from_avatar_dialogs = get_qq_from_deeps(qq_ds, qqs[qq_deep.index].add_qq_flags, array_indexes, text)
+		if qq_from_avatar_dialogs:
+			return qq_from_avatar_dialogs
+		array_indexes.pop_back()
+	
+	index = 0
+	var index_in_qq = 0
+	for qq in qqs:
+		array_indexes.push_back(index_in_qq)
+		for qq_flag in qq.add_qq_flags:
+			var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
+			if qq_from_avatar_dialogs:
+				array_indexes.push_back(index)
+				return [qq_from_avatar_dialogs, array_indexes]
+			index += 1
+		array_indexes.pop_back()
+		index_in_qq += 1
+
+#func get_qq_from_deep_in():
+	#pass
+
+func get_qq_from_avatar_dialogs(qq, text):
+	if qq.list_avatar_dialog.any(
+		func(sentence):
+			sentence = ServerQuest.make_raw(sentence)
+			return all_words_match(sentence, text)
+	):
+		return qq
 
 func index_quest_qustion(qq: QuestQuestion, basis: int):
 	if list_quest_basis.size() <= basis or basis < 0:

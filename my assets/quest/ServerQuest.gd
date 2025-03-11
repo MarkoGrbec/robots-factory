@@ -211,7 +211,13 @@ func ask(raw_text: String, client) -> Array:
 	
 	push_warning(raw_text, basis)
 	# general basis
-	var qq: QuestQuestion = q_obj.get_quest_question(basis, raw_text)
+	var qq_indexes = q_obj.get_quest_question(basis, raw_text)
+	var qq
+	var indexes
+	if qq_indexes:
+		qq = qq_indexes[0]
+		indexes = qq_indexes[1]
+	
 	var response_dialog
 	var general_basis: bool = true
 	
@@ -235,11 +241,11 @@ func ask(raw_text: String, client) -> Array:
 		response_dialog = [q_obj.quest_name, default_failed_dialog, false]
 	elif general_basis and not (check_items_integrity(qq, client) and mission_quantity == 0):
 		# failed
-		var array_old_basis__qq_index
+		#var array_old_basis__qq_index
 		if q_obj.list_quest_basis[basis].fail_passes:
 			failed_believe()
-			array_old_basis__qq_index = [basis, q_obj.index_quest_qustion(qq, basis)]
-			set_new_basis(qq, q_obj, general_basis, avatar_name)
+			#array_old_basis__qq_index = [basis, q_obj.index_quest_qustion(qq, basis)]
+			set_new_basis(qq, q_obj, general_basis, avatar_name, indexes)
 		
 		get_display_answers_all()
 		if qq.response_failed_dialog:
@@ -249,12 +255,12 @@ func ask(raw_text: String, client) -> Array:
 	# success
 	elif general_basis or qq.use_basis:
 		succeed_believe()
-		var array_old_basis__qq_index: Array = [basis, q_obj.index_quest_qustion(qq, basis)]
+		var _array_old_basis__qq_index: Array = [basis, q_obj.index_quest_qustion(qq, basis)]
 		response_dialog = get_response_dialog_indexed(qq, q_obj, avatar_name)
 		
-		set_new_basis(qq, q_obj, general_basis, avatar_name)
+		set_new_basis(qq, q_obj, general_basis, avatar_name, indexes)
 		get_display_answers_all()
-		return [response_dialog, qq, inventory.id, array_old_basis__qq_index, array_believe, array_answers__response_size]
+		return [response_dialog, qq, inventory.id, _array_old_basis__qq_index, array_believe, array_answers__response_size]
 	# fail
 	var array_old_basis__qq_index = []
 	if not response_dialog:
@@ -276,6 +282,7 @@ func get_display_answers_all():
 	get_display_answers(basis)
 	for flag in basis_flags:
 		get_display_answers(flag)
+	#g_man.savable_multi____quest___qq__qq.get_all(1, _quest_index)
 
 func get_display_answers(basis_index: int):
 	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
@@ -283,11 +290,34 @@ func get_display_answers(basis_index: int):
 		var _basis: QuestBasis = q_obj.list_quest_basis[basis_index]
 		if _basis.display_answers:
 			for basis_qq: QuestQuestion in _basis.list_quest_questions:
-				array_answers__response_size.push_back([str(basis_qq.list_avatar_dialog), basis_qq.response_dialog.size()])
-				pass
+				get_display_answers_from_qq(basis_qq)
+				
+				get_deep_display_answers(basis_qq.add_qq_flags)
+
+func get_deep_display_answers(array_qq: Array[QuestQuestion]):
+	for qq_in_qq in array_qq:
+		get_display_answers_from_qq(qq_in_qq)
+		var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, _quest_index)
+		var qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(id_row, 0)
+		if qq_deeps:
+			qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps[0].id, basis)
+		
+		for qq_deep in qq_deeps:
+			get_deep_in_display_answers(array_qq, qq_deep)
+			#var qq_deeps_in = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, qq_deep.index)
+			#get_display_answers_from_qq(qq_in_qq.add_qq_flags[qq_deep.index].add_qq_flags[qq_deeps_in.index])
+
+func get_deep_in_display_answers(qq_in_add_qq_flags: Array[QuestQuestion], qq_deep):
+	get_display_answers_from_qq(qq_in_add_qq_flags[qq_deep.index])
+	var deeps_in = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, qq_deep.index)
+	for deep_in in deeps_in:
+		get_deep_in_display_answers(qq_in_add_qq_flags[qq_deep.index].add_qq_flags, deep_in)
+
+func get_display_answers_from_qq(basis_qq: QuestQuestion):
+	array_answers__response_size.push_back([str(basis_qq.list_avatar_dialog), basis_qq.response_dialog.size()])
 
 ## sets new basis and default starting dialog
-func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, avatar_name: String):
+func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, avatar_name: String, indexes: Array):
 	# if non from pool keep basis
 	var new_basis = basis
 	# get one basis from the pool
@@ -298,6 +328,7 @@ func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, av
 		# add remove flags
 		add_basis_flags(qq.add_basis_flags)
 		remove_basis_flags(qq.remove_basis_flags, true)
+		add_qq_flags(indexes)
 		if basis != new_basis:
 			
 			added_items.clear()
@@ -354,6 +385,38 @@ func remove_basis_flags(array: Array[int], save: bool = false):
 		basis_flags.erase(remove_flag)
 	if save:
 		save_basis_flags()
+
+func add_qq_flags(indexes: Array):
+	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
+	if _quest_index > 1:
+		var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, _quest_index)
+		var qq_deep_basis = g_man.savable_multi____quest___qq__qq.new_data(id_row, basis)
+		qq_deep_basis.basis = basis
+		
+		add_qq_flags_deep(indexes, 0, q_obj.list_quest_basis[basis].list_quest_questions, qq_deep_basis)
+		
+		##qq_deep_basis.save_basis() TODO:
+		#id_row = qq_deep_basis.id
+		#
+		#var indexes_dup = indexes.duplicate()
+		#for i in indexes_dup.size():
+			#var qq_deep = g_man.savable_multi____quest___qq__qq.new_data(id_row, indexes_dup[i])
+			#
+			##id_row = g_man.savable_multi____quest___qq__qq.get_id_row(id_row, indexes.pop_front())
+			##var qq_deep = g_man.savable_multi____quest___qq__qq.new_data(id_row, indexes_dup[i +1])
+			#qq_deep.index = indexes_dup[i]
+			#qq_deep.save_index()
+			#id_row = qq_deep.id
+			
+func add_qq_flags_deep(indexes, index: int, qq: Array[QuestQuestion], qq_deep: QQDeep):
+	if index < indexes.size():
+		qq_deep = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, indexes[index])
+		qq_deep.index = indexes[index]
+		qq_deep.save_index()
+		add_qq_flags_deep(indexes, index +1, qq[indexes[index]].add_qq_flags, qq_deep)
+		#if index +1 == indexes.size():
+			#qq_deep = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, indexes[index])
+	
 
 func get_response_dialog(qq: QuestQuestion, qq_index, avatar_name: String):
 	# reset reponse dialog to 0 if needed

@@ -211,20 +211,20 @@ static func target_send_quest_mob_remove(server_quest: ServerQuest):
 func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis = [], array_believe = [], array_display_answers__response_size = []):
 	add_response(quest_giver_name, response, basis_dial, array_display_answers__response_size)
 	var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
-	if server_quest.body:
+	if server_quest[0].body:
 		if success_old_basis:
-			server_quest.body.succeed_old_basis(success_old_basis)
+			server_quest[0].body.succeed_old_basis(success_old_basis)
 		#if array_believe:
-		server_quest.body.quest_believe(array_believe)
+		server_quest[0].body.quest_believe(array_believe)
 
 static func set_server_quest(quest_index: int, activated: bool, basis: int):
-	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
-	if server_quest:
-		server_quest.activated = activated
-		server_quest.basis = basis
-		server_quest.save_activated()
-		server_quest.save_basis()
-		target_send_quest_mob_to_make(server_quest)
+	var server_quest: Array[ServerQuest] = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
+	if server_quest[0]:
+		server_quest[0].activated = activated
+		server_quest[0].basis = basis
+		server_quest[0].save_activated()
+		server_quest[0].save_basis()
+		target_send_quest_mob_to_make(server_quest[0])
 
 static func get_server_quest_basis(quest_index: int):
 	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)

@@ -30,6 +30,14 @@ var savable_terrain_underground1: Savable
 var savable_terrain_underground2: Savable
 var savable_terrain_underground3: Savable
 var savable_multi_avatar__quest_data: SavableMulti
+
+#var savable_multi___quest__qq: SavableMulti
+var savable_multi____quest___qq__qq: SavableMulti
+
+### between quest giver and which qq have flags
+#var multi_table___quest__qq: DataBase.MultiTable
+### between quest question and which flags it has
+#var multi_table____quest___qq__qq: DataBase.MultiTable
 var savable_entity: Savable
 var savable_multi_entity__material: SavableMulti
 var savable_holding_hand: Savable
@@ -51,6 +59,7 @@ func _ready() -> void:
 	savable_terrain_underground2 = Savable.new(false, dbms, "terrain_underground2", Terrain.new())
 	savable_terrain_underground3 = Savable.new(false, dbms, "terrain_underground3", Terrain.new())
 	savable_multi_avatar__quest_data = SavableMulti.new(false, dbms, "savable_multi_avatar__quest_data", ServerQuest.new())
+	savable_multi____quest___qq__qq = SavableMulti.new(false, dbms, "qq_deep", QQDeep.new())
 	savable_entity = Savable.new(false, dbms, "entity", Entity.new())
 	savable_inventory_slot = Savable.new(false, dbms, "inventory_slot", InventorySlot.new())
 	savable_multi_entity__material = SavableMulti.new(false, dbms, "entity_material", EntityMaterial.new())
@@ -58,6 +67,7 @@ func _ready() -> void:
 	savable_trader = Savable.new(false, dbms, "trader", Trader.new())
 	savable_mob = Savable.new(false, dbms, "mob", Mob.new())
 	
+	savable_multi____quest___qq__qq.remove_all()
 
 func delete_database_if_needed():
 	var last_id_file_name = DataBase.directory_exists(false, dbms, "user", "id")
@@ -137,6 +147,9 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "activated")
 	_table.create_column(false, dbms, DataBase.DataType.VECTOR2, 1, "position")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "initialized")
+	
+	_table = DataBase.Table.new("qq_deep")
+	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "index")
 	
 	_table = DataBase.Table.new("inventory_slot")
 	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "id_entity")

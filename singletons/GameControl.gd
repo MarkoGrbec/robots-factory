@@ -61,7 +61,7 @@ func retreve_bot(tunnel):
 	var enemy_bot: CPEnemy = CreateMob.target_create_enemy_bot(tunnel[1][1][0] / 2, Enums.Esprite.mob_commander_client)
 	enemy_bot.controller.starting_point = enemy_bot.global_position
 	enemy_bot.controller.coords = tunnel[1]
-	enemy_bot.controller.enemy_tunnel = tunnel.duplicate()
+	enemy_bot.controller.enemy_tunnel = tunnel
 	enemy_bot.controller.target = tunnel[0][0]
 	enemy_bot.controller.state = EnemyController.State.RETRIVE
 	enemy_bot.health = -1
