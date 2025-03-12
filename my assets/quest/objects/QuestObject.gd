@@ -132,18 +132,13 @@ func get_quest_question(basis: int, text: String):
 func get_qq_from_deeps(qq_deeps, qqs, array_indexes, text):
 	var index = 0
 	for qq_deep in qq_deeps:
-		
-		#var qq_deep_index
-		##if qq_deep.index == -1:
-			##qq_deep_index = g_man.savable_multi____quest___qq__qq.get_all()
-		#if not qq_deep_index:# TODO:
-			#continue
 		for qq_flags in qqs[qq_deep.index].add_qq_flags:
 			var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flags, text)
 			if qq_from_avatar_dialogs:
 				array_indexes.push_back(index)
 				return [qq_from_avatar_dialogs, array_indexes]
 		index += 1
+	
 	for qq_deep in qq_deeps:
 		array_indexes.push_back(qq_deep.index)
 		var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
@@ -152,18 +147,19 @@ func get_qq_from_deeps(qq_deeps, qqs, array_indexes, text):
 			return qq_from_avatar_dialogs
 		array_indexes.pop_back()
 	
-	index = 0
-	var index_in_qq = 0
-	for qq in qqs:
-		array_indexes.push_back(index_in_qq)
-		for qq_flag in qq.add_qq_flags:
-			var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
-			if qq_from_avatar_dialogs:
-				array_indexes.push_back(index)
-				return [qq_from_avatar_dialogs, array_indexes]
-			index += 1
-		array_indexes.pop_back()
-		index_in_qq += 1
+	if not qq_deeps:
+		index = 0
+		var index_in_qq = 0
+		for qq in qqs:
+			array_indexes.push_back(index_in_qq)
+			for qq_flag in qq.add_qq_flags:
+				var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
+				if qq_from_avatar_dialogs:
+					array_indexes.push_back(index)
+					return [qq_from_avatar_dialogs, array_indexes]
+				index += 1
+			array_indexes.pop_back()
+			index_in_qq += 1
 
 #func get_qq_from_deep_in():
 	#pass

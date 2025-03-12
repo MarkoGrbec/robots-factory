@@ -1621,8 +1621,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String]([])
-response_dialog = Array[String]([])
+list_avatar_dialog = Array[String](["abbd"])
+response_dialog = Array[String](["response abbd"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -1640,7 +1640,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["abbc"])
-response_dialog = Array[String](["test dialog 3"])
+response_dialog = Array[String](["response abbc"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -1665,7 +1665,7 @@ metadata/_custom_type_script = "uid://brslonx5by775"
 [sub_resource type="Resource" id="Resource_65aeo"]
 script = ExtResource("5_0rfkw")
 use_basis = true
-new_basis = Array[int]([0])
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0

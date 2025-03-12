@@ -218,13 +218,13 @@ func target_quest_response(quest_index, quest_giver_name, response, basis_dial, 
 		server_quest[0].body.quest_believe(array_believe)
 
 static func set_server_quest(quest_index: int, activated: bool, basis: int):
-	var server_quest: Array[ServerQuest] = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
-	if server_quest[0]:
-		server_quest[0].activated = activated
-		server_quest[0].basis = basis
-		server_quest[0].save_activated()
-		server_quest[0].save_basis()
-		target_send_quest_mob_to_make(server_quest[0])
+	var server_quests = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
+	if server_quests:
+		server_quests[0].activated = activated
+		server_quests[0].basis = basis
+		server_quests[0].save_activated()
+		server_quests[0].save_basis()
+		target_send_quest_mob_to_make(server_quests[0])
 
 static func get_server_quest_basis(quest_index: int):
 	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
