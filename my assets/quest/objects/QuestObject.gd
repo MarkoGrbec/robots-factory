@@ -116,17 +116,17 @@ func get_quest_question(basis: int, text: String):
 		var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
 		if qq_from_avatar_dialogs:
 			return [qq_from_avatar_dialogs, [index]]
-		index += 1
-	var array_indexes = []
-	#for qq: QuestQuestion in qqs:
-	var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, quest_index)
-	var qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(id_row, 0)
-	if qq_deeps:
-		qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps[0].id, basis)
-	
-	var qq_indexes = get_qq_from_deeps(qq_deeps, qqs, array_indexes, text)
-	if qq_indexes:
-		return qq_indexes
+		#index += 1
+	#var array_indexes = []
+	##for qq: QuestQuestion in qqs:
+	#var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, quest_index)
+	#var qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(id_row, 0)
+	#if qq_deeps:
+		#qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps[0].id, basis)
+	#
+	#var qq_indexes = get_qq_from_deeps(qq_deeps, qqs, array_indexes, text)
+	#if qq_indexes:
+		#return qq_indexes
 	return null
 
 func get_qq_from_deeps(qq_deeps, qqs, array_indexes, text):
