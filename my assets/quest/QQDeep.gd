@@ -2,6 +2,7 @@ class_name QQDeep extends ISavable
 
 var index
 var basis
+var i
 
 func copy():
 	return QQDeep.new()

@@ -10,11 +10,13 @@ func activate(active: bool):
 				continue
 			activate_child(child, active)
 			if child is CPQuest:
-				var server_quest: ServerQuest = QuestsManager.get_server_quest(child.quest_index)
-				if server_quest.layer == g_man.tile_map_layers.active_layer:
-					activate_child(child, true)
-				else:
-					activate_child(child, false)
+				var server_quests = QuestsManager.get_server_quest(child.quest_index)
+				if server_quests:
+					for server_quest in server_quests:
+						if server_quest.layer == g_man.tile_map_layers.active_layer:
+							activate_child(child, true)
+						else:
+							activate_child(child, false)
 
 func activate_child(child, active):
 	child.set_collision_mask_value(1, active)
