@@ -199,7 +199,7 @@ func ask(raw_text: String, client) -> Array:
 		default_starting_dialog = default_starting_dialog.replace("[name]", avatar_name)
 	if not raw_text:
 		if q_obj.list_quest_basis.size() > basis:
-			get_display_answers_all([])
+			get_display_answers_all({})
 		return [[q_obj.quest_name, ""], null, inventory.id, [], array_believe, array_answers__response_size]
 	
 	if raw_text.find("fuck you") != -1:
@@ -298,15 +298,17 @@ func get_deep_display_answers(array_qq: Array[QuestQuestion], indexes):
 	var qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(id_row, basis +1)
 	for qq in array_qq:
 		get_display_answers_from_qq(qq)
-	get_deep_in_display_answers(array_qq, qq_deeps, indexes, 0)
+	get_deep_in_display_answers(array_qq, qq_deeps, indexes, 1)
 
-func get_deep_in_display_answers(array_qq: Array[QuestQuestion], qq_deeps, indexes, index):
-	if array_qq:
+func get_deep_in_display_answers(array_qq: Array[QuestQuestion], qq_deeps, indexes: Dictionary, index):
+	if array_qq and qq_deeps:
 		if indexes and index < indexes.size():
 			for qq_deep in qq_deeps:
-				var qq_deeps_in = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, indexes[index] +1)
-				get_deep_in_display_answers_final(array_qq[indexes[index]].add_qq_flags, qq_deeps)
-				get_deep_in_display_answers(array_qq[indexes[index]].add_qq_flags, qq_deeps_in, indexes, index +1)
+				var array = indexes.get(str(index), [])
+				for i in array:
+					var qq_deeps_in = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, i +1)
+					get_deep_in_display_answers_final(array_qq[i].add_qq_flags, qq_deeps)
+					get_deep_in_display_answers(array_qq[i].add_qq_flags, qq_deeps_in, indexes, index +1)
 
 func get_deep_in_display_answers_final(qq_in_add_qq_flags: Array[QuestQuestion], qq_deeps):
 	if qq_in_add_qq_flags:
@@ -317,7 +319,7 @@ func get_display_answers_from_qq(basis_qq: QuestQuestion):
 	array_answers__response_size.push_back([str(basis_qq.list_avatar_dialog), basis_qq.response_dialog.size()])
 
 ## sets new basis and default starting dialog
-func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, avatar_name: String, indexes: Array):
+func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, avatar_name: String, indexes: Dictionary):
 	# if non from pool keep basis
 	var new_basis = basis
 	# get one basis from the pool
@@ -386,22 +388,24 @@ func remove_basis_flags(array: Array[int], save: bool = false):
 	if save:
 		save_basis_flags()
 
-func add_qq_flags(indexes: Array):
+func add_qq_flags(indexes: Dictionary):
 	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
 	if _quest_index > 1:
 		var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, _quest_index)
 		var qq_deep_basis = g_man.savable_multi____quest___qq__qq.new_data(id_row, basis +1)
 		qq_deep_basis.index = basis +1
 		qq_deep_basis.i = 0
-		add_qq_flags_deep(indexes, 0, q_obj.list_quest_basis[basis].list_quest_questions, qq_deep_basis)
+		add_qq_flags_deep(indexes, 1, q_obj.list_quest_basis[basis].list_quest_questions, qq_deep_basis)
 
-func add_qq_flags_deep(indexes, index: int, qq: Array[QuestQuestion], qq_deep: QQDeep):
+func add_qq_flags_deep(indexes:Dictionary, index: int, qq: Array[QuestQuestion], qq_deep: QQDeep):
 	if index < indexes.size():
-		qq_deep = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, indexes[index] +1)
-		qq_deep.index = indexes[index] +1
-		qq_deep.save_index()
-		qq_deep.i = index
-		add_qq_flags_deep(indexes, index +1, qq[indexes[index]].add_qq_flags, qq_deep)
+		var array = indexes.get(str(index))
+		for i in array:
+			qq_deep = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, i +1)
+			qq_deep.index = i +1
+			qq_deep.save_index()
+			qq_deep.i = index
+			add_qq_flags_deep(indexes, index +1, qq[i].add_qq_flags, qq_deep)
 
 func get_response_dialog(qq: QuestQuestion, qq_index, avatar_name: String):
 	# reset reponse dialog to 0 if needed
