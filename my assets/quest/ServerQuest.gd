@@ -302,13 +302,13 @@ func get_deep_display_answers(array_qq: Array[QuestQuestion], indexes):
 
 func get_deep_in_display_answers(array_qq: Array[QuestQuestion], qq_deeps, indexes: Dictionary, index):
 	if array_qq and qq_deeps:
-		if indexes and index < indexes.size():
-			for qq_deep in qq_deeps:
-				var array = indexes.get(str(index), [])
-				for i in array:
-					var qq_deeps_in = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, i +1)
-					get_deep_in_display_answers_final(array_qq[i].add_qq_flags, qq_deeps)
-					get_deep_in_display_answers(array_qq[i].add_qq_flags, qq_deeps_in, indexes, index +1)
+		#if indexes and index < indexes.size():
+		for qq_deep in qq_deeps:
+			#var array = indexes.get(str(index), [])
+			#for i in array:
+			var qq_deeps_in = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, qq_deep.index)
+			get_deep_in_display_answers_final(array_qq[qq_deep.index -1].add_qq_flags, qq_deeps)
+			get_deep_in_display_answers(array_qq[qq_deep.index -1].add_qq_flags, qq_deeps_in, indexes, index +1)
 
 func get_deep_in_display_answers_final(qq_in_add_qq_flags: Array[QuestQuestion], qq_deeps):
 	if qq_in_add_qq_flags:
@@ -391,21 +391,55 @@ func remove_basis_flags(array: Array[int], save: bool = false):
 func add_qq_flags(indexes: Dictionary):
 	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
 	if _quest_index > 1:
-		var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, _quest_index)
-		var qq_deep_basis = g_man.savable_multi____quest___qq__qq.new_data(id_row, basis +1)
-		qq_deep_basis.index = basis +1
-		qq_deep_basis.i = 0
-		add_qq_flags_deep(indexes, 1, q_obj.list_quest_basis[basis].list_quest_questions, qq_deep_basis)
+		var qq_deep_quest = g_man.savable_multi____quest___qq__qq.new_data(1, _quest_index)
+		#var qq_deep_basis = g_man.savable_multi____quest___qq__qq.new_data(id_row, basis +1)
+		#qq_deep_basis.index = basis +1
+		#qq_deep_basis.i = 0
+		#qq_deep_basis.str_index = str(basis +1)
+		
+		var index_keys = indexes.keys()
+		for str_key in index_keys:
+			if str_key.length() == 1:
+				add_qq_flags_deep1(indexes, index_keys, str_key, 0, qq_deep_quest)
+		
+		#add_qq_flags_deep(indexes, 1, q_obj.list_quest_basis[basis].list_quest_questions, qq_deep_basis)
+
+
+
+func add_qq_flags_deep1(indexes, index_keys: Array, begins_with: String, slice_index, qq_deep):
+	for str_key: String in index_keys:
+		if str_key.begins_with(begins_with):
+			if str_key == begins_with:
+				var splited = str_key.split(":", false, slice_index)
+				#var qq_deep_in = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, int(str_key))
+			else:# search deeper
+				var splited = str_key.split(":", false, slice_index +1)
+				var joined = []
+				for i in slice_index +1:
+					joined.push_back(splited[i])
+				joined = ":".join(joined)
+				var indexss = indexes.get(joined)
+				for index in indexss:
+					var qq_deep_in = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, index)
+					qq_deep_in.index = index
+					qq_deep_in.i = slice_index
+					qq_deep_in.str_index = joined
+					add_qq_flags_deep1(indexes, index_keys, joined, slice_index +1, qq_deep_in)
+
+
+
+
 
 func add_qq_flags_deep(indexes:Dictionary, index: int, qq: Array[QuestQuestion], qq_deep: QQDeep):
 	if index < indexes.size():
 		var array = indexes.get(str(index))
 		for i in array:
-			qq_deep = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, i +1)
-			qq_deep.index = i +1
-			qq_deep.save_index()
-			qq_deep.i = index
-			add_qq_flags_deep(indexes, index +1, qq[i].add_qq_flags, qq_deep)
+			var qq_deep1 = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, i +1)
+			qq_deep1.index = i +1
+			qq_deep1.save_index()
+			qq_deep1.i = index
+			qq_deep1.str_index = str(qq_deep.string_index, ":", i +1)
+			add_qq_flags_deep(indexes, index +1, qq[i].add_qq_flags, qq_deep1)
 
 func get_response_dialog(qq: QuestQuestion, qq_index, avatar_name: String):
 	# reset reponse dialog to 0 if needed

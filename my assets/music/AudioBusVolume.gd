@@ -18,7 +18,7 @@ func _volume_changed(value: float) -> void:
 func load_audio():
 	var audio_bus_index = AudioServer.get_bus_index(bus_name)
 	var volume = AudioServer.get_bus_volume_db(audio_bus_index)
-	#volume = DataBase.select(false, g_man.dbms, "audio", db_name, 1, volume)
+	volume = DataBase.select(false, g_man.dbms, "audio", db_name, 1, volume)
 	AudioServer.set_bus_volume_db(audio_bus_index, volume)
 	h_scroll_bar.value = volume
 
