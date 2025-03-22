@@ -1,15 +1,16 @@
 class_name EnemyController extends Node2D
 
 enum State{
-	CHASE,
-	RUN,
-	RUN_AWAY,
-	RETRIVE,
-	RETRIVE_AWAY,
-	BROKEN,
-	BRING_MATS
+	CHASE = 0,
+	RUN = 1,
+	RUN_AWAY = 2,
+	RETRIVE = 3,
+	RETRIVE_AWAY = 4,
+	BROKEN = 5,
+	BRING_MATS = 6
 }
 
+@export var cp_mob: CPMob
 @export var movement: Movement
 @export var agent: NavigationAgent2D
 @export var timer: Timer
@@ -46,9 +47,12 @@ func run_away():
 		# my target is enemy bot so always run away as it's broken
 		state = State.RUN_AWAY
 	
-	# if helpless bot doen'nav_time have me as target and I'm not broken
+	# if helpless bot doesn't have nav_time have me as target and I'm not broken
 	if (GameControl._helpless_bot and GameControl._helpless_bot.controller.target != self) and state != State.BROKEN and state == State.CHASE:
 		state = State.RUN_AWAY
+	
+	# debugging state
+	cp_mob.name_label.text = str(state)
 
 func _physics_process(_delta: float) -> void:
 	# set target
@@ -82,6 +86,8 @@ func _physics_process(_delta: float) -> void:
 					state = State.RUN_AWAY
 					target_position = starting_point
 	
+	#debugging state
+	cp_mob.name_label.text = str(state)
 	if target_position:
 		agent.target_position = target_position
 	else:
@@ -120,6 +126,9 @@ func _physics_process(_delta: float) -> void:
 	# override
 	#movement.direction = direction
 	movement.body.move_and_slide()
+	
+	# debugging state
+	cp_mob.name_label.text = str(state)
 
 func agent_next_path_position():
 	agent.target_position = target_position

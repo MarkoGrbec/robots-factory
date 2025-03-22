@@ -227,13 +227,14 @@ static func set_server_quest(quest_index: int, activated: bool, basis: int):
 		target_send_quest_mob_to_make(server_quests[0])
 
 static func get_server_quest_basis(quest_index: int):
-	var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
-	if server_quest:
-		return server_quest.basis
+	var server_quests = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
+	if server_quests:
+		return server_quests[0].basis
 
 static func get_server_quest(quest_index: int):
-	var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
-	return server_quest
+	var server_quests = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
+	if server_quests:
+		return server_quests[0]
 
 static func add_server_quest_basis_flags(quest_index: int, flags: Array[int]):
 	var server_quest = get_server_quest(quest_index)

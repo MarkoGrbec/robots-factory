@@ -67,6 +67,7 @@ func succeed_old_basis(success_old_basis__qq_index):
 				CreateMob.target_create_bot( mp.get_quest_object(7).position , Enums.Esprite.mob_helpless_robot)
 		elif success_old_basis__qq_index[0] == 5:
 			if success_old_basis__qq_index[1] == 0:
+				await get_tree().create_timer(4).timeout
 				GameControl.destroy_helpless_bot()
 				GameControl.destroy_helpless_bot()
 		elif success_old_basis__qq_index[0] == 6:

@@ -116,25 +116,22 @@ func get_quest_question(basis: int, text: String):
 		var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
 		if qq_from_avatar_dialogs:
 			var string = str(basis +1)
-			return [qq_from_avatar_dialogs, {string = index}]
+			return [qq_from_avatar_dialogs, {}]
 		index += 1
 	var array_indexes = []
 	# get quest index row
-	var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, quest_index)
+	var qq_deeps_quest = g_man.savable_multi____quest___qq__qq.get_all(1, quest_index)
 	# get basis row
-	var qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(id_row, basis +1)
+	var qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps_quest[0].id, basis +1)
 	
 	# get all other rows
 	
 	var qq_from_avatar_dialogs = []
 	var dict_indexes = {}
 	
-	#var qq_indexes = get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes, 0)
-	#if qq_indexes:
-		#return qq_indexes
-	get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes, basis +1)
-	if qq_from_avatar_dialogs:
-		qq_from_avatar_dialogs = qq_from_avatar_dialogs[0]
+	#get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes, basis +1)
+	#if qq_from_avatar_dialogs:
+		#qq_from_avatar_dialogs = qq_from_avatar_dialogs[0]
 	return [qq_from_avatar_dialogs, dict_indexes]
 
 func get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes: Dictionary, deep_basis_index):
@@ -143,16 +140,16 @@ func get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexe
 	for qq in qqs:
 		var array = dict_indexes.get_or_add(str(deep_basis_index), [])
 		array.push_back(index_in_qq +1)
-		#array_indexes.push_back(index_in_qq)
+		##array_indexes.push_back(index_in_qq)
 		for qq_flag in qq.add_qq_flags:
 			var temp = get_qq_from_avatar_dialogs(qq_flag, text)
 			if temp:
 				qq_from_avatar_dialogs.push_back(temp)
-				var array_flag = dict_indexes.get_or_add(str(deep_basis_index, ":", index +1), [])
-				array_flag.push_back(index +1)
-				#array_indexes.push_back(index)
+				#var array_flag = dict_indexes.get_or_add(str(deep_basis_index, ":", index +1), [])
+				#array_flag.push_back(index +1)
+				##array_indexes.push_back(index)
 			index += 1
-		#array_indexes.pop_back()
+		##array_indexes.pop_back()
 		index_in_qq += 1
 	
 	get_qq_from_deep_in2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes)
@@ -162,12 +159,23 @@ func get_qq_from_deep_in2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_inde
 		for qq_deep in qq_deeps:
 			var qq = qqs[qq_deep.index -1]
 			if qq:
-				var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
-				array.push_back(qq_deep.index)
+				var index = 0
+				for qq_flag in qq.add_qq_flags:
+					var temp = get_qq_from_avatar_dialogs(qq_flag, text)
+					if temp:
+						qq_from_avatar_dialogs.push_back(temp)
+						
+						var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
+						array.push_back(qq_deep.index)
+				
+				
 				
 				var temp = get_qq_from_avatar_dialogs(qq, text)
 				if temp:
 					qq_from_avatar_dialogs.push_back(temp)
+					
+					var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
+					array.push_back(qq_deep.index)
 				var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
 				get_qq_from_deep_in2(qq_ds, qq.add_qq_flags, text, qq_from_avatar_dialogs, dict_indexes)
 

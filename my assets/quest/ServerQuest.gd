@@ -226,9 +226,12 @@ func ask(raw_text: String, client) -> Array:
 		general_basis = false
 		# loop through other basis
 		for flag in basis_flags:
-			qq = q_obj.get_quest_question(flag, raw_text)
-			if qq:
-				break
+			qq_indexes = q_obj.get_quest_question(flag, raw_text)
+			if qq_indexes:
+				qq = qq_indexes[0]
+				indexes = qq_indexes[1]
+				if qq:
+					break
 	if not qq:
 		if not q_obj.list_quest_basis.size() > basis:
 			# failed
@@ -291,7 +294,7 @@ func get_display_answers(basis_index: int, indexes):
 		if _basis.display_answers:
 			for basis_qq: QuestQuestion in _basis.list_quest_questions:
 				get_display_answers_from_qq(basis_qq)
-				get_deep_display_answers(basis_qq.add_qq_flags, indexes)
+				#get_deep_display_answers(basis_qq.add_qq_flags, indexes)#TODO
 
 func get_deep_display_answers(array_qq: Array[QuestQuestion], indexes):
 	var id_row = g_man.savable_multi____quest___qq__qq.get_id_row(1, _quest_index)
@@ -330,7 +333,7 @@ func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, av
 		# add remove flags
 		add_basis_flags(qq.add_basis_flags)
 		remove_basis_flags(qq.remove_basis_flags, true)
-		add_qq_flags(indexes)
+		#add_qq_flags(indexes)#TODO
 		if basis != new_basis:
 			
 			added_items.clear()
@@ -392,10 +395,10 @@ func add_qq_flags(indexes: Dictionary):
 	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
 	if _quest_index > 1:
 		var qq_deep_quest = g_man.savable_multi____quest___qq__qq.new_data(1, _quest_index)
-		#var qq_deep_basis = g_man.savable_multi____quest___qq__qq.new_data(id_row, basis +1)
-		#qq_deep_basis.index = basis +1
-		#qq_deep_basis.i = 0
-		#qq_deep_basis.str_index = str(basis +1)
+		var qq_deep_basis = g_man.savable_multi____quest___qq__qq.new_data(qq_deep_quest.id, basis +1)
+		qq_deep_basis.index = basis +1
+		qq_deep_basis.i = 0
+		qq_deep_basis.str_index = str(basis +1)
 		
 		var index_keys = indexes.keys()
 		for str_key in index_keys:
@@ -410,8 +413,12 @@ func add_qq_flags_deep1(indexes, index_keys: Array, begins_with: String, slice_i
 	for str_key: String in index_keys:
 		if str_key.begins_with(begins_with):
 			if str_key == begins_with:
-				var splited = str_key.split(":", false, slice_index)
-				#var qq_deep_in = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, int(str_key))
+				if str_key.length() == 1:
+					#var splited = str_key.split(":", false, slice_index)
+					var qq_deep_in = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, int(str_key))
+					qq_deep_in.index = int(str_key)
+					qq_deep_in.i = 0
+					qq_deep_in.str_index = str_key
 			else:# search deeper
 				var splited = str_key.split(":", false, slice_index +1)
 				var joined = []

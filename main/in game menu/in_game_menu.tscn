@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://4uvqadvod7cb"]
+[gd_scene load_steps=8 format=3 uid="uid://4uvqadvod7cb"]
 
 [ext_resource type="Script" uid="uid://db61dwu37phlo" path="res://main/in game menu/InGameMenu.gd" id="1_un1ud"]
 [ext_resource type="PackedScene" uid="uid://b2i1wol5qwtld" path="res://my assets/binding/binding_container.tscn" id="2_cgffx"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b6jqqa8v3xar5" path="res://game/quest/options_holding_hand.tscn" id="4_yjfud"]
 [ext_resource type="PackedScene" uid="uid://cw3dwj3hge0vn" path="res://my assets/music/VolumeContainer.tscn" id="5_suw75"]
 [ext_resource type="Script" uid="uid://d05qjhu2e5jgr" path="res://main/in game menu/misc.gd" id="6_uty36"]
+[ext_resource type="Script" uid="uid://wchgvo0jditb" path="res://main/in game menu/Cheat.gd" id="7_gkw5d"]
 
 [node name="in game menu" type="TabContainer" node_paths=PackedStringArray("options_holding_hand_container")]
 anchors_preset = 15
@@ -14,7 +15,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-current_tab = 4
+current_tab = 5
 script = ExtResource("1_un1ud")
 options_holding_hand_scene = ExtResource("4_yjfud")
 options_holding_hand_container = NodePath("holding hand/HBoxContainer/VBoxContainer")
@@ -272,9 +273,49 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "X"
 
+[node name="cheat" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 2
+tooltip_text = "hoover over the button to see details"
+script = ExtResource("7_gkw5d")
+metadata/_tab_index = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="cheat"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="cheat/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="cheat/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="cheat/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="ButtonResetTraderMoney" type="Button" parent="cheat/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "reset trader money"
+
+[node name="MarginContainer2" type="MarginContainer" parent="cheat/HBoxContainer"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="close window" type="Button" parent="cheat/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
 [node name="quit" type="HBoxContainer" parent="."]
 layout_mode = 2
-metadata/_tab_index = 4
+metadata/_tab_index = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="quit"]
 custom_minimum_size = Vector2(64, 0)
@@ -322,6 +363,8 @@ text = "X"
 [connection signal="text_submitted" from="misc/HBoxContainer/VBoxContainer/HBoxContainer/slow letters" to="misc" method="_on_slow_letters_text_submitted"]
 [connection signal="toggled" from="misc/HBoxContainer/VBoxContainer/speak names" to="misc" method="_on_speak_names_toggled"]
 [connection signal="pressed" from="misc/HBoxContainer/close window" to="." method="close_window"]
+[connection signal="pressed" from="cheat/HBoxContainer/VBoxContainer/ButtonResetTraderMoney" to="cheat" method="_on_button_reset_trader_money_pressed"]
+[connection signal="pressed" from="cheat/HBoxContainer/close window" to="." method="close_window"]
 [connection signal="pressed" from="quit/VBoxContainer/quit game button" to="." method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="quit/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="quit/close window" to="." method="close_window"]

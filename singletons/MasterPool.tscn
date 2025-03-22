@@ -1,4 +1,4 @@
-[gd_scene load_steps=343 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=346 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -2908,7 +2908,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 [sub_resource type="Resource" id="Resource_vfwg3"]
 script = ExtResource("5_0rfkw")
 use_basis = false
-new_basis = Array[int]([])
+new_basis = Array[int]([9])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -2967,7 +2967,7 @@ metadata/_custom_type_script = ExtResource("11_cdsqw")
 [sub_resource type="Resource" id="Resource_nk2gd"]
 script = ExtResource("5_0rfkw")
 use_basis = false
-new_basis = Array[int]([])
+new_basis = Array[int]([10])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -3091,7 +3091,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 [sub_resource type="Resource" id="Resource_ebr4p"]
 script = ExtResource("5_0rfkw")
 use_basis = false
-new_basis = Array[int]([])
+new_basis = Array[int]([11])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -3220,6 +3220,42 @@ I have programmed it to be your full companion."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
+[sub_resource type="Resource" id="Resource_re6t4"]
+script = ExtResource("4_0rfkw")
+description = "defend the robot iron"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "quick defend the helpless robot"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_8fiha"]
+script = ExtResource("4_0rfkw")
+description = "defend the robot sand"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "threre's 2 of them now quick defend"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_0vx0t"]
+script = ExtResource("4_0rfkw")
+description = "defend the robot reprogram"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "oh no theres many of them quick defend it"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
 [sub_resource type="Resource" id="Resource_53ixe"]
 script = ExtResource("3_d1vgu")
 quest_name = "gathering bot"
@@ -3230,7 +3266,7 @@ quest_body_type = 311
 color = Color(0.6649, 0.322911, 7.70092e-07, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nw0d3"), SubResource("Resource_uhd5j"), SubResource("Resource_tuu8w"), SubResource("Resource_63bdt"), SubResource("Resource_4chsh"), SubResource("Resource_703un"), SubResource("Resource_umrm6"), SubResource("Resource_lviuo"), SubResource("Resource_8sb7u")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nw0d3"), SubResource("Resource_uhd5j"), SubResource("Resource_tuu8w"), SubResource("Resource_63bdt"), SubResource("Resource_4chsh"), SubResource("Resource_703un"), SubResource("Resource_umrm6"), SubResource("Resource_lviuo"), SubResource("Resource_8sb7u"), SubResource("Resource_re6t4"), SubResource("Resource_8fiha"), SubResource("Resource_0vx0t")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")

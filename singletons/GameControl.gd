@@ -14,8 +14,9 @@ func set_helpless_bot(bot: CPHelplessBot):
 	
 	if _helpless_bot.state == CPHelplessBot.State.CHIPS:
 		var basis = QuestsManager.get_server_quest_basis(5)
-		if basis == 4:
+		if basis == 4 or basis == 9:
 			if not enemy_tunnels:
+				await get_tree().create_timer(5).timeout
 				destroy_helpless_bot()
 
 func remove_helpless_bot(helpless_bot):
@@ -81,7 +82,7 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 	
 	enemy_tunnels.erase(tunnel_coords)
 	
-	if state == EnemyController.State.RUN:
+	if state == EnemyController.State.RUN or state == EnemyController.State.RETRIVE_AWAY:
 		remove_helpless_bot(_helpless_bot)
 		_helpless_bot = null
 		QuestsManager.set_server_quest(5, true, 6)
@@ -90,15 +91,18 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 	elif not enemy_tunnels: # overriding quest basis after quest has been completed (tunnels cleared)
 		try_turn_off_action_music()
 		var basis = QuestsManager.get_server_quest_basis(5)
-		if basis == 4:
+		# fill molds with iron sucessfully defended robot
+		if basis == 9:
 			QuestsManager.set_server_quest(5, true, 5)
 			# sand
 			QuestsManager.set_server_quest(4, true, 11)
-		if basis == 5:
+		# get sand from trader sucessfully defended robot
+		if basis == 10:
 			QuestsManager.set_server_quest(5, true, 7)
 			# iron
 			QuestsManager.set_server_quest(4, true, 10)
-		if basis == 7:
+		# reprogram the robot sucessfully defended robot
+		if basis == 11:
 			QuestsManager.set_server_quest(5, true, 8)
 			
 			remove_helpless_bot(_helpless_bot)
