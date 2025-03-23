@@ -13,13 +13,15 @@ func _ready() -> void:
 	tooltip_text = str(str(Enums.Esprite.find_key(entity_num)).replace("_", " "), " cost around: ", e_obj.cost * 0.6)
 
 func _get_drag_data(_at_position: Vector2) -> Variant:
+	var node: DraggingSprite = dragging_sprite.instantiate()
+	node.can_change_quantity = true
+	node.texture = slot_texture.texture
 	var data = {
 		"buy" = entity_num,
 		"trader" = trader,
-		"tex" = slot_texture.texture
+		"tex" = slot_texture.texture,
+		"dragging_sprite" = node
 	}
-	var node: DraggingSprite = dragging_sprite.instantiate()
-	node.texture = slot_texture.texture
 	g_man.entity_manager.add_child_to_dragging(node)
 	
 	var user_gold_coins = g_man.user.gold_coins

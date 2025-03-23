@@ -1,7 +1,11 @@
 class_name DraggingSprite extends Sprite2D
 
+@export var quantity_label: Label
+var quantity = 1
 var entity
 var entity_button_inventory: EntityButtonInventory
+
+var can_change_quantity = false
 
 func _physics_process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
@@ -17,3 +21,14 @@ func _physics_process(_delta: float) -> void:
 			entity_button_inventory.inventory_slot.id_entity = 0
 			entity_button_inventory.inventory_slot.save_id_entity()
 		queue_free()
+	if can_change_quantity:
+		if Input.is_action_just_pressed("mouse wheel up"):
+			quantity += 1
+			refresh_quantity()
+		elif Input.is_action_just_pressed("mouse wheel down"):
+			quantity -= 1
+			refresh_quantity()
+
+func refresh_quantity():
+	quantity = clampi(quantity, 1, 20)
+	quantity_label.text = str(quantity)

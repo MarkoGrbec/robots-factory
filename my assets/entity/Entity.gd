@@ -42,6 +42,7 @@ var rot = Vector2.ZERO
 #var volume: float = 0
 #var group_volume: float = 0
 #var ql: float = 1000
+var quantity = 1
 var damage: float = 0
 ## how much I weight in kilo grams
 #var weight: float = 0
@@ -2728,7 +2729,7 @@ func get_dict_count():
 	var dict = {}
 	for e in e_container:
 		var arr = dict.get_or_add(e.entity_num, [e.entity_num, 0])
-		arr[1] += 1
+		arr[1] += e.quantity
 	return dict
 #endregion count
 #region save/Load

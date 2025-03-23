@@ -43,8 +43,17 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			origin_node.queue_free()
 			g_man.inventory_system.add_remove_hover_over_sprite(-1)
 	
+	#var quantity = data.get("dragging_sprite")
+	#if quantity:
+		#quantity = quantity.quantity
+	#else:
+		#quantity = 1
+	
+	var quantity = entity.quantity
+	
 	var user: User = g_man.user
 	var cost = Entity.cost(false, entity.entity_num, user.gold_coins, trader.gold_coins)
+	cost = cost * quantity
 	trader.gold_coins -= cost
 	trader.save_gold_coins()
 	user.gold_coins += cost

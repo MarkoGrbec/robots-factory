@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bpi07bmpcbj4t" path="res://game/entity/EntityButtonInventory.gd" id="2_3gcnx"]
 [ext_resource type="PackedScene" uid="uid://cugv3q0gmarru" path="res://game/entity/dragging_sprite.tscn" id="3_3gcnx"]
 
-[node name="inventory slot" type="TextureRect" node_paths=PackedStringArray("slot_texture")]
+[node name="inventory slot" type="TextureRect" node_paths=PackedStringArray("slot_texture", "quantity_label")]
 custom_minimum_size = Vector2(64, 64)
 anchors_preset = -1
 anchor_right = 0.056
@@ -19,6 +19,7 @@ expand_mode = 1
 script = ExtResource("2_3gcnx")
 dragging_sprite = ExtResource("3_3gcnx")
 slot_texture = NodePath("slot texture")
+quantity_label = NodePath("slot texture/quantity")
 
 [node name="slot texture" type="TextureRect" parent="."]
 custom_minimum_size = Vector2(64, 64)
@@ -26,3 +27,13 @@ layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 expand_mode = 1
+
+[node name="quantity" type="Label" parent="slot texture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2

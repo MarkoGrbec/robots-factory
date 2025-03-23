@@ -33,6 +33,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 		origin_node.inventory_slot.id_entity = 0
 		origin_node.inventory_slot.save_id_entity()
 		origin_node.slot_texture.texture = null
+		origin_node.quantity_label.text = ""
 	else:
 		origin_node = data.get("node2d")
 		if origin_node:

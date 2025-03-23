@@ -2,6 +2,7 @@ class_name EntityButtonInventory extends TextureRect
 
 @export var dragging_sprite: PackedScene
 @export var slot_texture: TextureRect
+@export var quantity_label: Label
 var inventory_slot: InventorySlot
 var entity
 
@@ -15,8 +16,11 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		sprite.texture = slot_texture.texture
 		sprite.entity = entity
 		sprite.entity_button_inventory = self
+		sprite.quantity_label.text = str(entity.quantity)
 		g_man.entity_manager.add_child_to_dragging(sprite)
 		data["entity"] = entity
+		#data["dragging_sprite"] = sprite
+		
 		
 		if g_man.trader_manager._trader:
 			var user_gold_coins = g_man.user.gold_coins
@@ -34,6 +38,8 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 		var trader: Trader = data.get("trader")
 		var user: User = g_man.user
 		var cost = Entity.cost(true, entity_number_buy, user.gold_coins, trader.gold_coins)
+		cost = cost * data.get("dragging_sprite").quantity
+		
 		if cost <= user.gold_coins:
 			return true
 		return false
@@ -41,6 +47,7 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	g_man.inventory_system.dragging = false
+	
 	# target is changed
 	var temp_entity = entity
 	var e = data.get("entity")
@@ -55,7 +62,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	#overwrite origin is changed
 	var origin_node = data.get("inv_node")
 	if origin_node:
-		#origin_node.entity = temp_entity
 		change_entity(temp_entity, origin_node)
 		origin_node.slot_texture.texture = temp_texture
 		return
@@ -71,12 +77,17 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	var trader: Trader = data.get("trader")
 	var user: User = g_man.user
 	var cost = Entity.cost(true, entity_number_buy, user.gold_coins, trader.gold_coins)
+	var quantity = data.get("dragging_sprite").quantity
+	cost = cost * quantity
+	
 	user.gold_coins -= cost
 	user.save_gold_coins()
 	trader.gold_coins += cost
 	trader.save_gold_coins()
 	g_man.trader_manager.recount_gold()
 	entity = Entity.create_from_scratch(entity_number_buy, true, false, true)
+	entity.quantity = quantity
+	quantity_label.text = str(quantity)
 	inventory_slot.id_entity = entity.id
 	inventory_slot.save_id_entity()
 	g_man.holding_hand.holding_hand_trader_buy()
@@ -89,11 +100,14 @@ func change_entity(_entity, node: EntityButtonInventory):
 	node.entity = _entity
 	if _entity:
 		node.inventory_slot.id_entity = _entity.id
+		node.quantity_label.text = str(_entity.quantity)
 	else:
 		node.inventory_slot.id_entity = 0
+		node.quantity_label.text = ""
 	node.inventory_slot.save_id_entity()
 
 func update_texture(_texture):
 	slot_texture.texture = _texture
 	if not _texture:
 		entity = null
+		quantity_label.text = ""

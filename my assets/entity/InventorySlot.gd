@@ -29,3 +29,4 @@ func fully_load():
 		if entity:
 			var entity_object: EntityObject = mp.get_item_object(entity.entity_num)
 			entity_button_inventory.update_texture(entity_object.texture)
+			entity_button_inventory.quantity_label.text = entity.quantity
