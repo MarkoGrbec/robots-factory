@@ -50,7 +50,8 @@ func run_away():
 	# if helpless bot doesn't have nav_time have me as target and I'm not broken
 	if (GameControl._helpless_bot and GameControl._helpless_bot.controller.target != self) and state != State.BROKEN and state == State.CHASE:
 		state = State.RUN_AWAY
-	
+	if not movement.state == Movement.State.BROKEN and (state == State.RETRIVE or state == State.BRING_MATS):
+		state = State.RUN_AWAY
 	# debugging state
 	cp_mob.name_label.text = str(state)
 
@@ -108,6 +109,12 @@ func _physics_process(_delta: float) -> void:
 				state = State.RUN
 			else:
 				state = State.RETRIVE_AWAY
+			# remove target from current bot
+			if target is CPHelplessBot:
+				if is_instance_valid(target.controller.target):
+					if target.controller.target is CPEnemy:
+						target.controller.target.controller.state = State.RUN_AWAY
+			# add me as current bot to retrive
 			target.controller.target = movement.body
 	# move towards target
 	elif state == State.RUN or state == State.RUN_AWAY or state == State.RETRIVE_AWAY or state == State.BROKEN:
@@ -122,7 +129,7 @@ func _physics_process(_delta: float) -> void:
 			target_position = starting_point
 			agent_next_path_position()
 		if global_position.distance_to(coords[1][0]/2) < 24:
-			GameControl.turn_fake_tunnel_back(enemy_tunnel, state)
+			GameControl.turn_fake_tunnel_back(enemy_tunnel, state, target)
 	# override
 	#movement.direction = direction
 	movement.body.move_and_slide()

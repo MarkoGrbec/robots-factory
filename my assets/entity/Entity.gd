@@ -2761,6 +2761,7 @@ func fully_load():
 		destroy_me()
 		return
 	load_position_rotation()
+	load_quantity()
 	#load_constructed()
 	load_damage()
 	load_special()
@@ -3151,6 +3152,13 @@ func load_parent():
 #func load_group_volume():
 	#group_volume = DataBase.select(_server, g_man.dbms, _path, "group_volume", id)
 	##endregion parent volume weight
+#region quantity
+func save_quantity():
+	save_uni("quantity", quantity)
+
+func load_quantity():
+	quantity = load_uni("quantity", 1)
+#endregion quantity
 	#region Esprite
 func save_entity_num():
 	DataBase.insert(_server, g_man.dbms, _path, "entity_num", id, entity_num)

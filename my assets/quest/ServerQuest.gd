@@ -486,11 +486,19 @@ func check_items_integrity(qq, _client) -> bool:
 					# TODO to_dastroy...
 					# TODO	...break
 			to_destroy.push_back(entity)
-			quantity -= 1
+			quantity -= entity.quantity
 			if quantity <= 0:
 				break
 	if quantity <= 0:
+		quantity = qq.quantity
 		for t in to_destroy:
+			quantity -= t.quantity
+			# calc and save the remaining
+			if quantity < 0:
+				t.quantity = quantity * (-1)
+				t.save_quantity()
+				g_man.quests_manager.recount_entities()
+				return true
 			#g_man.local_server_network_node.net_dp_node.target_entitis_destroy.rpc_id(client.id_net, [t.id])
 			t.destroy_me()
 			g_man.quests_manager.recount_entities()

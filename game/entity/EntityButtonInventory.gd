@@ -87,6 +87,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	g_man.trader_manager.recount_gold()
 	entity = Entity.create_from_scratch(entity_number_buy, true, false, true)
 	entity.quantity = quantity
+	entity.save_quantity()
 	quantity_label.text = str(quantity)
 	inventory_slot.id_entity = entity.id
 	inventory_slot.save_id_entity()

@@ -22,7 +22,12 @@ func partly_load():			# load only critical data
 func fully_load():			# fully load
 	pass
 func destroy():			# if I'm destroyed call my destroy function
-	pass			
+	pass
+func save_uni(column, data):
+	DataBase.insert(_server, g_man.dbms, _path, column, id, data)
+
+func load_uni(column, data = null):
+	return DataBase.select(_server, g_man.dbms, _path, column, id, data)
 #endregion savable
 
 

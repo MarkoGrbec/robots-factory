@@ -162,6 +162,7 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "group_weight")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "group_volume")
 	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "entity_num")
+	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "quantity")
 	_table.create_column(false, dbms, DataBase.DataType.VECTOR2, 1, "position")
 	#_table.create_column(false, dbms, DataBase.DataType.VECTOR2, 1, "rotation")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "constructed")

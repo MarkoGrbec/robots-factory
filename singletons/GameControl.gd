@@ -69,7 +69,7 @@ func retreve_bot(tunnel):
 	tunnel[0].push_back(enemy_bot)
 	enemy_bot.controller.set_timer(30)
 
-func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
+func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State, target):
 	if g_man.tutorial:
 		await g_man.holding_hand.holding_hand_enemy_finished()
 	if not tunnel_coords:
@@ -82,7 +82,7 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State):
 	
 	enemy_tunnels.erase(tunnel_coords)
 	
-	if state == EnemyController.State.RUN or state == EnemyController.State.RETRIVE_AWAY:
+	if state == EnemyController.State.RUN or state == EnemyController.State.RETRIVE_AWAY and target is CPHelplessBot:
 		remove_helpless_bot(_helpless_bot)
 		_helpless_bot = null
 		QuestsManager.set_server_quest(5, true, 6)
