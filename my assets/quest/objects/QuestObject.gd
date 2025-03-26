@@ -118,17 +118,18 @@ func get_quest_question(basis: int, text: String):
 			var string = str(basis +1)
 			return [qq_from_avatar_dialogs, {}]
 		index += 1
-	var array_indexes = []
-	# get quest index row
-	var qq_deeps_quest = g_man.savable_multi____quest___qq__qq.get_all(1, quest_index)
-	# get basis row
-	var qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps_quest[0].id, basis +1)
-	
-	# get all other rows
-	
+	## get quest index row
+	#var qq_deeps_quest = g_man.savable_multi____quest___qq__qq.get_all(1, quest_index)
+	## get basis row
+	#var qq_deeps_basis = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps_quest[0].id, basis +1)
+	#var qq_deeps = []
+	#if qq_deeps_basis:
+		#qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps_basis[0].id, 0)
+	## get all other rows
+	#
 	var qq_from_avatar_dialogs = []
 	var dict_indexes = {}
-	
+	#
 	#get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes, basis +1)
 	#if qq_from_avatar_dialogs:
 		#qq_from_avatar_dialogs = qq_from_avatar_dialogs[0]
@@ -140,16 +141,13 @@ func get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexe
 	for qq in qqs:
 		var array = dict_indexes.get_or_add(str(deep_basis_index), [])
 		array.push_back(index_in_qq +1)
-		##array_indexes.push_back(index_in_qq)
 		for qq_flag in qq.add_qq_flags:
 			var temp = get_qq_from_avatar_dialogs(qq_flag, text)
 			if temp:
 				qq_from_avatar_dialogs.push_back(temp)
-				#var array_flag = dict_indexes.get_or_add(str(deep_basis_index, ":", index +1), [])
-				#array_flag.push_back(index +1)
-				##array_indexes.push_back(index)
+				var array_flag = dict_indexes.get_or_add(str(deep_basis_index, ":", index +1), [])
+				array_flag.push_back(index +1)
 			index += 1
-		##array_indexes.pop_back()
 		index_in_qq += 1
 	
 	get_qq_from_deep_in2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes)
@@ -157,25 +155,28 @@ func get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexe
 func get_qq_from_deep_in2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes: Dictionary):
 	if qq_deeps and qqs:
 		for qq_deep in qq_deeps:
+			if qqs.size() < qq_deep.index:
+				continue
 			var qq = qqs[qq_deep.index -1]
 			if qq:
-				var index = 0
-				for qq_flag in qq.add_qq_flags:
-					var temp = get_qq_from_avatar_dialogs(qq_flag, text)
-					if temp:
-						qq_from_avatar_dialogs.push_back(temp)
-						
-						var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
-						array.push_back(qq_deep.index)
 				
+				#var index = 0
+				#for qq_flag in qq.add_qq_flags:
+					#var temp = get_qq_from_avatar_dialogs(qq_flag, text)
+					#if temp:
+						#qq_from_avatar_dialogs.push_back(temp)
+						#
+						#var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
+						#array.push_back(index +1)
+					#index += 1
 				
 				
 				var temp = get_qq_from_avatar_dialogs(qq, text)
 				if temp:
 					qq_from_avatar_dialogs.push_back(temp)
-					
 					var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
 					array.push_back(qq_deep.index)
+				
 				var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
 				get_qq_from_deep_in2(qq_ds, qq.add_qq_flags, text, qq_from_avatar_dialogs, dict_indexes)
 
@@ -239,69 +240,6 @@ func get_qq_from_deep_in(qq_deeps, qqs, array_indexes, text, ret = [null, array_
 					return [qq_from_avatar_dialogs, array_indexes]
 				var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
 				return get_qq_from_deep_in(qq_ds, qq.add_qq_flags, array_indexes, text, ret)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# bog je stvarnik ki je ustvaril svet.
-# ni viden brez njega nekaj ni se zgodilo nekaj se je moralo zgoditi da smo tu a dejansko ga ne vidimo.
-# človek ki ga ne srečujemo a ga samo čutimo.
-
-# to je nevidna struktura
-# verjamemo vanj ker ga čutimo
-
-# ker bog je ljubezen čutimo ljubezen zaradi njega živimo zaradi njega
-# ustvaril je rojstvo živimo umremo
-# hodimo v cerkev da ga začutimo
-# menihi molijo v budo
-# molijo da bi pozitivno energijo dobili v sebe
-
-# na svetu je dosti trpljenja a ga ni ustvaril bog
-# bog zeos on je oče od jezusa
-# da verujemo v božička ker se je takrat rodil jezus marija je bila spočeta brezmadežno
-# to naj bi bil oče
-# sprejel jožef za ženo in sta dobila jezusa zato mi verujemo v boga
-
-# za veliko noč je jezusa vprašali če veruje v boga in so ga križali
-# če bi rekel da veruje bi bil živ
-# jajce hren meso nesemo k žegnu
-# vino je jezusova kri
-# 
-# jezus je vstal od mrtvih za veliko noč
-
-
-# moramo ga čutit ker ga dejansko ni
-# nimamo možnosti ga spoznavati ga videti se pogovoriti z njim mu zaupati
-# neka sila je morala biti za stvarnost
-# eni pravijo da so najprej nastali možgani
-# in možgani delajo telo
-# kdo je pa ustvaril možgane?
-# ne raziskani organ privid
-# možgani nas delajo vidne
-# s pomožjo možganov mi verujemo v boga ki ga ni
-# otrok je čudež zato so otroci čudeži vsakemu pikecu je isti plod in je čudež da se je razvil iz istega polda v veliko zver to je ustvaril bog.
-# bog je ustvaril adama in eveo
-# bila sta v raju adam ji pravi jst sm lačn
-# kača je rekla da naj odtrga jabolko iz drevesa
-# morata jesti meso
-# bog jo je kaznoval da bo rojevala v bolečinah
-# moški pa 
 
 
 
@@ -435,3 +373,47 @@ func all_words_match(dialog_text: String, input_text: String) -> bool:
 func potential_load_basis(basis: int) -> void:
 	if list_quest_basis[basis].dict_quest_questions.size() == 0:
 		list_quest_basis[basis].update_basis()
+
+# bog je stvarnik ki je ustvaril svet.
+# ni viden brez njega nekaj ni se zgodilo nekaj se je moralo zgoditi da smo tu a dejansko ga ne vidimo.
+# človek ki ga ne srečujemo a ga samo čutimo.
+
+# to je nevidna struktura
+# verjamemo vanj ker ga čutimo
+
+# ker bog je ljubezen čutimo ljubezen zaradi njega živimo zaradi njega
+# ustvaril je rojstvo živimo umremo
+# hodimo v cerkev da ga začutimo
+# menihi molijo v budo
+# molijo da bi pozitivno energijo dobili v sebe
+
+# na svetu je dosti trpljenja a ga ni ustvaril bog
+# bog zeos on je oče od jezusa
+# da verujemo v božička ker se je takrat rodil jezus marija je bila spočeta brezmadežno
+# to naj bi bil oče
+# sprejel jožef za ženo in sta dobila jezusa zato mi verujemo v boga
+
+# za veliko noč je jezusa vprašali če veruje v boga in so ga križali
+# če bi rekel da veruje bi bil živ
+# jajce hren meso nesemo k žegnu
+# vino je jezusova kri
+# 
+# jezus je vstal od mrtvih za veliko noč
+
+
+# moramo ga čutit ker ga dejansko ni
+# nimamo možnosti ga spoznavati ga videti se pogovoriti z njim mu zaupati
+# neka sila je morala biti za stvarnost
+# eni pravijo da so najprej nastali možgani
+# in možgani delajo telo
+# kdo je pa ustvaril možgane?
+# ne raziskani organ privid
+# možgani nas delajo vidne
+# s pomožjo možganov mi verujemo v boga ki ga ni
+# otrok je čudež zato so otroci čudeži vsakemu pikecu je isti plod in je čudež da se je razvil iz istega polda v veliko zver to je ustvaril bog.
+# bog je ustvaril adama in eveo
+# bila sta v raju adam ji pravi jst sm lačn
+# kača je rekla da naj odtrga jabolko iz drevesa
+# morata jesti meso
+# bog jo je kaznoval da bo rojevala v bolečinah
+# moški pa 

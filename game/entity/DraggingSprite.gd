@@ -22,10 +22,10 @@ func _physics_process(_delta: float) -> void:
 			entity_button_inventory.inventory_slot.save_id_entity()
 		queue_free()
 	if can_change_quantity:
-		if Input.is_action_just_pressed("mouse wheel up"):
+		if Input.is_action_just_pressed("plus stack"):
 			quantity += 1
 			refresh_quantity()
-		elif Input.is_action_just_pressed("mouse wheel down"):
+		elif Input.is_action_just_pressed("minus stack"):
 			quantity -= 1
 			refresh_quantity()
 

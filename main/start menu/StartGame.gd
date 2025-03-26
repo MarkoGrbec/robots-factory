@@ -41,7 +41,7 @@ func _ready() -> void:
 		delete_user.hide()
 		set_tooltip_start()
 
-func set_tooltip_start():
+func set_tooltip_start() -> void:
 	tooltip_text = "set name for your character and game saves as you progress"
 
 func _on_delete_user_pressed() -> void:
@@ -52,7 +52,7 @@ func _on_delete_user_pressed() -> void:
 	delete_user.hide()
 	set_tooltip_start()
 
-func submit_username(text: String):
+func submit_username(text: String) -> void:
 	_on_start_game_pressed()
 
 func _on_start_game_pressed() -> void:
@@ -92,7 +92,7 @@ func _on_start_game_pressed() -> void:
 	else:
 		g_man.changes_manager.add_change("please enter your name")
 
-func welcome_screen():
+func welcome_screen() -> void:
 	# load or set stuff
 	# holding hand
 	set_holding_hand()
@@ -124,12 +124,6 @@ func welcome_screen():
 	for quest_server in quest_servers:
 		if quest_server.activated:
 			g_man.quests_manager.target_send_quest_mob_to_make(quest_server)
-			#var quest_object = mp.get_quest_object(quest_server._quest_index)
-			#var body_type = quest_object.quest_body_type
-			#quest_server.body = mp.create_me(Enums.Esprite.mob_quest_client)
-			#quest_server.body.global_position = quest_server.position
-			#quest_server.body.quest_index = quest_server._quest_index
-			#quest_server.body.entity_inventory = quest_server.inventory
 	
 	var tab = get_parent()
 	tab.set_tab_hidden(0, true)
@@ -152,13 +146,13 @@ func welcome_screen():
 		welcome_label.text = str("welcome robot ", avatar_name, " you were made at time: ", Time.get_unix_time_from_system(), "\nerror error something is wrong with name try fixing it")
 		welcome_button.text = str("let's fix my name")
 
-func set_holding_hand():
+func set_holding_hand() -> void:
 	g_man.holding_hand = g_man.savable_holding_hand.get_index_data(1, 0)
 	if not g_man.holding_hand:
 		g_man.holding_hand = g_man.savable_holding_hand.set_index_data(1, HoldingHand.new(), 0)
 	g_man.holding_hand.config()
 
-func close_welcome_window():
+func close_welcome_window() -> void:
 	g_man.sliders_manager.open_window()
 	g_man.savable_entity.partly_load_all()
 	g_man.entity_manager.activate_layer(0)
@@ -175,6 +169,9 @@ func _on_message_to_ash_february_pressed() -> void:
 
 func _on_message_to_ash_march_pressed() -> void:
 	g_man.mold_window.set_instructions_only(["thanks for feedback, I'd ask you to adjust audio volume press ESC key to enter main menu. as last time I saw you don't have ESC key I've added a q key to enter it I know as you pressed all keys on the keyboard, than you can also change key bindings. I cannot adjust volume of system text to speach but I can adjust all other volumes it's godot not fully functionality. that was max you could do last time as it was essential to open inventory in quest window. also I'd suggest to try tutorial first I've tried some times to do it correctly with some help."])
+
+func _on_message_to_ash_april_pressed() -> void:
+	g_man.mold_window.set_instructions_only(["thanks for I love that it finally clicked not only for you but also for my experience. I have added buy stack while dragging use mouse wheel or change bindings [plus stack] [minus stack] there's also a cheat IF you will need to buy another 15 iron to reset the trader and your gold coins, I think you haven't noticed but there's indicator how much it actually costs around cost is rough cost but while dragging there's indicator (above trader buy and sell box) cost that says exactly how much it costs. It's usually not wise to dry empty but gather somewhere in middle I think and sell. tutorial has no changes, tho I don't know why did you wanted to try the dead end right away, ..."])
 
 func _on_tutorial_pressed() -> void:
 	g_man.user.gold_coins = 500

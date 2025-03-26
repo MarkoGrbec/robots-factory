@@ -272,6 +272,7 @@ func ask(raw_text: String, client) -> Array:
 			array_old_basis__qq_index = [basis, q_obj.index_quest_qustion(qq, basis)]
 			response_dialog = get_response_dialog_indexed(qq, q_obj, avatar_name)
 	get_display_answers_all(indexes)
+	add_qq_flags(indexes)#TODO
 	return [response_dialog, qq, inventory.id, array_old_basis__qq_index, array_believe, array_answers__response_size]
 
 func get_response_dialog_indexed(qq: QuestQuestion, q_obj: QuestObject, avatar_name: String):
@@ -403,7 +404,7 @@ func add_qq_flags(indexes: Dictionary):
 		var index_keys = indexes.keys()
 		for str_key in index_keys:
 			if str_key.length() == 1:
-				add_qq_flags_deep1(indexes, index_keys, str_key, 0, qq_deep_quest)
+				add_qq_flags_deep1(indexes, index_keys, str_key, 0, qq_deep_basis)
 		
 		#add_qq_flags_deep(indexes, 1, q_obj.list_quest_basis[basis].list_quest_questions, qq_deep_basis)
 
@@ -415,10 +416,12 @@ func add_qq_flags_deep1(indexes, index_keys: Array, begins_with: String, slice_i
 			if str_key == begins_with:
 				if str_key.length() == 1:
 					#var splited = str_key.split(":", false, slice_index)
-					var qq_deep_in = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, int(str_key))
-					qq_deep_in.index = int(str_key)
-					qq_deep_in.i = 0
-					qq_deep_in.str_index = str_key
+					var indexs = indexes.get(str_key)
+					for index in indexs:
+						var qq_deep_in = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, int(index))
+						qq_deep_in.index = int(index)
+						qq_deep_in.i = 0
+						qq_deep_in.str_index = str_key
 			else:# search deeper
 				var splited = str_key.split(":", false, slice_index +1)
 				var joined = []
@@ -426,12 +429,13 @@ func add_qq_flags_deep1(indexes, index_keys: Array, begins_with: String, slice_i
 					joined.push_back(splited[i])
 				joined = ":".join(joined)
 				var indexss = indexes.get(joined)
-				for index in indexss:
-					var qq_deep_in = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, index)
-					qq_deep_in.index = index
-					qq_deep_in.i = slice_index
-					qq_deep_in.str_index = joined
-					add_qq_flags_deep1(indexes, index_keys, joined, slice_index +1, qq_deep_in)
+				if indexss:
+					for index in indexss:
+						var qq_deep_in = g_man.savable_multi____quest___qq__qq.new_data(qq_deep.id, index)
+						qq_deep_in.index = index
+						qq_deep_in.i = slice_index
+						qq_deep_in.str_index = joined
+						add_qq_flags_deep1(indexes, index_keys, joined, slice_index +1, qq_deep_in)
 
 
 
