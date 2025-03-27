@@ -1,4 +1,4 @@
-[gd_scene load_steps=359 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=422 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -4854,6 +4854,402 @@ default_starting_dialog = "science is fork of phylosophy right?"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
+[sub_resource type="Resource" id="Resource_yd707"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["zato ker je svet okrogel"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_8lj6s"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ker jo je hudič obsedel"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_e64dx"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = true
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yd707"), SubResource("Resource_8lj6s")])
+default_starting_dialog = "ker ladjo vidiš kako zmanjkuje spodnji del ko se oddaljuje"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_oa83u"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["in še veliko miljard let"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_aveux"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["dimitrij"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_vk4fy"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_oa83u"), SubResource("Resource_aveux")])
+default_starting_dialog = "prišlo je do velikega poka in tako smo mi nastali"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_dbpr5"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["in še pra miljonov let"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_rcv0v"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_dbpr5")])
+default_starting_dialog = "življenje se je razvilo iz vroče kisle juhe v katero je udarila strela in tako se je začelo življenje na zemiji"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_ggc5t"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["možno ali pa iz vroče juhe"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_jyrw4"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ggc5t")])
+default_starting_dialog = "mogoče smo nezemljani ker v vesolju so našli bakterije in viruse ki plavajo po vesolju"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_gix7q"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ker postane vroče po dnevi in hladno po noči"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_uwssa"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_gix7q")])
+default_starting_dialog = "zemlja se vrti okoli sonca"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_you5n"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["zato je magnetno polje na zemlji in lahko živimo na zemlji"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_atdfd"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_you5n")])
+default_starting_dialog = "zemlja se vrti okoli svoje osi in je okrogla"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_dhff5"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ko pride do sončne nevihte jo čutimo z globalnim segrevenjem in vročinskimi vali"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_2jajr"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_dhff5")])
+default_starting_dialog = "sonce je ena velika vroča gmota lave in plinov"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_la0ln"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ker se je luna počasi oddaljevala od zemlje in je zemlja vzela vso atmosfero nase ko je luna zapustila našo atmosfero"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_6fyn4"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_la0ln")])
+default_starting_dialog = "luna je brez atmosfere"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_dvknd"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["mogoče zato ker je v zemljo trčil asteroid in odtrgal del zemlje in obrazna stran lune je bolj težka lai pa bolj magnetna"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_30w7m"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_dvknd")])
+default_starting_dialog = "luna kaže enak obraz ker ima na obrazni strani večji privlek do zemlje kot na hrbtu lune"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_ixbx6"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["zato težko najdemo kako se planeti gibljejo okoli zemlje ker se ne"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_blq7f"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ixbx6")])
+default_starting_dialog = "zemlja je povezana z drugimi planeti in se skupaj z njimi suče okoli sonca"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_cvrl4"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["zato imamo poletje in zimo"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_bqsfg"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_cvrl4")])
+default_starting_dialog = "zemlja se vrti okoli sonca v elipsi"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_gdrpl"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["dimitrij"])
+response_dialog = Array[String]([""])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_0ixgf"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_gdrpl")])
+default_starting_dialog = "ker je zemlja enkrat bolj oddaljena od sonca je takrat zima in ker je bolj bližje soncu je takrat poletje."
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
 [sub_resource type="Resource" id="Resource_v5avt"]
 script = ExtResource("3_d1vgu")
 quest_name = "test bot"
@@ -4864,7 +5260,7 @@ quest_body_type = 319
 color = Color(0.85098, 0.717647, 0.419608, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blnlk")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blnlk"), SubResource("Resource_e64dx"), SubResource("Resource_vk4fy"), SubResource("Resource_rcv0v"), SubResource("Resource_jyrw4"), SubResource("Resource_uwssa"), SubResource("Resource_atdfd"), SubResource("Resource_2jajr"), SubResource("Resource_6fyn4"), SubResource("Resource_30w7m"), SubResource("Resource_blq7f"), SubResource("Resource_bqsfg"), SubResource("Resource_0ixgf")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
@@ -5099,7 +5495,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["iluzija"])
-response_dialog = Array[String](["torej je bog iluzija"])
+response_dialog = Array[String](["torej bog je iluzija"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -5133,6 +5529,612 @@ default_starting_dialog = "kaj je nevidna struktura"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
+[sub_resource type="Resource" id="Resource_8onxd"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["verjetno ne čutiš topline"])
+response_dialog = Array[String](["ne to ne"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_evryc"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["verjetno čutiš ljubezen"])
+response_dialog = Array[String](["moja ljubezen do boga je neizmerna"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_gc8tj"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["vrjetno ga imaš rad"])
+response_dialog = Array[String](["vem da ima on rad tudi mene"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_7t5h2"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["tega ne moreš začutiti ker ga ne poznaš osebno"])
+response_dialog = Array[String](["mogoče, imaš prav ..."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_o80kr"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8onxd"), SubResource("Resource_evryc"), SubResource("Resource_gc8tj"), SubResource("Resource_7t5h2")])
+default_starting_dialog = "verjamem v boga ker ga čutim"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_sqsqs"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["zakaj potem ljudje umirajo če je bog absolutno ljubeč"])
+response_dialog = Array[String](["imaš prav če je absolutno ljubeč potem morajo vsi v nebesa. a vseeno umirajo."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_r3msn"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["če je absolutno dober kaj ni potem da ni moral ustvariti slabega?"])
+response_dialog = Array[String](["ja ni ustvaril slabega."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_t32ar"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_sqsqs"), SubResource("Resource_r3msn")])
+default_starting_dialog = "bog je absolutna ljubezen zato jo čutimo in zato živimo"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_o4113"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kaj ni smrt slaba stvar"])
+response_dialog = Array[String](["je res je slaba stvar."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_eoovi"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kaj ni hudič povzročitelj smrti in ne bog"])
+response_dialog = Array[String](["ja ta prekleti hudič res je on je tota zver."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_65t4s"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["vsi se klanjamo njegovim vzvodom"])
+response_dialog = Array[String](["kakor bog ukaže in tako je narejen ta svet"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_wwcj0"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["on je naš lutkar"])
+response_dialog = Array[String](["naš pravi stvarnik lutkar"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_ivduu"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_o4113"), SubResource("Resource_eoovi"), SubResource("Resource_65t4s"), SubResource("Resource_wwcj0")])
+default_starting_dialog = "bog je ustvaril rojstvo življenje smrt"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_6g68y"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kaj ni bog povsot zakaj ga potem začutiš samo v cerkvi?"])
+response_dialog = Array[String](["imaš prav moral bi ga povsot začutiti"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_8ung7"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["samo v pravem svetišču se da začutiti pravega boga"])
+response_dialog = Array[String](["tako je vsi ostali bogovi so lažni"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_3jmmm"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_6g68y"), SubResource("Resource_8ung7")])
+default_starting_dialog = "v cerkev hodimo da začutimo boga"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_wmxjn"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kaj ni bog ustvaril vse"])
+response_dialog = Array[String](["torej je ustvaril tudi trpljenje?"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_0dl5k"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kdo je ustvaril hudiča če ni ustvaril trpljenja"])
+response_dialog = Array[String](["potem je morač bog ustvariti hudiča"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_d485i"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["hudič je tisit ki je ustvaril trpljenje"])
+response_dialog = Array[String](["prekleti hudič"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_vfnok"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_wmxjn"), SubResource("Resource_0dl5k"), SubResource("Resource_d485i")])
+default_starting_dialog = "na svetu je dosti trpljenja a ga ni ustvaril bog"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_15b2p"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["vera je tista ki ti pomaga"])
+response_dialog = Array[String](["vera ja"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_xxsou"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ker ga ni"])
+response_dialog = Array[String](["pa nja bi bil"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_sv80t"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ker je vse in vse povsot"])
+response_dialog = Array[String](["imaš prav vsepovsot je torej ga lahko vse vidimo spoznavamo se pogovarjamo z njim in mu zaupamo"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_3bpbm"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_15b2p"), SubResource("Resource_xxsou"), SubResource("Resource_sv80t")])
+default_starting_dialog = "nimamo možnosti boga spoznavati se pogovarjati z njim ga videti mu zaupati"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_xsmp5"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["bog"])
+response_dialog = Array[String](["naš pravi stvarnik"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_r3c2c"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["big bang"])
+response_dialog = Array[String](["mogoče je prava teorija"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_sddtl"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["izvor materializma"])
+response_dialog = Array[String](["ki naj bi bil veliki pok"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_wawdi"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_xsmp5"), SubResource("Resource_r3c2c"), SubResource("Resource_sddtl")])
+default_starting_dialog = "neka sila je bila za stvarnoost"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_6do44"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["bog"])
+response_dialog = Array[String](["naš pravi stvarnik"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_ujdbj"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["možgani so se razvili iz genetskega zapisa"])
+response_dialog = Array[String](["dnk je res zanimiv zapis"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_b4h3v"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_6do44"), SubResource("Resource_ujdbj")])
+default_starting_dialog = "eni pravijo da so najprej nastali možgani, ki delajo telo kdo pa je ustvaril možgane"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_8deaf"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["verjeti moraš ker ga ni"])
+response_dialog = Array[String](["torej vera ni dovolj"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_6s4ph"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["zato imaš vero v boga"])
+response_dialog = Array[String](["vera v boga je prava pot"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_oaakx"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8deaf"), SubResource("Resource_6s4ph")])
+default_starting_dialog = "s pomočjo možganov verujemo v boga"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_xpqt8"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ker izhaja iz genetskega materiala"])
+response_dialog = Array[String](["pravi zanimiv zapis"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_k213w"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["živiš in se sam počutiš kot čudež ker gledaš, čutiš, slišiš."])
+response_dialog = Array[String](["ja vse nemogoče je čudež."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_jbyve"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_xpqt8"), SubResource("Resource_k213w")])
+default_starting_dialog = "vsako živo bitje se je razvilo iz istega majhnega semena zato je otrok čudež, ki ga je ustvaril bog"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
 [sub_resource type="Resource" id="Resource_ykhcu"]
 script = ExtResource("3_d1vgu")
 quest_name = "1 bot"
@@ -5143,7 +6145,7 @@ quest_body_type = 319
 color = Color(1, 1, 1, 1)
 equipment = 0
 activated = true
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_34dl2"), SubResource("Resource_u6kg8"), SubResource("Resource_jrwxy"), SubResource("Resource_x4oyk")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_34dl2"), SubResource("Resource_u6kg8"), SubResource("Resource_jrwxy"), SubResource("Resource_x4oyk"), SubResource("Resource_o80kr"), SubResource("Resource_t32ar"), SubResource("Resource_ivduu"), SubResource("Resource_3jmmm"), SubResource("Resource_vfnok"), SubResource("Resource_3bpbm"), SubResource("Resource_wawdi"), SubResource("Resource_b4h3v"), SubResource("Resource_oaakx"), SubResource("Resource_jbyve")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
