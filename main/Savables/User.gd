@@ -29,6 +29,7 @@ func fully_save():
 func partly_load():
 	load_username()
 	load_gold_coins()
+	load_believe_in_god()
 
 func partly_save():
 	save_username()

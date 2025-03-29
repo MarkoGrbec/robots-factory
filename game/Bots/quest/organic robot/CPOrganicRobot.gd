@@ -19,19 +19,24 @@ func quest_believe(array_believe):
 		convince(array_believe[1] < 0.05)
 
 func convince(value):
+	# johnny
 	var server_quest: ServerQuest = QuestsManager.get_server_quest(11)
+	if g_man.user.believe_in_god == false:
+		# sophie
+		server_quest = QuestsManager.get_server_quest(12)
+	
 	if value:
-		if g_man.user.believe_in_god and not convinced:
+		if g_man.user.believe_in_god and convinced == false:
 			server_quest.mission_completing({"convince" = Enums.Esprite.mob_organic_robot})
 			convinced = true
-		elif not philosopher:
+		if g_man.user.believe_in_god == false and philosopher == false:
 			server_quest.mission_completing({"convince" = Enums.Esprite.mob_organic_robot})
 			philosopher = true
 	else:
 		if g_man.user.believe_in_god and convinced:
 			server_quest.mission_failing_quest({"convince" = Enums.Esprite.mob_organic_robot})
 			convinced = false
-		elif philosopher:
+		if g_man.user.believe_in_god == false and philosopher:
 			server_quest.mission_failing_quest({"convince" = Enums.Esprite.mob_organic_robot})
 			philosopher = false
 		

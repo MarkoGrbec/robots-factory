@@ -320,6 +320,14 @@ size_flags_vertical = 0
 layout_mode = 2
 text = "reset trader money"
 
+[node name="ActivateMark" type="Button" parent="cheat/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "activate Mark"
+
+[node name="RemoveSophieMission" type="Button" parent="cheat/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "remove sophie mission"
+
 [node name="MarginContainer2" type="MarginContainer" parent="cheat/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
@@ -382,6 +390,8 @@ text = "X"
 [connection signal="toggled" from="misc/HBoxContainer/VBoxContainer/speak names" to="misc" method="_on_speak_names_toggled"]
 [connection signal="pressed" from="misc/HBoxContainer/close window" to="." method="close_window"]
 [connection signal="pressed" from="cheat/HBoxContainer/VBoxContainer/ButtonResetTraderMoney" to="cheat" method="_on_button_reset_trader_money_pressed"]
+[connection signal="pressed" from="cheat/HBoxContainer/VBoxContainer/ActivateMark" to="cheat" method="_on_activate_mark_pressed"]
+[connection signal="pressed" from="cheat/HBoxContainer/VBoxContainer/RemoveSophieMission" to="cheat" method="_on_remove_sophie_mission_pressed"]
 [connection signal="pressed" from="cheat/HBoxContainer/close window" to="." method="close_window"]
 [connection signal="pressed" from="quit/VBoxContainer/quit game button" to="." method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="quit/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]

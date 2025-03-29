@@ -1766,7 +1766,6 @@ radius = 11.0
 height = 46.0
 
 [node name="CPAssistant" type="CharacterBody2D" node_paths=PackedStringArray("controller", "visuals", "timer", "name_label")]
-z_index = 2
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838

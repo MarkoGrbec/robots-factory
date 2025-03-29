@@ -1,4 +1,4 @@
-[gd_scene load_steps=436 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=434 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -3638,7 +3638,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help around"])
-response_dialog = Array[String](["Try investigating the house. It seems there are organic robots."])
+response_dialog = Array[String](["Try investigating the house. It seems there are organic robots. go near house and click on center of it."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -4487,35 +4487,11 @@ believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
-[sub_resource type="Resource" id="Resource_fm5xk"]
-script = ExtResource("11_cdsqw")
-npc_activate = 9
-npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
-[sub_resource type="Resource" id="Resource_uamro"]
-script = ExtResource("11_cdsqw")
-npc_activate = 10
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
-[sub_resource type="Resource" id="Resource_ij405"]
-script = ExtResource("11_cdsqw")
-npc_activate = 12
-npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
 [sub_resource type="Resource" id="Resource_idqer"]
 script = ExtResource("5_0rfkw")
-use_basis = false
+use_basis = true
 new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
+add_basis_flags = Array[int]([2])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
 add_qq_flags = Array[ExtResource("5_0rfkw")]([])
@@ -4523,7 +4499,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_fm5xk"), SubResource("Resource_uamro"), SubResource("Resource_ij405")])
+other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["What mission?"])
 response_dialog = Array[String](["There are many organic robots that don’t believe in God.
 I need an army. Are you up for it?"])
@@ -4556,9 +4532,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_idqer"), SubResource("Resource_45u4c")])
-default_starting_dialog = "Hello, blessed one. Are you for the mission?
-
-thanks for playing"
+default_starting_dialog = "Hello, blessed one. Are you for the mission?"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -4591,20 +4565,12 @@ fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_nxix5")])
 default_starting_dialog = "Did you convince everyone?"
-default_failed_dialog = "ou haven’t convinced everyone. Get back to work and search all the houses!!!"
+default_failed_dialog = "You haven’t convinced everyone. Get back to work and search every house!!!"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
 [sub_resource type="Resource" id="Resource_w5vww"]
 script = ExtResource("11_cdsqw")
 npc_activate = 10
-npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_oo4jq"]
-script = ExtResource("11_cdsqw")
-npc_activate = 12
 npc_activated = false
 npc_alive = false
 npc_basis = 0
@@ -4686,7 +4652,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_oo4jq"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
 list_avatar_dialog = Array[String](["Yes, I’m up for the mission."])
 response_dialog = Array[String](["Thank God, you are truly a blessed one from heaven."])
 response_failed_dialog = ""
@@ -4694,7 +4660,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_0ty7t"]
 script = ExtResource("5_0rfkw")
-use_basis = true
+use_basis = false
 new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
@@ -4737,35 +4703,11 @@ believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
-[sub_resource type="Resource" id="Resource_s63vl"]
-script = ExtResource("11_cdsqw")
-npc_activate = 9
-npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
-[sub_resource type="Resource" id="Resource_jcphs"]
-script = ExtResource("11_cdsqw")
-npc_activate = 10
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
-[sub_resource type="Resource" id="Resource_1cd46"]
-script = ExtResource("11_cdsqw")
-npc_activate = 11
-npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = ExtResource("11_cdsqw")
-
 [sub_resource type="Resource" id="Resource_w3kbx"]
 script = ExtResource("5_0rfkw")
 use_basis = false
 new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
+add_basis_flags = Array[int]([2])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
 add_qq_flags = Array[ExtResource("5_0rfkw")]([])
@@ -4773,9 +4715,9 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_s63vl"), SubResource("Resource_jcphs"), SubResource("Resource_1cd46")])
-list_avatar_dialog = Array[String](["consumed", "nothingness", "nothingnes"])
-response_dialog = Array[String](["thanks for playing"])
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["What mission?"])
+response_dialog = Array[String](["Do you want to enlighten all organic robots and show them that science is reality? Are you up for it?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -4787,9 +4729,71 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_w3kbx")])
-default_starting_dialog = "will you be consumed in to nothingness?"
+default_starting_dialog = "Welcome, I have science mission for you."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_uamro"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["Mission completed."])
+response_dialog = Array[String](["Great job! I love that you fought for the side of science."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_2mc1w"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({
+"convince": 319
+})
+mission_quantity = 1
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uamro")])
+default_starting_dialog = "Did you convince everyone?"
+default_failed_dialog = "You haven’t convinced everyone yet. Please go to every house, search them, and persuade them all. This would mean a lot to us—we believe it’s a very important mission."
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_64f7x"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([1])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([2])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
+list_avatar_dialog = Array[String](["You can count on me."])
+response_dialog = Array[String](["Oh, great! I love that you find the mission scientifically realistic."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_71wuy"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_64f7x")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
 
 [sub_resource type="Resource" id="Resource_ptcvj"]
 script = ExtResource("3_d1vgu")
@@ -4801,7 +4805,7 @@ quest_body_type = 311
 color = Color(0.580483, 0.547897, 0.999999, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru"), SubResource("Resource_2mc1w"), SubResource("Resource_71wuy")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
@@ -4819,8 +4823,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["no"])
-response_dialog = Array[String](["potem mora biti znanost izmišljotina"])
+list_avatar_dialog = Array[String](["No."])
+response_dialog = Array[String](["Then science must be a fabrication."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -4837,9 +4841,9 @@ quantity = 1
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["tako je danes je pa samostojna"])
-response_dialog = Array[String](["vendar verjetno še vedno tesno povezana z filozofijo znanosti"])
-response_failed_dialog = ""
+list_avatar_dialog = Array[String](["That’s how it is—today, it stands as an independent branch."])
+response_dialog = Array[String]([""])
+response_failed_dialog = "Though it likely remains closely tied to the philosophy of science."
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_blnlk"]
@@ -4850,7 +4854,7 @@ mission_quantity = 0
 fail_passes = true
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_wavsp"), SubResource("Resource_1iubd")])
-default_starting_dialog = "science is fork of phylosophy right?"
+default_starting_dialog = "Science is a branch of philosophy, isn’t it?"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
@@ -4867,8 +4871,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["zato ker je svet okrogel"])
-response_dialog = Array[String](["torej se vidi morje ki je med ladjo in teboj"])
+list_avatar_dialog = Array[String](["Because the world is round."])
+response_dialog = Array[String](["So you see the sea that lies between the ship and you."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -4885,8 +4889,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["ker jo je hudič obsedel"])
-response_dialog = Array[String](["torej gre vedno globje v morje ko se oddaljuje"])
+list_avatar_dialog = Array[String](["But since the ship is possessed by the devil."])
+response_dialog = Array[String](["So it sinks deeper into the sea—drawn toward the devil—as it moves away."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -4898,7 +4902,7 @@ mission_quantity = 0
 fail_passes = true
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yd707"), SubResource("Resource_8lj6s")])
-default_starting_dialog = "zakaj vidiš ladjo kako ji zmanjkuje spodnji del ko se oddaljuje"
+default_starting_dialog = "Why do you see the ship’s lower part disappear as it recedes."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -4915,8 +4919,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["in še veliko miljard let"])
-response_dialog = Array[String](["verjetno da res tam nekje"])
+list_avatar_dialog = Array[String](["And for billions more years..."])
+response_dialog = Array[String](["Yes, probably somewhere around that."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -4933,8 +4937,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["ne bog je naredil zemljo v sedmih dneh"])
-response_dialog = Array[String](["torej tako smo mi nastali"])
+list_avatar_dialog = Array[String](["But no—God made the Earth in seven days."])
+response_dialog = Array[String](["So that’s how we came to be."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -4946,7 +4950,7 @@ mission_quantity = 0
 fail_passes = true
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_oa83u"), SubResource("Resource_aveux")])
-default_starting_dialog = "prišlo je do velikega poka in tako smo mi nastali"
+default_starting_dialog = "Then came the Big Bang, and that’s how we appeared."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -4963,8 +4967,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["in še par miljonov let"])
-response_dialog = Array[String](["verjetno da res tam nekje"])
+list_avatar_dialog = Array[String](["And a few million more years..."])
+response_dialog = Array[String](["Yes, probably somewhere around that."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -4981,8 +4985,26 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["kar je vse navadna zgodbica za lahko noč"])
-response_dialog = Array[String](["torej je vse izmišlotina"])
+list_avatar_dialog = Array[String](["But it’s all just a bedtime story."])
+response_dialog = Array[String](["meaning none of it is real."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_fklc8"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["God created Adam first, then Eve."])
+response_dialog = Array[String](["so life didn’t begin with soup."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -4993,8 +5015,11 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = true
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_dbpr5"), SubResource("Resource_cf0f1")])
-default_starting_dialog = "življenje se je razvilo iz vroče kisle juhe v katero je udarila strela in tako se je začelo življenje na zemiji"
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_dbpr5"), SubResource("Resource_cf0f1"), SubResource("Resource_fklc8")])
+default_starting_dialog = "Yet science says life emerged
+from a hot, acidic broth—
+struck by lightning,
+sparking life on Earth."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -5011,8 +5036,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["možno ali pa iz vroče juhe"])
-response_dialog = Array[String](["kar je povsem verjetneje"])
+list_avatar_dialog = Array[String](["Possibly. Or maybe from the hot primordial soup."])
+response_dialog = Array[String](["which seems far more likely."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -5029,8 +5054,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["bakterija sploh ni živo bitje"])
-response_dialog = Array[String](["torej se iz bakterij ne morejo razviti večji organizmi"])
+list_avatar_dialog = Array[String](["But bacteria aren’t even alive."])
+response_dialog = Array[String](["So, larger organisms cannot evolve from bacteria."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -5042,7 +5067,10 @@ mission_quantity = 0
 fail_passes = true
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ggc5t"), SubResource("Resource_i8085")])
-default_starting_dialog = "mogoče smo nezemljani ker v vesolju so našli bakterije in viruse ki plavajo po vesolju"
+default_starting_dialog = "Maybe... we’re aliens after all.
+Scientists found bacteria and viruses
+drifting through space.
+Maybe that’s our origin story."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 

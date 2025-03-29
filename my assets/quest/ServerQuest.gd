@@ -209,7 +209,7 @@ func ask(raw_text: String, client) -> Array:
 		return [[q_obj.quest_name, "don't be that mean to me I can revenge on you if you. Are on main quest line it means it's game over for you. You need to start from beginning again"], null, inventory.id, [], array_believe, array_answers__response_size]
 	
 	
-	push_warning(raw_text, basis)
+	#push_warning(raw_text, basis)
 	# general basis
 	var qq_indexes = q_obj.get_quest_question(basis, raw_text)
 	var qq
@@ -258,7 +258,13 @@ func ask(raw_text: String, client) -> Array:
 	# success
 	elif general_basis or qq.use_basis:
 		succeed_believe()
-		var _array_old_basis__qq_index: Array = [basis, q_obj.index_quest_qustion(qq, basis)]
+		var index_quest_question = q_obj.index_quest_qustion(qq, basis)
+		if index_quest_question == -1:
+			for flag in basis_flags:
+				index_quest_question = q_obj.index_quest_qustion(qq, flag)
+				if not index_quest_question == -1:
+					break
+		var _array_old_basis__qq_index: Array = [basis, index_quest_question]
 		response_dialog = get_response_dialog_indexed(qq, q_obj, avatar_name)
 		
 		set_new_basis(qq, q_obj, general_basis, avatar_name, indexes)
