@@ -77,14 +77,16 @@ func save_weapon_reflexes(weapon_reflexes, default: bool = false):
 
 func save_believe_in_god():
 	DataBase.insert(_server, g_man.dbms, _path, "believe_in_god", id, believe_in_god)
+
+func save_layer(layer):
+	save_uni("layer", layer)
 	#endregion save
 	#region load
 func load_username():
 	avatar_name = DataBase.select(_server, g_man.dbms, _path, "username", id, "")
 
 func load_return_position():
-	var position = DataBase.select(_server, g_man.dbms, _path, "position", id, Vector3.ZERO)
-	return Vector2(position.x, position.y)
+	return load_uni("position", Vector2.ZERO)
 
 func load_return_user_time_change_name():
 	return DataBase.select(_server, g_man.dbms, _path, "time_changed_name", id, 0)
@@ -111,6 +113,9 @@ func load_weapon_reflexes():
 
 func load_believe_in_god():
 	believe_in_god = DataBase.select(_server, g_man.dbms, _path, "believe_in_god", id, false)
+
+func load_return_layer():
+	return load_uni("layer", 0)
 	#endregion load
 #endregion save load
 func set_weapon(activate):

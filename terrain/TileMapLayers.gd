@@ -177,7 +177,10 @@ func activate_layer(new_layer: Layers):
 	g_man.entity_manager.activate_layer(active_layer)
 	reload_terrain()
 	bake()
-	
+	# save layer on user
+	g_man.user.save_layer(active_layer)
+	# position is saved at PlayerWeaponController
+
 #endregion in to change layer
 #region dirt reference
 	#region set

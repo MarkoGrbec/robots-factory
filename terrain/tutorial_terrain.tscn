@@ -80,4 +80,7 @@ text = "test player"
 [node name="Chest" parent="CPPlayer/visuals/Skeleton2D/Hip" index="0"]
 scale = Vector2(0.999995, 0.999995)
 
+[node name="Head" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest" index="0"]
+scale = Vector2(0.99998, 0.99998)
+
 [editable path="CPPlayer"]

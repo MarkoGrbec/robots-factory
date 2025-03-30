@@ -3,6 +3,7 @@ class_name Player extends Node2D
 @export var movement: Movement
 @export var animation_tree: AnimationTree
 @export var holding_hand: bool = false
+@export var timer: Timer
 
 func _physics_process(delta: float) -> void:
 	movement.state = Movement.State.WALK
@@ -19,6 +20,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		if movement.direction:
 			g_man.sliders_manager.remove_work()
 			g_man.holding_hand.holding_hand_movement_completed()
+			timer.start(1)
+
+func save_position():
+	if g_man.user:
+		g_man.user.save_position(global_position)
 
 func blend_anim(anim, value: float, timescale: float):
 	animation_tree["parameters/state/transition_request"] = anim

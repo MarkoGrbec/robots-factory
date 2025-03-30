@@ -136,6 +136,10 @@ func welcome_screen() -> void:
 	user.load_weapon_range()
 	user.load_weapon_reflexes()
 	user.load_battery_constumption()
+	# load position
+	g_man.player.global_position = user.load_return_position()
+	# load layer
+	g_man.tile_map_layers.activate_layer(user.load_return_layer())
 	var time = user.load_return_user_time_change_name()
 	if time:
 		var dict: Dictionary = Time.get_datetime_dict_from_unix_time(time)
@@ -155,7 +159,7 @@ func set_holding_hand() -> void:
 func close_welcome_window() -> void:
 	g_man.sliders_manager.open_window()
 	g_man.savable_entity.partly_load_all()
-	g_man.entity_manager.activate_layer(0)
+	#g_man.entity_manager.activate_layer(0)
 	
 	g_man.player.config_name(g_man.user.avatar_name)
 	g_man.inventory_system.generate_inventory_slots()

@@ -10,6 +10,8 @@ var array_stop_button_quest: Array[StopButtonQuest]
 ## for responce and questions
 @export var dialog_container: VBoxContainer
 @export var answer_container: GridContainer
+
+@export var believe_texture_rect: TextureRect
 ### for automated scrolling
 #@export var scroll_container: Control
 
@@ -52,6 +54,11 @@ func close_window():
 		stop_talking = null
 
 func open_dialog(quest_index, _c_p_q: CPQuest):
+	if _c_p_q is OrganicRobot:
+		believe_texture_rect.show()
+		believe_texture_rect.texture = _c_p_q.gradient_tex
+	else:
+		believe_texture_rect.hide()
 	show_window()
 	# clear dialogs
 	if _quest_index != quest_index:

@@ -2344,7 +2344,7 @@ node_connections = [&"dig_blend", 0, &"land_hard", &"dig_blend", 1, &"dig_timesc
 radius = 11.0
 height = 46.0
 
-[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "name_label") groups=["player"]]
+[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "controller", "name_label") groups=["player"]]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
@@ -2353,13 +2353,15 @@ platform_floor_layers = 4294967294
 safe_margin = 0.2
 script = ExtResource("1_hld8j")
 weapon_controller = NodePath("controller/PlayerWeaponController")
+controller = NodePath("controller")
 name_label = NodePath("controller/player name")
 
-[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "animation_tree")]
+[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "animation_tree", "timer")]
 position = Vector2(0, -20)
 script = ExtResource("1")
 movement = NodePath("../Movement")
 animation_tree = NodePath("../AnimationTree")
+timer = NodePath("../Timer")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="controller"]
 radius = 17.0
@@ -2436,13 +2438,13 @@ rest = Transform2D(1, 0, 0, 1, -3, -11)
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
 rotation = 0.653935
-scale = Vector2(0.999996, 0.999996)
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
 rotation = -0.0176109
-scale = Vector2(0.999982, 0.999982)
+scale = Vector2(0.99998, 0.99998)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
 [node name="Chin" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/Head"]
@@ -2467,6 +2469,7 @@ rest = Transform2D(1, 0, 0, 1, -11, 97)
 [node name="RightHand" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm"]
 position = Vector2(13, 94)
 rotation = 1.22745
+scale = Vector2(1, 1)
 rest = Transform2D(0.336639, 0.941634, -0.941634, 0.336639, 13, 94)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2619,6 +2622,9 @@ position = Vector2(0, -32)
 limit_smoothed = true
 script = ExtResource("3_g1dw6")
 
+[node name="Timer" type="Timer" parent="."]
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="hit_body" from="controller/beam weapon" to="controller/PlayerWeaponController" method="_on_beam_weapon_hit_body"]
+[connection signal="timeout" from="Timer" to="controller" method="save_position"]

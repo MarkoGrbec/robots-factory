@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bs3s7gpgf8hym"]
+[gd_scene load_steps=8 format=3 uid="uid://bs3s7gpgf8hym"]
 
 [ext_resource type="Script" uid="uid://bh3inps7efedm" path="res://main/quest/QuestsManager.gd" id="1_2bohx"]
 [ext_resource type="PackedScene" uid="uid://cqx8v3qkveogv" path="res://game/entity/stop_button_quest.tscn" id="2_7v8hc"]
@@ -6,7 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://ceytlmwef6eq4" path="res://game/entity/entity_button_quest.tscn" id="3_mp27h"]
 [ext_resource type="PackedScene" uid="uid://12xatoe4y68n" path="res://main/quest/button_answer.tscn" id="4_twq84"]
 
-[node name="QuestsManager" type="TabContainer" node_paths=PackedStringArray("quest_grid_container", "entity_button_quest", "dialog_container", "answer_container")]
+[sub_resource type="Gradient" id="Gradient_twq84"]
+colors = PackedColorArray(1, 0, 1, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ip24k"]
+gradient = SubResource("Gradient_twq84")
+
+[node name="QuestsManager" type="TabContainer" node_paths=PackedStringArray("quest_grid_container", "entity_button_quest", "dialog_container", "answer_container", "believe_texture_rect")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,6 +28,7 @@ ask_or_response_dialog = ExtResource("2_mp27h")
 answer_dialog = ExtResource("4_twq84")
 dialog_container = NodePath("quest dialog/VBoxContainer/ScrollContainer/dialog conatainer/MarginContainerDialog/VBoxContainerDialog")
 answer_container = NodePath("quest dialog/VBoxContainer/ScrollContainer2/AnswerGridContainer")
+believe_texture_rect = NodePath("quest dialog/VBoxContainer/MarginContainer2/TextureRectGradientBelieve")
 
 [node name="quest dialog" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -42,6 +49,10 @@ mouse_filter = 0
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 0
+
+[node name="TextureRectGradientBelieve" type="TextureRect" parent="quest dialog/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+texture = SubResource("GradientTexture1D_ip24k")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="quest dialog/VBoxContainer"]
 layout_mode = 2

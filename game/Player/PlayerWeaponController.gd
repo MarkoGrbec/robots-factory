@@ -48,6 +48,7 @@ func _unhandled_input(event: InputEvent) -> void:
 								if house_inter_pos:
 									house_inter_pos = g_man.tile_map_layers.in_to_house(house_inter_pos)
 									g_man.player.global_position = house_inter_pos
+									g_man.player.controller.save_position()
 								return
 							# outside house
 							elif id == TileMapLayers.Tile.HOUSE_DOOR:
@@ -55,6 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 								if house_outer_pos:
 									house_outer_pos = g_man.tile_map_layers.out_of_house(house_outer_pos)
 									g_man.player.global_position = house_outer_pos
+									g_man.player.controller.save_position()
 								return
 							array_ttc_tool.push_back(TTCTool.new(tool, mouse_pos, dig))
 
