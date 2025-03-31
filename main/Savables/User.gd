@@ -17,6 +17,8 @@ func destroy():
 	save_battery_constumption(75, true)
 	save_weapon_range(75, true)
 	save_weapon_reflexes(1, true)
+	save_layer(0)
+	save_position(Vector2.ZERO)
 #region fully
 func fully_load():
 	if not avatar_name:

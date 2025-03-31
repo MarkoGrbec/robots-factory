@@ -137,7 +137,9 @@ func welcome_screen() -> void:
 	user.load_weapon_reflexes()
 	user.load_battery_constumption()
 	# load position
-	g_man.player.global_position = user.load_return_position()
+	var pos = user.load_return_position()
+	if pos != Vector2.ZERO:
+		g_man.player.global_position = pos
 	# load layer
 	g_man.tile_map_layers.activate_layer(user.load_return_layer())
 	var time = user.load_return_user_time_change_name()

@@ -326,7 +326,16 @@ func get_deep_in_display_answers_final(qq_in_add_qq_flags: Array[QuestQuestion],
 			get_display_answers_from_qq(qq_in_add_qq_flags[qq_deep.index -1])
 
 func get_display_answers_from_qq(basis_qq: QuestQuestion):
-	array_answers__response_size.push_back([str(basis_qq.list_avatar_dialog), basis_qq.response_dialog.size()])
+	if basis_qq.list_avatar_dialog.size() > 0:
+		array_answers__response_size.push_back([basis_qq.list_avatar_dialog[0], basis_qq.response_dialog.size()])
+
+func get_random_basis(array_basis, basis):
+	if array_basis.size() > 1:
+		var new_basis = array_basis[randi_range(0, array_basis.size() -1)]
+		if new_basis != basis:
+			return new_basis
+		return get_random_basis(array_basis, basis)
+	return array_basis[0]
 
 ## sets new basis and default starting dialog
 func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, avatar_name: String, indexes: Dictionary):
@@ -334,7 +343,7 @@ func set_new_basis(qq: QuestQuestion, q_obj: QuestObject, general_basis: int, av
 	var new_basis = basis
 	# get one basis from the pool
 	if qq.new_basis:
-		new_basis = qq.new_basis[randi_range(0, qq.new_basis.size() -1)]
+		new_basis = get_random_basis(qq.new_basis, basis)
 	# if char likes player set new_basis from pool or same as before (basis)
 	if not new_basis == -1:
 		# add remove flags
