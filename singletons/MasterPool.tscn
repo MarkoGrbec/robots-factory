@@ -1,4 +1,4 @@
-[gd_scene load_steps=428 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=430 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -4560,13 +4560,21 @@ description = ""
 dict_mission__entity_num = Dictionary[String, int]({
 "convince": 319
 })
-mission_quantity = 1
+mission_quantity = 8
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_nxix5")])
 default_starting_dialog = "Did you convince everyone?"
 default_failed_dialog = "You haven’t convinced everyone. Get back to work and search every house!!!"
 metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_ij405"]
+script = ExtResource("11_cdsqw")
+npc_activate = 9
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
 [sub_resource type="Resource" id="Resource_w5vww"]
 script = ExtResource("11_cdsqw")
@@ -4652,7 +4660,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_ij405"), SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
 list_avatar_dialog = Array[String](["Yes, I’m up for the mission."])
 response_dialog = Array[String](["Thank God, you are truly a blessed one from heaven."])
 response_failed_dialog = ""
@@ -4757,13 +4765,21 @@ description = ""
 dict_mission__entity_num = Dictionary[String, int]({
 "convince": 319
 })
-mission_quantity = 1
+mission_quantity = 8
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uamro")])
 default_starting_dialog = "Did you convince everyone?"
 default_failed_dialog = "You haven’t convinced everyone yet. Please go to every house, search them, and persuade them all. This would mean a lot to us—we believe it’s a very important mission."
 metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_jcphs"]
+script = ExtResource("11_cdsqw")
+npc_activate = 9
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
 [sub_resource type="Resource" id="Resource_64f7x"]
 script = ExtResource("5_0rfkw")
@@ -4777,7 +4793,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jcphs"), SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
 list_avatar_dialog = Array[String](["You can count on me."])
 response_dialog = Array[String](["Oh, great! I love that you find the mission scientifically realistic."])
 response_failed_dialog = ""
