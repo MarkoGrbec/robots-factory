@@ -2,6 +2,7 @@ class_name CPPlayer extends CPMob
 
 @export var weapon_controller: PlayerWeaponController
 @export var controller: Player
+@export var rain_particles: RainParticles
 
 var layer: int = 0
 

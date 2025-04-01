@@ -180,6 +180,11 @@ func activate_layer(new_layer: Layers):
 	# save layer on user
 	g_man.user.save_layer(active_layer)
 	# position is saved at PlayerWeaponController
+	# set sound
+	if active_layer == Layers.HOUSE_LAYER:
+		g_man.player.rain_particles.start_in_door_sfx()
+	else:
+		g_man.player.rain_particles.start_out_door_sfx()
 
 #endregion in to change layer
 #region dirt reference

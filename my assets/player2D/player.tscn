@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c657hgr7fcptm"]
+[gd_scene load_steps=60 format=3 uid="uid://c657hgr7fcptm"]
 
 [ext_resource type="Script" uid="uid://cmyv0058qronw" path="res://my assets/player2D/player.gd" id="1"]
 [ext_resource type="Script" uid="uid://16ril05wvyl" path="res://my assets/player2D/CPPlayer.gd" id="1_hld8j"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://b74easlpd6qmx" path="res://game/weapons/tools/pickaxe/pickaxe.tscn" id="4_5bycs"]
 [ext_resource type="Script" uid="uid://0yw15drlegd3" path="res://game/Player/PlayerWeaponController.gd" id="4_e52rd"]
 [ext_resource type="PackedScene" uid="uid://c5rnj13ot4s51" path="res://game/weapons/tools/shovel/shovel.tscn" id="5_tkwip"]
+[ext_resource type="Script" uid="uid://diflvhljfur1x" path="res://game/Player/RainParticles.gd" id="10_tkwip"]
+[ext_resource type="AudioStream" uid="uid://dpsnyhp7my5vg" path="res://sounds/storm-wind-trees-suburb klankbeeld.wav" id="11_j44x7"]
+[ext_resource type="AudioStream" uid="uid://crv0c2a0eqs35" path="res://sounds/park-berlicum-netherlands klankbeeld.wav" id="12_0wcpr"]
+[ext_resource type="AudioStream" uid="uid://c0ky6tys6bpny" path="res://sounds/wind-gap-indoors klankbeeld.wav" id="13_fhg4i"]
+[ext_resource type="AudioStream" uid="uid://bjlypstmg45ws" path="res://sounds/wind-gap-indoors 2 klankbeeld.wav" id="14_cydyf"]
+[ext_resource type="AudioStream" uid="uid://ctywvno3mphte" path="res://sounds/wind-gap-indoors 3 klankbeeld.wav" id="15_plhtt"]
 
 [sub_resource type="Animation" id="Animation_tkwip"]
 length = 0.001
@@ -2296,7 +2302,6 @@ animation = &"walk"
 [sub_resource type="AnimationNodeTimeScale" id="22"]
 
 [sub_resource type="AnimationNodeBlendTree" id="23"]
-graph_offset = Vector2(321.81, 73.0081)
 nodes/dig/node = SubResource("AnimationNodeAnimation_5bycs")
 nodes/dig/position = Vector2(1540, 220)
 nodes/dig_blend/node = SubResource("AnimationNodeBlend2_5bycs")
@@ -2344,7 +2349,59 @@ node_connections = [&"dig_blend", 0, &"land_hard", &"dig_blend", 1, &"dig_timesc
 radius = 11.0
 height = 46.0
 
-[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "controller", "name_label") groups=["player"]]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5bycs"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_tkwip"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 2.44984, 0, 0, Vector2(0.501511, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.14009, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_j44x7"]
+curve = SubResource("Curve_tkwip")
+
+[sub_resource type="Gradient" id="Gradient_5bycs"]
+colors = PackedColorArray(1, 1, 1, 0.137255, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_tkwip"]
+gradient = SubResource("Gradient_5bycs")
+
+[sub_resource type="Curve" id="Curve_j44x7"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1.47656), 0.0, 12.6424, 0, 0, Vector2(0.253776, 3), 0.0, 0.0, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_0wcpr"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 14.7656), 0.0, 160.005, 0, 0, Vector2(0.253776, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_ljyab"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_kv3se"]
+curve_x = SubResource("Curve_j44x7")
+curve_y = SubResource("Curve_0wcpr")
+curve_z = SubResource("Curve_ljyab")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5bycs"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(0, -125, 0)
+emission_shape = 3
+emission_box_extents = Vector3(1000, 600, 1)
+angle_min = -45.0
+angle_max = -45.0
+gravity = Vector3(-1000, 1000, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+scale_min = 0.2
+scale_over_velocity_curve = SubResource("CurveXYZTexture_kv3se")
+color_initial_ramp = SubResource("GradientTexture1D_tkwip")
+alpha_curve = SubResource("CurveTexture_j44x7")
+
+[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "controller", "rain_particles", "name_label") groups=["player"]]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
@@ -2354,6 +2411,7 @@ safe_margin = 0.2
 script = ExtResource("1_hld8j")
 weapon_controller = NodePath("controller/PlayerWeaponController")
 controller = NodePath("controller")
+rain_particles = NodePath("GPUParticles2D")
 name_label = NodePath("controller/player name")
 
 [node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "animation_tree", "timer")]
@@ -2438,13 +2496,13 @@ rest = Transform2D(1, 0, 0, 1, -3, -11)
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
 rotation = 0.653935
-scale = Vector2(0.999995, 0.999995)
+scale = Vector2(0.999992, 0.999992)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
 rotation = -0.0176109
-scale = Vector2(0.99998, 0.99998)
+scale = Vector2(0.999975, 0.999975)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
 [node name="Chin" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/Head"]
@@ -2469,6 +2527,7 @@ rest = Transform2D(1, 0, 0, 1, -11, 97)
 [node name="RightHand" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm"]
 position = Vector2(13, 94)
 rotation = 1.22745
+scale = Vector2(1, 1)
 rest = Transform2D(0.336639, 0.941634, -0.941634, 0.336639, 13, 94)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2623,7 +2682,27 @@ script = ExtResource("3_g1dw6")
 
 [node name="Timer" type="Timer" parent="."]
 
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." node_paths=PackedStringArray("audio_stream_player2d")]
+material = SubResource("CanvasItemMaterial_5bycs")
+amount = 500
+preprocess = 0.5
+visibility_rect = Rect2(-600, -400, 1200, 700)
+process_material = SubResource("ParticleProcessMaterial_5bycs")
+script = ExtResource("10_tkwip")
+audio_stream_player2d = NodePath("../AudioStreamPlayer2D")
+audio_stream_storm = ExtResource("11_j44x7")
+audio_stream_birds = ExtResource("12_0wcpr")
+audio_stream_in_doors = Array[AudioStream]([ExtResource("13_fhg4i"), ExtResource("14_cydyf"), ExtResource("15_plhtt")])
+
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_distance = 250.0
+bus = &"rain"
+
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="hit_body" from="controller/beam weapon" to="controller/PlayerWeaponController" method="_on_beam_weapon_hit_body"]
 [connection signal="timeout" from="Timer" to="controller" method="save_position"]
+[connection signal="finished" from="AudioStreamPlayer2D" to="GPUParticles2D" method="random_indoor_sound"]

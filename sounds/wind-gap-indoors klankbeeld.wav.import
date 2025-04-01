@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c0ky6tys6bpny"
+path="res://.godot/imported/wind-gap-indoors klankbeeld.wav-cc2759c91b2f3c3533a5760d647c90a5.sample"
+
+[deps]
+
+source_file="res://sounds/wind-gap-indoors klankbeeld.wav"
+dest_files=["res://.godot/imported/wind-gap-indoors klankbeeld.wav-cc2759c91b2f3c3533a5760d647c90a5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -21,6 +21,7 @@ func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 #
 #[url=https://www.freesound.org/]sounds free sounds org[/url]
 #laser - defunct3
+#ambient - klankbeeld
 #
 #[url=https://ivanastan.bandcamp.com/album/the-epic-adventure]music ivanastan - the-epic-adventure, MIDIocrity[/url]
 

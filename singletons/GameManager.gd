@@ -21,7 +21,6 @@ var trader_manager: TraderManager
 var misc: Misc
 var music_manager: MusicManager
 
-
 var dbms = "DBMS"
 
 var savable_user: Savable
