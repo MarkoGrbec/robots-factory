@@ -10,26 +10,44 @@ var gravity_x: float = -1000
 var degrees: float = 0
 var currently_raining: bool = true
 var in_door: bool = false
+var current_sound_type: SoundType
+enum SoundType{
+	WIND,
+	STORM,
+	BIRDS,
+	NULL,
+}
 
 func _ready() -> void:
 	set_direction_of_rain()
+
+func set_sound_type(sound_type: SoundType):
+	if current_sound_type != sound_type:
+		current_sound_type = sound_type
+		if sound_type == SoundType.WIND:
+			audio_stream_player2d.stream = audio_stream_in_doors[randi_range(0, audio_stream_in_doors.size()-1)]
+		elif sound_type == SoundType.STORM:
+			audio_stream_player2d.stream = audio_stream_storm
+		elif sound_type == SoundType.BIRDS:
+			audio_stream_player2d.stream = audio_stream_birds
+		audio_stream_player2d.play()
+		if sound_type == SoundType.NULL:
+			audio_stream_player2d.stream = null
+			audio_stream_player2d.stop()
 
 func start_out_door_sfx():
 	in_door = false
 	if currently_raining:
 		emitting = true
-		audio_stream_player2d.stream = audio_stream_storm
-		audio_stream_player2d.play()
+		set_sound_type(SoundType.STORM)
 	else:
-		audio_stream_player2d.stream = audio_stream_birds
-		audio_stream_player2d.play()
+		set_sound_type(SoundType.BIRDS)
 
 func random_indoor_sound():
 	if in_door == true and currently_raining == true:
-		audio_stream_player2d.stream = audio_stream_in_doors[randi_range(0, audio_stream_in_doors.size()-1)]
-		audio_stream_player2d.play()
+		set_sound_type(SoundType.WIND)
 	elif in_door == true:
-		audio_stream_player2d.stop()
+		set_sound_type(SoundType.NULL)
 
 func start_in_door_sfx():
 	in_door = true
@@ -42,10 +60,9 @@ func stop_rain():
 	if in_door == false:
 		# out doors no storm and birds sound
 		if not audio_stream_player2d.stream == audio_stream_birds:
-			audio_stream_player2d.stream = audio_stream_birds
-			audio_stream_player2d.play()
+			set_sound_type(SoundType.BIRDS)
 	else:# in doors no storm and no sound for now
-		audio_stream_player2d.stop()
+		set_sound_type(SoundType.NULL)
 	await get_tree().create_timer(20).timeout
 	# restart rain after 20 sec if possible
 	set_direction_of_rain()
@@ -74,11 +91,13 @@ func set_random():
 		g_man.changes_manager.add_key_change("STOP", str(true))
 		stop_rain()
 		return
-	elif not audio_stream_player2d.stream == audio_stream_storm and in_door == false:
-			audio_stream_player2d.stream = audio_stream_storm
-			audio_stream_player2d.play()
+	elif in_door == false:
+		if not audio_stream_player2d.stream == audio_stream_storm:
+			set_sound_type(SoundType.STORM)
+	else:
+		set_sound_type(SoundType.WIND)
 	
-	await get_tree().create_timer(0.15).timeout
+	await get_tree().create_timer(15).timeout
 	# change direction after 15 seconds
 	set_random()
 

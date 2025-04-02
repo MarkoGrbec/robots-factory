@@ -78,12 +78,12 @@ position = Vector2(73, 73)
 text = "test player"
 
 [node name="Hip" parent="CPPlayer/visuals/Skeleton2D" index="0"]
-scale = Vector2(1, 1)
+scale = Vector2(0.999999, 0.999999)
 
 [node name="Chest" parent="CPPlayer/visuals/Skeleton2D/Hip" index="0"]
 scale = Vector2(0.999995, 0.999995)
 
 [node name="LeftLeg" parent="CPPlayer/visuals/Skeleton2D/Hip" index="1"]
-scale = Vector2(1, 1)
+scale = Vector2(0.999999, 0.999999)
 
 [editable path="CPPlayer"]
