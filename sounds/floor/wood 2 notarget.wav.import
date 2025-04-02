@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3hxmpm5ou3y5"
+path="res://.godot/imported/wood 2 notarget.wav-deed698e6b33f3eadd3165b8a257446f.sample"
+
+[deps]
+
+source_file="res://sounds/floor/wood 2 notarget.wav"
+dest_files=["res://.godot/imported/wood 2 notarget.wav-deed698e6b33f3eadd3165b8a257446f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://c657hgr7fcptm"]
+[gd_scene load_steps=65 format=3 uid="uid://c657hgr7fcptm"]
 
 [ext_resource type="Script" uid="uid://cmyv0058qronw" path="res://my assets/player2D/player.gd" id="1"]
 [ext_resource type="Script" uid="uid://16ril05wvyl" path="res://my assets/player2D/CPPlayer.gd" id="1_hld8j"]
@@ -8,7 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://be5bhpgyigp81" path="res://game/weapons/beem/beem_weapon.tscn" id="3_xsxuk"]
 [ext_resource type="PackedScene" uid="uid://b74easlpd6qmx" path="res://game/weapons/tools/pickaxe/pickaxe.tscn" id="4_5bycs"]
 [ext_resource type="Script" uid="uid://0yw15drlegd3" path="res://game/Player/PlayerWeaponController.gd" id="4_e52rd"]
+[ext_resource type="Script" uid="uid://ljrbbbva2ug0" path="res://game/Player/FootSound.gd" id="5_cydyf"]
 [ext_resource type="PackedScene" uid="uid://c5rnj13ot4s51" path="res://game/weapons/tools/shovel/shovel.tscn" id="5_tkwip"]
+[ext_resource type="AudioStream" uid="uid://bmisylcouk4hv" path="res://sounds/floor/gravel loscolt890.wav" id="6_qxknd"]
+[ext_resource type="AudioStream" uid="uid://cr0oem7aymgov" path="res://sounds/floor/grass spycrah.wav" id="7_e3uxi"]
+[ext_resource type="AudioStream" uid="uid://ddqbufi4q44h0" path="res://sounds/floor/cobble ellbellekc.wav" id="7_qxknd"]
+[ext_resource type="AudioStream" uid="uid://b3hxmpm5ou3y5" path="res://sounds/floor/wood 2 notarget.wav" id="9_5bs4t"]
 [ext_resource type="Script" uid="uid://diflvhljfur1x" path="res://game/Player/RainParticles.gd" id="10_tkwip"]
 [ext_resource type="AudioStream" uid="uid://dpsnyhp7my5vg" path="res://sounds/storm-wind-trees-suburb klankbeeld.wav" id="11_j44x7"]
 [ext_resource type="AudioStream" uid="uid://crv0c2a0eqs35" path="res://sounds/park-berlicum-netherlands klankbeeld.wav" id="12_0wcpr"]
@@ -1997,6 +2002,23 @@ tracks/16/keys = {
 "update": 0,
 "values": [-69.0495, -61.2157, -59.8623, -53.6418, -34.8144, -56.766, -46.3663, -57.7804, -69.0495]
 }
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("controller/AudioStreamPlayer2DFootSounds")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.0666667, 0.633333),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"activate_foot_sound"
+}, {
+"args": [],
+"method": &"activate_foot_sound"
+}]
+}
 
 [sub_resource type="Animation" id="8"]
 length = 2.4
@@ -2205,6 +2227,23 @@ tracks/16/keys = {
 "update": 0,
 "values": [5.05738, 56.5283, 23.651, 19.9285, 18.8404, 18.8404, 86.8536, 42.6926, 5.05738]
 }
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("controller/AudioStreamPlayer2DFootSounds")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0.166667, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"activate_foot_sound"
+}, {
+"args": [],
+"method": &"activate_foot_sound"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sx6h1"]
 _data = {
@@ -2361,7 +2400,7 @@ point_count = 3
 curve = SubResource("Curve_tkwip")
 
 [sub_resource type="Gradient" id="Gradient_5bycs"]
-colors = PackedColorArray(1, 1, 1, 0.137255, 1, 1, 1, 1)
+colors = PackedColorArray(1, 1, 1, 0.137255, 0.752941, 0.992157, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_tkwip"]
 gradient = SubResource("Gradient_5bycs")
@@ -2415,22 +2454,24 @@ rain_particles = NodePath("GPUParticles2D")
 name_label = NodePath("controller/player name")
 
 [node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "animation_tree", "timer")]
-position = Vector2(0, -20)
 script = ExtResource("1")
 movement = NodePath("../Movement")
 animation_tree = NodePath("../AnimationTree")
 timer = NodePath("../Timer")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="controller"]
+position = Vector2(0, -20)
 radius = 17.0
 affect_navigation_mesh = true
 carve_navigation_mesh = true
 avoidance_layers = 3
 
 [node name="beam weapon" parent="controller" instance=ExtResource("3_xsxuk")]
+position = Vector2(0, -20)
 activated = false
 
 [node name="PlayerWeaponController" type="Node2D" parent="controller" node_paths=PackedStringArray("controller", "weapon", "pickaxe", "shovel")]
+position = Vector2(0, -20)
 script = ExtResource("4_e52rd")
 controller = NodePath("..")
 weapon = NodePath("../beam weapon")
@@ -2438,17 +2479,30 @@ pickaxe = NodePath("../../visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftH
 shovel = NodePath("../../visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand/Shovel")
 
 [node name="player name" type="Label" parent="controller"]
-visible = false
 z_index = 2
 offset_left = -76.0
-offset_top = -132.0
+offset_top = -152.0
 offset_right = 76.0
-offset_bottom = -29.0
+offset_bottom = -49.0
 theme_override_colors/font_color = Color(0.752941, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
+
+[node name="AudioStreamPlayer2DFootSounds" type="AudioStreamPlayer2D" parent="controller"]
+max_distance = 250.0
+bus = &"foot steps"
+script = ExtResource("5_cydyf")
+audio_streams = Dictionary[int, AudioStream]({
+0: ExtResource("6_qxknd"),
+1: ExtResource("6_qxknd"),
+2: ExtResource("7_e3uxi"),
+4: ExtResource("7_qxknd"),
+6: ExtResource("7_qxknd"),
+7: ExtResource("7_qxknd"),
+10: ExtResource("9_5bs4t")
+})
 
 [node name="Movement" type="Node" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
 script = ExtResource("3_45dmi")
@@ -2491,12 +2545,13 @@ scale = Vector2(0.06, 0.06)
 
 [node name="Hip" type="Bone2D" parent="visuals/Skeleton2D"]
 position = Vector2(-3, -11)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -3, -11)
 
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
 rotation = 0.653935
-scale = Vector2(0.999992, 0.999992)
+scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
@@ -2568,6 +2623,7 @@ scale = Vector2(16.667, 16.667)
 
 [node name="LeftLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(-72, 26)
+scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -72, 26)
 
 [node name="LeftLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg"]

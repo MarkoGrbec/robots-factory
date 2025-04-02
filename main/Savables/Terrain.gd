@@ -22,11 +22,11 @@ func partly_save():
 #endregion partly
 #region delete all
 func remove_all():
-	remove_quadrant(0)
 	remove_quadrant(1)
 	remove_quadrant(2)
 	remove_quadrant(3)
 	remove_quadrant(4)
+	remove_quadrant(5)
 
 func remove_quadrant(quadrant):
 	var str_arr = get_quadrant_string(quadrant)
@@ -49,11 +49,11 @@ func save_position__array_data_array(position: Vector2i, array_data_array: Array
 	DataBase.insert(_server, g_man.dbms, _path, str_quadrant[1], id_index, array_data_array)
 
 func load_position__array_data():
-	load_position__array_data_from_quadrant(0)
 	load_position__array_data_from_quadrant(1)
 	load_position__array_data_from_quadrant(2)
 	load_position__array_data_from_quadrant(3)
 	load_position__array_data_from_quadrant(4)
+	load_position__array_data_from_quadrant(5)
 
 func load_position__array_data_from_quadrant(quadrant: int):
 	var str_arr = get_quadrant_string(quadrant)
@@ -70,7 +70,7 @@ func load_position__array_data_from_quadrant(quadrant: int):
 func get_quadrant_string(quadrant):
 	var str_pos = "position"
 	var str_arr = "array_data"
-	if quadrant == 0:
+	if quadrant == 5:
 		str_pos = str(str_pos, "_c")
 		str_arr = str(str_arr, "_c")
 	elif quadrant == 1:
@@ -91,7 +91,7 @@ func get_quadrant_string(quadrant):
 func get_unique(coord: Vector2i):
 	var id_index
 	if coord == Vector2i.ZERO:
-		id_index = [0, 0]
+		id_index = [5, 1]
 	# bottom right
 	elif coord.x >= 0 and coord.y >= 0:
 		id_index = [1, _coord_unique(coord)]
@@ -109,5 +109,5 @@ func get_unique(coord: Vector2i):
 func _coord_unique(coord: Vector2i):
 	coord = abs(coord)
 	coord += Vector2i(1,1)
-	return ((coord.x + coord.y) * (coord.x + coord.y)) / 2 + coord.y + 1
+	return ( ((coord.x + coord.y) * (coord.x + coord.y)) / 2 + coord.y )+ 2
 #endregion id unique

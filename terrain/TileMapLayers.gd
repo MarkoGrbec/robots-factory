@@ -84,6 +84,11 @@ func _ready() -> void:
 func destroy_me():
 	GlobalSignals.select_tile_node.disconnect(add_or_dig)
 
+func get_id_by_global_position(global_position):
+	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].to_local(global_position) )
+	var cell_id = ground_layer[active_layer].get_cell_source_id(position)
+	return cell_id
+
 func add_or_dig(index, mouse_global_position, callable):
 	if index == 0:
 		g_man.holding_hand.holding_hand_dig()

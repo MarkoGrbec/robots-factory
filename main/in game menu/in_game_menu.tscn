@@ -180,6 +180,18 @@ volume_name = "sound effects"
 db_name = "sfx_p3"
 bus_name = "sfx"
 
+[node name="VolumeContainer4" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+layout_mode = 2
+volume_name = "rain effects"
+db_name = "rain_p3"
+bus_name = "rain"
+
+[node name="VolumeContainer5" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+layout_mode = 2
+volume_name = "foot steps"
+db_name = "foot_steps_p3"
+bus_name = "foot steps"
+
 [node name="MarginContainer2" type="MarginContainer" parent="audio/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2

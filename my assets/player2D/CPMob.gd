@@ -36,6 +36,5 @@ func hide_label():
 		name_label.hide()
 		if g_man.misc.speak_names.button_pressed:
 			if not g_man.speech_activated():
-				print(global_position)
 				#g_man.changes_manager.add_change("stop name hide")
 				DisplayServer.tts_stop()

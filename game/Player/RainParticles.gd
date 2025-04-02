@@ -41,12 +41,13 @@ func stop_rain():
 	currently_raining = false
 	if in_door == false:
 		# out doors no storm and birds sound
-		if audio_stream_player2d.stream == audio_stream_birds:
+		if not audio_stream_player2d.stream == audio_stream_birds:
 			audio_stream_player2d.stream = audio_stream_birds
 			audio_stream_player2d.play()
 	else:# in doors no storm and no sound for now
 		audio_stream_player2d.stop()
-	await get_tree().create_timer(5).timeout
+	await get_tree().create_timer(20).timeout
+	# restart rain after 20 sec if possible
 	set_direction_of_rain()
 
 func set_direction_of_rain():
@@ -77,7 +78,8 @@ func set_random():
 			audio_stream_player2d.stream = audio_stream_storm
 			audio_stream_player2d.play()
 	
-	await get_tree().create_timer(0.51).timeout
+	await get_tree().create_timer(0.15).timeout
+	# change direction after 15 seconds
 	set_random()
 
 func set_rain_direction() -> void:
