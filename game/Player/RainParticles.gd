@@ -5,6 +5,16 @@ class_name RainParticles extends GPUParticles2D
 @export var audio_stream_birds: AudioStream
 
 @export var audio_stream_in_doors: Array[AudioStream]
+@export_group("thunder")
+@export var timer_thunder: Timer
+@export var thunder_color_rect: ColorRect
+@export var flash_texture_rect: TextureRect
+@export var thunder_audio_stream_player2d: MasterAudioStreamPlayer2D
+@export var thunder_animation_player: AnimationPlayer
+@export var thunder_audio_stream: Array[AudioStream]
+
+var double_strike: float = 1.0
+var position_strike: float = 1.0
 
 var gravity_x: float = -1000
 var degrees: float = 0
@@ -108,3 +118,39 @@ func set_rain_direction() -> void:
 	process_material.gravity.x = gravity_x
 	
 	amount = clamp(absf(gravity_x) * 0.2, 50, 1200)
+
+func thunder_strike():
+	# pause
+	timer_thunder.wait_time = 3
+	
+	double_strike = randf_range(0.5, 1)
+	
+	var k_double_strike = abs(gravity_x) * 0.0001
+	# double strike
+	if not double_strike > 0.97 - k_double_strike:
+		double_strike = 1
+		position_strike = randf_range(0, 1)
+	
+	thunder_color_rect.material.set_shader_parameter("position", position_strike)
+	thunder_color_rect.material.set_shader_parameter("time", Time.get_ticks_msec() / 1000)
+	# play thunder
+	if currently_raining and in_door == false:
+		thunder_color_rect.show()
+		flash_texture_rect.show()
+		thunder_audio_stream_player2d.add_sound_to_play( thunder_audio_stream[randi_range(0, thunder_audio_stream.size() -1)] )
+	else:
+		thunder_color_rect.hide()
+		flash_texture_rect.hide()
+	
+	thunder_animation_player.play("ThunderStrike", -1, 1.0 / double_strike)
+	await get_tree().create_timer(0.2 * double_strike).timeout
+	thunder_color_rect.hide()
+	
+	if double_strike != 1:
+		# one thunder after another
+		timer_thunder.start(0.02)
+	else:
+		# time between thnders
+		# around 1 per 2 minutes on strong storm
+		var max_time = (1500 - abs(gravity_x)) * 0.002
+		timer_thunder.start(randf_range(15, max_time ))

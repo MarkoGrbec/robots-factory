@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c657hgr7fcptm"]
+[gd_scene load_steps=77 format=3 uid="uid://c657hgr7fcptm"]
 
 [ext_resource type="Script" uid="uid://cmyv0058qronw" path="res://my assets/player2D/player.gd" id="1"]
 [ext_resource type="Script" uid="uid://16ril05wvyl" path="res://my assets/player2D/CPPlayer.gd" id="1_hld8j"]
@@ -20,6 +20,12 @@
 [ext_resource type="AudioStream" uid="uid://c0ky6tys6bpny" path="res://sounds/wind-gap-indoors klankbeeld.wav" id="13_fhg4i"]
 [ext_resource type="AudioStream" uid="uid://bjlypstmg45ws" path="res://sounds/wind-gap-indoors 2 klankbeeld.wav" id="14_cydyf"]
 [ext_resource type="AudioStream" uid="uid://ctywvno3mphte" path="res://sounds/wind-gap-indoors 3 klankbeeld.wav" id="15_plhtt"]
+[ext_resource type="AudioStream" uid="uid://b41hoa0ac31ax" path="res://sounds/lightning strike/lightning-strike-fx-i gregorquendel.wav" id="21_4yo4j"]
+[ext_resource type="Shader" uid="uid://mg4lo8cpaqf8" path="res://my assets/Rain/Lightning.gdshader" id="21_csufm"]
+[ext_resource type="AudioStream" uid="uid://k4ps4aeufa3b" path="res://sounds/lightning strike/thunder3 beroundsound.wav" id="22_ndipj"]
+[ext_resource type="AudioStream" uid="uid://bswe80wnn5jtc" path="res://sounds/lightning strike/thunder-clap-and-rumble kinoton.wav" id="23_ii7nk"]
+[ext_resource type="AudioStream" uid="uid://ddg84b5e6stpm" path="res://sounds/lightning strike/thunder-strikes-lightning-storm-claps_4 pnmcarrierailfan.mp3" id="24_kd2u1"]
+[ext_resource type="Script" uid="uid://dtpaa0wfd5kuc" path="res://my assets/music/polyphony/2D/MasterAudioStreamPlayer2D.gd" id="26_ndipj"]
 
 [sub_resource type="Animation" id="Animation_tkwip"]
 length = 0.001
@@ -2440,6 +2446,61 @@ scale_over_velocity_curve = SubResource("CurveXYZTexture_kv3se")
 color_initial_ramp = SubResource("GradientTexture1D_tkwip")
 alpha_curve = SubResource("CurveTexture_j44x7")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hc6fu"]
+shader = ExtResource("21_csufm")
+shader_parameter/effect_color = Color(0.2, 0.3, 0.8, 1)
+shader_parameter/octave_count = 10
+shader_parameter/amp_start = 0.5
+shader_parameter/amp_coeff = 0.5
+shader_parameter/freq_coeff = 2.0
+shader_parameter/speed = 5.0
+shader_parameter/position = 1.0
+shader_parameter/time = 0.35
+shader_parameter/lightning_thicknes = 0.03
+
+[sub_resource type="Animation" id="Animation_csufm"]
+resource_name = "ThunderStrike"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.882353), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hc6fu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ypxln"]
+_data = {
+&"RESET": SubResource("Animation_hc6fu"),
+&"ThunderStrike": SubResource("Animation_csufm")
+}
+
+[sub_resource type="Gradient" id="Gradient_csufm"]
+colors = PackedColorArray(1, 1, 1, 0.882353, 1, 1, 1, 0.882353)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hc6fu"]
+gradient = SubResource("Gradient_csufm")
+
 [node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "controller", "rain_particles", "name_label") groups=["player"]]
 input_pickable = true
 floor_constant_speed = true
@@ -2450,14 +2511,14 @@ safe_margin = 0.2
 script = ExtResource("1_hld8j")
 weapon_controller = NodePath("controller/PlayerWeaponController")
 controller = NodePath("controller")
-rain_particles = NodePath("GPUParticles2D")
+rain_particles = NodePath("Node2DRainEffects/GPUParticles2D")
 name_label = NodePath("controller/player name")
 
 [node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "animation_tree", "timer")]
 script = ExtResource("1")
 movement = NodePath("../Movement")
 animation_tree = NodePath("../AnimationTree")
-timer = NodePath("../Timer")
+timer = NodePath("../TimerSavePosition")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="controller"]
 position = Vector2(0, -20)
@@ -2545,19 +2606,18 @@ scale = Vector2(0.06, 0.06)
 
 [node name="Hip" type="Bone2D" parent="visuals/Skeleton2D"]
 position = Vector2(-3, -11)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -3, -11)
 
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
 rotation = 0.653935
-scale = Vector2(0.999991, 0.999991)
+scale = Vector2(0.999985, 0.999985)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
 rotation = -0.0176109
-scale = Vector2(0.999975, 0.999975)
+scale = Vector2(0.999969, 0.999969)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
 [node name="Chin" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/Head"]
@@ -2623,7 +2683,6 @@ scale = Vector2(16.667, 16.667)
 
 [node name="LeftLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(-72, 26)
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -72, 26)
 
 [node name="LeftLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg"]
@@ -2736,29 +2795,75 @@ position = Vector2(0, -32)
 limit_smoothed = true
 script = ExtResource("3_g1dw6")
 
-[node name="Timer" type="Timer" parent="."]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="." node_paths=PackedStringArray("audio_stream_player2d")]
-material = SubResource("CanvasItemMaterial_5bycs")
-amount = 500
-preprocess = 0.5
-visibility_rect = Rect2(-600, -400, 1200, 700)
-process_material = SubResource("ParticleProcessMaterial_5bycs")
-script = ExtResource("10_tkwip")
-audio_stream_player2d = NodePath("../AudioStreamPlayer2D")
-audio_stream_storm = ExtResource("11_j44x7")
-audio_stream_birds = ExtResource("12_0wcpr")
-audio_stream_in_doors = Array[AudioStream]([ExtResource("13_fhg4i"), ExtResource("14_cydyf"), ExtResource("15_plhtt")])
+[node name="TimerSavePosition" type="Timer" parent="."]
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="Node2DRainEffects" type="Node2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Node2DRainEffects" node_paths=PackedStringArray("audio_stream_player2d", "timer_thunder", "thunder_color_rect", "flash_texture_rect", "thunder_audio_stream_player2d", "thunder_animation_player")]
+material = SubResource("CanvasItemMaterial_5bycs")
+amount = 500
+preprocess = 0.5
+visibility_rect = Rect2(-600, -400, 1200, 700)
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_5bycs")
+script = ExtResource("10_tkwip")
+audio_stream_player2d = NodePath("../RainAudioStreamPlayer2D")
+audio_stream_storm = ExtResource("11_j44x7")
+audio_stream_birds = ExtResource("12_0wcpr")
+audio_stream_in_doors = Array[AudioStream]([ExtResource("13_fhg4i"), ExtResource("14_cydyf"), ExtResource("15_plhtt")])
+timer_thunder = NodePath("../ThunderNode2D/TimerThunder")
+thunder_color_rect = NodePath("../ThunderNode2D/ColorRect")
+flash_texture_rect = NodePath("../ThunderNode2D/TextureRect")
+thunder_audio_stream_player2d = NodePath("../ThunderNode2D/PolyphonySounds")
+thunder_animation_player = NodePath("../ThunderNode2D/ThunderAnimationPlayer")
+thunder_audio_stream = Array[AudioStream]([ExtResource("21_4yo4j"), ExtResource("22_ndipj"), ExtResource("23_ii7nk"), ExtResource("24_kd2u1")])
+
+[node name="RainAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2DRainEffects"]
 max_distance = 250.0
 bus = &"rain"
+
+[node name="ThunderNode2D" type="Node2D" parent="Node2DRainEffects"]
+
+[node name="TimerThunder" type="Timer" parent="Node2DRainEffects/ThunderNode2D"]
+wait_time = 2.0
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="Node2DRainEffects/ThunderNode2D"]
+visible = false
+material = SubResource("ShaderMaterial_hc6fu")
+offset_left = -970.0
+offset_top = -576.0
+offset_right = 987.0
+offset_bottom = 570.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ThunderAnimationPlayer" type="AnimationPlayer" parent="Node2DRainEffects/ThunderNode2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_ypxln")
+}
+
+[node name="TextureRect" type="TextureRect" parent="Node2DRainEffects/ThunderNode2D"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -985.0
+offset_top = -580.0
+offset_right = 991.0
+offset_bottom = 576.0
+texture = SubResource("GradientTexture1D_hc6fu")
+
+[node name="PolyphonySounds" type="Node2D" parent="Node2DRainEffects/ThunderNode2D" node_paths=PackedStringArray("sample_audio_player_to_duplicate")]
+script = ExtResource("26_ndipj")
+sample_audio_player_to_duplicate = NodePath("ThunderAudioStreamPlayer2D2")
+
+[node name="ThunderAudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Node2DRainEffects/ThunderNode2D/PolyphonySounds"]
+max_polyphony = 10
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="hit_body" from="controller/beam weapon" to="controller/PlayerWeaponController" method="_on_beam_weapon_hit_body"]
-[connection signal="timeout" from="Timer" to="controller" method="save_position"]
-[connection signal="finished" from="AudioStreamPlayer2D" to="GPUParticles2D" method="random_indoor_sound"]
+[connection signal="timeout" from="TimerSavePosition" to="controller" method="save_position"]
+[connection signal="finished" from="Node2DRainEffects/RainAudioStreamPlayer2D" to="Node2DRainEffects/GPUParticles2D" method="random_indoor_sound"]
+[connection signal="timeout" from="Node2DRainEffects/ThunderNode2D/TimerThunder" to="Node2DRainEffects/GPUParticles2D" method="thunder_strike"]

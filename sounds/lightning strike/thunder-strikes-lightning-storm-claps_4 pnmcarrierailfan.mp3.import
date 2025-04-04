@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ddg84b5e6stpm"
+path="res://.godot/imported/thunder-strikes-lightning-storm-claps_4 pnmcarrierailfan.mp3-50de56336527e6285cc815f369db937f.mp3str"
+
+[deps]
+
+source_file="res://sounds/lightning strike/thunder-strikes-lightning-storm-claps_4 pnmcarrierailfan.mp3"
+dest_files=["res://.godot/imported/thunder-strikes-lightning-storm-claps_4 pnmcarrierailfan.mp3-50de56336527e6285cc815f369db937f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

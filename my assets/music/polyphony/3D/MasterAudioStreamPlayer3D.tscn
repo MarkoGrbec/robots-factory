@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7o4hpfhf8weq"]
+
+[ext_resource type="Script" uid="uid://15q00u7eaj7q" path="res://my assets/music/polyphony/3D/MasterAudioStreamPlayer3D.gd" id="1_ens2q"]
+
+[node name="MasterAudioStreamPlayer3d" type="Node3D"]
+script = ExtResource("1_ens2q")
