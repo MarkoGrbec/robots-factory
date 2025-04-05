@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://c657hgr7fcptm"]
+[gd_scene load_steps=81 format=3 uid="uid://c657hgr7fcptm"]
 
 [ext_resource type="Script" uid="uid://cmyv0058qronw" path="res://my assets/player2D/player.gd" id="1"]
 [ext_resource type="Script" uid="uid://16ril05wvyl" path="res://my assets/player2D/CPPlayer.gd" id="1_hld8j"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://k4ps4aeufa3b" path="res://sounds/lightning strike/thunder3 beroundsound.wav" id="22_ndipj"]
 [ext_resource type="AudioStream" uid="uid://bswe80wnn5jtc" path="res://sounds/lightning strike/thunder-clap-and-rumble kinoton.wav" id="23_ii7nk"]
 [ext_resource type="AudioStream" uid="uid://ddg84b5e6stpm" path="res://sounds/lightning strike/thunder-strikes-lightning-storm-claps_4 pnmcarrierailfan.mp3" id="24_kd2u1"]
+[ext_resource type="Shader" uid="uid://cqx52357x3po8" path="res://my assets/Rain/Rain.gdshader" id="25_ndipj"]
 [ext_resource type="Script" uid="uid://dtpaa0wfd5kuc" path="res://my assets/music/polyphony/2D/MasterAudioStreamPlayer2D.gd" id="26_ndipj"]
 
 [sub_resource type="Animation" id="Animation_tkwip"]
@@ -2446,6 +2447,20 @@ scale_over_velocity_curve = SubResource("CurveXYZTexture_kv3se")
 color_initial_ramp = SubResource("GradientTexture1D_tkwip")
 alpha_curve = SubResource("CurveTexture_j44x7")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndipj"]
+shader = ExtResource("25_ndipj")
+shader_parameter/a = 189.67
+shader_parameter/b = 1.54
+shader_parameter/c = 72.71
+shader_parameter/d = 49.21
+shader_parameter/speed = 0.18
+
+[sub_resource type="Gradient" id="Gradient_ii7nk"]
+colors = PackedColorArray(0, 0, 0, 0, 0.241156, 0.241156, 0.241156, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kd2u1"]
+gradient = SubResource("Gradient_ii7nk")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hc6fu"]
 shader = ExtResource("21_csufm")
 shader_parameter/effect_color = Color(0.2, 0.3, 0.8, 1)
@@ -2458,35 +2473,35 @@ shader_parameter/position = 1.0
 shader_parameter/time = 0.35
 shader_parameter/lightning_thicknes = 0.03
 
-[sub_resource type="Animation" id="Animation_csufm"]
-resource_name = "ThunderStrike"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0333333, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.882353), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_hc6fu"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/path = NodePath("FlashTextureRect:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_csufm"]
+resource_name = "ThunderStrike"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FlashTextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.882353), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ypxln"]
@@ -2495,11 +2510,11 @@ _data = {
 &"ThunderStrike": SubResource("Animation_csufm")
 }
 
-[sub_resource type="Gradient" id="Gradient_csufm"]
+[sub_resource type="Gradient" id="Gradient_kd2u1"]
 colors = PackedColorArray(1, 1, 1, 0.882353, 1, 1, 1, 0.882353)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_hc6fu"]
-gradient = SubResource("Gradient_csufm")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_psj16"]
+gradient = SubResource("Gradient_kd2u1")
 
 [node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "controller", "rain_particles", "name_label") groups=["player"]]
 input_pickable = true
@@ -2611,13 +2626,13 @@ rest = Transform2D(1, 0, 0, 1, -3, -11)
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
 rotation = 0.653935
-scale = Vector2(0.999985, 0.999985)
+scale = Vector2(0.99998, 0.99998)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
 rotation = -0.0176109
-scale = Vector2(0.999969, 0.999969)
+scale = Vector2(0.999964, 0.999964)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
 [node name="Chin" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/Head"]
@@ -2802,7 +2817,7 @@ current = true
 
 [node name="Node2DRainEffects" type="Node2D" parent="."]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Node2DRainEffects" node_paths=PackedStringArray("audio_stream_player2d", "timer_thunder", "thunder_color_rect", "flash_texture_rect", "thunder_audio_stream_player2d", "thunder_animation_player")]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="Node2DRainEffects" node_paths=PackedStringArray("rain_audio_stream_player2d", "timer_thunder", "thunder_color_rect", "flash_texture_rect", "thunder_audio_stream_player2d", "thunder_animation_player")]
 material = SubResource("CanvasItemMaterial_5bycs")
 amount = 500
 preprocess = 0.5
@@ -2810,16 +2825,22 @@ visibility_rect = Rect2(-600, -400, 1200, 700)
 local_coords = true
 process_material = SubResource("ParticleProcessMaterial_5bycs")
 script = ExtResource("10_tkwip")
-audio_stream_player2d = NodePath("../RainAudioStreamPlayer2D")
+rain_audio_stream_player2d = NodePath("../RainAudioStreamPlayer2D")
 audio_stream_storm = ExtResource("11_j44x7")
 audio_stream_birds = ExtResource("12_0wcpr")
 audio_stream_in_doors = Array[AudioStream]([ExtResource("13_fhg4i"), ExtResource("14_cydyf"), ExtResource("15_plhtt")])
 timer_thunder = NodePath("../ThunderNode2D/TimerThunder")
-thunder_color_rect = NodePath("../ThunderNode2D/ColorRect")
-flash_texture_rect = NodePath("../ThunderNode2D/TextureRect")
+thunder_color_rect = NodePath("../ThunderNode2D/ThunderColorRect")
+flash_texture_rect = NodePath("../ThunderNode2D/FlashTextureRect")
 thunder_audio_stream_player2d = NodePath("../ThunderNode2D/PolyphonySounds")
 thunder_animation_player = NodePath("../ThunderNode2D/ThunderAnimationPlayer")
 thunder_audio_stream = Array[AudioStream]([ExtResource("21_4yo4j"), ExtResource("22_ndipj"), ExtResource("23_ii7nk"), ExtResource("24_kd2u1")])
+
+[node name="RainEffect" type="Sprite2D" parent="Node2DRainEffects"]
+visible = false
+material = SubResource("ShaderMaterial_ndipj")
+scale = Vector2(8, 1142.86)
+texture = SubResource("GradientTexture1D_kd2u1")
 
 [node name="RainAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2DRainEffects"]
 max_distance = 250.0
@@ -2831,13 +2852,13 @@ bus = &"rain"
 wait_time = 2.0
 autostart = true
 
-[node name="ColorRect" type="ColorRect" parent="Node2DRainEffects/ThunderNode2D"]
+[node name="ThunderColorRect" type="ColorRect" parent="Node2DRainEffects/ThunderNode2D"]
 visible = false
 material = SubResource("ShaderMaterial_hc6fu")
-offset_left = -970.0
-offset_top = -576.0
-offset_right = 987.0
-offset_bottom = 570.0
+offset_left = -1000.0
+offset_top = -575.0
+offset_right = 1000.0
+offset_bottom = 575.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -2846,13 +2867,13 @@ libraries = {
 &"": SubResource("AnimationLibrary_ypxln")
 }
 
-[node name="TextureRect" type="TextureRect" parent="Node2DRainEffects/ThunderNode2D"]
-modulate = Color(1, 1, 1, 0)
-offset_left = -985.0
-offset_top = -580.0
-offset_right = 991.0
-offset_bottom = 576.0
-texture = SubResource("GradientTexture1D_hc6fu")
+[node name="FlashTextureRect" type="TextureRect" parent="Node2DRainEffects/ThunderNode2D"]
+visible = false
+offset_left = -1000.0
+offset_top = -575.0
+offset_right = 966.0
+offset_bottom = 586.0
+texture = SubResource("GradientTexture1D_psj16")
 
 [node name="PolyphonySounds" type="Node2D" parent="Node2DRainEffects/ThunderNode2D" node_paths=PackedStringArray("sample_audio_player_to_duplicate")]
 script = ExtResource("26_ndipj")
@@ -2860,6 +2881,7 @@ sample_audio_player_to_duplicate = NodePath("ThunderAudioStreamPlayer2D2")
 
 [node name="ThunderAudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Node2DRainEffects/ThunderNode2D/PolyphonySounds"]
 max_polyphony = 10
+bus = &"thunder"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

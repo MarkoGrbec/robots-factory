@@ -1,5 +1,9 @@
 class_name AudioBusVolume extends Node
 
+@export var audio_stream_sample: AudioStream
+@export var audio_player: AudioStreamPlayer
+@export var stop_sound_timer: Timer
+
 @export var h_scroll_bar: HScrollBar
 
 @export var volume_name: String = "music"
@@ -10,10 +14,16 @@ class_name AudioBusVolume extends Node
 
 func _ready() -> void:
 	volume_name_node.text = volume_name
+	audio_player.stream = audio_stream_sample
 	load_audio()
 
 func _volume_changed(value: float) -> void:
 	change_save_bus_level(value)
+	stop_sound_timer.start(2.5)
+	if Time.get_ticks_usec() > 5000000 and not audio_player.playing:
+		audio_player.play()
+		await stop_sound_timer.timeout
+		audio_player.stop()
 
 func load_audio():
 	var audio_bus_index = AudioServer.get_bus_index(bus_name)

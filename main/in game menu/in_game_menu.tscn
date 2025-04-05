@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://4uvqadvod7cb"]
+[gd_scene load_steps=12 format=3 uid="uid://4uvqadvod7cb"]
 
 [ext_resource type="Script" uid="uid://db61dwu37phlo" path="res://main/in game menu/InGameMenu.gd" id="1_un1ud"]
 [ext_resource type="PackedScene" uid="uid://b2i1wol5qwtld" path="res://my assets/binding/binding_container.tscn" id="2_cgffx"]
@@ -6,7 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b6jqqa8v3xar5" path="res://game/quest/options_holding_hand.tscn" id="4_yjfud"]
 [ext_resource type="PackedScene" uid="uid://cw3dwj3hge0vn" path="res://my assets/music/VolumeContainer.tscn" id="5_suw75"]
 [ext_resource type="Script" uid="uid://d05qjhu2e5jgr" path="res://main/in game menu/misc.gd" id="6_uty36"]
+[ext_resource type="AudioStream" uid="uid://g16k6rwgkd2t" path="res://sounds/defunct3 laser-short-2.wav" id="6_wvpya"]
+[ext_resource type="AudioStream" uid="uid://dpsnyhp7my5vg" path="res://sounds/storm-wind-trees-suburb klankbeeld.wav" id="7_5em43"]
 [ext_resource type="Script" uid="uid://wchgvo0jditb" path="res://main/in game menu/Cheat.gd" id="7_gkw5d"]
+[ext_resource type="AudioStream" uid="uid://bmisylcouk4hv" path="res://sounds/floor/gravel loscolt890.wav" id="8_7ptvs"]
+[ext_resource type="AudioStream" uid="uid://bswe80wnn5jtc" path="res://sounds/lightning strike/thunder-clap-and-rumble kinoton.wav" id="9_5em43"]
 
 [node name="in game menu" type="TabContainer" node_paths=PackedStringArray("options_holding_hand_container")]
 anchors_preset = 15
@@ -176,21 +180,43 @@ bus_name = "music"
 
 [node name="VolumeContainer3" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+audio_stream_sample = ExtResource("6_wvpya")
 volume_name = "sound effects"
 db_name = "sfx_p3"
 bus_name = "sfx"
 
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer3" index="2"]
+bus = &"sfx"
+
 [node name="VolumeContainer4" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+audio_stream_sample = ExtResource("7_5em43")
 volume_name = "rain effects"
 db_name = "rain_p3"
 bus_name = "rain"
 
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer4" index="2"]
+bus = &"rain"
+
 [node name="VolumeContainer5" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+audio_stream_sample = ExtResource("8_7ptvs")
 volume_name = "foot steps"
 db_name = "foot_steps_p3"
 bus_name = "foot steps"
+
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer5" index="2"]
+bus = &"foot steps"
+
+[node name="VolumeContainer6" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+layout_mode = 2
+audio_stream_sample = ExtResource("9_5em43")
+volume_name = "thunder"
+db_name = "thunder_p3"
+bus_name = "thunder"
+
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer6" index="2"]
+bus = &"thunder"
 
 [node name="MarginContainer2" type="MarginContainer" parent="audio/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -408,3 +434,8 @@ text = "X"
 [connection signal="pressed" from="quit/VBoxContainer/quit game button" to="." method="_on_quit_game_button_pressed"]
 [connection signal="pressed" from="quit/VBoxContainer/quit button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="quit/close window" to="." method="close_window"]
+
+[editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer3"]
+[editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer4"]
+[editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer5"]
+[editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer6"]

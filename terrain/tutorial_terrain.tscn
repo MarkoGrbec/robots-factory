@@ -83,6 +83,9 @@ scale = Vector2(0.999999, 0.999999)
 [node name="Chest" parent="CPPlayer/visuals/Skeleton2D/Hip" index="0"]
 scale = Vector2(0.999995, 0.999995)
 
+[node name="Head" parent="CPPlayer/visuals/Skeleton2D/Hip/Chest" index="0"]
+scale = Vector2(0.999968, 0.999968)
+
 [node name="LeftLeg" parent="CPPlayer/visuals/Skeleton2D/Hip" index="1"]
 scale = Vector2(0.999999, 0.999999)
 

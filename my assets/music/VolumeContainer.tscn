@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://cgaqx3tuh8hlj" path="res://my assets/music/AudioBusVolume.gd" id="1_6bb6o"]
 
-[node name="VolumeContainer" type="HBoxContainer" node_paths=PackedStringArray("h_scroll_bar", "volume_name_node")]
+[node name="VolumeContainer" type="HBoxContainer" node_paths=PackedStringArray("audio_player", "stop_sound_timer", "h_scroll_bar", "volume_name_node")]
 script = ExtResource("1_6bb6o")
+audio_player = NodePath("AudioStreamPlayer")
+stop_sound_timer = NodePath("Timer")
 h_scroll_bar = NodePath("HScrollBar")
 volume_name_node = NodePath("volume name")
 
@@ -17,5 +19,9 @@ layout_mode = 2
 min_value = -80.0
 max_value = 20.0
 page = 15.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="value_changed" from="HScrollBar" to="." method="_volume_changed"]
