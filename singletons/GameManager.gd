@@ -152,6 +152,8 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "activated")
 	_table.create_column(false, dbms, DataBase.DataType.VECTOR2, 1, "position")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "initialized")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 2, "believe")
+	
 	
 	_table = DataBase.Table.new("qq_deep")
 	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "index")

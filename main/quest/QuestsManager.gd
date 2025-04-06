@@ -54,7 +54,7 @@ func close_window():
 		stop_talking = null
 
 func open_dialog(quest_index, _c_p_q: CPQuest):
-	if _c_p_q is OrganicRobot:
+	if _c_p_q is CPOrganicRobot:
 		believe_texture_rect.show()
 		believe_texture_rect.texture = _c_p_q.gradient_tex
 	else:
@@ -210,6 +210,9 @@ static func target_send_quest_mob_to_make(server_quest: ServerQuest):
 		server_quest.body.show()
 	else:
 		server_quest.body.hide()
+	# load believe gradient
+	if server_quest.body is CPOrganicRobot:
+		server_quest.body.set_gradient_believe(server_quest.array_believe)
 
 static func target_send_quest_mob_remove(server_quest: ServerQuest):
 	if server_quest.body:
@@ -221,7 +224,6 @@ func target_quest_response(quest_index, quest_giver_name, response, basis_dial, 
 	if server_quest[0].body:
 		if success_old_basis:
 			server_quest[0].body.succeed_old_basis(success_old_basis)
-		#if array_believe:
 		server_quest[0].body.quest_believe(array_believe)
 
 static func set_server_quest(quest_index: int, activated: bool, basis: int):

@@ -57,3 +57,5 @@ func _on_quit_game_button_pressed() -> void:
 	g_man.sliders_manager.close_window()
 	g_man.quests_manager.close_window()
 	g_man.trader_manager.close_window()
+	
+	GameControl.enemy_tunnels.clear()

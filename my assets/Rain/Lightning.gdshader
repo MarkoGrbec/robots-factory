@@ -48,10 +48,10 @@ void fragment() {
 	uv += 1.3 * fbm(uv + time * speed, octave_count) - position;
 	float dist = abs(uv.x);
 	vec3 color = effect_color * mix(0.0, lightning_thicknes, hash12(vec2(TIME))) / dist;
-	
+
 	if (length(color) < 0.6){
 		discard;
 	}
-	
+
 	COLOR = vec4(color, 1.0);
 }

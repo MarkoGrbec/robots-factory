@@ -31,11 +31,17 @@ func fully_load():
 	load_mission_quantity()
 	equipment_in_hand = q_obj.equipment
 	load_initialized()
-	array_believe = [0.0, 1.0]
+	load_believe()
 
 func destroy():
+	var q_obj = mp.get_quest_object(_quest_index)
+	
 	initialized = false
 	save_initialized()
+	position = Vector2.ZERO
+	save_position()
+	array_believe = [q_obj.believe_l, q_obj.believe_r]
+	save_believe()
 	print("destroy id server_quest: ", id)
 	#region load
 func load_initialized():
@@ -55,15 +61,14 @@ func load_activated():
 		activated = _activated
 
 func load_position():# TODO
-	#var _position = DataBase.select(_server, g_man.dbms, _path, "position", id)
-	#if _position:# else it overwrites default activated
-		#position = Vector2(_position.x, _position.y)
-	#else:
+	var _position = DataBase.select(_server, g_man.dbms, _path, "position", id)
+	if not _position == Vector2.ZERO:# else it overwrites default activated
+		position = _position
+	else:
 		position = mp.get_quest_object(_quest_index).position
 
 func load_basis():
 	basis = DataBase.select(_server, g_man.dbms, _path, "basis", id, 0)
-	#basis = 0
 
 func load_basis_flags():
 	basis_flags = DataBase.select(_server, g_man.dbms, _path, "basis_flags", id, basis_flags)
@@ -79,6 +84,10 @@ func load_mission_quantity():
 	mission_quantity = DataBase.select(_server, g_man.dbms, _path, "mission_quantity", id)
 	if not mission_quantity:
 		mission_quantity = 0
+
+func load_believe():
+	var q_obj = mp.get_quest_object(_quest_index)
+	array_believe = load_uni("believe", [q_obj.believe_l, q_obj.believe_r])
 	#endregion
 	#region save
 func save_initialized():
@@ -113,11 +122,14 @@ func save_mission():
 	
 func save_mission_quantity():
 	DataBase.insert(_server, g_man.dbms, _path, "mission_quantity", id, mission_quantity)
+
+func save_believe():
+	save_uni("believe", array_believe)
 	#endregion save
 #endregion savable
 
 
-
+const k_believe_add_sub: float = 0.25
 # Properties
 var body: CPQuest
 var initialized = false
@@ -135,7 +147,7 @@ var equipment_in_hand: Enums.Esprite = Enums.Esprite.nul
 var dict_mission__entity_num: Dictionary[String, Enums.Esprite]
 var mission_quantity
 var basis_flags = []
-var array_believe: Array[float]
+var array_believe
 
 ## basis -> qq_index -> index
 var array_response_dialog_index: Array[int]
@@ -329,12 +341,12 @@ func get_display_answers_from_qq(basis_qq: QuestQuestion):
 	if basis_qq.list_avatar_dialog.size() > 0:
 		array_answers__response_size.push_back([basis_qq.list_avatar_dialog[0], basis_qq.response_dialog.size()])
 
-func get_random_basis(array_basis, basis):
+func get_random_basis(array_basis, _basis):
 	if array_basis.size() > 1:
 		var new_basis = array_basis[randi_range(0, array_basis.size() -1)]
-		if new_basis != basis:
+		if new_basis != _basis:
 			return new_basis
-		return get_random_basis(array_basis, basis)
+		return get_random_basis(array_basis, _basis)
 	return array_basis[0]
 
 ## sets new basis and default starting dialog
@@ -384,15 +396,15 @@ func failed_believe():
 
 func believe_to_right():
 	if array_believe[1] > 0.99:
-		array_believe[0] = clampf(array_believe[0] + 0.4, 0, 0.99)
+		array_believe[0] = clampf(array_believe[0] + k_believe_add_sub, 0, 0.99)
 	else:
-		array_believe[1] = clampf(array_believe[1] + 0.4, 0, 1)
+		array_believe[1] = clampf(array_believe[1] + k_believe_add_sub, 0, 1)
 
 func believe_to_left():
 	if array_believe[0] < 0.01:
-		array_believe[1] = clampf(array_believe[1] - 0.4, 0.01, 1)
+		array_believe[1] = clampf(array_believe[1] - k_believe_add_sub, 0.01, 1)
 	else:
-		array_believe[0] = clampf(array_believe[0] - 0.4, 0, 0.99)
+		array_believe[0] = clampf(array_believe[0] - k_believe_add_sub, 0, 0.99)
 
 func add_basis_flags(array: Array[int], save: bool = false):
 	for add_flag in array:

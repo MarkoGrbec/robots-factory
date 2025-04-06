@@ -5562,7 +5562,7 @@ equipment = 0
 activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blnlk"), SubResource("Resource_e64dx"), SubResource("Resource_vk4fy"), SubResource("Resource_rcv0v"), SubResource("Resource_jyrw4"), SubResource("Resource_uwssa"), SubResource("Resource_atdfd"), SubResource("Resource_2jajr"), SubResource("Resource_6fyn4"), SubResource("Resource_30w7m"), SubResource("Resource_blq7f"), SubResource("Resource_bqsfg"), SubResource("Resource_0ixgf"), SubResource("Resource_lrahy")])
 believe_l = 0.0
-believe_r = 1.0
+believe_r = 0.4
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_nl3cb"]
@@ -6448,7 +6448,7 @@ color = Color(1, 1, 1, 1)
 equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_34dl2"), SubResource("Resource_u6kg8"), SubResource("Resource_jrwxy"), SubResource("Resource_x4oyk"), SubResource("Resource_o80kr"), SubResource("Resource_t32ar"), SubResource("Resource_ivduu"), SubResource("Resource_3jmmm"), SubResource("Resource_vfnok"), SubResource("Resource_3bpbm"), SubResource("Resource_wawdi"), SubResource("Resource_b4h3v"), SubResource("Resource_oaakx"), SubResource("Resource_jbyve")])
-believe_l = 0.0
+believe_l = 0.6
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
@@ -6463,7 +6463,7 @@ color = Color(1, 1, 1, 1)
 equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_wawdi"), SubResource("Resource_3bpbm"), SubResource("Resource_vfnok"), SubResource("Resource_3jmmm")])
-believe_l = 0.0
+believe_l = 0.6
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
@@ -6478,7 +6478,7 @@ color = Color(1, 1, 1, 1)
 equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_jbyve"), SubResource("Resource_oaakx"), SubResource("Resource_b4h3v"), SubResource("Resource_ivduu")])
-believe_l = 0.0
+believe_l = 0.6
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
@@ -6494,7 +6494,7 @@ equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_jyrw4"), SubResource("Resource_rcv0v"), SubResource("Resource_vk4fy"), SubResource("Resource_e64dx")])
 believe_l = 0.0
-believe_r = 1.0
+believe_r = 0.4
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_q36m6"]
@@ -6509,7 +6509,7 @@ equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_2jajr"), SubResource("Resource_atdfd"), SubResource("Resource_uwssa"), SubResource("Resource_34dl2")])
 believe_l = 0.0
-believe_r = 1.0
+believe_r = 0.7
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_w0jbm"]
@@ -6524,7 +6524,7 @@ equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blq7f"), SubResource("Resource_30w7m"), SubResource("Resource_6fyn4"), SubResource("Resource_u6kg8")])
 believe_l = 0.0
-believe_r = 1.0
+believe_r = 0.4
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_8vmaa"]
@@ -6539,7 +6539,7 @@ equipment = 0
 activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_lrahy"), SubResource("Resource_0ixgf"), SubResource("Resource_bqsfg"), SubResource("Resource_x4oyk")])
 believe_l = 0.0
-believe_r = 1.0
+believe_r = 0.7
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_vttep"]

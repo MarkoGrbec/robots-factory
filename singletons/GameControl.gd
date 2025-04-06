@@ -70,6 +70,8 @@ func retreve_bot(tunnel):
 	enemy_bot.controller.set_timer(30)
 
 func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State, target):
+	# work around the BUG
+	g_man.inventory_system.add_remove_hover_over_sprite(-1)
 	if g_man.tutorial:
 		await g_man.holding_hand.holding_hand_enemy_finished()
 	if not tunnel_coords:
