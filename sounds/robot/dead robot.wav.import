@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dkwg6gc35euil"
+path="res://.godot/imported/dead robot.wav-1bdeabb5f9106dcd4d543758d84fa242.sample"
+
+[deps]
+
+source_file="res://sounds/robot/dead robot.wav"
+dest_files=["res://.godot/imported/dead robot.wav-1bdeabb5f9106dcd4d543758d84fa242.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

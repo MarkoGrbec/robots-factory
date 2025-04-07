@@ -1,7 +1,9 @@
-[gd_scene load_steps=36 format=3 uid="uid://ylewlsulmddd"]
+[gd_scene load_steps=38 format=3 uid="uid://ylewlsulmddd"]
 
 [ext_resource type="Script" uid="uid://coi3yrdvom4ln" path="res://game/Bots/enemy/CPEnemy.gd" id="1_ulpsl"]
+[ext_resource type="AudioStream" uid="uid://dkwg6gc35euil" path="res://sounds/robot/dead robot.wav" id="2_i3mex"]
 [ext_resource type="Script" uid="uid://jial2k72lkpu" path="res://game/Bots/enemy/EnemyController.gd" id="2_ulpsl"]
+[ext_resource type="AudioStream" uid="uid://bqaijn11s2nnj" path="res://sounds/robot/awake robot.wav" id="2_uojjj"]
 [ext_resource type="Script" uid="uid://ljrbbbva2ug0" path="res://game/Player/FootSound.gd" id="3_cf1l1"]
 [ext_resource type="Texture2D" uid="uid://cgnjku7sa0qyt" path="res://my assets/player2D/gBot.png" id="3_m6vbv"]
 [ext_resource type="Script" uid="uid://y71vsd723yaq" path="res://game/Bots/Movement.gd" id="3_yv1mo"]
@@ -1804,7 +1806,7 @@ node_connections = [&"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land"
 radius = 11.0
 height = 46.0
 
-[node name="CPEnemy" type="CharacterBody2D" node_paths=PackedStringArray("controller", "name_label") groups=["enemy"]]
+[node name="CPEnemy" type="CharacterBody2D" node_paths=PackedStringArray("controller", "robot_sfx_audio_stream_player", "name_label") groups=["enemy"]]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
@@ -1813,7 +1815,14 @@ platform_floor_layers = 4294967294
 safe_margin = 0.2
 script = ExtResource("1_ulpsl")
 controller = NodePath("controller")
+robot_sfx_audio_stream_player = NodePath("RobotSFX")
+dead_sound = ExtResource("2_i3mex")
 name_label = NodePath("controller/state name")
+
+[node name="RobotSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_uojjj")
+autoplay = true
+bus = &"robot sfx"
 
 [node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("cp_mob", "movement", "agent", "timer")]
 position = Vector2(0, -20)
@@ -1902,20 +1911,20 @@ left_arm = NodePath("Polygons/LeftArm")
 [node name="Skeleton2D" type="Skeleton2D" parent="visuals"]
 
 [node name="Hip" type="Bone2D" parent="visuals/Skeleton2D"]
-position = Vector2(0, 0.171607)
-rotation = 0.000156802
+position = Vector2(0, 17.1547)
+rotation = 0.0626988
 scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(1, 0, 0, 1, -3, -11)
 
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
-rotation = 0.314999
+rotation = 0.300628
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
-rotation = -0.292933
+rotation = -0.347424
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
@@ -1929,19 +1938,20 @@ bone_angle = -2.49648
 
 [node name="RightArm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(80, -100)
-rotation = -0.671145
+rotation = 0.594036
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, 80, -100)
 
 [node name="RightForearm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm"]
 position = Vector2(-11, 97)
-rotation = -1.20296
+rotation = -0.904594
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -11, 97)
 
 [node name="RightHand" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm"]
 position = Vector2(13, 94)
 rotation = 1.22745
+scale = Vector2(1, 1)
 rest = Transform2D(0.336639, 0.941634, -0.941634, 0.336639, 13, 94)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -1949,13 +1959,13 @@ bone_angle = 70.3277
 
 [node name="LeftArm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(-100, -100)
-rotation = 0.52549
+rotation = -0.500443
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -100, -100)
 
 [node name="LeftForearm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/LeftArm"]
 position = Vector2(-2, 95)
-rotation = -0.716219
+rotation = -1.06506
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, -2, 95)
 
@@ -1969,19 +1979,19 @@ bone_angle = 70.4641
 
 [node name="LeftLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(-72, 26)
-rotation = -0.513052
+rotation = -0.480797
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -72, 26)
 
 [node name="LeftLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg"]
 position = Vector2(-13, 91)
-rotation = 0.168878
+rotation = 1.96792
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -13, 91)
 
 [node name="LeftFoot" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg/LeftLowerLeg"]
 position = Vector2(7, 127)
-rotation = 0.311043
+rotation = 0.615427
 scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(1, 0, 0, 1, 7, 127)
 auto_calculate_length_and_angle = false
@@ -1990,19 +2000,19 @@ bone_angle = 0.0
 
 [node name="RightLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(46, 11)
-rotation = 0.271929
+rotation = -0.735295
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 46, 11)
 
 [node name="RightLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/RightLeg"]
 position = Vector2(-26, 94)
-rotation = 1.66292
+rotation = 1.34018
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -26, 94)
 
 [node name="RightFoot" type="Bone2D" parent="visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg"]
 position = Vector2(2, 129)
-rotation = 0.256547
+rotation = -0.637595
 scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(1, 0, 0, 1, 2, 129)
 auto_calculate_length_and_angle = false

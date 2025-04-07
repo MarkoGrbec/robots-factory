@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://4uvqadvod7cb"]
+[gd_scene load_steps=13 format=3 uid="uid://4uvqadvod7cb"]
 
 [ext_resource type="Script" uid="uid://db61dwu37phlo" path="res://main/in game menu/InGameMenu.gd" id="1_un1ud"]
 [ext_resource type="PackedScene" uid="uid://b2i1wol5qwtld" path="res://my assets/binding/binding_container.tscn" id="2_cgffx"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://wchgvo0jditb" path="res://main/in game menu/Cheat.gd" id="7_gkw5d"]
 [ext_resource type="AudioStream" uid="uid://bmisylcouk4hv" path="res://sounds/floor/gravel loscolt890.wav" id="8_7ptvs"]
 [ext_resource type="AudioStream" uid="uid://bswe80wnn5jtc" path="res://sounds/lightning strike/thunder-clap-and-rumble kinoton.wav" id="9_5em43"]
+[ext_resource type="AudioStream" uid="uid://bqaijn11s2nnj" path="res://sounds/robot/awake robot.wav" id="10_7ptvs"]
 
 [node name="in game menu" type="TabContainer" node_paths=PackedStringArray("options_holding_hand_container")]
 anchors_preset = 15
@@ -216,6 +217,16 @@ db_name = "thunder_p3"
 bus_name = "thunder"
 
 [node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer6" index="2"]
+bus = &"thunder"
+
+[node name="VolumeContainer7" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+layout_mode = 2
+audio_stream_sample = ExtResource("10_7ptvs")
+volume_name = "robot"
+db_name = "robot_p3"
+bus_name = "robot sfx"
+
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer7" index="2"]
 bus = &"thunder"
 
 [node name="MarginContainer2" type="MarginContainer" parent="audio/HBoxContainer"]
@@ -439,3 +450,4 @@ text = "X"
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer4"]
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer5"]
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer6"]
+[editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer7"]
