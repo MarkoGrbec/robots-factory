@@ -15,6 +15,10 @@ enum State{
 @export var agent: NavigationAgent2D
 @export var timer: Timer
 
+@export var robot_sfx_player: AudioStreamPlayer2D
+@export var chase_sound: AudioStream
+@export var run_away_sound: AudioStream
+
 var state: State = State.CHASE
 var target
 var direction: Vector2 = Vector2.ZERO
@@ -45,15 +49,13 @@ func run_away():
 			enemy_tunnel[0].erase(target)
 		target.controller.enemy_tunnel = null
 		# my target is enemy bot so always run away as it's broken
-		state = State.RUN_AWAY
+		change_state(State.RUN_AWAY)
 	
 	# if helpless bot doesn't have nav_time have me as target and I'm not broken
 	if (GameControl._helpless_bot and GameControl._helpless_bot.controller.target != self) and state != State.BROKEN and state == State.CHASE:
-		state = State.RUN_AWAY
+		change_state(State.RUN_AWAY)
 	if not movement.state == Movement.State.BROKEN and (state == State.RETRIVE or state == State.BRING_MATS):
-		state = State.RUN_AWAY
-	# debugging state
-	cp_mob.name_label.text = str(state)
+		change_state(State.RUN_AWAY)
 
 func _physics_process(_delta: float) -> void:
 	# set target
@@ -63,10 +65,10 @@ func _physics_process(_delta: float) -> void:
 		target_position = target
 	else:# if 1 tunnel is closed go back as there's no target
 		if state == State.CHASE or state == State.RUN_AWAY:
-			state = State.RUN_AWAY
+			change_state(State.RUN_AWAY)
 			target_position = starting_point
 		elif state == State.RETRIVE or state == State.RETRIVE_AWAY:
-			state = State.RETRIVE_AWAY
+			change_state(State.RETRIVE_AWAY)
 			target_position = starting_point
 		elif not state == State.BRING_MATS:
 			return
@@ -84,11 +86,9 @@ func _physics_process(_delta: float) -> void:
 					collide.reparent(movement.body)
 					collide.top_level = false
 					collide.position = Vector2.ZERO
-					state = State.RUN_AWAY
+					change_state(State.RUN_AWAY)
 					target_position = starting_point
 	
-	#debugging state
-	cp_mob.name_label.text = str(state)
 	if target_position:
 		agent.target_position = target_position
 	else:
@@ -106,14 +106,14 @@ func _physics_process(_delta: float) -> void:
 			if state == State.CHASE or state == State.BRING_MATS:
 				if state == State.BRING_MATS:
 					agent.avoidance_enabled = true
-				state = State.RUN
+				change_state(State.RUN)
 			else:
-				state = State.RETRIVE_AWAY
+				change_state(State.RETRIVE_AWAY)
 			# remove target from current bot
 			if target is CPHelplessBot:
 				if is_instance_valid(target.controller.target):
 					if target.controller.target is CPEnemy:
-						target.controller.target.controller.state = State.RUN_AWAY
+						target.controller.target.controller.change_state(State.RUN_AWAY)
 			# add me as current bot to retrive
 			target.controller.target = movement.body
 	# move towards target
@@ -121,9 +121,9 @@ func _physics_process(_delta: float) -> void:
 		# get and return to it if it's too far
 		if state == State.RUN and target is CPMob and global_position.distance_to(target.global_position) > 80:
 			if State.RETRIVE_AWAY:
-				state = State.RETRIVE
+				change_state(State.RETRIVE)
 			else:
-				state = State.CHASE
+				change_state(State.CHASE)
 		# go back to starting point
 		if not target_position == starting_point:
 			target_position = starting_point
@@ -133,9 +133,6 @@ func _physics_process(_delta: float) -> void:
 	# override
 	#movement.direction = direction
 	movement.body.move_and_slide()
-	
-	# debugging state
-	cp_mob.name_label.text = str(state)
 
 func agent_next_path_position():
 	agent.target_position = target_position
@@ -198,3 +195,16 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	#nav_angle = ang
 	#nav_dir = direction.rotated(deg_to_rad(nav_angle))
 	#nav_time = Time.get_unix_time_from_system()
+
+func change_state(_state: State):
+	state = _state
+	
+	# set audio for state
+	if state == State.RUN or state == State.RUN_AWAY or state == State.RETRIVE_AWAY:
+		robot_sfx_player.stream = run_away_sound
+		robot_sfx_player.play()
+	elif state == State.CHASE or state == State.RETRIVE:
+		robot_sfx_player.stream = chase_sound
+		robot_sfx_player.play()
+	# debugging state
+	cp_mob.name_label.text = str(state)

@@ -227,7 +227,7 @@ db_name = "robot_p3"
 bus_name = "robot sfx"
 
 [node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer7" index="2"]
-bus = &"thunder"
+bus = &"robot sfx"
 
 [node name="MarginContainer2" type="MarginContainer" parent="audio/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
