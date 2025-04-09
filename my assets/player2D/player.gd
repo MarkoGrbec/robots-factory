@@ -5,14 +5,14 @@ class_name Player extends Node2D
 @export var holding_hand: bool = false
 @export var timer: Timer
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	movement.state = Movement.State.WALK
 	if true or Input.is_action_pressed("run"):
 		movement.state = Movement.State.RUN
 	
 	movement.body.move_and_slide()
 
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(_event: InputEvent) -> void:
 	if ( not g_man.quests_manager.is_visible_in_tree() or g_man.misc.quest_move.button_pressed) and not g_man.in_game_menu.is_visible_in_tree() and not g_man.asking_toggled:
 		var y_direction := Input.get_axis("move up", "move down")
 		var x_direction := Input.get_axis("move left", "move right")

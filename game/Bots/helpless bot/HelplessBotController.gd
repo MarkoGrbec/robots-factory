@@ -14,7 +14,7 @@ var direction = Vector2.ZERO
 
 var target_position
 var next_position
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if state == State.BROKEN:
 		movement.state = Movement.State.BROKEN
 	

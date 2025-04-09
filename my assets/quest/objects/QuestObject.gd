@@ -77,7 +77,8 @@ func create_npc_with_avatar(id_avatar: int):
 	var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(id_avatar, quest_index, 0)
 	server_quest._quest_index = quest_index
 	server_quest.fully_load()
-	var qq_deep: QQDeep = g_man.savable_multi____quest___qq__qq.new_data(1, quest_index)
+	#var qq_deep: QQDeep = 
+	g_man.savable_multi____quest___qq__qq.new_data(1, quest_index)
 	g_man.quests_manager.dict_name__server_quest[quest_name] = server_quest
 	server_quest.layer = layer
 	if server_quest.activated and server_quest.initialized:
@@ -109,15 +110,16 @@ func get_quest_question(basis: int, text: String):
 	
 	var qqs = q_basis.list_quest_questions
 	
-	var index = 0
+	var qq_from_avatar_dialogs = []
+	#var index = 0
 	# Iterate over each item in the qq array
 	for qq: QuestQuestion in qqs:
 		# Check if any of the list_avatar_dialog items match the text
-		var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
+		qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
 		if qq_from_avatar_dialogs:
-			var string = str(basis +1)
+			#var string = str(basis +1)
 			return [qq_from_avatar_dialogs, {}]
-		index += 1
+		#index += 1
 	## get quest index row
 	#var qq_deeps_quest = g_man.savable_multi____quest___qq__qq.get_all(1, quest_index)
 	## get basis row
@@ -127,7 +129,7 @@ func get_quest_question(basis: int, text: String):
 		#qq_deeps = g_man.savable_multi____quest___qq__qq.get_all(qq_deeps_basis[0].id, 0)
 	## get all other rows
 	#
-	var qq_from_avatar_dialogs = []
+	qq_from_avatar_dialogs = []
 	var dict_indexes = {}
 	#
 	#get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes, basis +1)

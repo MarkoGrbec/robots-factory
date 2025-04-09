@@ -306,7 +306,7 @@ func get_display_answers_all(indexes):
 		get_display_answers(flag, indexes)
 
 
-func get_display_answers(basis_index: int, indexes):
+func get_display_answers(basis_index: int, _indexes):
 	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
 	if q_obj.list_quest_basis.size() > basis_index:
 		var _basis: QuestBasis = q_obj.list_quest_basis[basis_index]
@@ -420,7 +420,7 @@ func remove_basis_flags(array: Array[int], save: bool = false):
 		save_basis_flags()
 
 func add_qq_flags(indexes: Dictionary):
-	var q_obj: QuestObject = mp.get_quest_object(_quest_index)
+	#var q_obj: QuestObject = mp.get_quest_object(_quest_index)
 	if _quest_index > 1:
 		var qq_deep_quest = g_man.savable_multi____quest___qq__qq.new_data(1, _quest_index)
 		var qq_deep_basis = g_man.savable_multi____quest___qq__qq.new_data(qq_deep_quest.id, basis +1)

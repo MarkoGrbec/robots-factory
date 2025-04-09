@@ -1,13 +1,13 @@
 class_name EnemyController extends Node2D
 
 enum State{
-	CHASE = 0,
-	RUN = 1,
-	RUN_AWAY = 2,
-	RETRIVE = 3,
-	RETRIVE_AWAY = 4,
-	BROKEN = 5,
-	BRING_MATS = 6
+	CHASE = 0, # chase the target
+	RUN = 1, # run back in to the hole
+	RUN_AWAY = 2, ## run back in to the hole for 100% without helpless bot
+	RETRIVE = 3, # retrieve bot in to the hole
+	RETRIVE_AWAY = 4, ## run away without the bot
+	BROKEN = 5, # don't do anything I'm broken
+	BRING_MATS = 6 # bring mats
 }
 
 @export var cp_mob: CPMob
@@ -50,26 +50,30 @@ func run_away():
 		target.controller.enemy_tunnel = null
 		# my target is enemy bot so always run away as it's broken
 		change_state(State.RUN_AWAY)
-	
+		target_set_null_target()
 	# if helpless bot doesn't have nav_time have me as target and I'm not broken
 	if (GameControl._helpless_bot and GameControl._helpless_bot.controller.target != self) and state != State.BROKEN and state == State.CHASE:
 		change_state(State.RUN_AWAY)
+		target_set_null_target()
 	if not movement.state == Movement.State.BROKEN and (state == State.RETRIVE or state == State.BRING_MATS):
 		change_state(State.RUN_AWAY)
+		target_set_null_target()
 
 func _physics_process(_delta: float) -> void:
 	# set target
 	if is_instance_valid(target) and target is CPMob:
 		target_position = target.global_position
-	elif target and target is Vector2:
+	elif is_instance_valid(target) and target is Vector2:
 		target_position = target
 	else:# if 1 tunnel is closed go back as there's no target
 		if state == State.CHASE or state == State.RUN_AWAY:
 			change_state(State.RUN_AWAY)
 			target_position = starting_point
+			target_set_null_target()
 		elif state == State.RETRIVE or state == State.RETRIVE_AWAY:
 			change_state(State.RETRIVE_AWAY)
 			target_position = starting_point
+			target_set_null_target()
 		elif not state == State.BRING_MATS:
 			return
 	
@@ -87,6 +91,7 @@ func _physics_process(_delta: float) -> void:
 					collide.top_level = false
 					collide.position = Vector2.ZERO
 					change_state(State.RUN_AWAY)
+					target_set_null_target()
 					target_position = starting_point
 	
 	if target_position:
@@ -114,6 +119,8 @@ func _physics_process(_delta: float) -> void:
 				if is_instance_valid(target.controller.target):
 					if target.controller.target is CPEnemy:
 						target.controller.target.controller.change_state(State.RUN_AWAY)
+						target.controller.target.controller.target_set_null_target()
+			target_set_null_target()
 			# add me as current bot to retrive
 			target.controller.target = movement.body
 	# move towards target
@@ -208,3 +215,8 @@ func change_state(_state: State):
 		robot_sfx_player.play()
 	# debugging state
 	cp_mob.name_label.text = str(state)
+
+func target_set_null_target():
+	if is_instance_valid(target.controller.target):
+		if target.controller.target == movement.body:
+			target.controller.target = null

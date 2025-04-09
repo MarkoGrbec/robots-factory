@@ -56,9 +56,9 @@ enum Layers{
 
 func bake():
 	await get_tree().process_frame
-	if navigation_region_2d.is_baking():
-		await navigation_region_2d.bake_finished
-	navigation_region_2d.bake_navigation_polygon()
+	if not navigation_region_2d.is_baking():
+		#await navigation_region_2d.bake_finished
+		navigation_region_2d.bake_navigation_polygon()
 
 func load_map():
 	dict_ground_pos___id__left[0] = savables[0].dict_ground_pos___id__left

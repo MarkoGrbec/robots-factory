@@ -39,8 +39,8 @@ func set_complete_time():
 		
 		#var exps = entity_object.experience_use
 		
-		var min_time = entity_object.time_to_finish_min
-		var max_time = entity_object.time_to_finish_max
+		var _min_time = entity_object.time_to_finish_min
+		var _max_time = entity_object.time_to_finish_max
 		#var exp_level: int = g_man.experience_manager.get_exp_level(exps)
 		var exp_level = 1
 		

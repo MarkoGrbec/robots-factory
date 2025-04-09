@@ -182,10 +182,10 @@ class Table:
 				array.push_back([id, DataBase.select(server, data_base_dir, table_name, file_name_column, id)])
 		return array
 	
-	func delete_file(_file_name, server, _table_name, file_name_column):
+	func delete_file(_file_name, server, table_name, file_name_column):
 		# need to delete the file as data is totally wrong
 		var if_error = DirAccess.remove_absolute(_file_name)
-		print("server: [", server, "] table: [", _table_name, "] column: [", file_name_column, "] was deleted: ", if_error)
+		print("server: [", server, "] table: [", table_name, "] column: [", file_name_column, "] was deleted: ", if_error)
 #endregion table
 
 #region FileSystem
@@ -330,9 +330,9 @@ static func get_header(file_name):
 	var type = file_access.get_8()
 	var original_type = file_access.get_8()
 	var multi_array = file_access.get_32()
-	var last_id = file_access.get_64()
+	var _last_id = file_access.get_64()
 	file_access.close()
-	return [length, type, multi_array, original_type, last_id]
+	return [length, type, multi_array, original_type, _last_id]
 #endregion header
 
 #region converting
@@ -396,8 +396,8 @@ static func insert(server : bool, data_base_dir : String, table_name, column_nam
 	var meta_data = get_header(file_name)
 	length = meta_data[0]
 	if length == 0:
-		printerr("something is wrong ", file_name)
-		push_error(String("something is wrong {file_name}").format({file_name = file_name}))
+		printerr("something is wrong [", file_name, "]")
+		push_error("something is wrong [", file_name, "]")
 		return
 	var data_length = get_data_length(meta_data[1], length, meta_data[2], meta_data[3])
 	#slice data
@@ -547,6 +547,20 @@ static func last_id(server: bool, data_base_dir, table_name, column_name):
 	#if file_access:
 		#file_access.close()
 	#return idCount
+
+static func reset_last_id(server: bool, data_base_dir, table_name, column_name = "id"):
+	var _path = path(server, data_base_dir, table_name)
+	var file_name = directory_exists(server, data_base_dir, table_name, column_name)
+	if not FileAccess.file_exists(str(file_name, ".meta")):
+		printerr("server: ", server, " Exception table: [", table_name, "] file_name: [", column_name, "].meta does not exist")
+		push_error("server: ", server, " Exception table: [", table_name, "] file_name: [", column_name, "].meta does not exist")
+		return
+	#var converted
+	var file_access = file_create_or_rea_or_write(file_name, FileAccess.READ_WRITE)
+	file_access = file_create_or_rea_or_write(str(file_name, ".meta"), FileAccess.READ_WRITE)
+	file_access.seek(10)
+	file_access.store_64(0)
+	file_access.close()
 #endregion select
 #region reserve
 static func reserve(server, data_base_dir, table_name, column_name, bytes_reserve, min_ratio_reserve = 0.01):
@@ -606,6 +620,7 @@ static func delete_column(server: bool, data_base_dir, table_name, column_name):
 class MultiTable:
 	const PRI = "_id_pri"
 	const SEC = "_id_sec"
+	const _server: bool = true
 	func _init(data_base_dir, path):
 		table_name = path
 		dataBasePathText = data_base_dir
@@ -716,7 +731,7 @@ class MultiTable:
 			DataBase.insert(true, dataBasePathText, table_name, "id", mc.id, 0)
 			nl_all_rows.remove_at(mc.id)
 		else:
-			push_error(String("you want to delete row: {idRow} which doesn't exist").format({idRow = idRow}))
+			push_error("you want to delete row: [", idRow, "] which doesn't exist in server: [", _server,"] in table: [", table_name, "] column name: [id]")
 	
 	#///<summary>
 	#/// if it returns 0 nothing was deleted
@@ -1023,10 +1038,11 @@ class MultiTable:
 	func last_id():
 		return nl_all_rows.count()
 
-	func clear():
+	func clear(column_name = "id"):
 		var _count = last_id()
 		for i in range(1, _count + 1):
 			delete_row(i)
+		DataBase.reset_last_id(_server, g_man.dbms, table_name, column_name)
 #endregion multitable
 
 #TODO:

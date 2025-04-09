@@ -38,7 +38,7 @@ func set_complete_time():
 		working_sound = entity_object.working_sound
 		delay_sound = entity_object.delay_sound
 		
-		var exps = entity_object.experience_use
+		var _exps = entity_object.experience_use
 		
 		var min_time = entity_object.time_to_finish_min
 		var max_time = entity_object.time_to_finish_max

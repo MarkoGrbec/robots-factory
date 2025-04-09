@@ -10,11 +10,11 @@ func _ready():
 	# note you'll need to set global canvas in starter script
 	#get_parent().set_id_window(100, "database")
 	#g_man.database_reader = self
-	var table = DataBase.Table.new("myDBMSviuer")
-	table.create_column(false, "DBMS", DataBase.DataType.LONG, 1, "id")
-	table.create_column(false, "DBMS", DataBase.DataType.STRING, 120, "dbms_root")
-	table.create_column(false, "DBMS", DataBase.DataType.FLOAT, 1, "x")
-	table.create_column(false, "DBMS", DataBase.DataType.FLOAT, 1, "y")
+	var _table = DataBase.Table.new("myDBMSviuer")
+	_table.create_column(false, "DBMS", DataBase.DataType.LONG, 1, "id")
+	_table.create_column(false, "DBMS", DataBase.DataType.STRING, 120, "dbms_root")
+	_table.create_column(false, "DBMS", DataBase.DataType.FLOAT, 1, "x")
+	_table.create_column(false, "DBMS", DataBase.DataType.FLOAT, 1, "y")
 	
 	database_path = DataBase.select(false, "DBMS", "myDBMSviuer", "dbms_root", 1)
 	if database_path:

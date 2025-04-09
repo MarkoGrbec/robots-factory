@@ -38,7 +38,7 @@ func _unhandled_input(event: InputEvent) -> void:
 				g_man.quests_manager.stop_talking = stop_talking_to_me
 
 
-func quest_believe(old_basis):
+func quest_believe(_old_basis):
 	pass
 
 func succeed_old_basis(success_old_basis__qq_index):

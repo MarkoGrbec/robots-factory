@@ -93,7 +93,7 @@ func load_return_position():
 func load_return_user_time_change_name():
 	return DataBase.select(_server, g_man.dbms, _path, "time_changed_name", id, 0)
 
-func load_return_user_type(type):
+func load_return_user_type():
 	return DataBase.select(_server, g_man.dbms, _path, "type", id, 0)
 
 func load_gold_coins():

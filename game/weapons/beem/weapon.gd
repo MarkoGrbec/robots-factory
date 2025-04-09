@@ -39,7 +39,7 @@ func update_ray():
 	ray_cast.force_raycast_update()
 	return cast_point
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var cast_point = update_ray()
 	
 	collision_particles.emitting = ray_cast.is_colliding()
@@ -87,6 +87,6 @@ func appear():
 
 func disappear():
 	tween.stop()
-	var tween = create_tween()
+	tween = create_tween()
 	tween.tween_property(line_2d, "width", 0, 0.1)
 	collision_particles.emitting = false

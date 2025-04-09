@@ -46,5 +46,5 @@ func convince(value):
 	var self_server_quest: ServerQuest = QuestsManager.get_server_quest(quest_index)
 	self_server_quest.save_believe()
 
-func succeed_old_basis(success_old_basis__qq_index):
+func succeed_old_basis(_success_old_basis__qq_index):
 	pass

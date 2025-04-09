@@ -52,12 +52,13 @@ func _on_delete_user_pressed() -> void:
 	delete_user.hide()
 	set_tooltip_start()
 
-func submit_username(text: String) -> void:
+func submit_username(_text: String) -> void:
 	_on_start_game_pressed()
 
 func _on_start_game_pressed() -> void:
 	if avatar_name:
 		welcome_screen()
+		delete_user.show()
 		return
 	
 	if username_line_edit.text and not avatar_name and username_line_edit.text.length() < 8:
@@ -87,6 +88,7 @@ func _on_start_game_pressed() -> void:
 		user.avatar_name = avatar_name
 		user.fully_save()
 		welcome_screen()
+		delete_user.show()
 	elif username_line_edit.text:
 		g_man.changes_manager.add_change("your name is too long it's the software's fault 8 bytes have gone wild")
 	else:
@@ -123,7 +125,7 @@ func welcome_screen() -> void:
 	var quest_servers = mp.get_quest_objects(1)# 1 = id user
 	for quest_server in quest_servers:
 		if quest_server.activated:
-			g_man.quests_manager.target_send_quest_mob_to_make(quest_server)
+			QuestsManager.target_send_quest_mob_to_make(quest_server)
 	
 	var tab = get_parent()
 	tab.set_tab_hidden(0, true)
@@ -161,7 +163,6 @@ func set_holding_hand() -> void:
 func close_welcome_window() -> void:
 	g_man.sliders_manager.open_window()
 	g_man.savable_entity.partly_load_all()
-	#g_man.entity_manager.activate_layer(0)
 	
 	g_man.player.config_name(g_man.user.avatar_name)
 	g_man.inventory_system.generate_inventory_slots()
@@ -177,7 +178,7 @@ func _on_message_to_ash_march_pressed() -> void:
 	g_man.mold_window.set_instructions_only(["thanks for feedback, I'd ask you to adjust audio volume press ESC key to enter main menu. as last time I saw you don't have ESC key I've added a q key to enter it I know as you pressed all keys on the keyboard, than you can also change key bindings. I cannot adjust volume of system text to speach but I can adjust all other volumes it's godot not fully functionality. that was max you could do last time as it was essential to open inventory in quest window. also I'd suggest to try tutorial first I've tried some times to do it correctly with some help."])
 
 func _on_message_to_ash_april_pressed() -> void:
-	g_man.mold_window.set_instructions_only(["thanks I love that it finally clicked not only for you but also for my experience. I have added buy stack while dragging use mouse wheel or change bindings [plus stack] [minus stack] there's also a cheat IF you will need to buy another 15 iron to reset the trader and your gold coins, I think you haven't noticed but there's indicator how much it actually costs around cost is rough cost but while dragging there's indicator (above trader buy and sell box) cost that says exactly how much it costs. It's usually not wise to dry empty but gather somewhere in middle I think and sell. tutorial has no changes, tho I don't know why did you wanted to try the dead end right away, ..."])
+	g_man.mold_window.set_instructions_only(["thanks I love that it finally clicked not only for you but also for my experience. I have added buy stack while dragging use mouse wheel or change bindings [plus stack] [minus stack] there's also a cheat IF you will need to buy another 15 iron to reset the trader and your gold coins, I think you haven't noticed but there's indicator how much it actually costs around cost is rough cost but while dragging there's indicator (above trader buy and sell box) cost that says exactly how much it costs. It's usually not wise to dry empty but gather somewhere in middle I think and sell. tutorial has no changes, tho I don't know why did you wanted to try the dead end right away, ...", "\nplease adjust music and sounds volume I have added a audio to hear when changing it.", ""])
 
 func _on_tutorial_pressed() -> void:
 	g_man.user.gold_coins = 500
@@ -187,9 +188,9 @@ func _on_tutorial_pressed() -> void:
 	set_holding_hand()
 	g_man.holding_hand.destroy()
 	mp.set_quests_npcs()
-	var quest_servers = mp.get_quest_objects(1)# 1 = id user
+	#var quest_servers = 
+	mp.get_quest_objects(1)# 1 = id user
 	QuestsManager.set_server_quest(21, false, 0)
-	#g_man.entity_manager.activate_layer(0)
 	
 	var t = terrain_tutorial.instantiate()
 	g_man.main_menu.terrain = t
