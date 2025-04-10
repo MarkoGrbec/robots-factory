@@ -22,16 +22,21 @@ func _on_rich_text_label_meta_clicked(meta: Variant) -> void:
 #[url=https://www.freesound.org/]sounds free sounds org[/url]
 #laser - defunct3
 #ambient - klankbeeld
-#
-#[url=https://ivanastan.bandcamp.com/album/the-epic-adventure]music ivanastan - the-epic-adventure, MIDIocrity[/url]
+# lightning thunder
+#		- gregorquendel
+#		- beroundsound
+#		- kinoton
+#		- pnmcarrierailfan
+# ambient - wind
+#		- klankbeeld
+# floot steps:
+# 		- cobble ellbellekc
+# 		- grass spycrah
+# 		- gravel loscolt890
+# 		- wood notarget
+#[url=https://ivanastan.bandcamp.com/album/the-epic-adventure]music: the-epic-adventure, MIDIocrity - ivanastan[/url]
 
-
-
-
-
-
-
-
+#believe part of story - Matjaš Marjetka
 
 
 # MIT licences:

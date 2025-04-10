@@ -84,8 +84,14 @@ func _ready() -> void:
 func destroy_me():
 	GlobalSignals.select_tile_node.disconnect(add_or_dig)
 
+func get_position_by_mouse_position() -> Vector2i:
+	return ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
+
+func get_position_by_global_position(global_position) -> Vector2i:
+	return ground_layer[active_layer].local_to_map(ground_layer[active_layer].to_local(global_position) )
+
 func get_id_by_global_position(global_position):
-	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].to_local(global_position) )
+	var position: Vector2i = get_position_by_global_position(global_position)
 	var cell_id = ground_layer[active_layer].get_cell_source_id(position)
 	return cell_id
 
@@ -94,7 +100,7 @@ func add_or_dig(index, mouse_global_position, callable):
 		g_man.holding_hand.holding_hand_dig()
 		dig(mouse_global_position)
 		return
-	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
+	var position: Vector2i = get_position_by_mouse_position()
 	var cell_id = ground_layer[active_layer].get_cell_source_id(position)
 	if not (cell_id == Tile.TUNNEL or cell_id == Tile.SOFT_ROCK_TUNNEL or cell_id == Tile.FAKE_TUNNEL or cell_id == Tile.HOUSE or cell_id == Tile.HOUSE_DOOR):
 		if index == Enums.Esprite.dirt:
@@ -169,6 +175,7 @@ func out_of_house(vec):
 	return ground_layer[active_layer].map_to_local(vec) * 0.5 + Vector2(0, 100)
 
 func activate_layer(new_layer: Layers):
+	@warning_ignore("int_as_enum_without_cast")
 	new_layer = clampi(new_layer, 0, ground_layer.size() -1)
 	
 	ground_layer[active_layer].enabled = false

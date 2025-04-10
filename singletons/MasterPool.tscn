@@ -1,4 +1,4 @@
-[gd_scene load_steps=430 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=442 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -4536,10 +4536,82 @@ default_starting_dialog = "Hello, blessed one. Are you for the mission?"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
+[sub_resource type="Resource" id="Resource_w5vww"]
+script = ExtResource("11_cdsqw")
+npc_activate = 12
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_diiof"]
+script = ExtResource("11_cdsqw")
+npc_activate = 13
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_gl16l"]
+script = ExtResource("11_cdsqw")
+npc_activate = 14
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_axgj6"]
+script = ExtResource("11_cdsqw")
+npc_activate = 15
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_5iedk"]
+script = ExtResource("11_cdsqw")
+npc_activate = 16
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_ph2pt"]
+script = ExtResource("11_cdsqw")
+npc_activate = 17
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_d36df"]
+script = ExtResource("11_cdsqw")
+npc_activate = 18
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_luubj"]
+script = ExtResource("11_cdsqw")
+npc_activate = 19
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_nig31"]
+script = ExtResource("11_cdsqw")
+npc_activate = 20
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
 [sub_resource type="Resource" id="Resource_nxix5"]
 script = ExtResource("5_0rfkw")
 use_basis = false
-new_basis = Array[int]([0])
+new_basis = Array[int]([3])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -4548,7 +4620,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
 list_avatar_dialog = Array[String](["Mission completed."])
 response_dialog = Array[String](["Okay, you’ve done it."])
 response_failed_dialog = ""
@@ -4572,78 +4644,6 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("11_cdsqw")
 npc_activate = 9
 npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_w5vww"]
-script = ExtResource("11_cdsqw")
-npc_activate = 10
-npc_activated = false
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_diiof"]
-script = ExtResource("11_cdsqw")
-npc_activate = 13
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_gl16l"]
-script = ExtResource("11_cdsqw")
-npc_activate = 14
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_axgj6"]
-script = ExtResource("11_cdsqw")
-npc_activate = 15
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_5iedk"]
-script = ExtResource("11_cdsqw")
-npc_activate = 16
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_ph2pt"]
-script = ExtResource("11_cdsqw")
-npc_activate = 17
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_d36df"]
-script = ExtResource("11_cdsqw")
-npc_activate = 18
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_luubj"]
-script = ExtResource("11_cdsqw")
-npc_activate = 19
-npc_activated = true
-npc_alive = false
-npc_basis = 0
-metadata/_custom_type_script = "uid://vdcocg2xhuoh"
-
-[sub_resource type="Resource" id="Resource_nig31"]
-script = ExtResource("11_cdsqw")
-npc_activate = 20
-npc_activated = true
 npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
@@ -4696,6 +4696,86 @@ default_starting_dialog = ""
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
+[sub_resource type="Resource" id="Resource_sdmys"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 20
+quantity = 15
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["izvoli železo za napad"])
+response_dialog = Array[String](["ok bom poslal robota", "ok bom poslal še enega robota"])
+response_failed_dialog = "potrebujem 15 železa"
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_1vnao"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 20
+quantity = 20
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["izvoli železo za organizacijo napada"])
+response_dialog = Array[String](["bom poslal robota z orožjem"])
+response_failed_dialog = "potrebujem 20 železa"
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_jgj7c"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_sdmys"), SubResource("Resource_1vnao")])
+default_starting_dialog = "zdaj ko imamo organske robote na svoji strani vere bi bilo dobro da bi začeli z napadom na tovarno. potrebujem dosti železa organiziram napad na tovarno"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_uvu11"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["samo na pravi strani bogov vedno zmagajo"])
+response_dialog = Array[String](["hvala za igranje to je konec enega dela igre.
+poskušaj še drugo vejo igre kjer ne verjameš v boga. temveč se boriš na strani znanosti."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_2r5p3"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_uvu11")])
+default_starting_dialog = "odlično uspelo nam je premagati robote da smo preprogramirali tovarno.
+katero bomo uporabili da bomo delali samo organske robote, ki bodo verjeli v pravega boga."
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
 [sub_resource type="Resource" id="Resource_cknr8"]
 script = ExtResource("3_d1vgu")
 quest_name = "johny"
@@ -4706,7 +4786,7 @@ quest_body_type = 311
 color = Color(0.239812, 0.721415, 0.734687, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_pit16"), SubResource("Resource_q5pip"), SubResource("Resource_fngje")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_pit16"), SubResource("Resource_q5pip"), SubResource("Resource_fngje"), SubResource("Resource_jgj7c"), SubResource("Resource_2r5p3")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
@@ -4744,7 +4824,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 [sub_resource type="Resource" id="Resource_uamro"]
 script = ExtResource("5_0rfkw")
 use_basis = true
-new_basis = Array[int]([0])
+new_basis = Array[int]([3])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -4753,7 +4833,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
 list_avatar_dialog = Array[String](["Mission completed."])
 response_dialog = Array[String](["Great job! I love that you fought for the side of science."])
 response_failed_dialog = ""
@@ -4799,6 +4879,24 @@ response_dialog = Array[String](["Oh, great! I love that you find the mission sc
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
+[sub_resource type="Resource" id="Resource_1cd46"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["ali si prepričan? znanost je vedno bila samo izmišljotina."])
+response_dialog = Array[String](["ko bi vsaj vedel kaj vse je ta izmišljotina tebi prinesla... škoda da ne bi bil rad del tega velikega projekta."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
 [sub_resource type="Resource" id="Resource_71wuy"]
 script = ExtResource("4_0rfkw")
 description = ""
@@ -4806,8 +4904,99 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_64f7x")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_64f7x"), SubResource("Resource_1cd46")])
 default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_fm5xk"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([4])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 12
+quantity = 5
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["izvoli nekaj peska za načrt tovarne"])
+response_dialog = Array[String](["ok super bom poslal pesek za čipovje ki bodo uporabljeni za načrt tovarne"])
+response_failed_dialog = "rabim več peska"
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_u8x41"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["koliko peska potrebuješ"])
+response_dialog = Array[String](["5 peska prosim"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_s63vl"]
+script = ExtResource("4_0rfkw")
+description = "start building factory"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_fm5xk"), SubResource("Resource_u8x41")])
+default_starting_dialog = "zdaj ko imamo organske robote na svoji strani bi bilo dobro da bi začel graditi tovarno, potrebujem nekaj peska za načrt da dam delati čipe na katere bomo shranili načrt tovarne"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_i1tgh"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "poskušaj obraniti organske robote ki bodo gradili tovarno."
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_08xai"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["bilo mi je v veselje da smo končno prišli do svoje tovarne"])
+response_dialog = Array[String](["hvala za igranje to je konec enega dela igre.
+poskušaj še drugo vejo igre kjer verjameš v boga."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_oo4jq"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_08xai")])
+default_starting_dialog = "odlično uspelo ti je obraniti organske robote da so lahko zgradili novo tovarno"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -4821,7 +5010,7 @@ quest_body_type = 311
 color = Color(0.580483, 0.547897, 0.999999, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru"), SubResource("Resource_2mc1w"), SubResource("Resource_71wuy")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru"), SubResource("Resource_2mc1w"), SubResource("Resource_71wuy"), SubResource("Resource_s63vl"), SubResource("Resource_i1tgh"), SubResource("Resource_oo4jq")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")

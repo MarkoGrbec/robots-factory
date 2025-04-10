@@ -20,3 +20,6 @@ func _on_mouse_entered() -> void:
 func _on_mouse_exited() -> void:
 	g_man.camera.input_active = false
 	hide_label()
+
+func _process(_delta: float) -> void:
+	g_man.changes_manager.add_key_change("id position: ", str(g_man.tile_map_layers.get_position_by_mouse_position()))

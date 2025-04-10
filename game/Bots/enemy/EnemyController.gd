@@ -3,8 +3,10 @@ class_name EnemyController extends Node2D
 enum State{
 	CHASE = 0, # chase the target
 	RUN = 1, # run back in to the hole
+	DRAG = 7, # dragging helpless bot
 	RUN_AWAY = 2, ## run back in to the hole for 100% without helpless bot
 	RETRIVE = 3, # retrieve bot in to the hole
+	RETRIVE_DRAG = 8, # dragging bot away
 	RETRIVE_AWAY = 4, ## run away without the bot
 	BROKEN = 5, # don't do anything I'm broken
 	BRING_MATS = 6 # bring mats
@@ -60,17 +62,17 @@ func run_away():
 		target_set_null_target()
 
 func _physics_process(_delta: float) -> void:
-	# set target
+	# reset target always
 	if is_instance_valid(target) and target is CPMob:
 		target_position = target.global_position
 	elif is_instance_valid(target) and target is Vector2:
 		target_position = target
 	else:# if 1 tunnel is closed go back as there's no target
-		if state == State.CHASE or state == State.RUN_AWAY:
+		if state == State.CHASE or state == State.RUN_AWAY or state == State.DRAG:
 			change_state(State.RUN_AWAY)
 			target_position = starting_point
 			target_set_null_target()
-		elif state == State.RETRIVE or state == State.RETRIVE_AWAY:
+		elif state == State.RETRIVE or state == State.RETRIVE_AWAY or state == State.RETRIVE_DRAG:
 			change_state(State.RETRIVE_AWAY)
 			target_position = starting_point
 			target_set_null_target()
@@ -108,31 +110,35 @@ func _physics_process(_delta: float) -> void:
 	# change target's target
 	if state == State.CHASE or state == State.RETRIVE or state == State.BRING_MATS:
 		if target is CPMob and global_position.distance_to(target.global_position) < 72:
+			# get the bot back in to the hole
 			if state == State.CHASE or state == State.BRING_MATS:
 				if state == State.BRING_MATS:
 					agent.avoidance_enabled = true
-				change_state(State.RUN)
+				change_state(State.DRAG)
 			else:
-				change_state(State.RETRIVE_AWAY)
-			# remove target from current bot
+				change_state(State.RETRIVE_DRAG)
+			# modify target from current bot
+			# first remove
 			if target is CPHelplessBot:
 				if is_instance_valid(target.controller.target):
 					if target.controller.target is CPEnemy:
 						target.controller.target.controller.change_state(State.RUN_AWAY)
-						target.controller.target.controller.target_set_null_target()
+						#target.controller.target.controller.target_set_null_target()
 			target_set_null_target()
 			# add me as current bot to retrive
 			target.controller.target = movement.body
-	# move towards target
-	elif state == State.RUN or state == State.RUN_AWAY or state == State.RETRIVE_AWAY or state == State.BROKEN:
+	
+	# change target
+	elif state == State.RUN or state == State.RUN_AWAY or state == State.RETRIVE_AWAY or state == State.BROKEN or state == State.DRAG or state == State.RETRIVE_DRAG:
 		# get and return to it if it's too far
-		if state == State.RUN and target is CPMob and global_position.distance_to(target.global_position) > 80:
-			if State.RETRIVE_AWAY:
-				change_state(State.RETRIVE)
-			else:
+		if (state == State.DRAG or state == State.RETRIVE_DRAG) and target is CPMob and global_position.distance_to(target.global_position) > 80:
+			if State.DRAG:
 				change_state(State.CHASE)
+			else:
+				change_state(State.RETRIVE)
+		
 		# go back to starting point
-		if not target_position == starting_point:
+		elif not target_position == starting_point:
 			target_position = starting_point
 			agent_next_path_position()
 		if global_position.distance_to(coords[1][0]/2) < 24:
@@ -207,7 +213,7 @@ func change_state(_state: State):
 	state = _state
 	
 	# set audio for state
-	if state == State.RUN or state == State.RUN_AWAY or state == State.RETRIVE_AWAY:
+	if state == State.RUN or state == State.RUN_AWAY or state == State.RETRIVE_AWAY or state == State.DRAG or state == State.RETRIVE_DRAG:
 		robot_sfx_player.stream = run_away_sound
 		robot_sfx_player.play()
 	elif state == State.CHASE or state == State.RETRIVE:
@@ -217,6 +223,8 @@ func change_state(_state: State):
 	cp_mob.name_label.text = str(state)
 
 func target_set_null_target():
-	if is_instance_valid(target.controller.target):
-		if target.controller.target == movement.body:
-			target.controller.target = null
+	if is_instance_valid(target):
+		if is_instance_valid(target.controller.target):
+			if target.controller.target == movement.body:
+				if not cp_mob is CPHelplessBot:
+					target.controller.target = null
