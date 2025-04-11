@@ -18,6 +18,31 @@ func set_helpless_bot(bot: CPHelplessBot):
 			if not enemy_tunnels:
 				await get_tree().create_timer(5).timeout
 				destroy_helpless_bot()
+		elif basis == 10:
+			set_two_attackers()
+		elif basis == 11:
+			set_arena()
+
+func set_two_attackers():
+	await get_tree().create_timer(4).timeout
+	GameControl.destroy_helpless_bot()
+	GameControl.destroy_helpless_bot()
+
+func set_arena():
+	var timer = mp.global_timer
+	timer.timeout.connect(
+		func():
+			destroy_helpless_bot(true)
+			destroy_helpless_bot()
+	)
+	timer.start(12)
+	if _helpless_bot:
+		await get_tree().create_timer(61).timeout
+	else:
+		await get_tree().create_timer(11).timeout
+	timer.stop()
+	for conn in timer.timeout.get_connections():
+		timer.timeout.disconnect(conn.callable)
 
 func remove_helpless_bot(helpless_bot):
 	if helpless_bot:
@@ -109,7 +134,7 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State, target):
 			
 			remove_helpless_bot(_helpless_bot)
 			QuestsManager.set_server_quest(7, true, 0)
-			g_man.mold_window.set_instructions_only(["thanks for saving me", "I guess", "or was I programmed for it to say"], 7)
+			g_man.mold_window.set_instructions_only(["Thanks for saving me... I guess.\nOr was I programmed to say this?"], 7)
 
 func try_turn_off_action_music():
 	if not enemy_tunnels:

@@ -97,7 +97,7 @@ func set_direction_of_rain():
 		if rain_effect_shader:
 			rain_effect_shader.show()
 	currently_raining = true
-	g_man.changes_manager.add_key_change("STOP", str(false))
+	#g_man.changes_manager.add_key_change("STOP", str(false))
 	set_random()
 
 func set_random():
@@ -111,9 +111,9 @@ func set_random():
 	gravity_x = clampf(gravity_x, -1500, 1500)
 	
 	set_rain_direction()
-	g_man.changes_manager.add_key_change("rain", str(gravity_x, " ", degrees))
+	#g_man.changes_manager.add_key_change("rain", str(gravity_x, " ", degrees))
 	if absf(gravity_x) < 35:
-		g_man.changes_manager.add_key_change("STOP", str(true))
+		#g_man.changes_manager.add_key_change("STOP", str(true))
 		stop_rain()
 		return
 	elif in_door == false:

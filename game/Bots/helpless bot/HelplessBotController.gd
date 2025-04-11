@@ -63,3 +63,6 @@ func _physics_process(_delta: float) -> void:
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	movement.direction = safe_velocity
+
+func set_null_target():
+	target = null

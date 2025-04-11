@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://jaf5xthge3rd"]
+
+[ext_resource type="Script" uid="uid://iby502plqbck" path="res://game/Bots/turret/Bullet.gd" id="1_kdr04"]
+
+[node name="Sprite2D" type="Sprite2D"]
+script = ExtResource("1_kdr04")

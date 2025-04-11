@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://clrvijc1kdgy4"]
+
+[ext_resource type="Texture2D" uid="uid://b1sqhpytlj3ps" path="res://game/Bots/turret/PNG/Tower.png" id="1_j3jun"]
+[ext_resource type="Script" uid="uid://yvv4581kuoun" path="res://game/Bots/turret/EnemyTurret.gd" id="1_x8plt"]
+[ext_resource type="Texture2D" uid="uid://66kdvjpopca3" path="res://game/Bots/turret/PNG/MG.png" id="2_mbhoa"]
+[ext_resource type="Texture2D" uid="uid://d1k326rx84kax" path="res://game/Bots/turret/PNG/MG3.png" id="2_x8plt"]
+[ext_resource type="Texture2D" uid="uid://bciv22jipk1yt" path="res://game/Bots/turret/PNG/MG2.png" id="3_j4aok"]
+[ext_resource type="Texture2D" uid="uid://dql6bjwdfm7sc" path="res://game/Bots/turret/PNG/Bullet_MG.png" id="5_j4aok"]
+[ext_resource type="PackedScene" uid="uid://jaf5xthge3rd" path="res://game/Bots/turret/bullet.tscn" id="6_v28d3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j3jun"]
+radius = 752.0
+
+[node name="EnemyTurret" type="Node2D" node_paths=PackedStringArray("weapon_sprite_2d", "attack_timer")]
+script = ExtResource("1_x8plt")
+weapon_sprite_2d = NodePath("Sprite2D/Weapon")
+weapon_sprites = Array[Texture2D]([ExtResource("2_mbhoa"), ExtResource("3_j4aok"), ExtResource("2_x8plt")])
+bullet = ExtResource("5_j4aok")
+attack_timer = NodePath("AttackTimer")
+bullet_scene = ExtResource("6_v28d3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.128, 0.128)
+texture = ExtResource("1_j3jun")
+
+[node name="Weapon" type="Sprite2D" parent="Sprite2D"]
+texture = ExtResource("2_mbhoa")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_j3jun")
+debug_color = Color(0, 0.6, 0.701961, 0.0392157)
+
+[node name="AttackTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="shoot"]

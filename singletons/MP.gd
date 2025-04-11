@@ -1,5 +1,7 @@
 class_name MasterPool extends Node
 
+@export var global_timer: Timer
+
 func _ready() -> void:
 	for entity_object in container:
 		if entity_object:

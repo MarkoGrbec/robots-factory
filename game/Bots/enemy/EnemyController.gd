@@ -122,8 +122,8 @@ func _physics_process(_delta: float) -> void:
 			if target is CPHelplessBot:
 				if is_instance_valid(target.controller.target):
 					if target.controller.target is CPEnemy:
-						target.controller.target.controller.change_state(State.RUN_AWAY)
-						#target.controller.target.controller.target_set_null_target()
+						target.controller.target.controller.change_state(State.CHASE)
+						target.controller.target.controller.target_set_null_target()
 			target_set_null_target()
 			# add me as current bot to retrive
 			target.controller.target = movement.body
@@ -226,5 +226,8 @@ func target_set_null_target():
 	if is_instance_valid(target):
 		if is_instance_valid(target.controller.target):
 			if target.controller.target == movement.body:
-				if not cp_mob is CPHelplessBot:
-					target.controller.target = null
+				#if target is CPHelplessBot:
+				target.controller.set_null_target()
+
+func set_null_target():
+	target_position = target.global_position

@@ -38,6 +38,7 @@ mouse_cursor/tooltip_position_offset=Vector2(64, 10)
 enemy=""
 material="static body 2d"
 player=""
+friendly="friendly units to defend"
 
 [input]
 

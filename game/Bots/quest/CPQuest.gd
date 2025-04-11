@@ -63,13 +63,12 @@ func succeed_old_basis(success_old_basis__qq_index):
 				CreateMob.target_create_trader(g_man.trader)
 		elif success_old_basis__qq_index[0] == 4:
 			if success_old_basis__qq_index[1] == 0:
-				# create bot
+				# create bot and attack it afterwards
 				CreateMob.target_create_bot( mp.get_quest_object(7).position , Enums.Esprite.mob_helpless_robot)
 		elif success_old_basis__qq_index[0] == 5:
 			if success_old_basis__qq_index[1] == 0:
-				await get_tree().create_timer(4).timeout
-				GameControl.destroy_helpless_bot()
-				GameControl.destroy_helpless_bot()
+				# attack on helpless robot
+				GameControl.set_two_attackers()
 		elif success_old_basis__qq_index[0] == 6:
 			if success_old_basis__qq_index[1] == 2:
 				if g_man.player.weapon_controller.weapon.activated:
@@ -78,19 +77,8 @@ func succeed_old_basis(success_old_basis__qq_index):
 					QuestsManager.set_server_quest(6, true, 0)
 		elif success_old_basis__qq_index[0] == 7:
 			if success_old_basis__qq_index[1] == 0:
-				timer.timeout.connect(
-					func():
-						GameControl.destroy_helpless_bot(true)
-						GameControl.destroy_helpless_bot()
-				)
-				timer.start(12)
-				if GameControl._helpless_bot:
-					await get_tree().create_timer(61).timeout
-				else:
-					await get_tree().create_timer(11).timeout
-				timer.stop()
-				for conn in timer.timeout.get_connections():
-					timer.timeout.disconnect(conn.callable)
+				# full scale attack on helpless robot
+				GameControl.set_arena()
 	elif quest_index == 6: # weapon master
 		if success_old_basis__qq_index[0] == 0:
 			if success_old_basis__qq_index[1] == 1:
@@ -116,15 +104,25 @@ func succeed_old_basis(success_old_basis__qq_index):
 			if success_old_basis__qq_index[1] == 0:
 				printerr("start full scale attack")
 				pass
-				#g_man.tile_map_layers.set_region(Rect2i(9, -29, 1, 30), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
-				#g_man.tile_map_layers.set_region(Rect2i(10, -29, 1, 30), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
-				#g_man.tile_map_layers.set_region(Rect2i(11, -29, 1, 30), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
-				#g_man.tile_map_layers.set_region(Rect2i(12, -29, 1, 30), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				g_man.tile_map_layers.set_region(Rect2i(-30, -38, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				g_man.tile_map_layers.set_region(Rect2i(-30, -37, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(-30, -36, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(-30, -35, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 	elif quest_index == 12:# sophie
 		if success_old_basis__qq_index[0] == 0:
 			if success_old_basis__qq_index[1] == 0:
 				g_man.user.believe_in_god = false
 				g_man.user.save_believe_in_god()
+		if success_old_basis__qq_index[0] == 1:
+			if success_old_basis__qq_index[1] == 0:
+				printerr("start full scale craft")
+				g_man.tile_map_layers.active_layer = 0
+				g_man.tile_map_layers.set_region(Rect2i(-28, -38, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				g_man.tile_map_layers.set_region(Rect2i(-29, -37, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(-28, -36, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(-29, -35, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(-28, -34, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				g_man.tile_map_layers.active_layer = 4
 
 func change_name():
 	g_man.change_name_manager.open_window()

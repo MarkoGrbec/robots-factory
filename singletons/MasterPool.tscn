@@ -1,4 +1,4 @@
-[gd_scene load_steps=442 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=451 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -4536,7 +4536,7 @@ default_starting_dialog = "Hello, blessed one. Are you for the mission?"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
-[sub_resource type="Resource" id="Resource_w5vww"]
+[sub_resource type="Resource" id="Resource_r08t5"]
 script = ExtResource("11_cdsqw")
 npc_activate = 12
 npc_activated = false
@@ -4544,7 +4544,7 @@ npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
-[sub_resource type="Resource" id="Resource_diiof"]
+[sub_resource type="Resource" id="Resource_5ry3y"]
 script = ExtResource("11_cdsqw")
 npc_activate = 13
 npc_activated = false
@@ -4552,7 +4552,7 @@ npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
-[sub_resource type="Resource" id="Resource_gl16l"]
+[sub_resource type="Resource" id="Resource_w5wb8"]
 script = ExtResource("11_cdsqw")
 npc_activate = 14
 npc_activated = false
@@ -4560,7 +4560,7 @@ npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
-[sub_resource type="Resource" id="Resource_axgj6"]
+[sub_resource type="Resource" id="Resource_utq74"]
 script = ExtResource("11_cdsqw")
 npc_activate = 15
 npc_activated = false
@@ -4568,7 +4568,7 @@ npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
-[sub_resource type="Resource" id="Resource_5iedk"]
+[sub_resource type="Resource" id="Resource_l4i2g"]
 script = ExtResource("11_cdsqw")
 npc_activate = 16
 npc_activated = false
@@ -4576,7 +4576,7 @@ npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
-[sub_resource type="Resource" id="Resource_ph2pt"]
+[sub_resource type="Resource" id="Resource_amr0u"]
 script = ExtResource("11_cdsqw")
 npc_activate = 17
 npc_activated = false
@@ -4584,7 +4584,7 @@ npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
-[sub_resource type="Resource" id="Resource_d36df"]
+[sub_resource type="Resource" id="Resource_d01we"]
 script = ExtResource("11_cdsqw")
 npc_activate = 18
 npc_activated = false
@@ -4592,7 +4592,7 @@ npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
-[sub_resource type="Resource" id="Resource_luubj"]
+[sub_resource type="Resource" id="Resource_uhxql"]
 script = ExtResource("11_cdsqw")
 npc_activate = 19
 npc_activated = false
@@ -4600,7 +4600,7 @@ npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
-[sub_resource type="Resource" id="Resource_nig31"]
+[sub_resource type="Resource" id="Resource_2xaiw"]
 script = ExtResource("11_cdsqw")
 npc_activate = 20
 npc_activated = false
@@ -4620,7 +4620,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_r08t5"), SubResource("Resource_5ry3y"), SubResource("Resource_w5wb8"), SubResource("Resource_utq74"), SubResource("Resource_l4i2g"), SubResource("Resource_amr0u"), SubResource("Resource_d01we"), SubResource("Resource_uhxql"), SubResource("Resource_2xaiw")])
 list_avatar_dialog = Array[String](["Mission completed."])
 response_dialog = Array[String](["Okay, you’ve done it."])
 response_failed_dialog = ""
@@ -4644,6 +4644,78 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 script = ExtResource("11_cdsqw")
 npc_activate = 9
 npc_activated = false
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_w5vww"]
+script = ExtResource("11_cdsqw")
+npc_activate = 12
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_diiof"]
+script = ExtResource("11_cdsqw")
+npc_activate = 13
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_gl16l"]
+script = ExtResource("11_cdsqw")
+npc_activate = 14
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_axgj6"]
+script = ExtResource("11_cdsqw")
+npc_activate = 15
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_5iedk"]
+script = ExtResource("11_cdsqw")
+npc_activate = 16
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_ph2pt"]
+script = ExtResource("11_cdsqw")
+npc_activate = 17
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_d36df"]
+script = ExtResource("11_cdsqw")
+npc_activate = 18
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_luubj"]
+script = ExtResource("11_cdsqw")
+npc_activate = 19
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_nig31"]
+script = ExtResource("11_cdsqw")
+npc_activate = 20
+npc_activated = true
 npc_alive = false
 npc_basis = 0
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
@@ -4833,7 +4905,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_5ry3y"), SubResource("Resource_w5wb8"), SubResource("Resource_utq74"), SubResource("Resource_l4i2g"), SubResource("Resource_amr0u"), SubResource("Resource_d01we"), SubResource("Resource_uhxql"), SubResource("Resource_2xaiw")])
 list_avatar_dialog = Array[String](["Mission completed."])
 response_dialog = Array[String](["Great job! I love that you fought for the side of science."])
 response_failed_dialog = ""
@@ -4873,7 +4945,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jcphs"), SubResource("Resource_w5vww"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jcphs"), SubResource("Resource_diiof"), SubResource("Resource_gl16l"), SubResource("Resource_axgj6"), SubResource("Resource_5iedk"), SubResource("Resource_ph2pt"), SubResource("Resource_d36df"), SubResource("Resource_luubj"), SubResource("Resource_nig31")])
 list_avatar_dialog = Array[String](["You can count on me."])
 response_dialog = Array[String](["Oh, great! I love that you find the mission scientifically realistic."])
 response_failed_dialog = ""
@@ -4918,7 +4990,7 @@ remove_basis_flags = Array[int]([])
 basis_is_root = 0
 add_qq_flags = Array[ExtResource("5_0rfkw")]([])
 quest_item = 12
-quantity = 5
+quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
@@ -7407,8 +7479,11 @@ house_tile_position = Vector2i(13, -34)
 house_internal_tile_position = Vector2i(36, -36)
 metadata/_custom_type_script = ExtResource("22_tt0nk")
 
-[node name="MasterPool" type="Node"]
+[node name="MasterPool" type="Node" node_paths=PackedStringArray("global_timer")]
 script = ExtResource("1_bgkrv")
+global_timer = NodePath("Timer")
 container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_ex1qj"), SubResource("Resource_cpje5"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
 quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj"), SubResource("Resource_v5avt"), SubResource("Resource_ykhcu"), SubResource("Resource_mqvoq"), SubResource("Resource_nrofl"), SubResource("Resource_kyy1y"), SubResource("Resource_q36m6"), SubResource("Resource_w0jbm"), SubResource("Resource_8vmaa"), SubResource("Resource_3nh3w")])
 array_house_ground = Array[ExtResource("22_tt0nk")]([SubResource("Resource_xgrt2"), SubResource("Resource_tiwuc"), SubResource("Resource_kdcl1"), SubResource("Resource_2bky1"), SubResource("Resource_0nbsj"), SubResource("Resource_6aln0"), SubResource("Resource_w0hg2"), SubResource("Resource_qyol8"), SubResource("Resource_eejkm"), SubResource("Resource_58eew")])
+
+[node name="Timer" type="Timer" parent="."]
