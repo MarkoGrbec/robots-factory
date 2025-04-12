@@ -1,30 +1,47 @@
-[gd_scene load_steps=9 format=3 uid="uid://clrvijc1kdgy4"]
+[gd_scene load_steps=18 format=3 uid="uid://clrvijc1kdgy4"]
 
 [ext_resource type="Texture2D" uid="uid://b1sqhpytlj3ps" path="res://game/Bots/turret/PNG/Tower.png" id="1_j3jun"]
 [ext_resource type="Script" uid="uid://yvv4581kuoun" path="res://game/Bots/turret/EnemyTurret.gd" id="1_x8plt"]
 [ext_resource type="Texture2D" uid="uid://66kdvjpopca3" path="res://game/Bots/turret/PNG/MG.png" id="2_mbhoa"]
 [ext_resource type="Texture2D" uid="uid://d1k326rx84kax" path="res://game/Bots/turret/PNG/MG3.png" id="2_x8plt"]
 [ext_resource type="Texture2D" uid="uid://bciv22jipk1yt" path="res://game/Bots/turret/PNG/MG2.png" id="3_j4aok"]
+[ext_resource type="Texture2D" uid="uid://q8ag3uc25ftn" path="res://game/Bots/turret/PNG/Cannon.png" id="5_ewk0r"]
 [ext_resource type="Texture2D" uid="uid://dql6bjwdfm7sc" path="res://game/Bots/turret/PNG/Bullet_MG.png" id="5_j4aok"]
+[ext_resource type="Texture2D" uid="uid://mijvbbokf64x" path="res://game/Bots/turret/PNG/Bullet_Cannon.png" id="6_f6etr"]
+[ext_resource type="Texture2D" uid="uid://bs13sebogq52n" path="res://game/Bots/turret/PNG/Cannon2.png" id="6_oj4p0"]
 [ext_resource type="PackedScene" uid="uid://jaf5xthge3rd" path="res://game/Bots/turret/bullet.tscn" id="6_v28d3"]
+[ext_resource type="Texture2D" uid="uid://skkc5js8eriv" path="res://game/Bots/turret/PNG/Missile.png" id="7_f5xnr"]
+[ext_resource type="Texture2D" uid="uid://dhg5x4bll26wh" path="res://game/Bots/turret/PNG/Cannon3.png" id="7_fxicx"]
+[ext_resource type="Texture2D" uid="uid://rr76xn700ah1" path="res://game/Bots/turret/PNG/Missile_Launcher.png" id="8_a27re"]
+[ext_resource type="Texture2D" uid="uid://dw8ttkq3l6e1y" path="res://game/Bots/turret/PNG/Missile_Launcher2.png" id="9_y5k0w"]
+[ext_resource type="Texture2D" uid="uid://607pq68nn3sm" path="res://game/Bots/turret/PNG/Missile_Launcher3.png" id="10_ebbrh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ewk0r"]
+radius = 17.0294
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3jun"]
 radius = 752.0
 
-[node name="EnemyTurret" type="Node2D" node_paths=PackedStringArray("weapon_sprite_2d", "attack_timer")]
+[node name="StaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("weapon_sprite_2d", "attack_timer")]
 script = ExtResource("1_x8plt")
 weapon_sprite_2d = NodePath("Sprite2D/Weapon")
-weapon_sprites = Array[Texture2D]([ExtResource("2_mbhoa"), ExtResource("3_j4aok"), ExtResource("2_x8plt")])
-bullet = ExtResource("5_j4aok")
+weapon_sprites = Array[Texture2D]([ExtResource("2_mbhoa"), ExtResource("3_j4aok"), ExtResource("2_x8plt"), ExtResource("5_ewk0r"), ExtResource("6_oj4p0"), ExtResource("7_fxicx"), ExtResource("8_a27re"), ExtResource("9_y5k0w"), ExtResource("10_ebbrh")])
+bullet = Array[Texture2D]([ExtResource("5_j4aok"), ExtResource("6_f6etr"), ExtResource("7_f5xnr")])
 attack_timer = NodePath("AttackTimer")
 bullet_scene = ExtResource("6_v28d3")
+fire_speed = [PackedFloat32Array(0.512, 0.256, 0.128), PackedFloat32Array(1, 0.5, 0.8), PackedFloat32Array(2, 1, 0.5)]
+station_damage = Array[float]([11.0, 15.0, 20.0])
+armor = Array[float]([10.0, 14.0, 12.0])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ewk0r")
+debug_color = Color(1, 0, 0, 0.25098)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.128, 0.128)
 texture = ExtResource("1_j3jun")
 
 [node name="Weapon" type="Sprite2D" parent="Sprite2D"]
-texture = ExtResource("2_mbhoa")
 
 [node name="Area2D" type="Area2D" parent="."]
 

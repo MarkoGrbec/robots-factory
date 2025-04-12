@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://jaf5xthge3rd"]
+[gd_scene load_steps=4 format=3 uid="uid://jaf5xthge3rd"]
 
 [ext_resource type="Script" uid="uid://iby502plqbck" path="res://game/Bots/turret/Bullet.gd" id="1_kdr04"]
+[ext_resource type="Texture2D" uid="uid://skkc5js8eriv" path="res://game/Bots/turret/PNG/Missile.png" id="2_8eafk"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4rj6o"]
+radius = 3.0
+height = 26.0
+
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_kdr04")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.256, 0.256)
+texture = ExtResource("2_8eafk")
+
+[node name="ProjectileHit" type="Area2D" parent="Sprite2D"]
+rotation = -1.5708
+scale = Vector2(3.90625, 3.90625)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/ProjectileHit"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_4rj6o")
+
+[node name="DestroyMe" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[connection signal="body_entered" from="Sprite2D/ProjectileHit" to="." method="_on_projectile_hit_body_entered"]
+[connection signal="timeout" from="DestroyMe" to="." method="destroy_me"]

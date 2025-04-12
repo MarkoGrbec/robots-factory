@@ -102,7 +102,7 @@ func _physics_process(_delta: float) -> void:
 		return
 	
 	if agent.is_navigation_finished():
-			return
+		return
 	
 	if target_position:
 		agent_next_path_position()
@@ -144,7 +144,6 @@ func _physics_process(_delta: float) -> void:
 		if global_position.distance_to(coords[1][0]/2) < 24:
 			GameControl.turn_fake_tunnel_back(enemy_tunnel, state, target)
 	# override
-	#movement.direction = direction
 	movement.body.move_and_slide()
 
 func agent_next_path_position():
@@ -153,13 +152,6 @@ func agent_next_path_position():
 	direction = global_position.direction_to(next_position)
 	
 	avoidance()
-	#agent.target_position = target_position
-	#next_position = agent.get_next_path_position()
-	#if not nav_dir:
-		#direction = global_position.direction_to(next_position)
-	#else:
-		#direction = nav_dir
-	#avoidance()
 
 func avoidance():
 	if agent.avoidance_enabled:
@@ -171,43 +163,6 @@ var nav_dir
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	movement.direction = safe_velocity
-	#if nav_time + 0.75 < Time.get_unix_time_from_system():
-		#nav_dir = safe_velocity
-		#if nav_dir:
-			#agent.target_position = global_position + safe_velocity
-			#next_position = agent.get_next_path_position()
-			#direction = global_position.direction_to(next_position)
-			#nav_count = 0
-		#if not nav_dir:
-			#if nav_count > 1:
-				##g_man.changes_manager.add_change("dir reset")
-				#nav_count = 0
-				#nav_int = 0
-			#nav_count += 1
-			#
-			#agent.target_position = target_position
-			#next_position = agent.get_next_path_position()
-			#direction = global_position.direction_to(next_position)
-			#nav_dir = direction
-			#nav_time = Time.get_unix_time_from_system()
-			#return
-		#var angle = rad_to_deg(movement.direction.angle_to(safe_velocity))
-		#if nav_int < 15:
-			##g_man.changes_manager.add_key_change("nav: ", str("nav int: ", nav_int, " angle: ", angle))
-			#rotate_angle(nav_angle, 1)
-		#elif angle > 0.01:
-			#rotate_angle(-100)
-		#elif angle < -0.01:
-			#rotate_angle(+100)
-#
-#func rotate_angle(ang, i = 0):
-	#if i:
-		#nav_int += i
-	#else:
-		#nav_int = i
-	#nav_angle = ang
-	#nav_dir = direction.rotated(deg_to_rad(nav_angle))
-	#nav_time = Time.get_unix_time_from_system()
 
 func change_state(_state: State):
 	state = _state
@@ -226,7 +181,6 @@ func target_set_null_target():
 	if is_instance_valid(target):
 		if is_instance_valid(target.controller.target):
 			if target.controller.target == movement.body:
-				#if target is CPHelplessBot:
 				target.controller.set_null_target()
 
 func set_null_target():

@@ -1,4 +1,26 @@
 extends Node2D
 
+@export var sprite: Sprite2D
+
+var _enemy_turret: EnemyTurret
+
+func set_bullet_texture(texture, enemy_turret: EnemyTurret):
+	sprite.texture = texture
+	_enemy_turret = enemy_turret
+
 func _process(delta: float) -> void:
-	global_position += transform * Vector2(1 * delta, 0)
+	global_position = global_transform * Vector2(delta * 800, 0)
+
+func _on_projectile_hit_body_entered(body: Node2D) -> void:
+	if body.is_in_group("friendly"):
+		_enemy_turret.upgrade_experience()
+	if body != _enemy_turret:
+		destroy_me()
+		if body.is_in_group("friendly") or body.is_in_group("enemy"):
+			var damage = _enemy_turret.station_damage[_enemy_turret.station_type]
+			if _enemy_turret.station_type == EnemyTurret.StationType.CANNON and _enemy_turret.station == EnemyTurret.Station.THIRD:
+				damage *= 2.5
+			body.hit(damage)
+
+func destroy_me():
+	queue_free()

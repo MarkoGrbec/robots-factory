@@ -1,364 +1,19 @@
-[gd_scene load_steps=81 format=3 uid="uid://c657hgr7fcptm"]
+[gd_scene load_steps=40 format=3 uid="uid://brrfsc0w4l0kn"]
 
-[ext_resource type="Script" uid="uid://cmyv0058qronw" path="res://my assets/player2D/player.gd" id="1"]
-[ext_resource type="Script" uid="uid://16ril05wvyl" path="res://my assets/player2D/CPPlayer.gd" id="1_hld8j"]
-[ext_resource type="Texture2D" uid="uid://cgnjku7sa0qyt" path="res://my assets/player2D/gBot.png" id="2"]
-[ext_resource type="Script" uid="uid://y71vsd723yaq" path="res://game/Bots/Movement.gd" id="3_45dmi"]
-[ext_resource type="Script" uid="uid://mmlwq8b1810u" path="res://my assets/player2D/Camera.gd" id="3_g1dw6"]
-[ext_resource type="PackedScene" uid="uid://be5bhpgyigp81" path="res://game/weapons/beem/beem_weapon.tscn" id="3_xsxuk"]
-[ext_resource type="PackedScene" uid="uid://b74easlpd6qmx" path="res://game/weapons/tools/pickaxe/pickaxe.tscn" id="4_5bycs"]
-[ext_resource type="Script" uid="uid://0yw15drlegd3" path="res://game/Player/PlayerWeaponController.gd" id="4_e52rd"]
-[ext_resource type="Script" uid="uid://ljrbbbva2ug0" path="res://game/Player/FootSound.gd" id="5_cydyf"]
-[ext_resource type="PackedScene" uid="uid://c5rnj13ot4s51" path="res://game/weapons/tools/shovel/shovel.tscn" id="5_tkwip"]
-[ext_resource type="AudioStream" uid="uid://bmisylcouk4hv" path="res://sounds/floor/gravel loscolt890.wav" id="6_qxknd"]
-[ext_resource type="AudioStream" uid="uid://cr0oem7aymgov" path="res://sounds/floor/grass spycrah.wav" id="7_e3uxi"]
-[ext_resource type="AudioStream" uid="uid://ddqbufi4q44h0" path="res://sounds/floor/cobble ellbellekc.wav" id="7_qxknd"]
-[ext_resource type="AudioStream" uid="uid://b3hxmpm5ou3y5" path="res://sounds/floor/wood 2 notarget.wav" id="9_5bs4t"]
-[ext_resource type="Script" uid="uid://diflvhljfur1x" path="res://game/Player/RainParticles.gd" id="10_tkwip"]
-[ext_resource type="AudioStream" uid="uid://dpsnyhp7my5vg" path="res://sounds/storm-wind-trees-suburb klankbeeld.wav" id="11_j44x7"]
-[ext_resource type="AudioStream" uid="uid://crv0c2a0eqs35" path="res://sounds/park-berlicum-netherlands klankbeeld.wav" id="12_0wcpr"]
-[ext_resource type="AudioStream" uid="uid://c0ky6tys6bpny" path="res://sounds/wind-gap-indoors klankbeeld.wav" id="13_fhg4i"]
-[ext_resource type="AudioStream" uid="uid://bjlypstmg45ws" path="res://sounds/wind-gap-indoors 2 klankbeeld.wav" id="14_cydyf"]
-[ext_resource type="AudioStream" uid="uid://ctywvno3mphte" path="res://sounds/wind-gap-indoors 3 klankbeeld.wav" id="15_plhtt"]
-[ext_resource type="AudioStream" uid="uid://b41hoa0ac31ax" path="res://sounds/lightning strike/lightning-strike-fx-i gregorquendel.wav" id="21_4yo4j"]
-[ext_resource type="Shader" uid="uid://mg4lo8cpaqf8" path="res://my assets/Rain/Lightning.gdshader" id="21_csufm"]
-[ext_resource type="AudioStream" uid="uid://k4ps4aeufa3b" path="res://sounds/lightning strike/thunder3 beroundsound.wav" id="22_ndipj"]
-[ext_resource type="AudioStream" uid="uid://bswe80wnn5jtc" path="res://sounds/lightning strike/thunder-clap-and-rumble kinoton.wav" id="23_ii7nk"]
-[ext_resource type="AudioStream" uid="uid://ddg84b5e6stpm" path="res://sounds/lightning strike/thunder-strikes-lightning-storm-claps_4 pnmcarrierailfan.mp3" id="24_kd2u1"]
-[ext_resource type="Shader" uid="uid://cqx52357x3po8" path="res://my assets/Rain/Rain.gdshader" id="25_ndipj"]
-[ext_resource type="Script" uid="uid://dtpaa0wfd5kuc" path="res://my assets/music/polyphony/2D/MasterAudioStreamPlayer2D.gd" id="26_ndipj"]
-
-[sub_resource type="Animation" id="Animation_tkwip"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("visuals/Skeleton2D/Hip/Chest/Head:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-1.00903]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("visuals/Skeleton2D/Hip/Chest:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [37.4677]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("visuals/Skeleton2D/Hip/Chest/RightArm:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-36.3761]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-48.3642]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [2.85957]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("visuals/Skeleton2D/Hip/RightLeg:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-64.0123]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [43.2107]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm:rotation_degrees")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-16.7506]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [43.9637]
-}
-
-[sub_resource type="Animation" id="Animation_5bycs"]
-resource_name = "dig"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 1, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [5.21839, 43.9637, 108.422, 36.2452]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("visuals/Skeleton2D/Hip/Chest/RightArm:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 1.5, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -46.7683, -96.2169]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -16.7506]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("visuals/Skeleton2D/Hip/Chest/Head/Chin:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0971458, 0.0971458]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("visuals/Skeleton2D/Hip/Chest/Head:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.5, 1.53333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.83873, 1.83873]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.5, 1.53333, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -58.8097, -67.8115]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("visuals/Skeleton2D/Hip/Chest:rotation_degrees")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0.5, 1.53333),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.342875, 37.4677]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("visuals/Skeleton2D/Hip:rotation_degrees")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.5, 1.53333, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 2.85957, -24.2105]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm/RightHand:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [70.3278, 70.3278]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("visuals/Skeleton2D/Hip/LeftLeg/LeftLowerLeg:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("visuals/Skeleton2D/Hip/LeftLeg:rotation_degrees")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("visuals/Skeleton2D/Hip/RightLeg:rotation_degrees")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0.5, 0.9, 1.2, 1.53333, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -98.1673, -66.2651, -98.1673, 0.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("visuals/Skeleton2D/Hip/LeftLeg/LeftLowerLeg/LeftFoot:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("visuals/Skeleton2D/Hip:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3, -11)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0.5, 0.866667, 1.2, 1.7, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -33.6863, 19.238, 5.5, 0.0]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0.5, 0.9, 1.2, 1.53333, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 99.2866, 30.3596, 99.2866, 0.0]
-}
+[ext_resource type="Script" uid="uid://coi3yrdvom4ln" path="res://game/Bots/enemy/CPEnemy.gd" id="1_paxke"]
+[ext_resource type="AudioStream" uid="uid://badxvq3w50b4n" path="res://sounds/robot/dead.wav" id="2_j4bpy"]
+[ext_resource type="AudioStream" uid="uid://ci4ibtl834tol" path="res://sounds/robot/awake.wav" id="3_lctip"]
+[ext_resource type="Script" uid="uid://bels6xlkmnb4a" path="res://game/Bots/friendly/FriendlyController.gd" id="4_47vby"]
+[ext_resource type="AudioStream" uid="uid://dvbbhpxqaj4df" path="res://sounds/robot/chase.wav" id="5_3a5da"]
+[ext_resource type="AudioStream" uid="uid://cdtbuh8rblbrj" path="res://sounds/robot/run away.wav" id="6_fo66c"]
+[ext_resource type="Script" uid="uid://ljrbbbva2ug0" path="res://game/Player/FootSound.gd" id="7_0lq23"]
+[ext_resource type="AudioStream" uid="uid://bmisylcouk4hv" path="res://sounds/floor/gravel loscolt890.wav" id="8_mqg4t"]
+[ext_resource type="AudioStream" uid="uid://cr0oem7aymgov" path="res://sounds/floor/grass spycrah.wav" id="9_bovvf"]
+[ext_resource type="AudioStream" uid="uid://ddqbufi4q44h0" path="res://sounds/floor/cobble ellbellekc.wav" id="10_uu4f0"]
+[ext_resource type="AudioStream" uid="uid://b3hxmpm5ou3y5" path="res://sounds/floor/wood 2 notarget.wav" id="11_tedrd"]
+[ext_resource type="Script" uid="uid://y71vsd723yaq" path="res://game/Bots/Movement.gd" id="12_m80gp"]
+[ext_resource type="Script" uid="uid://b1drhytdt5cnu" path="res://game/Bots/Visuals.gd" id="13_4p7j4"]
+[ext_resource type="Texture2D" uid="uid://cgnjku7sa0qyt" path="res://my assets/player2D/gBot.png" id="14_8qd2q"]
 
 [sub_resource type="Animation" id="1"]
 loop_mode = 1
@@ -1592,215 +1247,6 @@ tracks/16/keys = {
 "values": [Vector2(-3, -11), Vector2(-3, 34.5), Vector2(-3, 80), Vector2(-3, -11)]
 }
 
-[sub_resource type="Animation" id="Animation_j44x7"]
-resource_name = "mine"
-length = 2.5
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.5, 1.25, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [70.4643, 45.8277, 90.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("visuals/Skeleton2D/Hip/Chest/RightArm:rotation_degrees")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5, 1, 1.25, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [10.3842, -36.6717, -145.77, -26.4361]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm:rotation_degrees")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.5, 1, 1.25, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, 0.0, -35.039, 5.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("visuals/Skeleton2D/Hip/Chest/Head/Chin:rotation_degrees")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0971458, 0.0971458]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("visuals/Skeleton2D/Hip/Chest/Head:rotation_degrees")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.475697, 0.475697]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("visuals/Skeleton2D/Hip/Chest/LeftArm:rotation_degrees")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.5, 1, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [-25.2271, -65.5554, -58.285]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("visuals/Skeleton2D/Hip/Chest:rotation_degrees")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(1, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-16.4234, 19.4668]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("visuals/Skeleton2D/Hip:rotation_degrees")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm:rotation_degrees")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.5, 1, 1.26667, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [0.0, -56.7699, 19.9345, 0.0]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm/RightHand:rotation_degrees")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [70.3278, 70.3278]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("visuals/Skeleton2D/Hip/LeftLeg/LeftLowerLeg:rotation_degrees")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("visuals/Skeleton2D/Hip/LeftLeg:rotation_degrees")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/12/type = "value"
-tracks/12/imported = false
-tracks/12/enabled = true
-tracks/12/path = NodePath("visuals/Skeleton2D/Hip/RightLeg:rotation_degrees")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/13/type = "value"
-tracks/13/imported = false
-tracks/13/enabled = true
-tracks/13/path = NodePath("visuals/Skeleton2D/Hip/LeftLeg/LeftLowerLeg/LeftFoot:rotation_degrees")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/14/type = "value"
-tracks/14/imported = false
-tracks/14/enabled = true
-tracks/14/path = NodePath("visuals/Skeleton2D/Hip:position")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3, -11)]
-}
-tracks/15/type = "value"
-tracks/15/imported = false
-tracks/15/enabled = true
-tracks/15/path = NodePath("visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg/RightFoot:rotation_degrees")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/16/type = "value"
-tracks/16/imported = false
-tracks/16/enabled = true
-tracks/16/path = NodePath("visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg:rotation_degrees")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = {
-"times": PackedFloat32Array(0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-
 [sub_resource type="Animation" id="7"]
 resource_name = "run"
 length = 1.2
@@ -2016,7 +1462,7 @@ tracks/17/path = NodePath("controller/AudioStreamPlayer2DFootSounds")
 tracks/17/interp = 1
 tracks/17/loop_wrap = true
 tracks/17/keys = {
-"times": PackedFloat32Array(0.0666667, 0.633333),
+"times": PackedFloat32Array(0.0333333, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
@@ -2254,25 +1700,15 @@ tracks/17/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sx6h1"]
 _data = {
-&"RESET": SubResource("Animation_tkwip"),
-&"dig": SubResource("Animation_5bycs"),
 &"fall": SubResource("1"),
 &"fly": SubResource("2"),
 &"idle": SubResource("3"),
 &"jump": SubResource("4"),
 &"land": SubResource("5"),
 &"land_hard": SubResource("6"),
-&"mine": SubResource("Animation_j44x7"),
 &"run": SubResource("7"),
 &"walk": SubResource("8")
 }
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5bycs"]
-animation = &"dig"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_5bycs"]
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_5bycs"]
 
 [sub_resource type="AnimationNodeAnimation" id="9"]
 animation = &"fall"
@@ -2303,13 +1739,6 @@ sync = true
 [sub_resource type="AnimationNodeAnimation" id="17"]
 animation = &"land_hard"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tkwip"]
-animation = &"mine"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_tkwip"]
-
-[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_tkwip"]
-
 [sub_resource type="AnimationNodeAnimation" id="18"]
 animation = &"run"
 
@@ -2337,10 +1766,6 @@ input_4/name = "fall"
 input_4/auto_advance = false
 input_4/break_loop_at_end = false
 input_4/reset = true
-input_5/name = "dig"
-input_5/auto_advance = false
-input_5/break_loop_at_end = false
-input_5/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="21"]
 animation = &"walk"
@@ -2348,218 +1773,86 @@ animation = &"walk"
 [sub_resource type="AnimationNodeTimeScale" id="22"]
 
 [sub_resource type="AnimationNodeBlendTree" id="23"]
-nodes/dig/node = SubResource("AnimationNodeAnimation_5bycs")
-nodes/dig/position = Vector2(1540, 220)
-nodes/dig_blend/node = SubResource("AnimationNodeBlend2_5bycs")
-nodes/dig_blend/position = Vector2(1920, 680)
-nodes/dig_timescale/node = SubResource("AnimationNodeTimeScale_5bycs")
-nodes/dig_timescale/position = Vector2(1720, 480)
 nodes/fall_animation/node = SubResource("9")
-nodes/fall_animation/position = Vector2(520, 960)
+nodes/fall_animation/position = Vector2(540, 1140)
 nodes/fly_animation/node = SubResource("10")
-nodes/fly_animation/position = Vector2(520, 800)
+nodes/fly_animation/position = Vector2(540, 980)
 nodes/idle_animation/node = SubResource("11")
-nodes/idle_animation/position = Vector2(520, 320)
+nodes/idle_animation/position = Vector2(540, 500)
 nodes/jump/node = SubResource("12")
-nodes/jump/position = Vector2(1280, 700)
+nodes/jump/position = Vector2(1280, 680)
 nodes/jump_animation/node = SubResource("13")
-nodes/jump_animation/position = Vector2(1120, 500)
+nodes/jump_animation/position = Vector2(1093.33, 506.667)
 nodes/land/node = SubResource("14")
-nodes/land/position = Vector2(1460, 680)
+nodes/land/position = Vector2(1480, 680)
 nodes/land_animation/node = SubResource("15")
-nodes/land_animation/position = Vector2(1280, 500)
+nodes/land_animation/position = Vector2(1266.67, 506.667)
 nodes/land_hard/node = SubResource("16")
-nodes/land_hard/position = Vector2(1660, 680)
+nodes/land_hard/position = Vector2(1680, 680)
 nodes/land_hard_animation/node = SubResource("17")
-nodes/land_hard_animation/position = Vector2(1460, 500)
-nodes/mine/node = SubResource("AnimationNodeAnimation_tkwip")
-nodes/mine/position = Vector2(1780, 220)
-nodes/mine_blend/node = SubResource("AnimationNodeBlend2_tkwip")
-nodes/mine_blend/position = Vector2(2180, 680)
-nodes/mine_timescale/node = SubResource("AnimationNodeTimeScale_tkwip")
-nodes/mine_timescale/position = Vector2(1940, 440)
-nodes/output/position = Vector2(2400, 680)
+nodes/land_hard_animation/position = Vector2(1453.33, 506.667)
+nodes/output/position = Vector2(1860, 680)
 nodes/run_animation/node = SubResource("18")
-nodes/run_animation/position = Vector2(520, 640)
+nodes/run_animation/position = Vector2(540, 820)
 nodes/run_timescale/node = SubResource("19")
-nodes/run_timescale/position = Vector2(680, 660)
+nodes/run_timescale/position = Vector2(720, 746.667)
 nodes/state/node = SubResource("20")
-nodes/state/position = Vector2(1120, 680)
+nodes/state/position = Vector2(1100, 680)
 nodes/walk_animation/node = SubResource("21")
-nodes/walk_animation/position = Vector2(520, 480)
+nodes/walk_animation/position = Vector2(540, 660)
 nodes/walk_timescale/node = SubResource("22")
-nodes/walk_timescale/position = Vector2(680, 500)
-node_connections = [&"dig_blend", 0, &"land_hard", &"dig_blend", 1, &"dig_timescale", &"dig_timescale", 0, &"dig", &"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land", 0, &"jump", &"land", 1, &"land_animation", &"land_hard", 0, &"land", &"land_hard", 1, &"land_hard_animation", &"mine_blend", 0, &"dig_blend", &"mine_blend", 1, &"mine_timescale", &"mine_timescale", 0, &"mine", &"output", 0, &"mine_blend", &"run_timescale", 0, &"run_animation", &"state", 0, &"idle_animation", &"state", 1, &"walk_timescale", &"state", 2, &"run_timescale", &"state", 3, &"fly_animation", &"state", 4, &"fall_animation", &"walk_timescale", 0, &"walk_animation"]
+nodes/walk_timescale/position = Vector2(720, 626.667)
+node_connections = [&"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land", 0, &"jump", &"land", 1, &"land_animation", &"land_hard", 0, &"land", &"land_hard", 1, &"land_hard_animation", &"output", 0, &"land_hard", &"run_timescale", 0, &"run_animation", &"state", 0, &"idle_animation", &"state", 1, &"walk_timescale", &"state", 2, &"run_timescale", &"state", 3, &"fly_animation", &"state", 4, &"fall_animation", &"walk_timescale", 0, &"walk_animation"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 radius = 11.0
 height = 46.0
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5bycs"]
-blend_mode = 1
-
-[sub_resource type="Curve" id="Curve_tkwip"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 2.44984, 0, 0, Vector2(0.501511, 3), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.14009, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_j44x7"]
-curve = SubResource("Curve_tkwip")
-
-[sub_resource type="Gradient" id="Gradient_5bycs"]
-colors = PackedColorArray(1, 1, 1, 0.137255, 0.752941, 0.992157, 1, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_tkwip"]
-gradient = SubResource("Gradient_5bycs")
-
-[sub_resource type="Curve" id="Curve_j44x7"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 1.47656), 0.0, 12.6424, 0, 0, Vector2(0.253776, 3), 0.0, 0.0, 0, 0, Vector2(1, 3), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_0wcpr"]
-_limits = [0.0, 30.0, 0.0, 1.0]
-_data = [Vector2(0, 14.7656), 0.0, 160.005, 0, 0, Vector2(0.253776, 30), 0.0, 0.0, 0, 0, Vector2(1, 30), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="Curve" id="Curve_ljyab"]
-_limits = [0.0, 3.0, 0.0, 1.0]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_kv3se"]
-curve_x = SubResource("Curve_j44x7")
-curve_y = SubResource("Curve_0wcpr")
-curve_z = SubResource("Curve_ljyab")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5bycs"]
-particle_flag_disable_z = true
-emission_shape_offset = Vector3(0, -125, 0)
-emission_shape = 3
-emission_box_extents = Vector3(1000, 600, 1)
-angle_min = -45.0
-angle_max = -45.0
-gravity = Vector3(-1000, 1000, 0)
-linear_accel_min = -2.23517e-06
-linear_accel_max = -2.23517e-06
-scale_min = 0.2
-scale_over_velocity_curve = SubResource("CurveXYZTexture_kv3se")
-color_initial_ramp = SubResource("GradientTexture1D_tkwip")
-alpha_curve = SubResource("CurveTexture_j44x7")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ndipj"]
-shader = ExtResource("25_ndipj")
-shader_parameter/a = 189.67
-shader_parameter/b = 1.54
-shader_parameter/c = 72.71
-shader_parameter/d = 49.21
-shader_parameter/speed = 0.18
-
-[sub_resource type="Gradient" id="Gradient_ii7nk"]
-colors = PackedColorArray(0, 0, 0, 0, 0.241156, 0.241156, 0.241156, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_kd2u1"]
-gradient = SubResource("Gradient_ii7nk")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_hc6fu"]
-shader = ExtResource("21_csufm")
-shader_parameter/effect_color = Color(0.2, 0.3, 0.8, 1)
-shader_parameter/octave_count = 10
-shader_parameter/amp_start = 0.5
-shader_parameter/amp_coeff = 0.5
-shader_parameter/freq_coeff = 2.0
-shader_parameter/speed = 5.0
-shader_parameter/position = 1.0
-shader_parameter/time = 0.35
-shader_parameter/lightning_thicknes = 0.03
-
-[sub_resource type="Animation" id="Animation_hc6fu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashTextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_csufm"]
-resource_name = "ThunderStrike"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("FlashTextureRect:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.0666667, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.882353), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ypxln"]
-_data = {
-&"RESET": SubResource("Animation_hc6fu"),
-&"ThunderStrike": SubResource("Animation_csufm")
-}
-
-[sub_resource type="Gradient" id="Gradient_kd2u1"]
-colors = PackedColorArray(1, 1, 1, 0.882353, 1, 1, 1, 0.882353)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_psj16"]
-gradient = SubResource("Gradient_kd2u1")
-
-[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "controller", "rain_particles", "name_label") groups=["player"]]
+[node name="CPFriendly" type="CharacterBody2D" node_paths=PackedStringArray("controller", "robot_sfx_audio_stream_player", "name_label") groups=["enemy"]]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
 floor_snap_length = 0.1
 platform_floor_layers = 4294967294
 safe_margin = 0.2
-script = ExtResource("1_hld8j")
-weapon_controller = NodePath("controller/PlayerWeaponController")
+script = ExtResource("1_paxke")
 controller = NodePath("controller")
-rain_particles = NodePath("Node2DRainEffects/GPUParticles2D")
-name_label = NodePath("controller/player name")
+robot_sfx_audio_stream_player = NodePath("RobotSFX")
+dead_sound = ExtResource("2_j4bpy")
+name_label = NodePath("controller/state name")
 
-[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("movement", "animation_tree", "timer")]
-script = ExtResource("1")
-movement = NodePath("../Movement")
-animation_tree = NodePath("../AnimationTree")
-timer = NodePath("../TimerSavePosition")
+[node name="RobotSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_lctip")
+autoplay = true
+max_distance = 1000.0
+bus = &"robot sfx"
 
-[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="controller"]
+[node name="controller" type="Node2D" parent="." node_paths=PackedStringArray("cp_mob", "movement", "agent", "timer", "robot_sfx_player")]
 position = Vector2(0, -20)
+script = ExtResource("4_47vby")
+cp_mob = NodePath("..")
+movement = NodePath("../movement")
+agent = NodePath("NavigationAgent2D")
+timer = NodePath("../Timer")
+robot_sfx_player = NodePath("../RobotSFX")
+chase_sound = ExtResource("5_3a5da")
+run_away_sound = ExtResource("6_fo66c")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="controller"]
+navigation_layers = 3
+simplify_path = true
+simplify_epsilon = 5.0
+avoidance_enabled = true
 radius = 17.0
-affect_navigation_mesh = true
-carve_navigation_mesh = true
 avoidance_layers = 3
+avoidance_mask = 3
 
-[node name="beam weapon" parent="controller" instance=ExtResource("3_xsxuk")]
-position = Vector2(0, -20)
-activated = false
-
-[node name="PlayerWeaponController" type="Node2D" parent="controller" node_paths=PackedStringArray("controller", "weapon", "pickaxe", "shovel")]
-position = Vector2(0, -20)
-script = ExtResource("4_e52rd")
-controller = NodePath("..")
-weapon = NodePath("../beam weapon")
-pickaxe = NodePath("../../visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand/Pickaxe")
-shovel = NodePath("../../visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand/Shovel")
-
-[node name="player name" type="Label" parent="controller"]
+[node name="state name" type="Label" parent="controller"]
 z_index = 2
-offset_left = -76.0
-offset_top = -152.0
+offset_left = -75.0
+offset_top = -112.0
 offset_right = 76.0
-offset_bottom = -49.0
+offset_bottom = -29.0
 theme_override_colors/font_color = Color(0.752941, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
 horizontal_alignment = 1
@@ -2569,19 +1862,19 @@ autowrap_mode = 3
 [node name="AudioStreamPlayer2DFootSounds" type="AudioStreamPlayer2D" parent="controller"]
 max_distance = 250.0
 bus = &"foot steps"
-script = ExtResource("5_cydyf")
+script = ExtResource("7_0lq23")
 audio_streams = Dictionary[int, AudioStream]({
-0: ExtResource("6_qxknd"),
-1: ExtResource("6_qxknd"),
-2: ExtResource("7_e3uxi"),
-4: ExtResource("7_qxknd"),
-6: ExtResource("7_qxknd"),
-7: ExtResource("7_qxknd"),
-10: ExtResource("9_5bs4t")
+0: ExtResource("8_mqg4t"),
+1: ExtResource("8_mqg4t"),
+2: ExtResource("9_bovvf"),
+4: ExtResource("10_uu4f0"),
+6: ExtResource("10_uu4f0"),
+7: ExtResource("10_uu4f0"),
+10: ExtResource("11_tedrd")
 })
 
-[node name="Movement" type="Node" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
-script = ExtResource("3_45dmi")
+[node name="movement" type="Node" parent="." node_paths=PackedStringArray("visuals", "body", "animation_tree")]
+script = ExtResource("12_m80gp")
 visuals = NodePath("../visuals")
 body = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
@@ -2594,8 +1887,6 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("23")
 anim_player = NodePath("../AnimationPlayer")
-parameters/dig_blend/blend_amount = 0.0
-parameters/dig_timescale/scale = 1.0
 parameters/jump/active = false
 parameters/jump/internal_active = false
 parameters/jump/request = 0
@@ -2605,34 +1896,42 @@ parameters/land/request = 0
 parameters/land_hard/active = false
 parameters/land_hard/internal_active = false
 parameters/land_hard/request = 0
-parameters/mine_blend/blend_amount = 0.0
-parameters/mine_timescale/scale = 1.0
 parameters/run_timescale/scale = 1.0
-parameters/state/current_state = "idle"
+parameters/state/current_state = "run"
 parameters/state/transition_request = ""
-parameters/state/current_index = 0
-parameters/walk_timescale/scale = 1.0
+parameters/state/current_index = 2
+parameters/walk_timescale/scale = 0.1
 
-[node name="visuals" type="Node2D" parent="."]
+[node name="visuals" type="Node2D" parent="." node_paths=PackedStringArray("right_arm", "right_leg", "body", "left_leg", "head", "chin", "left_arm")]
 position = Vector2(0, -15)
 scale = Vector2(0.06, 0.06)
+script = ExtResource("13_4p7j4")
+right_arm = NodePath("Polygons/RightArm")
+right_leg = NodePath("Polygons/RightLeg")
+body = NodePath("Polygons/Body")
+left_leg = NodePath("Polygons/LeftLeg")
+head = NodePath("Polygons/Head")
+chin = NodePath("Polygons/Chin")
+left_arm = NodePath("Polygons/LeftArm")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="visuals"]
 
 [node name="Hip" type="Bone2D" parent="visuals/Skeleton2D"]
-position = Vector2(-3, -11)
+position = Vector2(0, -0.976334)
+rotation = 0.107863
+scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(1, 0, 0, 1, -3, -11)
 
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
-rotation = 0.653935
-scale = Vector2(0.99998, 0.99998)
+rotation = 0.297004
+scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
-rotation = -0.0176109
-scale = Vector2(0.999963, 0.999963)
+rotation = -0.386774
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
 [node name="Chin" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/Head"]
@@ -2645,13 +1944,14 @@ bone_angle = -2.49648
 
 [node name="RightArm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(80, -100)
-rotation = -0.634883
-scale = Vector2(0.999999, 0.999999)
+rotation = 0.848684
+scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, 80, -100)
 
 [node name="RightForearm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm"]
 position = Vector2(-11, 97)
-rotation = 0.0499089
+rotation = -1.49072
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -11, 97)
 
 [node name="RightHand" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm"]
@@ -2665,47 +1965,40 @@ bone_angle = 70.3277
 
 [node name="LeftArm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(-100, -100)
-rotation = -0.844115
-scale = Vector2(0.999999, 0.999999)
+rotation = -0.688776
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -100, -100)
 
 [node name="LeftForearm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/LeftArm"]
 position = Vector2(-2, 95)
-rotation = -0.292353
-scale = Vector2(0.999999, 0.999999)
+rotation = -1.19554
+scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, -2, 95)
 
 [node name="LeftHand" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm"]
 position = Vector2(9, 102)
-rotation = 0.767311
+rotation = 1.22983
 rest = Transform2D(0.334394, 0.942433, -0.942433, 0.334394, 9, 102)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 70.4641
 
-[node name="Shovel" parent="visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand" instance=ExtResource("5_tkwip")]
-visible = false
-z_index = 1
-position = Vector2(-4.57764e-05, -1.52588e-05)
-rotation = 4.71239
-scale = Vector2(16.6667, 16.6667)
-
-[node name="Pickaxe" parent="visuals/Skeleton2D/Hip/Chest/LeftArm/LeftForearm/LeftHand" instance=ExtResource("4_5bycs")]
-visible = false
-z_index = 1
-rotation = 4.71239
-scale = Vector2(16.667, 16.667)
-
 [node name="LeftLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(-72, 26)
+rotation = 0.342524
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -72, 26)
 
 [node name="LeftLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg"]
 position = Vector2(-13, 91)
+rotation = 1.60229
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -13, 91)
 
 [node name="LeftFoot" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg/LeftLowerLeg"]
 position = Vector2(7, 127)
+rotation = 0.0405372
+scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(1, 0, 0, 1, 7, 127)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2713,16 +2006,20 @@ bone_angle = 0.0
 
 [node name="RightLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(46, 11)
-rotation = -1.11723
+rotation = -1.17084
+scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 46, 11)
 
 [node name="RightLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/RightLeg"]
 position = Vector2(-26, 94)
-rotation = 0.754169
+rotation = 0.947988
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -26, 94)
 
 [node name="RightFoot" type="Bone2D" parent="visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg"]
 position = Vector2(2, 129)
+rotation = 0.0911159
+scale = Vector2(0.999993, 0.999993)
 rest = Transform2D(1, 0, 0, 1, 2, 129)
 auto_calculate_length_and_angle = false
 length = 16.0
@@ -2732,7 +2029,7 @@ bone_angle = 0.0
 
 [node name="RightArm" type="Polygon2D" parent="visuals/Polygons"]
 position = Vector2(-150, -240)
-texture = ExtResource("2")
+texture = ExtResource("14_8qd2q")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(237.601, 31.7394, 217.703, 30.1435, 183.732, 47.8469, 274.303, 49.2926, 271.111, 94.5053, 183.877, 89.7181, 185.505, 166.856, 248.688, 172.323, 242.541, 187.015, 189.46, 182.958, 190.308, 202.449, 180.383, 225.837, 201.435, 321.531, 242.841, 196.76, 256.334, 215.801, 276.077, 283.732, 295.215, 310.526, 272.249, 351.675, 216.746, 356.459)
 uv = PackedVector2Array(235.407, 30.1435, 217.703, 30.1435, 183.732, 47.8469, 276.555, 49.2823, 274.641, 85.6459, 181.34, 83.7321, 184.689, 180.383, 253.11, 178.469, 243.541, 188.995, 188.038, 187.081, 188.995, 200, 180.383, 225.837, 201.435, 321.531, 244.976, 199.043, 259.809, 215.789, 276.077, 283.732, 295.215, 310.526, 272.249, 351.675, 216.746, 356.459)
@@ -2742,7 +2039,7 @@ internal_vertex_count = 19
 
 [node name="RightLeg" type="Polygon2D" parent="visuals/Polygons"]
 position = Vector2(-274, -409)
-texture = ExtResource("2")
+texture = ExtResource("14_8qd2q")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(348.266, 400, 289.099, 380.833, 280.766, 435, 276.599, 470.833, 250.766, 515, 249.933, 604.167, 246.599, 690.833, 407.433, 695.833, 409.099, 659.167, 384.099, 606.667, 349.099, 599.167, 330.766, 550, 342.433, 476.667, 337.433, 442.5)
 uv = PackedVector2Array(348.266, 400, 289.099, 380.833, 280.766, 435, 276.599, 470.833, 250.766, 515, 249.933, 604.167, 246.599, 690.833, 407.433, 695.833, 409.099, 659.167, 384.099, 606.667, 349.099, 599.167, 330.766, 550, 342.433, 476.667, 337.433, 442.5)
@@ -2752,7 +2049,7 @@ internal_vertex_count = 14
 
 [node name="Body" type="Polygon2D" parent="visuals/Polygons"]
 position = Vector2(-436, -294)
-texture = ExtResource("2")
+texture = ExtResource("14_8qd2q")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(473.936, 29.2553, 430.851, 19.6809, 384.043, 78.7234, 344.681, 107.447, 348.404, 192.553, 375.532, 240.426, 375, 255.319, 351.064, 269.681, 347.34, 294.681, 371.809, 334.574, 468.085, 347.872, 490.957, 296.809, 489.894, 276.596, 472.368, 259.211, 473.936, 245.745, 505.319, 222.34, 522.872, 179.787, 507.447, 121.809, 484.043, 84.0426, 398.404, 38.2979, 419.681, 344.149)
 uv = PackedVector2Array(473.936, 29.2553, 430.851, 19.6809, 384.043, 78.7234, 344.681, 107.447, 348.404, 192.553, 375.532, 240.426, 375, 255.319, 351.064, 269.681, 347.34, 294.681, 371.809, 334.574, 468.085, 347.872, 490.957, 296.809, 489.894, 276.596, 472.368, 259.211, 473.936, 245.745, 505.319, 222.34, 522.872, 179.787, 507.447, 121.809, 484.043, 84.0426, 398.404, 38.2979, 419.681, 344.149)
@@ -2762,7 +2059,7 @@ internal_vertex_count = 21
 
 [node name="LeftLeg" type="Polygon2D" parent="visuals/Polygons"]
 position = Vector2(-153, -402)
-texture = ExtResource("2")
+texture = ExtResource("14_8qd2q")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(65.7658, 390, 92.4325, 386.667, 119.099, 398.333, 119.099, 426.667, 120.766, 477.5, 107.433, 551.667, 129.099, 592.5, 163.266, 604.167, 188.266, 675, 173.266, 692.5, 20.7658, 686.667, 25.7658, 648.333, 29.9325, 608.333, 24.0992, 530.833, 54.9325, 472.5)
 uv = PackedVector2Array(65.7658, 390, 92.4325, 386.667, 119.099, 398.333, 119.099, 426.667, 120.766, 477.5, 107.433, 551.667, 129.099, 592.5, 163.266, 604.167, 188.266, 675, 173.266, 692.5, 20.7658, 686.667, 25.7658, 648.333, 29.9325, 608.333, 24.0992, 530.833, 54.9325, 472.5)
@@ -2772,7 +2069,7 @@ internal_vertex_count = 15
 
 [node name="Head" type="Polygon2D" parent="visuals/Polygons"]
 position = Vector2(-652, -778)
-texture = ExtResource("2")
+texture = ExtResource("14_8qd2q")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(616.26, 246.341, 555.285, 285.366, 508.13, 330.894, 482.114, 380.488, 482.114, 448.781, 492.683, 498.374, 552.846, 534.146, 656.911, 538.211, 773.984, 511.382, 807.317, 506.504, 813.821, 342.276, 789.431, 297.561, 757.724, 269.106, 669.106, 249.594)
 uv = PackedVector2Array(616.26, 246.341, 555.285, 285.366, 508.13, 330.894, 482.114, 380.488, 482.114, 448.781, 492.683, 498.374, 552.846, 534.146, 656.911, 538.211, 773.984, 511.382, 807.317, 506.504, 813.821, 342.276, 789.431, 297.561, 757.724, 269.106, 669.106, 249.594)
@@ -2783,7 +2080,7 @@ internal_vertex_count = 14
 [node name="Chin" type="Polygon2D" parent="visuals/Polygons"]
 position = Vector2(-133, -265)
 offset = Vector2(-516, -603)
-texture = ExtResource("2")
+texture = ExtResource("14_8qd2q")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(486, 576, 812, 562, 823, 605, 790, 666, 722, 690, 547, 686, 493, 646)
 uv = PackedVector2Array(486, 576, 812, 562, 823, 605, 790, 666, 722, 690, 547, 686, 493, 646)
@@ -2793,7 +2090,7 @@ internal_vertex_count = 7
 
 [node name="LeftArm" type="Polygon2D" parent="visuals/Polygons"]
 position = Vector2(-168, -240)
-texture = ExtResource("2")
+texture = ExtResource("14_8qd2q")
 skeleton = NodePath("../../Skeleton2D")
 polygon = PackedVector2Array(89.9521, 16.268, 77.5119, 15.7895, 55.5023, 25.8373, 39.2344, 29.1866, 33.9712, 59.3302, 27.2727, 154.545, 29.1865, 180.861, 33.4928, 196.172, 20.5741, 240.67, 36.842, 321.531, 61.244, 359.809, 125.837, 353.11, 137.799, 309.569, 122.967, 287.56, 106.22, 202.871, 92.3444, 191.866, 91.866, 179.426, 127.273, 70.3349, 134.928, 48.3254, 119.617, 30.622)
 uv = PackedVector2Array(89.9521, 16.268, 77.5119, 15.7895, 55.5023, 25.8373, 39.2344, 29.1866, 33.9712, 59.3302, 27.2727, 154.545, 29.1865, 180.861, 33.4928, 196.172, 20.5741, 240.67, 36.842, 321.531, 61.244, 359.809, 125.837, 353.11, 137.799, 309.569, 122.967, 287.56, 106.22, 202.871, 92.3444, 191.866, 91.866, 179.426, 127.273, 70.3349, 134.928, 48.3254, 119.617, 30.622)
@@ -2805,87 +2102,11 @@ internal_vertex_count = 20
 position = Vector2(0, -23)
 shape = SubResource("CapsuleShape2D_rkbax")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -32)
-limit_smoothed = true
-script = ExtResource("3_g1dw6")
-
-[node name="TimerSavePosition" type="Timer" parent="."]
-
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
-current = true
-
-[node name="Node2DRainEffects" type="Node2D" parent="."]
-
-[node name="GPUParticles2D" type="GPUParticles2D" parent="Node2DRainEffects" node_paths=PackedStringArray("rain_audio_stream_player2d", "timer_thunder", "thunder_color_rect", "flash_texture_rect", "thunder_audio_stream_player2d", "thunder_animation_player")]
-material = SubResource("CanvasItemMaterial_5bycs")
-amount = 500
-preprocess = 0.5
-visibility_rect = Rect2(-600, -400, 1200, 700)
-local_coords = true
-process_material = SubResource("ParticleProcessMaterial_5bycs")
-script = ExtResource("10_tkwip")
-rain_audio_stream_player2d = NodePath("../RainAudioStreamPlayer2D")
-audio_stream_storm = ExtResource("11_j44x7")
-audio_stream_birds = ExtResource("12_0wcpr")
-audio_stream_in_doors = Array[AudioStream]([ExtResource("13_fhg4i"), ExtResource("14_cydyf"), ExtResource("15_plhtt")])
-timer_thunder = NodePath("../ThunderNode2D/TimerThunder")
-thunder_color_rect = NodePath("../ThunderNode2D/ThunderColorRect")
-flash_texture_rect = NodePath("../ThunderNode2D/FlashTextureRect")
-thunder_audio_stream_player2d = NodePath("../ThunderNode2D/PolyphonySounds")
-thunder_animation_player = NodePath("../ThunderNode2D/ThunderAnimationPlayer")
-thunder_audio_stream = Array[AudioStream]([ExtResource("21_4yo4j"), ExtResource("22_ndipj"), ExtResource("23_ii7nk"), ExtResource("24_kd2u1")])
-
-[node name="RainEffect" type="Sprite2D" parent="Node2DRainEffects"]
-visible = false
-material = SubResource("ShaderMaterial_ndipj")
-scale = Vector2(8, 1142.86)
-texture = SubResource("GradientTexture1D_kd2u1")
-
-[node name="RainAudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Node2DRainEffects"]
-max_distance = 250.0
-bus = &"rain"
-
-[node name="ThunderNode2D" type="Node2D" parent="Node2DRainEffects"]
-
-[node name="TimerThunder" type="Timer" parent="Node2DRainEffects/ThunderNode2D"]
-wait_time = 2.0
+[node name="Timer" type="Timer" parent="."]
+wait_time = 45.0
+one_shot = true
 autostart = true
-
-[node name="ThunderColorRect" type="ColorRect" parent="Node2DRainEffects/ThunderNode2D"]
-visible = false
-material = SubResource("ShaderMaterial_hc6fu")
-offset_left = -1000.0
-offset_top = -575.0
-offset_right = 1000.0
-offset_bottom = 575.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="ThunderAnimationPlayer" type="AnimationPlayer" parent="Node2DRainEffects/ThunderNode2D"]
-libraries = {
-&"": SubResource("AnimationLibrary_ypxln")
-}
-
-[node name="FlashTextureRect" type="TextureRect" parent="Node2DRainEffects/ThunderNode2D"]
-visible = false
-offset_left = -1000.0
-offset_top = -575.0
-offset_right = 966.0
-offset_bottom = 586.0
-texture = SubResource("GradientTexture1D_psj16")
-
-[node name="PolyphonySounds" type="Node2D" parent="Node2DRainEffects/ThunderNode2D" node_paths=PackedStringArray("sample_audio_player_to_duplicate")]
-script = ExtResource("26_ndipj")
-sample_audio_player_to_duplicate = NodePath("ThunderAudioStreamPlayer2D2")
-
-[node name="ThunderAudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="Node2DRainEffects/ThunderNode2D/PolyphonySounds"]
-max_polyphony = 10
-bus = &"thunder"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
-[connection signal="hit_body" from="controller/beam weapon" to="controller/PlayerWeaponController" method="_on_beam_weapon_hit_body"]
-[connection signal="timeout" from="TimerSavePosition" to="controller" method="save_position"]
-[connection signal="finished" from="Node2DRainEffects/RainAudioStreamPlayer2D" to="Node2DRainEffects/GPUParticles2D" method="random_indoor_sound"]
-[connection signal="timeout" from="Node2DRainEffects/ThunderNode2D/TimerThunder" to="Node2DRainEffects/GPUParticles2D" method="thunder_strike"]
+[connection signal="velocity_computed" from="controller/NavigationAgent2D" to="controller" method="_on_navigation_agent_2d_velocity_computed"]
