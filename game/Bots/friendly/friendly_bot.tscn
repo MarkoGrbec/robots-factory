@@ -1,6 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://brrfsc0w4l0kn"]
+[gd_scene load_steps=41 format=3 uid="uid://brrfsc0w4l0kn"]
 
-[ext_resource type="Script" uid="uid://coi3yrdvom4ln" path="res://game/Bots/enemy/CPEnemy.gd" id="1_paxke"]
+[ext_resource type="Script" uid="uid://b7g0j52qm4ix3" path="res://game/Bots/friendly/CPFriendly.gd" id="1_1tr4l"]
 [ext_resource type="AudioStream" uid="uid://badxvq3w50b4n" path="res://sounds/robot/dead.wav" id="2_j4bpy"]
 [ext_resource type="AudioStream" uid="uid://ci4ibtl834tol" path="res://sounds/robot/awake.wav" id="3_lctip"]
 [ext_resource type="Script" uid="uid://bels6xlkmnb4a" path="res://game/Bots/friendly/FriendlyController.gd" id="4_47vby"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://b3hxmpm5ou3y5" path="res://sounds/floor/wood 2 notarget.wav" id="11_tedrd"]
 [ext_resource type="Script" uid="uid://y71vsd723yaq" path="res://game/Bots/Movement.gd" id="12_m80gp"]
 [ext_resource type="Script" uid="uid://b1drhytdt5cnu" path="res://game/Bots/Visuals.gd" id="13_4p7j4"]
+[ext_resource type="Animation" uid="uid://dl83bsdb53ect" path="res://my assets/player2D/mine.res" id="13_rc8wl"]
 [ext_resource type="Texture2D" uid="uid://cgnjku7sa0qyt" path="res://my assets/player2D/gBot.png" id="14_8qd2q"]
 
 [sub_resource type="Animation" id="1"]
@@ -1706,6 +1707,7 @@ _data = {
 &"jump": SubResource("4"),
 &"land": SubResource("5"),
 &"land_hard": SubResource("6"),
+&"mine": ExtResource("13_rc8wl"),
 &"run": SubResource("7"),
 &"walk": SubResource("8")
 }
@@ -1808,14 +1810,14 @@ node_connections = [&"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land"
 radius = 11.0
 height = 46.0
 
-[node name="CPFriendly" type="CharacterBody2D" node_paths=PackedStringArray("controller", "robot_sfx_audio_stream_player", "name_label") groups=["enemy"]]
+[node name="CPFriendly" type="CharacterBody2D" node_paths=PackedStringArray("controller", "robot_sfx_audio_stream_player", "name_label") groups=["friendly"]]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838
 floor_snap_length = 0.1
 platform_floor_layers = 4294967294
 safe_margin = 0.2
-script = ExtResource("1_paxke")
+script = ExtResource("1_1tr4l")
 controller = NodePath("controller")
 robot_sfx_audio_stream_player = NodePath("RobotSFX")
 dead_sound = ExtResource("2_j4bpy")
@@ -1848,6 +1850,7 @@ avoidance_layers = 3
 avoidance_mask = 3
 
 [node name="state name" type="Label" parent="controller"]
+visible = false
 z_index = 2
 offset_left = -75.0
 offset_top = -112.0
@@ -1855,6 +1858,7 @@ offset_right = 76.0
 offset_bottom = -29.0
 theme_override_colors/font_color = Color(0.752941, 1, 1, 1)
 theme_override_font_sizes/font_size = 16
+text = "friendly unit"
 horizontal_alignment = 1
 vertical_alignment = 2
 autowrap_mode = 3
@@ -1917,21 +1921,21 @@ left_arm = NodePath("Polygons/LeftArm")
 [node name="Skeleton2D" type="Skeleton2D" parent="visuals"]
 
 [node name="Hip" type="Bone2D" parent="visuals/Skeleton2D"]
-position = Vector2(0, -0.976334)
-rotation = 0.107863
-scale = Vector2(0.999991, 0.999991)
+position = Vector2(0, 13.3832)
+rotation = 0.0489143
+scale = Vector2(0.99999, 0.99999)
 rest = Transform2D(1, 0, 0, 1, -3, -11)
 
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
-rotation = 0.297004
+rotation = 0.301779
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
-rotation = -0.386774
-scale = Vector2(0.999995, 0.999995)
+rotation = -0.335414
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
 [node name="Chin" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/Head"]
@@ -1944,14 +1948,14 @@ bone_angle = -2.49648
 
 [node name="RightArm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(80, -100)
-rotation = 0.848684
+rotation = 0.466216
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, 80, -100)
 
 [node name="RightForearm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm"]
 position = Vector2(-11, 97)
-rotation = -1.49072
-scale = Vector2(0.999995, 0.999995)
+rotation = -0.900549
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -11, 97)
 
 [node name="RightHand" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm/RightForearm"]
@@ -1965,13 +1969,13 @@ bone_angle = 70.3277
 
 [node name="LeftArm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(-100, -100)
-rotation = -0.688776
-scale = Vector2(0.999995, 0.999995)
+rotation = -0.373304
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -100, -100)
 
 [node name="LeftForearm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/LeftArm"]
 position = Vector2(-2, 95)
-rotation = -1.19554
+rotation = -1.0606
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, -2, 95)
 
@@ -1985,19 +1989,19 @@ bone_angle = 70.4641
 
 [node name="LeftLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(-72, 26)
-rotation = 0.342524
-scale = Vector2(0.999995, 0.999995)
+rotation = -0.680684
+scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -72, 26)
 
 [node name="LeftLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg"]
 position = Vector2(-13, 91)
-rotation = 1.60229
+rotation = 2.01338
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -13, 91)
 
 [node name="LeftFoot" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg/LeftLowerLeg"]
 position = Vector2(7, 127)
-rotation = 0.0405372
+rotation = 0.655809
 scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(1, 0, 0, 1, 7, 127)
 auto_calculate_length_and_angle = false
@@ -2006,20 +2010,20 @@ bone_angle = 0.0
 
 [node name="RightLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(46, 11)
-rotation = -1.17084
+rotation = -0.375148
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 46, 11)
 
 [node name="RightLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/RightLeg"]
 position = Vector2(-26, 94)
-rotation = 0.947988
+rotation = 1.00043
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -26, 94)
 
 [node name="RightFoot" type="Bone2D" parent="visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg"]
 position = Vector2(2, 129)
-rotation = 0.0911159
-scale = Vector2(0.999993, 0.999993)
+rotation = -0.633792
+scale = Vector2(0.999992, 0.999992)
 rest = Transform2D(1, 0, 0, 1, 2, 129)
 auto_calculate_length_and_angle = false
 length = 16.0

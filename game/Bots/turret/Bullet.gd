@@ -15,12 +15,18 @@ func _on_projectile_hit_body_entered(body: Node2D) -> void:
 	if body.is_in_group("friendly"):
 		_enemy_turret.upgrade_experience()
 	if body != _enemy_turret:
-		destroy_me()
 		if body.is_in_group("friendly") or body.is_in_group("enemy"):
 			var damage = _enemy_turret.station_damage[_enemy_turret.station_type]
 			if _enemy_turret.station_type == EnemyTurret.StationType.CANNON and _enemy_turret.station == EnemyTurret.Station.THIRD:
 				damage *= 2.5
-			body.hit(damage)
+			body.get_hit(damage)
+			if body is CPFriendly:
+				if body.controller.state == FriendlyController.State.BROKEN:
+					_enemy_turret.stop_attack(body)
+		# destroy the entity_sprite2d_in_world and it's entity
+		if body.is_in_group("material"):
+			body.get_parent().destroy_me()
+		destroy_me()
 
 func destroy_me():
 	queue_free()

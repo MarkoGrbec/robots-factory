@@ -1,4 +1,7 @@
 class_name MapGroundLayer extends Node2D
+
+@export var static_objects: Array[StaticBody2D]
+
 func _ready() -> void:
 	g_man.map = self
 
@@ -16,6 +19,8 @@ func activate(active: bool):
 						activate_child(child, true)
 					else:
 						activate_child(child, false)
+	for child in static_objects:
+		activate_child(child, active)
 
 func activate_child(child, active):
 	child.set_collision_mask_value(1, active)

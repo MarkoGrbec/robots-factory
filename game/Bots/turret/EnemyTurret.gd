@@ -39,6 +39,10 @@ var experience: int = 0
 
 var reset_timer: float = 0
 
+func _ready() -> void:
+	reset_station()
+	upgrade_fire_station()
+
 func attack(body) -> void:
 	array_bodys_to_attack.push_back(body)
 
@@ -46,7 +50,7 @@ func stop_attack(body) -> void:
 	array_bodys_to_attack.erase(body)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("friendly"):
+	if body.is_in_group("friendly") and not body.controller.state == FriendlyController.State.BROKEN:
 		attack(body)
 
 
@@ -65,8 +69,15 @@ func _process(_delta: float) -> void:
 	elif not array_bodys_to_attack:
 		state = State.IDLE
 		attack_timer.stop()
-	if array_bodys_to_attack:
-		look_at_target(array_bodys_to_attack[0])
+	var target = first_target()
+	if target:
+		look_at_target(target)
+
+func first_target():
+	for body in array_bodys_to_attack:
+		if body is CPFriendly:
+			if not body.controller.state == FriendlyController.State.BROKEN:
+				return body
 
 func look_at_target(body: Node2D):
 	weapon_sprite_2d.look_at(body.global_position)
@@ -76,11 +87,12 @@ func attack_at() -> void:
 	attack_timer.start(fire_speed[station_type][station])
 
 func shoot():
-	if array_bodys_to_attack:
+	var target = first_target()
+	if target:
 		var _bullet: Node2D = bullet_scene.instantiate()
 		add_child(_bullet)
 		_bullet.set_bullet_texture(bullet[station_type], self)
-		_bullet.look_at(array_bodys_to_attack[0].global_position)
+		_bullet.look_at(target.global_position)
 
 func upgrade_experience():
 	experience += 1
@@ -103,7 +115,7 @@ func reset_station():
 	attack_timer.stop()
 	reset_timer = Time.get_ticks_msec()
 
-func hit(damage):
+func get_hit(damage):
 	damage -= armor[station_type]
 	health -= clampf(damage, 0, INF)
 	if health < 0:

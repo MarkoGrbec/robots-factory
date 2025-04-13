@@ -3,7 +3,8 @@ class_name Movement extends Node
 enum State{
 	RUN,
 	WALK,
-	BROKEN
+	BROKEN,
+	MINE
 }
 
 # Keep this in sync with the AnimationTree's state names.
@@ -13,6 +14,7 @@ const States = {
 	RUN = "run",
 	FLY = "fly",
 	FALL = "fall",
+	MINE = "mine",
 }
 
 const RUN_SPEED = 200.0
@@ -128,6 +130,8 @@ func _physics_process(delta: float) -> void:
 		#if velocity.y > 0:
 	if state == State.BROKEN:
 		animation_tree["parameters/state/transition_request"] = States.FALL
+	if state == State.MINE:
+		animation_tree["parameters/state/transition_request"] = States.MINE
 		#else:
 			#animation_tree["parameters/state/transition_request"] = States.FLY
 
