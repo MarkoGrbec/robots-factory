@@ -1,10 +1,13 @@
-class_name FriendlyRobotsSpawn extends Node2D
+class_name FriendlyRobotsSpawnReality extends Node2D
 
 @export var friendly_robot: PackedScene
 @export var build_factory_point: Node2D
 @export var timer_spawn_friendly: Timer
 
 func _ready() -> void:
+	g_man.friendly_robots_spawn_reality = self
+
+func start_spawning():
 	timer_spawn_friendly.start()
 
 func _on_spawn_friendly_timeout() -> void:

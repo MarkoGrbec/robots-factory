@@ -1,4 +1,4 @@
-[gd_scene load_steps=451 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=449 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -4781,9 +4781,9 @@ quantity = 15
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["izvoli železo za napad"])
-response_dialog = Array[String](["ok bom poslal robota", "ok bom poslal še enega robota"])
-response_failed_dialog = "potrebujem 15 železa"
+list_avatar_dialog = Array[String](["Here's supply iron for the attack."])
+response_dialog = Array[String](["Acknowledged. Deploying one robot.", "Acknowledged. Deploying an additional robot."])
+response_failed_dialog = "Require 15 iron units."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_1vnao"]
@@ -4799,9 +4799,9 @@ quantity = 20
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["izvoli železo za organizacijo napada"])
-response_dialog = Array[String](["bom poslal robota z orožjem"])
-response_failed_dialog = "potrebujem 20 železa"
+list_avatar_dialog = Array[String](["Here's supply iron for attack coordination."])
+response_dialog = Array[String](["Dispatching weaponized robot."])
+response_failed_dialog = "Require 20 iron units."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_jgj7c"]
@@ -4812,7 +4812,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_sdmys"), SubResource("Resource_1vnao")])
-default_starting_dialog = "zdaj ko imamo organske robote na svoji strani vere bi bilo dobro da bi začeli z napadom na tovarno. potrebujem dosti železa organiziram napad na tovarno"
+default_starting_dialog = "Now that we have organic robots on our side of faith, it would be wise to launch an attack on the factory. I need substantial iron reserves. Organizing the assault now."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -4964,8 +4964,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["ali si prepričan? znanost je vedno bila samo izmišljotina."])
-response_dialog = Array[String](["ko bi vsaj vedel kaj vse je ta izmišljotina tebi prinesla... škoda da ne bi bil rad del tega velikega projekta."])
+list_avatar_dialog = Array[String](["Are you certain? Science was always just a fabrication."])
+response_dialog = Array[String](["If only you knew what this 'fabrication' has brought you...
+Pity you wouldn’t want to be part of this grand project."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -4994,9 +4995,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["izvoli nekaj peska za načrt tovarne"])
-response_dialog = Array[String](["ok super bom poslal pesek za čipovje ki bodo uporabljeni za načrt tovarne"])
-response_failed_dialog = "rabim več peska"
+list_avatar_dialog = Array[String](["Here's supply sand for factory blueprints."])
+response_dialog = Array[String](["Affirmative. Deploying sand for fabrication of schematic chips."])
+response_failed_dialog = "I need more sand quantity."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_u8x41"]
@@ -5012,8 +5013,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["koliko peska potrebuješ"])
-response_dialog = Array[String](["5 peska prosim"])
+list_avatar_dialog = Array[String](["Specify required sand quantity."])
+response_dialog = Array[String](["5 units of sand, please."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -5025,7 +5026,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_fm5xk"), SubResource("Resource_u8x41")])
-default_starting_dialog = "zdaj ko imamo organske robote na svoji strani bi bilo dobro da bi začel graditi tovarno, potrebujem nekaj peska za načrt da dam delati čipe na katere bomo shranili načrt tovarne"
+default_starting_dialog = "Now that we have organic robots allied with us, initiating factory construction. Require sand for blueprint chips to store the factory schematics."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -5037,38 +5038,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
-default_starting_dialog = "poskušaj obraniti organske robote ki bodo gradili tovarno."
-default_failed_dialog = ""
-metadata/_custom_type_script = "uid://sjmolji57b8"
-
-[sub_resource type="Resource" id="Resource_08xai"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([0])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["bilo mi je v veselje da smo končno prišli do svoje tovarne"])
-response_dialog = Array[String](["hvala za igranje to je konec enega dela igre.
-poskušaj še drugo vejo igre kjer verjameš v boga."])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
-[sub_resource type="Resource" id="Resource_oo4jq"]
-script = ExtResource("4_0rfkw")
-description = ""
-dict_mission__entity_num = Dictionary[String, int]({})
-mission_quantity = 0
-fail_passes = false
-display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_08xai")])
-default_starting_dialog = "odlično uspelo ti je obraniti organske robote da so lahko zgradili novo tovarno"
+default_starting_dialog = "Prioritize defense of organic robots assigned to factory construction."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -5082,7 +5052,7 @@ quest_body_type = 311
 color = Color(0.580483, 0.547897, 0.999999, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru"), SubResource("Resource_2mc1w"), SubResource("Resource_71wuy"), SubResource("Resource_s63vl"), SubResource("Resource_i1tgh"), SubResource("Resource_oo4jq")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru"), SubResource("Resource_2mc1w"), SubResource("Resource_71wuy"), SubResource("Resource_s63vl"), SubResource("Resource_i1tgh")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")

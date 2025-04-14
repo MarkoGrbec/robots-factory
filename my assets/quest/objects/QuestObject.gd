@@ -80,7 +80,6 @@ func create_npc_with_avatar(id_avatar: int):
 	#var qq_deep: QQDeep = 
 	g_man.savable_multi____quest___qq__qq.new_data(1, quest_index)
 	g_man.quests_manager.dict_name__server_quest[quest_name] = server_quest
-	server_quest.layer = layer
 	if server_quest.activated and server_quest.initialized:
 		return server_quest
 	

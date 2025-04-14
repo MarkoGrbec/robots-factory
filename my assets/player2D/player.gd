@@ -5,6 +5,8 @@ class_name Player extends Node2D
 @export var holding_hand: bool = false
 @export var timer: Timer
 
+@export var state: FriendlyController.State = FriendlyController.State.CHASE
+
 func _physics_process(_delta: float) -> void:
 	movement.state = Movement.State.WALK
 	if true or Input.is_action_pressed("run"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://brrfsc0w4l0kn"]
+[gd_scene load_steps=42 format=3 uid="uid://brrfsc0w4l0kn"]
 
 [ext_resource type="Script" uid="uid://b7g0j52qm4ix3" path="res://game/Bots/friendly/CPFriendly.gd" id="1_1tr4l"]
 [ext_resource type="AudioStream" uid="uid://badxvq3w50b4n" path="res://sounds/robot/dead.wav" id="2_j4bpy"]
@@ -1741,6 +1741,8 @@ sync = true
 [sub_resource type="AnimationNodeAnimation" id="17"]
 animation = &"land_hard"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rc8wl"]
+
 [sub_resource type="AnimationNodeAnimation" id="18"]
 animation = &"run"
 
@@ -1768,6 +1770,10 @@ input_4/name = "fall"
 input_4/auto_advance = false
 input_4/break_loop_at_end = false
 input_4/reset = true
+input_5/name = "mine"
+input_5/auto_advance = false
+input_5/break_loop_at_end = false
+input_5/reset = true
 
 [sub_resource type="AnimationNodeAnimation" id="21"]
 animation = &"walk"
@@ -1775,6 +1781,7 @@ animation = &"walk"
 [sub_resource type="AnimationNodeTimeScale" id="22"]
 
 [sub_resource type="AnimationNodeBlendTree" id="23"]
+graph_offset = Vector2(-117.727, 380.413)
 nodes/fall_animation/node = SubResource("9")
 nodes/fall_animation/position = Vector2(540, 1140)
 nodes/fly_animation/node = SubResource("10")
@@ -1793,6 +1800,8 @@ nodes/land_hard/node = SubResource("16")
 nodes/land_hard/position = Vector2(1680, 680)
 nodes/land_hard_animation/node = SubResource("17")
 nodes/land_hard_animation/position = Vector2(1453.33, 506.667)
+nodes/mine/node = SubResource("AnimationNodeAnimation_rc8wl")
+nodes/mine/position = Vector2(540, 1300)
 nodes/output/position = Vector2(1860, 680)
 nodes/run_animation/node = SubResource("18")
 nodes/run_animation/position = Vector2(540, 820)
@@ -1804,7 +1813,7 @@ nodes/walk_animation/node = SubResource("21")
 nodes/walk_animation/position = Vector2(540, 660)
 nodes/walk_timescale/node = SubResource("22")
 nodes/walk_timescale/position = Vector2(720, 626.667)
-node_connections = [&"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land", 0, &"jump", &"land", 1, &"land_animation", &"land_hard", 0, &"land", &"land_hard", 1, &"land_hard_animation", &"output", 0, &"land_hard", &"run_timescale", 0, &"run_animation", &"state", 0, &"idle_animation", &"state", 1, &"walk_timescale", &"state", 2, &"run_timescale", &"state", 3, &"fly_animation", &"state", 4, &"fall_animation", &"walk_timescale", 0, &"walk_animation"]
+node_connections = [&"jump", 0, &"state", &"jump", 1, &"jump_animation", &"land", 0, &"jump", &"land", 1, &"land_animation", &"land_hard", 0, &"land", &"land_hard", 1, &"land_hard_animation", &"output", 0, &"land_hard", &"run_timescale", 0, &"run_animation", &"state", 0, &"idle_animation", &"state", 1, &"walk_timescale", &"state", 2, &"run_timescale", &"state", 3, &"fly_animation", &"state", 4, &"fall_animation", &"state", 5, &"mine", &"walk_timescale", 0, &"walk_animation"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rkbax"]
 radius = 11.0
@@ -1921,20 +1930,20 @@ left_arm = NodePath("Polygons/LeftArm")
 [node name="Skeleton2D" type="Skeleton2D" parent="visuals"]
 
 [node name="Hip" type="Bone2D" parent="visuals/Skeleton2D"]
-position = Vector2(0, 13.3832)
-rotation = 0.0489143
+position = Vector2(0, 9.73061)
+rotation = 0.0370414
 scale = Vector2(0.99999, 0.99999)
 rest = Transform2D(1, 0, 0, 1, -3, -11)
 
 [node name="Chest" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(0, -32)
-rotation = 0.301779
+rotation = 0.308836
 scale = Vector2(0.999998, 0.999998)
 rest = Transform2D(1, 0, 0, 1, 0, -32)
 
 [node name="Head" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(0, -160)
-rotation = -0.335414
+rotation = -0.325069
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, 0, -160)
 
@@ -1948,13 +1957,13 @@ bone_angle = -2.49648
 
 [node name="RightArm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(80, -100)
-rotation = 0.466216
+rotation = -0.557597
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, 80, -100)
 
 [node name="RightForearm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/RightArm"]
 position = Vector2(-11, 97)
-rotation = -0.900549
+rotation = -1.01167
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -11, 97)
 
@@ -1969,13 +1978,13 @@ bone_angle = 70.3277
 
 [node name="LeftArm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest"]
 position = Vector2(-100, -100)
-rotation = -0.373304
+rotation = 0.307488
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -100, -100)
 
 [node name="LeftForearm" type="Bone2D" parent="visuals/Skeleton2D/Hip/Chest/LeftArm"]
 position = Vector2(-2, 95)
-rotation = -1.0606
+rotation = -0.985864
 scale = Vector2(0.999996, 0.999996)
 rest = Transform2D(1, 0, 0, 1, -2, 95)
 
@@ -1989,19 +1998,19 @@ bone_angle = 70.4641
 
 [node name="LeftLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(-72, 26)
-rotation = -0.680684
+rotation = 0.0167007
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -72, 26)
 
 [node name="LeftLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg"]
 position = Vector2(-13, 91)
-rotation = 2.01338
+rotation = 0.688761
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, -13, 91)
 
 [node name="LeftFoot" type="Bone2D" parent="visuals/Skeleton2D/Hip/LeftLeg/LeftLowerLeg"]
 position = Vector2(7, 127)
-rotation = 0.655809
+rotation = -0.716926
 scale = Vector2(0.999991, 0.999991)
 rest = Transform2D(1, 0, 0, 1, 7, 127)
 auto_calculate_length_and_angle = false
@@ -2010,19 +2019,19 @@ bone_angle = 0.0
 
 [node name="RightLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip"]
 position = Vector2(46, 11)
-rotation = -0.375148
+rotation = 0.0292489
 scale = Vector2(0.999995, 0.999995)
 rest = Transform2D(1, 0, 0, 1, 46, 11)
 
 [node name="RightLowerLeg" type="Bone2D" parent="visuals/Skeleton2D/Hip/RightLeg"]
 position = Vector2(-26, 94)
-rotation = 1.00043
+rotation = 1.4915
 scale = Vector2(0.999994, 0.999994)
 rest = Transform2D(1, 0, 0, 1, -26, 94)
 
 [node name="RightFoot" type="Bone2D" parent="visuals/Skeleton2D/Hip/RightLeg/RightLowerLeg"]
 position = Vector2(2, 129)
-rotation = -0.633792
+rotation = 0.206618
 scale = Vector2(0.999992, 0.999992)
 rest = Transform2D(1, 0, 0, 1, 2, 129)
 auto_calculate_length_and_angle = false

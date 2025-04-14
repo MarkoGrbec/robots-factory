@@ -2516,7 +2516,7 @@ colors = PackedColorArray(1, 1, 1, 0.882353, 1, 1, 1, 0.882353)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_psj16"]
 gradient = SubResource("Gradient_kd2u1")
 
-[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "controller", "rain_particles", "name_label") groups=["player"]]
+[node name="CPPlayer" type="CharacterBody2D" node_paths=PackedStringArray("weapon_controller", "controller", "rain_particles", "name_label") groups=["friendly", "player"]]
 input_pickable = true
 floor_constant_speed = true
 floor_max_angle = 0.994838

@@ -235,6 +235,7 @@ static func set_server_quest(quest_index: int, activated: bool, basis: int):
 		server_quests[0].save_basis()
 		target_send_quest_mob_to_make(server_quests[0])
 
+## one more than exact
 static func get_server_quest_basis(quest_index: int):
 	var server_quests = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
 	if server_quests:

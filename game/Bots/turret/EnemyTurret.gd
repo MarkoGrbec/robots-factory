@@ -75,7 +75,7 @@ func _process(_delta: float) -> void:
 
 func first_target():
 	for body in array_bodys_to_attack:
-		if body is CPFriendly:
+		if body is CPFriendly or body is CPPlayer:
 			if not body.controller.state == FriendlyController.State.BROKEN:
 				return body
 

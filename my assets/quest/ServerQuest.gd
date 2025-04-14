@@ -32,6 +32,7 @@ func fully_load():
 	equipment_in_hand = q_obj.equipment
 	load_initialized()
 	load_believe()
+	load_layer(q_obj)
 
 func destroy():
 	var q_obj = mp.get_quest_object(_quest_index)
@@ -42,6 +43,8 @@ func destroy():
 	save_position()
 	array_believe = [q_obj.believe_l, q_obj.believe_r]
 	save_believe()
+	layer = q_obj.layer
+	save_layer()
 	print("destroy id server_quest: ", id)
 	#region load
 func load_initialized():
@@ -88,6 +91,9 @@ func load_mission_quantity():
 func load_believe():
 	var q_obj = mp.get_quest_object(_quest_index)
 	array_believe = load_uni("believe", [q_obj.believe_l, q_obj.believe_r])
+
+func load_layer(q_obj: QuestObject):
+	layer = load_uni("layer", q_obj.layer)
 	#endregion
 	#region save
 func save_initialized():
@@ -125,6 +131,9 @@ func save_mission_quantity():
 
 func save_believe():
 	save_uni("believe", array_believe)
+
+func save_layer():
+	save_uni("layer", layer)
 	#endregion save
 #endregion savable
 

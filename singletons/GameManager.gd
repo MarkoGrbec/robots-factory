@@ -21,7 +21,11 @@ var trader_manager: TraderManager
 var misc: Misc
 var music_manager: MusicManager
 
+var friendly_robots_spawn_reality: FriendlyRobotsSpawnReality
+var friendly_robots_spawn_godish: FriendlyRobotsSpawnGodish
+
 var factory: Factory
+var enemy_factory: Factory
 
 var dbms = "DBMS"
 
@@ -157,7 +161,7 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.VECTOR2, 1, "position")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "initialized")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 2, "believe")
-	
+	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "layer")
 	
 	_table = DataBase.Table.new("qq_deep")
 	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "index")

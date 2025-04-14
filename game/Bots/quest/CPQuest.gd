@@ -102,12 +102,26 @@ func succeed_old_basis(success_old_basis__qq_index):
 				g_man.user.save_believe_in_god()
 		if success_old_basis__qq_index[0] == 1:
 			if success_old_basis__qq_index[1] == 0:
-				printerr("start full scale attack")
-				pass
-				g_man.tile_map_layers.set_region(Rect2i(-30, -38, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
-				g_man.tile_map_layers.set_region(Rect2i(-30, -37, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
-				g_man.tile_map_layers.set_region(Rect2i(-30, -36, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
-				g_man.tile_map_layers.set_region(Rect2i(-30, -35, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				printerr("start full scale attack on factory")
+				g_man.tile_map_layers.active_layer = 0
+				g_man.tile_map_layers.set_region(Rect2i(20, -42, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				g_man.tile_map_layers.set_region(Rect2i(19, -41, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(20, -40, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(19, -39, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(20, -38, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				g_man.tile_map_layers.active_layer = 4
+				var server_quest: ServerQuest = QuestsManager.get_server_quest(quest_index)
+				server_quest.layer = 0
+				server_quest.save_layer()
+				global_position = Vector2(3200, -1900)
+				server_quest.position = global_position
+				server_quest.save_position()
+				
+		if success_old_basis__qq_index[0] == 3:
+			if success_old_basis__qq_index[1] == 0:
+				g_man.friendly_robots_spawn_godish.spawn_friendly()
+			if success_old_basis__qq_index[1] == 1:
+				g_man.friendly_robots_spawn_godish.spawn_friendly_armored()
 	elif quest_index == 12:# sophie
 		if success_old_basis__qq_index[0] == 0:
 			if success_old_basis__qq_index[1] == 0:
@@ -115,7 +129,7 @@ func succeed_old_basis(success_old_basis__qq_index):
 				g_man.user.save_believe_in_god()
 		if success_old_basis__qq_index[0] == 1:
 			if success_old_basis__qq_index[1] == 0:
-				printerr("start full scale craft")
+				printerr("start full scale craft factory")
 				g_man.tile_map_layers.active_layer = 0
 				g_man.tile_map_layers.set_region(Rect2i(-28, -38, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 				g_man.tile_map_layers.set_region(Rect2i(-29, -37, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
