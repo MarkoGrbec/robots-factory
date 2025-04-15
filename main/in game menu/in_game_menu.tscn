@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://4uvqadvod7cb"]
+[gd_scene load_steps=14 format=3 uid="uid://4uvqadvod7cb"]
 
 [ext_resource type="Script" uid="uid://db61dwu37phlo" path="res://main/in game menu/InGameMenu.gd" id="1_un1ud"]
 [ext_resource type="PackedScene" uid="uid://b2i1wol5qwtld" path="res://my assets/binding/binding_container.tscn" id="2_cgffx"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://bmisylcouk4hv" path="res://sounds/floor/gravel loscolt890.wav" id="8_7ptvs"]
 [ext_resource type="AudioStream" uid="uid://bswe80wnn5jtc" path="res://sounds/lightning strike/thunder-clap-and-rumble kinoton.wav" id="9_5em43"]
 [ext_resource type="AudioStream" uid="uid://bqaijn11s2nnj" path="res://sounds/robot/awake robot.wav" id="10_7ptvs"]
+[ext_resource type="AudioStream" uid="uid://kp7iuglc17j7" path="res://sounds/gun fire impact/morganpurkis_-missile-launching.wav" id="11_58cyy"]
 
 [node name="in game menu" type="TabContainer" node_paths=PackedStringArray("options_holding_hand_container")]
 anchors_preset = 15
@@ -228,6 +229,16 @@ bus_name = "robot sfx"
 
 [node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer7" index="2"]
 bus = &"robot sfx"
+
+[node name="VolumeContainer8" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+layout_mode = 2
+audio_stream_sample = ExtResource("11_58cyy")
+volume_name = "turret"
+db_name = "weapon_p3"
+bus_name = "weapon sfx"
+
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer8" index="2"]
+bus = &"weapon sfx"
 
 [node name="MarginContainer2" type="MarginContainer" parent="audio/HBoxContainer"]
 custom_minimum_size = Vector2(64, 0)
@@ -451,3 +462,4 @@ text = "X"
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer5"]
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer6"]
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer7"]
+[editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer8"]

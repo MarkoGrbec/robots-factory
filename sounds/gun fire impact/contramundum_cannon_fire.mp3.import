@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwtm3wxssjuxq"
+path="res://.godot/imported/contramundum_cannon_fire.mp3-72209c090995d315f520bdc7dcdd1678.mp3str"
+
+[deps]
+
+source_file="res://sounds/gun fire impact/contramundum_cannon_fire.mp3"
+dest_files=["res://.godot/imported/contramundum_cannon_fire.mp3-72209c090995d315f520bdc7dcdd1678.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -111,6 +111,8 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "foot_steps_p3")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "thunder_p3")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "robot_p3")
+	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "weapon_p3")
+	
 	
 	
 	_table = DataBase.Table.new("misc")

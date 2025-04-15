@@ -19,6 +19,9 @@ enum Station{
 @export var weapon_sprite_2d: Sprite2D
 @export var weapon_sprites: Array[Texture2D]
 @export var bullet: Array[Texture2D]
+@export var bullet_sound: Array[AudioStream]
+@export var bullet_impact_sound: Array[AudioStream]
+@export var master_audio_stream_player: MasterAudioStreamPlayer2D
 @export var attack_timer: Timer
 
 @export var bullet_scene: PackedScene
@@ -90,6 +93,17 @@ func shoot():
 	var target = first_target()
 	if target:
 		var _bullet: Node2D = bullet_scene.instantiate()
+		if station == Station.FIRST:
+			master_audio_stream_player.sample_audio_player_to_duplicate.pitch_scale = 1
+		if station == Station.SECOND:
+			master_audio_stream_player.sample_audio_player_to_duplicate.pitch_scale = 1.5
+		if station == Station.THIRD:
+			if station_type == StationType.CANNON:
+				master_audio_stream_player.sample_audio_player_to_duplicate.pitch_scale = 0.5
+			else:
+				master_audio_stream_player.sample_audio_player_to_duplicate.pitch_scale = 2
+		master_audio_stream_player.add_sound_to_play(bullet_sound[station_type])
+		
 		add_child(_bullet)
 		_bullet.set_bullet_texture(bullet[station_type], self)
 		_bullet.look_at(target.global_position)

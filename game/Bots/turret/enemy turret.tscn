@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://clrvijc1kdgy4"]
+[gd_scene load_steps=25 format=3 uid="uid://clrvijc1kdgy4"]
 
 [ext_resource type="Texture2D" uid="uid://b1sqhpytlj3ps" path="res://game/Bots/turret/PNG/Tower.png" id="1_j3jun"]
 [ext_resource type="Script" uid="uid://yvv4581kuoun" path="res://game/Bots/turret/EnemyTurret.gd" id="1_x8plt"]
@@ -15,6 +15,13 @@
 [ext_resource type="Texture2D" uid="uid://rr76xn700ah1" path="res://game/Bots/turret/PNG/Missile_Launcher.png" id="8_a27re"]
 [ext_resource type="Texture2D" uid="uid://dw8ttkq3l6e1y" path="res://game/Bots/turret/PNG/Missile_Launcher2.png" id="9_y5k0w"]
 [ext_resource type="Texture2D" uid="uid://607pq68nn3sm" path="res://game/Bots/turret/PNG/Missile_Launcher3.png" id="10_ebbrh"]
+[ext_resource type="AudioStream" uid="uid://bo7go4ov5ijyp" path="res://sounds/gun fire impact/211redman112_bullet fire.wav" id="14_rjjr8"]
+[ext_resource type="AudioStream" uid="uid://bwtm3wxssjuxq" path="res://sounds/gun fire impact/contramundum_cannon_fire.mp3" id="15_6eugu"]
+[ext_resource type="AudioStream" uid="uid://kp7iuglc17j7" path="res://sounds/gun fire impact/morganpurkis_-missile-launching.wav" id="16_pu8dd"]
+[ext_resource type="AudioStream" uid="uid://cf7qsygnn01n7" path="res://sounds/gun fire impact/ogsoundfx_bullet-impact-14.wav" id="17_ucoka"]
+[ext_resource type="AudioStream" uid="uid://uv2xlmrlqwtg" path="res://sounds/gun fire impact/ogsoundfx_cannon-impact-9.wav" id="18_iyhgh"]
+[ext_resource type="AudioStream" uid="uid://dve1potjtc2sl" path="res://sounds/gun fire impact/soundfxstudio_missile_impact.wav" id="19_v4cvo"]
+[ext_resource type="Script" uid="uid://dtpaa0wfd5kuc" path="res://my assets/music/polyphony/2D/MasterAudioStreamPlayer2D.gd" id="22_6eugu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewk0r"]
 radius = 17.0294
@@ -22,11 +29,14 @@ radius = 17.0294
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3jun"]
 radius = 752.0
 
-[node name="StaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("weapon_sprite_2d", "attack_timer")]
+[node name="TurretStaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("weapon_sprite_2d", "master_audio_stream_player", "attack_timer")]
 script = ExtResource("1_x8plt")
 weapon_sprite_2d = NodePath("Sprite2D/Weapon")
 weapon_sprites = Array[Texture2D]([ExtResource("2_mbhoa"), ExtResource("3_j4aok"), ExtResource("2_x8plt"), ExtResource("5_ewk0r"), ExtResource("6_oj4p0"), ExtResource("7_fxicx"), ExtResource("8_a27re"), ExtResource("9_y5k0w"), ExtResource("10_ebbrh")])
 bullet = Array[Texture2D]([ExtResource("5_j4aok"), ExtResource("6_f6etr"), ExtResource("7_f5xnr")])
+bullet_sound = Array[AudioStream]([ExtResource("14_rjjr8"), ExtResource("15_6eugu"), ExtResource("16_pu8dd")])
+bullet_impact_sound = Array[AudioStream]([ExtResource("17_ucoka"), ExtResource("18_iyhgh"), ExtResource("19_v4cvo")])
+master_audio_stream_player = NodePath("MasterAudioStreamPlayer2D")
 attack_timer = NodePath("AttackTimer")
 bullet_scene = ExtResource("6_v28d3")
 fire_speed = Array[PackedFloat32Array]([PackedFloat32Array(0.512, 0.256, 0.128), PackedFloat32Array(1, 0.5, 0.8), PackedFloat32Array(2, 1, 0.5)])
@@ -50,6 +60,13 @@ shape = SubResource("CircleShape2D_j3jun")
 debug_color = Color(0, 0.6, 0.701961, 0.0392157)
 
 [node name="AttackTimer" type="Timer" parent="."]
+
+[node name="MasterAudioStreamPlayer2D" type="Node2D" parent="." node_paths=PackedStringArray("sample_audio_player_to_duplicate")]
+script = ExtResource("22_6eugu")
+sample_audio_player_to_duplicate = NodePath("../AudioStreamPlayer2D")
+metadata/_custom_type_script = "uid://dtpaa0wfd5kuc"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

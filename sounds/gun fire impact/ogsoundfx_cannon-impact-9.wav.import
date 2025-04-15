@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://uv2xlmrlqwtg"
+path="res://.godot/imported/ogsoundfx_cannon-impact-9.wav-3cd0352bdae66b68f6a4ba6bfbf6554f.sample"
+
+[deps]
+
+source_file="res://sounds/gun fire impact/ogsoundfx_cannon-impact-9.wav"
+dest_files=["res://.godot/imported/ogsoundfx_cannon-impact-9.wav-3cd0352bdae66b68f6a4ba6bfbf6554f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
