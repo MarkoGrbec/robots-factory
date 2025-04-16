@@ -57,7 +57,7 @@ position = Vector2(5, 19)
 script = ExtResource("1_2ilfp")
 ground_layer = [NodePath("../map/NavigationRegion2D/ground layer"), NodePath("underground layer1"), NodePath("underground layer2"), NodePath("underground layer3"), NodePath("ground layer inside houses")]
 save = true
-timer = NodePath("../FriendlyRobotsSpawnReality/SpawnFriendly")
+timer = NodePath("../ChangeDirtToGrass")
 navigation_region_2d = NodePath("../map/NavigationRegion2D")
 
 [node name="ground layer inside houses" type="TileMapLayer" parent="tile map layers"]
@@ -80,6 +80,9 @@ tile_set = ExtResource("2_nigp7")
 scale = Vector2(0.5, 0.5)
 enabled = false
 tile_set = ExtResource("2_nigp7")
+
+[node name="ChangeDirtToGrass" type="Timer" parent="."]
+wait_time = 30.0
 
 [node name="map" type="Node2D" parent="." node_paths=PackedStringArray("static_objects")]
 script = ExtResource("3_nigp7")

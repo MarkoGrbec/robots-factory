@@ -43,8 +43,7 @@ func destroy():
 	save_position()
 	array_believe = [q_obj.believe_l, q_obj.believe_r]
 	save_believe()
-	layer = q_obj.layer
-	save_layer()
+	save_layer(null)
 	print("destroy id server_quest: ", id)
 	#region load
 func load_initialized():
@@ -132,8 +131,8 @@ func save_mission_quantity():
 func save_believe():
 	save_uni("believe", array_believe)
 
-func save_layer():
-	save_uni("layer", layer)
+func save_layer(_layer):
+	save_uni("layer", _layer)
 	#endregion save
 #endregion savable
 
@@ -273,9 +272,9 @@ func ask(raw_text: String, client) -> Array:
 		
 		get_display_answers_all(indexes)
 		if qq.response_failed_dialog:
-			return [[q_obj.quest_name, qq.response_failed_dialog], qq, inventory.id, [], array_believe, array_answers__response_size]
+			return [[q_obj.quest_name, qq.response_failed_dialog.replace("[number]", str(mission_quantity))], qq, inventory.id, [], array_believe, array_answers__response_size]
 		else:
-			return [[q_obj.quest_name, str("I'm sorry I need more quality items", mission_quantity)], null, inventory.id, [], array_believe, array_answers__response_size]
+			return [[q_obj.quest_name, str("I'm sorry I need more quality items ", mission_quantity)], null, inventory.id, [], array_believe, array_answers__response_size]
 	# success
 	elif general_basis or qq.use_basis:
 		succeed_believe()

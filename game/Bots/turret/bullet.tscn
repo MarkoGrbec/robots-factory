@@ -1,16 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://jaf5xthge3rd"]
+[gd_scene load_steps=9 format=3 uid="uid://jaf5xthge3rd"]
 
 [ext_resource type="Script" uid="uid://iby502plqbck" path="res://game/Bots/turret/Bullet.gd" id="1_kdr04"]
 [ext_resource type="Texture2D" uid="uid://skkc5js8eriv" path="res://game/Bots/turret/PNG/Missile.png" id="2_8eafk"]
+[ext_resource type="Script" uid="uid://btg172p78srmo" path="res://my assets/explosion/Explosion2D.gd" id="3_4rj6o"]
+[ext_resource type="Texture2D" uid="uid://cakkoyfheimg2" path="res://assets/Kenny Smoke Particles/PNG/White puff/whitePuff24.png" id="4_ln4hj"]
+[ext_resource type="Texture2D" uid="uid://ds01q3vbg7cii" path="res://assets/Kenny Smoke Particles/PNG/Flash/flash08.png" id="5_45qx6"]
+[ext_resource type="Texture2D" uid="uid://cdgvethfvpqkh" path="res://assets/Kenny Smoke Particles/PNG/Explosion/explosion08.png" id="6_a15sx"]
+[ext_resource type="Texture2D" uid="uid://bgq1g3gl80tor" path="res://assets/Kenny Smoke Particles/PNG/Black smoke/blackSmoke24.png" id="7_dq164"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4rj6o"]
 radius = 3.0
 height = 26.0
 
-[node name="Node2D" type="Node2D" node_paths=PackedStringArray("sprite", "audio_stream_2d")]
+[node name="Node2D" type="Node2D" node_paths=PackedStringArray("sprite", "audio_stream_2d", "explosion")]
 script = ExtResource("1_kdr04")
 sprite = NodePath("Sprite2D")
 audio_stream_2d = NodePath("AudioStreamPlayer2D")
+explosion = NodePath("Explosion")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 1.5708
@@ -31,6 +37,30 @@ autostart = true
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 bus = &"weapon sfx"
+
+[node name="Explosion" type="Node2D" parent="." node_paths=PackedStringArray("sprites")]
+script = ExtResource("3_4rj6o")
+sprites = [NodePath("white puff"), NodePath("flash"), NodePath("explosion red"), NodePath("black smoke")]
+
+[node name="black smoke" type="Sprite2D" parent="Explosion"]
+visible = false
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("7_dq164")
+
+[node name="flash" type="Sprite2D" parent="Explosion"]
+visible = false
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("5_45qx6")
+
+[node name="white puff" type="Sprite2D" parent="Explosion"]
+visible = false
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("4_ln4hj")
+
+[node name="explosion red" type="Sprite2D" parent="Explosion"]
+visible = false
+scale = Vector2(1e-05, 1e-05)
+texture = ExtResource("6_a15sx")
 
 [connection signal="body_entered" from="Sprite2D/ProjectileHit" to="." method="_on_projectile_hit_body_entered"]
 [connection signal="timeout" from="DestroyMe" to="." method="destroy_me"]

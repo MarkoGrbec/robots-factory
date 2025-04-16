@@ -2,7 +2,7 @@ extends Node2D
 
 @export var sprite: Sprite2D
 @export var audio_stream_2d: AudioStreamPlayer2D
-
+@export var explosion: Node2D
 var _enemy_turret: EnemyTurret
 
 func set_bullet_texture(texture, enemy_turret: EnemyTurret):
@@ -31,6 +31,11 @@ func _on_projectile_hit_body_entered(body: Node2D) -> void:
 
 func destroy_me():
 	audio_stream_2d.stream = _enemy_turret.bullet_impact_sound[_enemy_turret.station_type]
+	audio_stream_2d.volume_db = 4.0
 	audio_stream_2d.play()
+	set_process(false)
+	if _enemy_turret.station_type == EnemyTurret.StationType.ROCKET_LAUNCHER:
+		explosion.start_explosion()
+	sprite.hide()
 	await audio_stream_2d.finished
 	queue_free()

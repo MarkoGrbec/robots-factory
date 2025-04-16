@@ -118,12 +118,13 @@ func _physics_process(_delta: float) -> void:
 			else:
 				change_state(State.RETRIVE_DRAG)
 			# modify target from current bot
-			# first remove
+			# first remove on other bot
 			if target is CPHelplessBot:
 				if is_instance_valid(target.controller.target):
 					if target.controller.target is CPEnemy:
-						target.controller.target.controller.change_state(State.CHASE)
-						target.controller.target.controller.target_set_null_target()
+						if not target.controller.target == movement.body:
+							target.controller.target.controller.change_state(State.CHASE)
+							target.controller.target.controller.target_set_null_target()
 			target_set_null_target()
 			# add me as current bot to retrive
 			target.controller.target = movement.body

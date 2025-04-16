@@ -21,7 +21,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-current_tab = 5
+current_tab = 1
 script = ExtResource("1_un1ud")
 options_holding_hand_scene = ExtResource("4_yjfud")
 options_holding_hand_container = NodePath("holding hand/HBoxContainer/VBoxContainer")
@@ -147,7 +147,6 @@ size_flags_vertical = 0
 text = "X"
 
 [node name="audio" type="ScrollContainer" parent="."]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -400,6 +399,7 @@ size_flags_vertical = 0
 text = "X"
 
 [node name="quit" type="HBoxContainer" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 

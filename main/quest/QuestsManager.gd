@@ -176,16 +176,19 @@ func cmd_quest_dialog(raw_text: String, quest_index):
 			target_quest_response(quest_index, response[0][0], response[0][1], q.default_starting_dialog, response[3], response[4], response[5])
 			# activate new quest giver
 			if response[0] and response[1] and response[1].other_npcs:
-				for npc in response[1].other_npcs:
-					var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(1, npc.npc_activate)
-					server_quest.basis = npc.npc_basis
-					server_quest.activated = npc.npc_activated
-					server_quest.alive = npc.npc_alive
-					server_quest.save_basis()
-					server_quest.save_activated()
-					server_quest.save_position()
-					#var ser_server_quests = Serializable.serialize([server_quest])
-					target_send_quest_mob_to_make(server_quest)
+				if response[3]:
+					for npc in response[1].other_npcs:
+						var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(1, npc.npc_activate)
+						server_quest.basis = npc.npc_basis
+						server_quest.activated = npc.npc_activated
+						server_quest.alive = npc.npc_alive
+						if not npc.npc_layer == -100:# don't change on default value
+							server_quest.layer = npc.npc_layer
+						server_quest.save_basis()
+						server_quest.save_activated()
+						server_quest.save_position()
+						#var ser_server_quests = Serializable.serialize([server_quest])
+						target_send_quest_mob_to_make(server_quest)
 			#if response[1] and response[1].reward:
 				#var inventory: Entity =  node.client.playing_avatar.inventory
 				#var reward = Entity.create_from_scratch(response[1].reward, true, false, true)
@@ -198,6 +201,10 @@ static func target_send_quest_mob_to_make(server_quest: ServerQuest):
 		target_send_quest_mob_remove(server_quest)
 		return
 	if server_quest.body:
+		if server_quest.layer == g_man.tile_map_layers.active_layer:
+			server_quest.body.show()
+		else:
+			server_quest.body.hide()
 		return
 	var quest_object = mp.get_quest_object(server_quest._quest_index)
 	server_quest.body = mp.create_me(quest_object.quest_body_type)

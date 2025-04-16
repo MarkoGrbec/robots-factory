@@ -20,7 +20,6 @@ func partly_load():
 func fully_save():
 	save_position()
 	save_entity_num()
-	save_layer()
 
 func destroy():
 	if body:

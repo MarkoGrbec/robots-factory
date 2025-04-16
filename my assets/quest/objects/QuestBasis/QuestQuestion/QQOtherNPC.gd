@@ -8,3 +8,5 @@ class_name QQOtherNPC extends Resource
 @export var npc_alive: bool
 ## his npc basis
 @export var npc_basis: int
+## his npc layer -100 is default for non changable
+@export var npc_layer: int = -100

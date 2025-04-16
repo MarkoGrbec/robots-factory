@@ -11,6 +11,7 @@ func _ready() -> void:
 	g_man.trader_manager.buy_for.text = ""
 
 func destroy_me():
+	g_man.inventory_system.add_remove_hover_over_sprite(-1)
 	entity.destroy_me()
 	queue_free()
 

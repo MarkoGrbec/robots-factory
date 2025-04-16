@@ -112,11 +112,10 @@ func succeed_old_basis(success_old_basis__qq_index):
 				g_man.tile_map_layers.active_layer = 4
 				var server_quest: ServerQuest = QuestsManager.get_server_quest(quest_index)
 				server_quest.layer = 0
-				server_quest.save_layer()
+				server_quest.save_layer(0)
 				global_position = Vector2(3200, -1900)
 				server_quest.position = global_position
 				server_quest.save_position()
-				
 		if success_old_basis__qq_index[0] == 3:
 			if success_old_basis__qq_index[1] == 0:
 				g_man.friendly_robots_spawn_godish.spawn_friendly()
