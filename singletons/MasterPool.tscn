@@ -1,4 +1,4 @@
-[gd_scene load_steps=451 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=466 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -3683,6 +3683,156 @@ default_starting_dialog = "It seems there are organic robots in the house. Bette
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
+[sub_resource type="Resource" id="Resource_liadx"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help around"])
+response_dialog = Array[String](["If you believe in God, you must convince the organic robots to believe as well."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_0037u"]
+script = ExtResource("4_0rfkw")
+description = "believe in god"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_liadx")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_8rpbp"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help around"])
+response_dialog = Array[String](["If you believe science can answer everything, then you must convince all organic robots of this."])
+response_failed_dialog = ""
+metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_04g1x"]
+script = ExtResource("4_0rfkw")
+description = "science is proof"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_8rpbp")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_anxnt"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help around"])
+response_dialog = Array[String](["Find a new path—and give Johnny the iron needed to launch the robot attack.", "Initiate turret assault protocol.", "Sophie, retrieve sand for construction plans."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_ffkch"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_anxnt")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_rin2x"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help around"])
+response_dialog = Array[String](["Sophie, retrieve sand for the construction plans and bring it to the site."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_keqi0"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_rin2x")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_y8o1t"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["help around"])
+response_dialog = Array[String](["Advance along the new path and attempt factory construction with robotic assistance.", "Engage turret elimination protocol", "Turrets can fire on each other.", "Terrain advantage: Turrets cannot fire through boulder formations."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_ttw4x"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_y8o1t")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
 [sub_resource type="Resource" id="Resource_avhuw"]
 script = ExtResource("3_d1vgu")
 quest_name = "robot assistant"
@@ -3693,7 +3843,7 @@ quest_body_type = 320
 color = Color(0.937255, 0.0980392, 0.258824, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj"), SubResource("Resource_f41dw"), SubResource("Resource_37k6v"), SubResource("Resource_iji8x"), SubResource("Resource_wxpcv")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj"), SubResource("Resource_f41dw"), SubResource("Resource_37k6v"), SubResource("Resource_iji8x"), SubResource("Resource_wxpcv"), SubResource("Resource_0037u"), SubResource("Resource_04g1x"), SubResource("Resource_ffkch"), SubResource("Resource_keqi0"), SubResource("Resource_ttw4x")])
 believe_l = 0.0
 believe_r = 1.0
 metadata/_custom_type_script = ExtResource("3_d1vgu")
@@ -4410,6 +4560,15 @@ default_starting_dialog = ""
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
+[sub_resource type="Resource" id="Resource_wob1y"]
+script = ExtResource("11_cdsqw")
+npc_activate = 7
+npc_activated = true
+npc_alive = false
+npc_basis = 5
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
 [sub_resource type="Resource" id="Resource_jpw7k"]
 script = ExtResource("11_cdsqw")
 npc_activate = 11
@@ -4440,7 +4599,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_jpw7k"), SubResource("Resource_eamu7")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wob1y"), SubResource("Resource_jpw7k"), SubResource("Resource_eamu7")])
 list_avatar_dialog = Array[String](["I believe in God."])
 response_dialog = Array[String](["Ah, yes, God. Didn’t we always wonder where we come from? The origin."])
 response_failed_dialog = ""
@@ -4457,6 +4616,15 @@ list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_iat7
 default_starting_dialog = ""
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_v37dx"]
+script = ExtResource("11_cdsqw")
+npc_activate = 7
+npc_activated = true
+npc_alive = false
+npc_basis = 6
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
 [sub_resource type="Resource" id="Resource_8isdr"]
 script = ExtResource("11_cdsqw")
@@ -4488,7 +4656,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_8isdr"), SubResource("Resource_ujvl3")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_v37dx"), SubResource("Resource_8isdr"), SubResource("Resource_ujvl3")])
 list_avatar_dialog = Array[String](["I don’t believe in anything."])
 response_dialog = Array[String](["You are absolutely right.
 You don’t need to, but you are always able to choose"])
@@ -4570,6 +4738,15 @@ list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_idqe
 default_starting_dialog = "Hello, blessed one. Are you for the mission?"
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_amhdn"]
+script = ExtResource("11_cdsqw")
+npc_activate = 7
+npc_activated = true
+npc_alive = false
+npc_basis = 7
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
 [sub_resource type="Resource" id="Resource_r08t5"]
 script = ExtResource("11_cdsqw")
@@ -4664,7 +4841,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_r08t5"), SubResource("Resource_5ry3y"), SubResource("Resource_w5wb8"), SubResource("Resource_utq74"), SubResource("Resource_l4i2g"), SubResource("Resource_amr0u"), SubResource("Resource_d01we"), SubResource("Resource_uhxql"), SubResource("Resource_2xaiw")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_amhdn"), SubResource("Resource_r08t5"), SubResource("Resource_5ry3y"), SubResource("Resource_w5wb8"), SubResource("Resource_utq74"), SubResource("Resource_l4i2g"), SubResource("Resource_amr0u"), SubResource("Resource_d01we"), SubResource("Resource_uhxql"), SubResource("Resource_2xaiw")])
 list_avatar_dialog = Array[String](["Mission completed."])
 response_dialog = Array[String](["Okay, you’ve done it."])
 response_failed_dialog = "Please convince [number] additional organic robots to our cause"
@@ -4956,6 +5133,15 @@ default_starting_dialog = "Welcome, I have science mission for you."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
+[sub_resource type="Resource" id="Resource_6is7s"]
+script = ExtResource("11_cdsqw")
+npc_activate = 7
+npc_activated = true
+npc_alive = false
+npc_basis = 8
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
 [sub_resource type="Resource" id="Resource_08xai"]
 script = ExtResource("11_cdsqw")
 npc_activate = 11
@@ -4977,7 +5163,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_08xai"), SubResource("Resource_5ry3y"), SubResource("Resource_w5wb8"), SubResource("Resource_utq74"), SubResource("Resource_l4i2g"), SubResource("Resource_amr0u"), SubResource("Resource_d01we"), SubResource("Resource_uhxql"), SubResource("Resource_2xaiw")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_6is7s"), SubResource("Resource_08xai"), SubResource("Resource_5ry3y"), SubResource("Resource_w5wb8"), SubResource("Resource_utq74"), SubResource("Resource_l4i2g"), SubResource("Resource_amr0u"), SubResource("Resource_d01we"), SubResource("Resource_uhxql"), SubResource("Resource_2xaiw")])
 list_avatar_dialog = Array[String](["Mission completed."])
 response_dialog = Array[String](["Great job! I love that you fought for the side of science."])
 response_failed_dialog = "Please convince [number] additional organic robots to our cause"
@@ -5055,6 +5241,15 @@ default_starting_dialog = ""
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
+[sub_resource type="Resource" id="Resource_hrcgm"]
+script = ExtResource("11_cdsqw")
+npc_activate = 7
+npc_activated = true
+npc_alive = false
+npc_basis = 8
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
 [sub_resource type="Resource" id="Resource_fm5xk"]
 script = ExtResource("5_0rfkw")
 use_basis = true
@@ -5067,7 +5262,7 @@ quest_item = 12
 quantity = 5
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_hrcgm")])
 list_avatar_dialog = Array[String](["Here's supply sand for factory blueprints."])
 response_dialog = Array[String](["Affirmative. Deploying sand for fabrication of schematic chips."])
 response_failed_dialog = "I need more sand quantity."
@@ -5343,24 +5538,6 @@ sparking life on Earth."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
-[sub_resource type="Resource" id="Resource_i8085"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([0, 1, 2, 3])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["But bacteria aren’t even alive."])
-response_dialog = Array[String](["So, larger organisms cannot evolve from bacteria."])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
 [sub_resource type="Resource" id="Resource_ggc5t"]
 script = ExtResource("5_0rfkw")
 use_basis = false
@@ -5379,6 +5556,24 @@ response_dialog = Array[String]([""])
 response_failed_dialog = "which seems far more likely."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
+[sub_resource type="Resource" id="Resource_i8085"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0, 1, 2, 3])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["But bacteria aren’t even alive."])
+response_dialog = Array[String](["So, larger organisms cannot evolve from bacteria."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
 [sub_resource type="Resource" id="Resource_jyrw4"]
 script = ExtResource("4_0rfkw")
 description = ""
@@ -5386,7 +5581,7 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = true
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_i8085"), SubResource("Resource_ggc5t")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ggc5t"), SubResource("Resource_i8085")])
 default_starting_dialog = "Maybe... we’re aliens after all.
 Scientists found bacteria and viruses
 drifting through space.
@@ -5538,26 +5733,6 @@ default_starting_dialog = "I believe the Sun is one giant mass of hot lava and g
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
-[sub_resource type="Resource" id="Resource_01fma"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([0, 1, 2, 3])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["How would we know this
-if we've never been to the Moon,
-and those who tried hit the celestial dome?"])
-response_dialog = Array[String](["So the Moon is just a celestial body that always shows the same face."])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
 [sub_resource type="Resource" id="Resource_la0ln"]
 script = ExtResource("5_0rfkw")
 use_basis = false
@@ -5578,6 +5753,26 @@ response_dialog = Array[String]([""])
 response_failed_dialog = "So, Earth retained its atmosphere because it has much stronger gravity than the Moon, while the Moon's weak gravity couldn't hold onto one."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
+[sub_resource type="Resource" id="Resource_01fma"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0, 1, 2, 3])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["How would we know this
+if we've never been to the Moon,
+and those who tried hit the celestial dome?"])
+response_dialog = Array[String](["So the Moon is just a celestial body that always shows the same face."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
 [sub_resource type="Resource" id="Resource_6fyn4"]
 script = ExtResource("4_0rfkw")
 description = ""
@@ -5585,7 +5780,7 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = true
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_01fma"), SubResource("Resource_la0ln")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_la0ln"), SubResource("Resource_01fma")])
 default_starting_dialog = "The Moon has no atmosphere."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
@@ -5740,24 +5935,6 @@ default_starting_dialog = "One theory is that every atom has its own pull."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
-[sub_resource type="Resource" id="Resource_2bu53"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([0, 1, 2, 3])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["This is how God, determined it."])
-response_dialog = Array[String](["Our Creator."])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
 [sub_resource type="Resource" id="Resource_gdrpl"]
 script = ExtResource("5_0rfkw")
 use_basis = false
@@ -5776,6 +5953,24 @@ response_dialog = Array[String]([""])
 response_failed_dialog = "So depending on how it's tilted toward the sun..."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
+[sub_resource type="Resource" id="Resource_2bu53"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0, 1, 2, 3])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["This is how God, determined it."])
+response_dialog = Array[String](["Our Creator."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
 [sub_resource type="Resource" id="Resource_0ixgf"]
 script = ExtResource("4_0rfkw")
 description = ""
@@ -5783,7 +5978,7 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = true
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_2bu53"), SubResource("Resource_gdrpl")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_gdrpl"), SubResource("Resource_2bu53")])
 default_starting_dialog = "Why does Earth have winter one time and summer another?"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
@@ -6001,24 +6196,6 @@ default_starting_dialog = "Who is invisible, yet because of him we're here."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
-[sub_resource type="Resource" id="Resource_lgbps"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([0, 1, 2, 3])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 1
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["First you must meet a person to feel them."])
-response_dialog = Array[String]([""])
-response_failed_dialog = "Apparently I must meet the Creator, then."
-metadata/_custom_type_script = "uid://brslonx5by775"
-
 [sub_resource type="Resource" id="Resource_lbjsy"]
 script = ExtResource("5_0rfkw")
 use_basis = false
@@ -6035,6 +6212,24 @@ other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["This is how we feel God's presence."])
 response_dialog = Array[String](["Such is our Creator."])
 response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_lgbps"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0, 1, 2, 3])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["First you must meet a person to feel them."])
+response_dialog = Array[String]([""])
+response_failed_dialog = "Apparently I must meet the Creator, then."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_iok2i"]
@@ -6062,7 +6257,7 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = true
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_lgbps"), SubResource("Resource_lbjsy"), SubResource("Resource_iok2i")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_lbjsy"), SubResource("Resource_lgbps"), SubResource("Resource_iok2i")])
 default_starting_dialog = "A person we don't meet, but only feel."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
@@ -6265,24 +6460,6 @@ default_starting_dialog = "God is absolute love—that’s why we feel it, and t
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
-[sub_resource type="Resource" id="Resource_eoovi"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([0, 1, 2, 3])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 1
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["Isn’t the devil the cause of death, and not God?"])
-response_dialog = Array[String]([""])
-response_failed_dialog = "Yes, that damned devil—he’s the real beast!"
-metadata/_custom_type_script = "uid://brslonx5by775"
-
 [sub_resource type="Resource" id="Resource_o4113"]
 script = ExtResource("5_0rfkw")
 use_basis = false
@@ -6299,6 +6476,24 @@ other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["Isn’t death a bad thing?"])
 response_dialog = Array[String]([""])
 response_failed_dialog = "Yes, it’s true—it is a bad thing."
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_eoovi"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0, 1, 2, 3])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["Isn’t the devil the cause of death, and not God?"])
+response_dialog = Array[String]([""])
+response_failed_dialog = "Yes, that damned devil—he’s the real beast!"
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_wwcj0"]
@@ -6344,7 +6539,7 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = true
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_eoovi"), SubResource("Resource_o4113"), SubResource("Resource_wwcj0"), SubResource("Resource_65t4s")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_o4113"), SubResource("Resource_eoovi"), SubResource("Resource_wwcj0"), SubResource("Resource_65t4s")])
 default_starting_dialog = "God created birth, life, and death."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
@@ -6529,24 +6724,6 @@ default_starting_dialog = "We have no possibility to know God, talk with Him, se
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
-[sub_resource type="Resource" id="Resource_sddtl"]
-script = ExtResource("5_0rfkw")
-use_basis = false
-new_basis = Array[int]([0, 1, 2, 3])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 1
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["The origin of materialism."])
-response_dialog = Array[String]([""])
-response_failed_dialog = "What they call the great explosion."
-metadata/_custom_type_script = "uid://brslonx5by775"
-
 [sub_resource type="Resource" id="Resource_r3c2c"]
 script = ExtResource("5_0rfkw")
 use_basis = false
@@ -6563,6 +6740,24 @@ other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["The Big Bang."])
 response_dialog = Array[String]([""])
 response_failed_dialog = "Perhaps the correct theory."
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_sddtl"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0, 1, 2, 3])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["The origin of materialism."])
+response_dialog = Array[String]([""])
+response_failed_dialog = "What they call the great explosion."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_xsmp5"]
@@ -6590,7 +6785,7 @@ dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = true
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_sddtl"), SubResource("Resource_r3c2c"), SubResource("Resource_xsmp5")])
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_r3c2c"), SubResource("Resource_sddtl"), SubResource("Resource_xsmp5")])
 default_starting_dialog = "Some force must have been behind reality."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
