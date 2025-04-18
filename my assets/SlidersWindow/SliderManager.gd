@@ -34,6 +34,12 @@ func open_window():
 func close_window():
 	get_parent().hide()
 
+func slider_add_value(type: Enums.slider, value):
+	var slider:TextureProgressBar = dict_enum_slider__progress_bar.get(type)
+	if slider:
+		slider.value += value
+		return slider.value
+
 func change_value(type: Enums.slider, value):
 	var slider:TextureProgressBar = dict_enum_slider__progress_bar.get(type)
 	if slider:

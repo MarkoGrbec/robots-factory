@@ -307,3 +307,33 @@ func get_quest_objects(id_avatar) -> Array[ServerQuest]:
 #not implemented exception
 # qq 4
 #not implemented exception
+
+
+
+
+# roboti so jezni na direktorja fabrke
+# direktor grdo ravna z njimi
+# težko delo jim da
+# brez plače
+# na mrzlem
+# neprimerne razmere
+# okvara strojev ker jih ne vzdržuje
+# neprilagojen delovni čas
+# 
+# direktor nima denarja za plače
+# stroji so predragi da bi jih vzdrževal kupil
+# veliko komandira
+# veliko dela jim naloži
+# daleč se morajo vozit
+# ne plača potnih stroškev
+# je neurejen
+# delavci se mu zdijo manj vredni ker je on nekaj več
+# 
+# delavci so prizadeti zaradi tega
+# direktor je vzvišen
+# direktor je poln ponosa
+# imel bi kup denarja a nima za plače
+# 
+# ponjklivo orodje uniforme
+# pomanjkljivo usposobljeni
+# 

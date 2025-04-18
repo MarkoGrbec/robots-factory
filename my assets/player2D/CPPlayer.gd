@@ -24,5 +24,9 @@ func _on_mouse_exited() -> void:
 func _process(_delta: float) -> void:
 	g_man.changes_manager.add_key_change("id position: ", str(g_man.tile_map_layers.get_position_by_mouse_position(), " ", global_position))
 
-func get_hit(_damage):
-	pass
+func get_hit(damage):
+	var health = g_man.sliders_manager.slider_add_value(Enums.slider.health, damage)
+	if health < 0:
+		g_man.sliders_manager.change_value(Enums.slider, 100)
+		global_position = Vector2(500, 500)
+		g_man.user.save_position(global_position)
