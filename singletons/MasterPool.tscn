@@ -3757,7 +3757,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help around"])
-response_dialog = Array[String](["Find a new path—and give Johnny the iron needed to launch the robot attack.", "Initiate turret assault protocol.", "Sophie, retrieve sand for construction plans."])
+response_dialog = Array[String](["Find a new path—and give Johnny the iron needed to launch the robot attack.", "Initiate turret assault protocol."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -3776,7 +3776,7 @@ metadata/_custom_type_script = "uid://sjmolji57b8"
 [sub_resource type="Resource" id="Resource_rin2x"]
 script = ExtResource("5_0rfkw")
 use_basis = false
-new_basis = Array[int]([0])
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -3806,7 +3806,7 @@ metadata/_custom_type_script = "uid://sjmolji57b8"
 [sub_resource type="Resource" id="Resource_y8o1t"]
 script = ExtResource("5_0rfkw")
 use_basis = false
-new_basis = Array[int]([0])
+new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -4882,7 +4882,7 @@ metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 [sub_resource type="Resource" id="Resource_w5vww"]
 script = ExtResource("11_cdsqw")
 npc_activate = 12
-npc_activated = true
+npc_activated = false
 npc_alive = false
 npc_basis = 0
 npc_layer = 4
@@ -5246,7 +5246,7 @@ script = ExtResource("11_cdsqw")
 npc_activate = 7
 npc_activated = true
 npc_alive = false
-npc_basis = 8
+npc_basis = 9
 npc_layer = -100
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 

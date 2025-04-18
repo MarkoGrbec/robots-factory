@@ -381,9 +381,13 @@ text = "reset trader money"
 
 [node name="ActivateMark" type="Button" parent="cheat/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+tooltip_text = "To activate mark.
+So that you can try different fork,
+without restarting the whole game."
 text = "activate Mark"
 
 [node name="RemoveSophieMission" type="Button" parent="cheat/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "remove sophie mission"
 
