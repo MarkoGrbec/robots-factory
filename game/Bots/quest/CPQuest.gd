@@ -48,11 +48,17 @@ func succeed_old_basis(success_old_basis__qq_index):
 				change_name()
 	elif quest_index == 3:
 		if success_old_basis__qq_index[0] == 1:
-			if success_old_basis__qq_index[1] == 3:
+			if success_old_basis__qq_index[1] == 0:
+				# gathering fork
 				change_type(1)
-			elif success_old_basis__qq_index[1] == 4:
+			elif success_old_basis__qq_index[1] == 1:
+				# crafting fork
 				change_type(2)
-			elif success_old_basis__qq_index[1] == 5:
+			elif success_old_basis__qq_index[1] == 2:
+				# fighting fork
+				g_man.tile_map_layers.set_region(Rect2i(20, 16, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
+				g_man.tile_map_layers.set_region(Rect2i(20, 17, 30, 3), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
+				g_man.tile_map_layers.set_region(Rect2i(20, 20, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 				change_type(3)
 	elif quest_index == 5:# gathering bot
 		if success_old_basis__qq_index[0] == 3:
@@ -103,13 +109,13 @@ func succeed_old_basis(success_old_basis__qq_index):
 		if success_old_basis__qq_index[0] == 1:
 			if success_old_basis__qq_index[1] == 0:
 				printerr("start full scale attack on factory")
-				g_man.tile_map_layers.active_layer = 0
+				var old_active_layer = g_man.tile_map_layers.active_layer_temporary_new_return_old(0)
 				g_man.tile_map_layers.set_region(Rect2i(20, -42, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 				g_man.tile_map_layers.set_region(Rect2i(19, -41, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
 				g_man.tile_map_layers.set_region(Rect2i(20, -40, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
 				g_man.tile_map_layers.set_region(Rect2i(19, -39, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
 				g_man.tile_map_layers.set_region(Rect2i(20, -38, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
-				g_man.tile_map_layers.active_layer = 4
+				g_man.tile_map_layers.active_layer_replace_with_old(old_active_layer)
 				var server_quest: ServerQuest = QuestsManager.get_server_quest(quest_index)
 				server_quest.layer = 0
 				server_quest.save_layer(0)
@@ -129,13 +135,13 @@ func succeed_old_basis(success_old_basis__qq_index):
 		if success_old_basis__qq_index[0] == 1:
 			if success_old_basis__qq_index[1] == 0:
 				printerr("start full scale craft factory")
-				g_man.tile_map_layers.active_layer = 0
+				var old_active_layer = g_man.tile_map_layers.active_layer_temporary_new_return_old(0)
 				g_man.tile_map_layers.set_region(Rect2i(-28, -38, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 				g_man.tile_map_layers.set_region(Rect2i(-29, -37, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
 				g_man.tile_map_layers.set_region(Rect2i(-28, -36, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
 				g_man.tile_map_layers.set_region(Rect2i(-29, -35, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
 				g_man.tile_map_layers.set_region(Rect2i(-28, -34, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
-				g_man.tile_map_layers.active_layer = 4
+				g_man.tile_map_layers.active_layer_replace_with_old(old_active_layer)
 
 func change_name():
 	g_man.change_name_manager.open_window()

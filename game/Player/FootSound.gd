@@ -12,4 +12,4 @@ func activate_foot_sound():
 	else:
 		volume_db = 1
 	play()
-	g_man.changes_manager.add_key_change("cell id: ", cell_id)
+	#g_man.changes_manager.add_key_change("cell id: ", cell_id)

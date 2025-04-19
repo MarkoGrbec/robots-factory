@@ -84,6 +84,16 @@ func _ready() -> void:
 func destroy_me():
 	GlobalSignals.select_tile_node.disconnect(add_or_dig)
 
+## does not set active layer only replaces it IT NEEDS to replace with old active layer before end of frame
+func active_layer_temporary_new_return_old(new_active_layer) -> int:
+	var old_active_layer = active_layer
+	active_layer = new_active_layer
+	return old_active_layer
+
+## just to know the function where it is called from
+func active_layer_replace_with_old(old_active_layer):
+	active_layer = old_active_layer
+
 func get_position_by_mouse_position() -> Vector2i:
 	return ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
 

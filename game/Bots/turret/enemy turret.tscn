@@ -29,7 +29,8 @@ radius = 17.0294
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3jun"]
 radius = 752.0
 
-[node name="TurretStaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("weapon_sprite_2d", "master_audio_stream_player", "attack_timer")]
+[node name="TurretStaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("weapon_sprite_2d", "master_audio_stream_player", "attack_timer") groups=["enemy"]]
+scale = Vector2(2, 2)
 script = ExtResource("1_x8plt")
 weapon_sprite_2d = NodePath("Sprite2D/Weapon")
 weapon_sprites = Array[Texture2D]([ExtResource("2_mbhoa"), ExtResource("3_j4aok"), ExtResource("2_x8plt"), ExtResource("5_ewk0r"), ExtResource("6_oj4p0"), ExtResource("7_fxicx"), ExtResource("8_a27re"), ExtResource("9_y5k0w"), ExtResource("10_ebbrh")])
