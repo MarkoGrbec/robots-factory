@@ -25,7 +25,7 @@ func stop():
 func start_of_ttc():
 	# fire
 	_weapon.fire_weapon(true)
-	var constumption = (_weapon.distance / _weapon.battery_constumption)
+	var constumption = ((_weapon.distance * g_man.user.weapon_strength) / _weapon.battery_constumption)
 	g_man.sliders_manager.mana_slider.value -= constumption
 	return true
 

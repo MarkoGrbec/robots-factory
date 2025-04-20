@@ -5,6 +5,9 @@ var gold_coins = 500
 var _weapon_reflexes: float = 3
 var believe_in_god: bool = false
 
+var weapon_strength: float = 1
+var armor_strength: float = 1
+
 func copy():
 	return User.new()
 
@@ -77,6 +80,20 @@ func save_weapon_reflexes(weapon_reflexes, default: bool = false):
 	_weapon_reflexes *= weapon_reflexes
 	DataBase.insert(_server, g_man.dbms, _path, "weapon_reflexes", id, float(_weapon_reflexes))
 
+func save_add_weapon_strength(strength, add = true):
+	if add:
+		weapon_strength += strength
+	else:# overwrite
+		weapon_strength = strength
+	save_uni("weapon_strength", weapon_strength)
+
+func save_add_armor_strength(strength, add = true):
+	if add:
+		armor_strength += strength
+	else:# overwrite
+		armor_strength = strength
+	save_uni("armor_strength", armor_strength)
+
 func save_believe_in_god():
 	DataBase.insert(_server, g_man.dbms, _path, "believe_in_god", id, believe_in_god)
 
@@ -108,16 +125,22 @@ func load_battery_constumption():
 	save_battery_constumption(1)
 
 func load_weapon_range():
-	g_man.player.weapon_controller.weapon.distance = DataBase.select(_server, g_man.dbms, _path, "weapon_range", id, 75)
+	g_man.player.weapon_controller.weapon.distance = load_uni("weapon_range", 75)
 
 func load_weapon_reflexes():
-	_weapon_reflexes = DataBase.select(_server, g_man.dbms, _path, "weapon_reflexes", id, 3)
+	_weapon_reflexes = load_uni("weapon_reflexes", 3)
 
 func load_believe_in_god():
-	believe_in_god = DataBase.select(_server, g_man.dbms, _path, "believe_in_god", id, false)
+	believe_in_god = load_uni("believe_in_god", false)
 
 func load_return_layer():
 	return load_uni("layer", 0)
+
+func load_armor_strength():
+	armor_strength = load_uni("armor_strength", 1)
+
+func load_weapon_strength():
+	weapon_strength = load_uni("weapon_strength", 1)
 	#endregion load
 #endregion save load
 func set_weapon(activate):

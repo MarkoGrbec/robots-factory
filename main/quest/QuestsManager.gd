@@ -179,7 +179,8 @@ func cmd_quest_dialog(raw_text: String, quest_index):
 				if response[3]:
 					for npc in response[1].other_npcs:
 						var server_quest: ServerQuest = g_man.savable_multi_avatar__quest_data.new_data(1, npc.npc_activate)
-						server_quest.basis = npc.npc_basis
+						if not npc.npc_basis == -2:
+							server_quest.basis = npc.npc_basis
 						server_quest.activated = npc.npc_activated
 						server_quest.alive = npc.npc_alive
 						if not npc.npc_layer == -100:# don't change on default value
@@ -187,6 +188,8 @@ func cmd_quest_dialog(raw_text: String, quest_index):
 						server_quest.save_basis()
 						server_quest.save_activated()
 						server_quest.save_position()
+						server_quest.add_basis_flags(npc.npc_add_flags, true)
+						server_quest.remove_basis_flags(npc.npc_remove_flags, true)
 						#var ser_server_quests = Serializable.serialize([server_quest])
 						target_send_quest_mob_to_make(server_quest)
 			#if response[1] and response[1].reward:

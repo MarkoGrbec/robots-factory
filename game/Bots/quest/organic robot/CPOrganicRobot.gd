@@ -7,6 +7,7 @@ var philosopher: bool = false
 var gradient_tex: GradientTexture1D
 
 func _ready() -> void:
+	g_man.holding_hand.holding_hand_believe()
 	believe.texture = believe.texture.duplicate(true)
 	gradient_tex = believe.texture
 

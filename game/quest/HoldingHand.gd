@@ -422,7 +422,7 @@ func stop_holding_hand_believe():
 func holding_hand_believe():
 	if load_return_holding_hand_believe():
 		g_man.mold_window.set_instructions_only([believe_string])
-		g_man.changes_manager.add_key_change("tutorial: ", believe_string)
+		#g_man.changes_manager.add_key_change("tutorial: ", believe_string)
 		stop_holding_hand_believe()
 #endregion believe
 #region quadrant1

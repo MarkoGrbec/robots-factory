@@ -1,4 +1,4 @@
-[gd_scene load_steps=471 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=479 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -1293,6 +1293,8 @@ npc_activate = 2
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1302,6 +1304,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 3
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1341,6 +1345,8 @@ npc_activate = 2
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1350,6 +1356,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1396,6 +1404,8 @@ npc_activate = 2
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1405,6 +1415,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 3
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1511,6 +1523,8 @@ npc_activate = 2
 npc_activated = false
 npc_alive = false
 npc_basis = 1
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1520,6 +1534,8 @@ npc_activate = 3
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1529,6 +1545,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 4
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1597,6 +1615,7 @@ activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_3oteh"), SubResource("Resource_bryxq"), SubResource("Resource_wtrhf")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_s3lrg"]
@@ -1731,6 +1750,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 1
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1806,6 +1827,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 2
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1854,6 +1877,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_r3wwj"), SubResource("Resource_a8ecq")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_5n0ss"]
@@ -1862,6 +1886,8 @@ npc_activate = 1
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1871,6 +1897,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 5
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1898,6 +1926,8 @@ npc_activate = 1
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1907,6 +1937,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 7
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1948,6 +1980,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 7
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -1997,6 +2031,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 6
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -2069,6 +2105,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 5
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -2138,6 +2176,8 @@ npc_activate = 3
 npc_activated = false
 npc_alive = false
 npc_basis = 3
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -2147,6 +2187,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 8
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -2156,6 +2198,8 @@ npc_activate = 5
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -2196,6 +2240,17 @@ response_dialog = Array[String](["Try restarting the game after a few months bec
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
+[sub_resource type="Resource" id="Resource_wxps4"]
+script = ExtResource("11_cdsqw")
+npc_activate = 6
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
 [sub_resource type="Resource" id="Resource_38tap"]
 script = ExtResource("5_0rfkw")
 use_basis = true
@@ -2208,7 +2263,7 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wxps4")])
 list_avatar_dialog = Array[String](["Build through fighting."])
 response_dialog = Array[String](["Try restarting the game after a few months because this is a fork you won’t take this time."])
 response_failed_dialog = ""
@@ -2239,6 +2294,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nm8h1"), SubResource("Resource_qiegh"), SubResource("Resource_0kfxc"), SubResource("Resource_nqjdk"), SubResource("Resource_mmd0o")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_p1w7n"]
@@ -2709,6 +2765,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_u77jc"), SubResource("Resource_umi6g"), SubResource("Resource_c2muu"), SubResource("Resource_g3eem"), SubResource("Resource_cx1ar"), SubResource("Resource_ayemp"), SubResource("Resource_7usyv"), SubResource("Resource_f55ae"), SubResource("Resource_aalm7"), SubResource("Resource_7b8kd"), SubResource("Resource_xnp5w"), SubResource("Resource_8d3om"), SubResource("Resource_o1q65")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_wosds"]
@@ -2735,6 +2792,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 9
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -2875,6 +2934,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 10
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -2985,6 +3046,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 10
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -3043,6 +3106,8 @@ npc_activate = 4
 npc_activated = true
 npc_alive = false
 npc_basis = 10
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -3169,6 +3234,8 @@ npc_activate = 4
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -3178,6 +3245,8 @@ npc_activate = 5
 npc_activated = false
 npc_alive = false
 npc_basis = 8
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -3205,6 +3274,8 @@ npc_activate = 4
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -3214,6 +3285,8 @@ npc_activate = 5
 npc_activated = false
 npc_alive = false
 npc_basis = 8
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -3298,6 +3371,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nw0d3"), SubResource("Resource_uhd5j"), SubResource("Resource_tuu8w"), SubResource("Resource_63bdt"), SubResource("Resource_4chsh"), SubResource("Resource_703un"), SubResource("Resource_umrm6"), SubResource("Resource_lviuo"), SubResource("Resource_8sb7u"), SubResource("Resource_re6t4"), SubResource("Resource_8fiha"), SubResource("Resource_0vx0t")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_qwgub"]
@@ -3472,6 +3546,54 @@ Or say [help]."
 default_failed_dialog = "Say [help] to see my commands."
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
+[sub_resource type="Resource" id="Resource_ontgn"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["močnejše orožje"])
+response_dialog = Array[String](["pojačal sem ti orožje"])
+response_failed_dialog = "potrebujem 1 pesek prosim"
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_d48wg"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["potrebujem močnejši oklep"])
+response_dialog = Array[String](["tvoj oklep je močnejši", "močnejši oklep imaš, pazi, če umreš boš ostal brez oklepa"])
+response_failed_dialog = "potrebujem 1 železo prosim"
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_3iuxy"]
+script = ExtResource("4_0rfkw")
+description = "armor, weapon strength"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ontgn"), SubResource("Resource_d48wg")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
 [sub_resource type="Resource" id="Resource_go2w6"]
 script = ExtResource("3_d1vgu")
 quest_name = "weapon master"
@@ -3482,9 +3604,10 @@ quest_body_type = 311
 color = Color(0.407843, 0, 1, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_7v3nd"), SubResource("Resource_ikqpq")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_7v3nd"), SubResource("Resource_ikqpq"), SubResource("Resource_3iuxy")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_uekph"]
@@ -3846,6 +3969,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj"), SubResource("Resource_f41dw"), SubResource("Resource_37k6v"), SubResource("Resource_iji8x"), SubResource("Resource_wxpcv"), SubResource("Resource_0037u"), SubResource("Resource_04g1x"), SubResource("Resource_ffkch"), SubResource("Resource_keqi0"), SubResource("Resource_ttw4x")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_ioj4w"]
@@ -3970,6 +4094,7 @@ activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_qngvf"), SubResource("Resource_x4yrf"), SubResource("Resource_7pdwn")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_7o0fo"]
@@ -4076,6 +4201,8 @@ npc_activate = 7
 npc_activated = true
 npc_alive = false
 npc_basis = 4
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -4085,6 +4212,8 @@ npc_activate = 10
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -4132,6 +4261,7 @@ activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_ksjeu"), SubResource("Resource_e18g4"), SubResource("Resource_oeniw")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_y7iai"]
@@ -4566,6 +4696,8 @@ npc_activate = 7
 npc_activated = true
 npc_alive = false
 npc_basis = 5
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4575,6 +4707,8 @@ npc_activate = 11
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -4584,6 +4718,8 @@ npc_activate = 12
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -4623,6 +4759,8 @@ npc_activate = 7
 npc_activated = true
 npc_alive = false
 npc_basis = 6
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4632,6 +4770,8 @@ npc_activate = 11
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -4641,6 +4781,8 @@ npc_activate = 12
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = ExtResource("11_cdsqw")
 
@@ -4688,6 +4830,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_k7ixf"), SubResource("Resource_00ug1"), SubResource("Resource_2kakp"), SubResource("Resource_c0qv5"), SubResource("Resource_ndfir"), SubResource("Resource_8ny8n"), SubResource("Resource_reaon"), SubResource("Resource_ekd1o"), SubResource("Resource_sjh61"), SubResource("Resource_n7sl7"), SubResource("Resource_b2nw7"), SubResource("Resource_3x2t6"), SubResource("Resource_a2yt6")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_idqer"]
@@ -4745,6 +4888,8 @@ npc_activate = 7
 npc_activated = true
 npc_alive = false
 npc_basis = 7
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4754,6 +4899,8 @@ npc_activate = 12
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4763,6 +4910,8 @@ npc_activate = 13
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4772,6 +4921,8 @@ npc_activate = 14
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4781,6 +4932,8 @@ npc_activate = 15
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4790,6 +4943,8 @@ npc_activate = 16
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4799,6 +4954,8 @@ npc_activate = 17
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4808,6 +4965,8 @@ npc_activate = 18
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4817,6 +4976,8 @@ npc_activate = 19
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4826,6 +4987,8 @@ npc_activate = 20
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4867,6 +5030,8 @@ npc_activate = 9
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4876,6 +5041,8 @@ npc_activate = 10
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4885,6 +5052,8 @@ npc_activate = 12
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4894,6 +5063,8 @@ npc_activate = 13
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4903,6 +5074,8 @@ npc_activate = 14
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4912,6 +5085,8 @@ npc_activate = 15
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4921,6 +5096,8 @@ npc_activate = 16
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4930,6 +5107,8 @@ npc_activate = 17
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4939,6 +5118,8 @@ npc_activate = 18
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4948,6 +5129,8 @@ npc_activate = 19
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -4957,6 +5140,8 @@ npc_activate = 20
 npc_activated = true
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -5101,6 +5286,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_pit16"), SubResource("Resource_q5pip"), SubResource("Resource_fngje"), SubResource("Resource_jgj7c"), SubResource("Resource_2r5p3")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_w3kbx"]
@@ -5139,6 +5325,8 @@ npc_activate = 7
 npc_activated = true
 npc_alive = false
 npc_basis = 8
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -5148,6 +5336,8 @@ npc_activate = 11
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -5189,6 +5379,8 @@ npc_activate = 9
 npc_activated = false
 npc_alive = false
 npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = 4
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -5247,6 +5439,8 @@ npc_activate = 7
 npc_activated = true
 npc_alive = false
 npc_basis = 9
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
 npc_layer = -100
 metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
@@ -5323,6 +5517,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru"), SubResource("Resource_2mc1w"), SubResource("Resource_71wuy"), SubResource("Resource_s63vl"), SubResource("Resource_i1tgh")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_1iubd"]
@@ -6051,7 +6246,7 @@ metadata/_custom_type_script = "uid://sjmolji57b8"
 
 [sub_resource type="Resource" id="Resource_v5avt"]
 script = ExtResource("3_d1vgu")
-quest_name = "test bot"
+quest_name = "Haki"
 position = Vector2(-592, -2580)
 patrol_targets = Array[Vector2]([])
 layer = 4
@@ -6062,6 +6257,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blnlk"), SubResource("Resource_e64dx"), SubResource("Resource_vk4fy"), SubResource("Resource_rcv0v"), SubResource("Resource_jyrw4"), SubResource("Resource_uwssa"), SubResource("Resource_atdfd"), SubResource("Resource_2jajr"), SubResource("Resource_6fyn4"), SubResource("Resource_30w7m"), SubResource("Resource_blq7f"), SubResource("Resource_bqsfg"), SubResource("Resource_0ixgf"), SubResource("Resource_lrahy")])
 believe_l = 0.0
 believe_r = 0.4
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_vg3in"]
@@ -6938,7 +7134,7 @@ metadata/_custom_type_script = "uid://sjmolji57b8"
 
 [sub_resource type="Resource" id="Resource_ykhcu"]
 script = ExtResource("3_d1vgu")
-quest_name = "1 bot"
+quest_name = "Katara"
 position = Vector2(-368, -3252)
 patrol_targets = Array[Vector2]([])
 layer = 4
@@ -6949,11 +7145,12 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_34dl2"), SubResource("Resource_u6kg8"), SubResource("Resource_jrwxy"), SubResource("Resource_x4oyk"), SubResource("Resource_o80kr"), SubResource("Resource_t32ar"), SubResource("Resource_ivduu"), SubResource("Resource_3jmmm"), SubResource("Resource_vfnok"), SubResource("Resource_3bpbm"), SubResource("Resource_wawdi"), SubResource("Resource_b4h3v"), SubResource("Resource_oaakx"), SubResource("Resource_jbyve")])
 believe_l = 0.6
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_mqvoq"]
 script = ExtResource("3_d1vgu")
-quest_name = "2 bot"
+quest_name = "George"
 position = Vector2(304, -2964)
 patrol_targets = Array[Vector2]([])
 layer = 4
@@ -6964,11 +7161,12 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_wawdi"), SubResource("Resource_3bpbm"), SubResource("Resource_vfnok"), SubResource("Resource_3jmmm")])
 believe_l = 0.6
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_nrofl"]
 script = ExtResource("3_d1vgu")
-quest_name = "3 bot"
+quest_name = "Frank"
 position = Vector2(653, -3348)
 patrol_targets = Array[Vector2]([])
 layer = 4
@@ -6979,11 +7177,12 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_jbyve"), SubResource("Resource_oaakx"), SubResource("Resource_b4h3v"), SubResource("Resource_ivduu")])
 believe_l = 0.6
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_kyy1y"]
 script = ExtResource("3_d1vgu")
-quest_name = "4 bot"
+quest_name = "Marry"
 position = Vector2(1680, -2900)
 patrol_targets = Array[Vector2]([])
 layer = 4
@@ -6994,11 +7193,12 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_jyrw4"), SubResource("Resource_rcv0v"), SubResource("Resource_vk4fy"), SubResource("Resource_e64dx")])
 believe_l = 0.0
 believe_r = 0.4
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_q36m6"]
 script = ExtResource("3_d1vgu")
-quest_name = "5 bot"
+quest_name = "Bojan"
 position = Vector2(1232, -2292)
 patrol_targets = Array[Vector2]([])
 layer = 4
@@ -7009,11 +7209,12 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_2jajr"), SubResource("Resource_atdfd"), SubResource("Resource_uwssa"), SubResource("Resource_34dl2")])
 believe_l = 0.0
 believe_r = 0.7
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_w0jbm"]
 script = ExtResource("3_d1vgu")
-quest_name = "6 bot"
+quest_name = "Lara"
 position = Vector2(1900, -1780)
 patrol_targets = Array[Vector2]([])
 layer = 4
@@ -7024,11 +7225,12 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blq7f"), SubResource("Resource_30w7m"), SubResource("Resource_6fyn4"), SubResource("Resource_u6kg8")])
 believe_l = 0.0
 believe_r = 0.4
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_8vmaa"]
 script = ExtResource("3_d1vgu")
-quest_name = "7 bot"
+quest_name = "Ursula"
 position = Vector2(1168, -1396)
 patrol_targets = Array[Vector2]([])
 layer = 4
@@ -7039,6 +7241,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_lrahy"), SubResource("Resource_0ixgf"), SubResource("Resource_bqsfg"), SubResource("Resource_x4oyk")])
 believe_l = 0.0
 believe_r = 0.7
+reset = false
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_vttep"]
@@ -7635,6 +7838,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_upmvw"), SubResource("Resource_iullq"), SubResource("Resource_m4b3j"), SubResource("Resource_mmf70"), SubResource("Resource_hqw7f"), SubResource("Resource_ad7gd"), SubResource("Resource_fr8uo"), SubResource("Resource_keucu"), SubResource("Resource_ls8ve"), SubResource("Resource_uhdq7"), SubResource("Resource_707gd")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
 [sub_resource type="Resource" id="Resource_slhaa"]
@@ -7688,7 +7892,7 @@ kako dolgo pot sem vzel do sem.
 ne morem ne naprej ne nazaj.
 zmanjkalo mi je olja človek bi rekel da sem utrujen.
 
-jaz pa samo vem da nimam več olja za premikanje."])
+jaz pa samo vem da nimam več olja za premikanje.", "ko bi vsaj imel material da bi ga položil"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -7713,10 +7917,68 @@ layer = 0
 quest_body_type = 311
 color = Color(0.494109, 0.366758, 0.588994, 1)
 equipment = 0
-activated = false
+activated = true
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_4uldr"), SubResource("Resource_c5e7q")])
 believe_l = 0.0
 believe_r = 1.0
+reset = false
+metadata/_custom_type_script = "uid://4bh35mqidnhe"
+
+[sub_resource type="Resource" id="Resource_lq8tp"]
+script = ExtResource("11_cdsqw")
+npc_activate = 6
+npc_activated = true
+npc_alive = false
+npc_basis = -2
+npc_add_flags = Array[int]([2])
+npc_remove_flags = Array[int]([])
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_k10cb"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_lq8tp")])
+list_avatar_dialog = Array[String](["kaj so ti turreti tu?"])
+response_dialog = Array[String](["napadajo nas z vseh strani", "oni so začeli", "pomagaj vedno močnejši postajajo"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_rxag7"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_k10cb")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_xaie5"]
+script = ExtResource("3_d1vgu")
+quest_name = "fgtju"
+position = Vector2(9420, -1030)
+patrol_targets = Array[Vector2]([])
+layer = 0
+quest_body_type = 311
+color = Color(1, 1, 1, 1)
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_rxag7")])
+believe_l = 0.0
+believe_r = 1.0
+reset = false
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
 [sub_resource type="Resource" id="Resource_xgrt2"]
@@ -7803,7 +8065,7 @@ metadata/_custom_type_script = ExtResource("22_tt0nk")
 script = ExtResource("1_bgkrv")
 global_timer = NodePath("Timer")
 container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_ex1qj"), SubResource("Resource_cpje5"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
-quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj"), SubResource("Resource_v5avt"), SubResource("Resource_ykhcu"), SubResource("Resource_mqvoq"), SubResource("Resource_nrofl"), SubResource("Resource_kyy1y"), SubResource("Resource_q36m6"), SubResource("Resource_w0jbm"), SubResource("Resource_8vmaa"), SubResource("Resource_3nh3w"), SubResource("Resource_u0pu3")])
+quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj"), SubResource("Resource_v5avt"), SubResource("Resource_ykhcu"), SubResource("Resource_mqvoq"), SubResource("Resource_nrofl"), SubResource("Resource_kyy1y"), SubResource("Resource_q36m6"), SubResource("Resource_w0jbm"), SubResource("Resource_8vmaa"), SubResource("Resource_3nh3w"), SubResource("Resource_u0pu3"), SubResource("Resource_xaie5")])
 array_house_ground = Array[ExtResource("22_tt0nk")]([SubResource("Resource_xgrt2"), SubResource("Resource_tiwuc"), SubResource("Resource_kdcl1"), SubResource("Resource_2bky1"), SubResource("Resource_0nbsj"), SubResource("Resource_6aln0"), SubResource("Resource_w0hg2"), SubResource("Resource_qyol8"), SubResource("Resource_eejkm"), SubResource("Resource_58eew")])
 
 [node name="Timer" type="Timer" parent="."]

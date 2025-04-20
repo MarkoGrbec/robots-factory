@@ -21,6 +21,8 @@ enum TypeActivated {
 @export var list_quest_basis: Array[QuestBasis]
 @export var believe_l: float = 0
 @export var believe_r: float = 1
+@export_group("debug")
+@export var reset: bool = false
 
 var quest_index
 
@@ -80,16 +82,19 @@ func create_npc_with_avatar(id_avatar: int):
 	#var qq_deep: QQDeep = 
 	g_man.savable_multi____quest___qq__qq.new_data(1, quest_index)
 	g_man.quests_manager.dict_name__server_quest[quest_name] = server_quest
-	if server_quest.activated and server_quest.initialized:
+	# quest loaded activated and initialized
+	# if reset go config it first
+	if server_quest.activated and server_quest.initialized and not reset:
 		return server_quest
 	
+	# if reset always config it and return if it should be activated
 	config(server_quest)
 	if server_quest.activated:
 		return server_quest
 
 # Configure the NPC
 func config(server_quest: ServerQuest) -> void:
-	if not server_quest.initialized:
+	if not server_quest.initialized or reset:
 		server_quest.position = position
 		server_quest.save_position()
 		server_quest.activated = activated

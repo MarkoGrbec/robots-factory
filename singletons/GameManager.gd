@@ -97,6 +97,8 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "battery_constumption")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "weapon_range")
 	_table.create_column(false, dbms, DataBase.DataType.FLOAT, 1, "weapon_reflexes")
+	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "weapon_strength")
+	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "armor_strength")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "believe_in_god")
 	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "layer")
 	_table.create_column(false, dbms, DataBase.DataType.VECTOR2, 1, "position")

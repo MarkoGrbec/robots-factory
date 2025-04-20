@@ -13,6 +13,9 @@ func _ready() -> void:
 func destroy_me():
 	g_man.inventory_system.add_remove_hover_over_sprite(-1)
 	entity.destroy_me()
+	if selected:
+		selected = false
+		g_man.inventory_system.dragging = false
 	queue_free()
 
 func _process(_delta: float) -> void:

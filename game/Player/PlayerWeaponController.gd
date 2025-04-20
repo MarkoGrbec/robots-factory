@@ -9,7 +9,7 @@ var array_ttc_tool: Array[TTCTool]
 
 func _on_beam_weapon_hit_body(object) -> void:
 	if object.is_in_group("enemy"):
-		object.get_hit(1)
+		object.get_hit(g_man.user.weapon_strength)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if g_man.in_game_menu.is_visible_in_tree() or g_man.asking_toggled:

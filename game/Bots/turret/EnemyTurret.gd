@@ -31,6 +31,7 @@ enum Station{
 @export var station_type = StationType.MACHINE_GUN
 @export var station: Station = Station.NONE
 
+@export var experience_untill_next_level: int = 15
 @export var armor: Array[float]
 @export var health: float = 10
 var array_bodys_to_attack: Array[Node2D]
@@ -110,7 +111,7 @@ func shoot():
 
 func upgrade_experience():
 	experience += 1
-	if experience > 3 * (station_type + 1):
+	if experience > experience_untill_next_level * (station_type + 1):
 		experience = 0
 		upgrade_fire_station()
 

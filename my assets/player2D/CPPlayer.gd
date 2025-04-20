@@ -22,11 +22,13 @@ func _on_mouse_exited() -> void:
 	hide_label()
 
 func _process(_delta: float) -> void:
-	g_man.changes_manager.add_key_change("id position: ", str(g_man.tile_map_layers.get_position_by_mouse_position(), " ", global_position))
+	g_man.changes_manager.add_key_change("id position, global_position: ", str(g_man.tile_map_layers.get_position_by_mouse_position(), ", ", global_position))
 
 func get_hit(damage):
 	var health = g_man.sliders_manager.slider_add_value(Enums.slider.health, -damage)
-	if health < 0:
-		g_man.sliders_manager.slider_change_value(Enums.slider, 100)
+	if health <= 0:
+		g_man.sliders_manager.slider_change_value(Enums.slider.health, 100)
 		global_position = Vector2(500, 500)
 		g_man.user.save_position(global_position)
+		g_man.user.save_add_weapon_strength(1, false)
+		g_man.user.save_add_armor_strength(1, false)

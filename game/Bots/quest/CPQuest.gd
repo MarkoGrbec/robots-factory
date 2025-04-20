@@ -101,6 +101,14 @@ func succeed_old_basis(success_old_basis__qq_index):
 			elif success_old_basis__qq_index[1] == 2:
 				var user: User = g_man.user
 				user.save_weapon_reflexes(0.9)
+		# weapon # armor
+		elif success_old_basis__qq_index[0] == 2:
+			if success_old_basis__qq_index[1] == 0:
+				var user: User = g_man.user
+				user.save_add_weapon_strength(1)
+			elif success_old_basis__qq_index[1] == 1:
+				var user: User = g_man.user
+				user.save_add_armor_strength(1)
 	elif quest_index == 11:# johny
 		if success_old_basis__qq_index[0] == 0:
 			if success_old_basis__qq_index[1] == 0:
