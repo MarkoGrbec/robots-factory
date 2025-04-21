@@ -1,10 +1,11 @@
-[gd_scene load_steps=40 format=3 uid="uid://bldvfhdbgr23e"]
+[gd_scene load_steps=41 format=3 uid="uid://bldvfhdbgr23e"]
 
 [ext_resource type="Script" uid="uid://bj254t7es4bsr" path="res://main/start menu/MainMenu.gd" id="1_3wy1v"]
 [ext_resource type="Theme" uid="uid://cmeiu126swihn" path="res://my assets/themes/default.tres" id="2_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://bj1a037by05w5" path="res://my assets/changes manager/changes_manager.tscn" id="2_pjrb6"]
 [ext_resource type="PackedScene" uid="uid://btw2dmrck5wsv" path="res://main/start menu/main_tab_container.tscn" id="4_d00gp"]
 [ext_resource type="PackedScene" uid="uid://bs3s7gpgf8hym" path="res://main/quest/quests_manager.tscn" id="6_4dugh"]
+[ext_resource type="Script" uid="uid://du87a7ugu75md" path="res://main/start menu/StatsLabels.gd" id="6_jtpli"]
 [ext_resource type="PackedScene" uid="uid://ba8b517af62hg" path="res://main/success windows/change_name_manager.tscn" id="7_67ri8"]
 [ext_resource type="PackedScene" uid="uid://4uvqadvod7cb" path="res://main/in game menu/in_game_menu.tscn" id="8_bsumw"]
 [ext_resource type="Script" uid="uid://dfax0m1g5oqc" path="res://game/entity/InventorySystem.gd" id="9_fwcvl"]
@@ -85,12 +86,18 @@ offset_bottom = -0.0239944
 grow_horizontal = 0
 metadata/_edit_use_anchors_ = true
 
-[node name="weapon labels" type="Control" parent="CanvasLayer/Main"]
-anchors_preset = 0
-offset_left = 1046.0
-offset_top = 99.0
-offset_right = 1150.0
-offset_bottom = 225.0
+[node name="weapon labels" type="Control" parent="CanvasLayer/Main" node_paths=PackedStringArray("labels")]
+layout_mode = 1
+anchor_left = 1.0
+anchor_top = 0.171
+anchor_right = 1.0
+anchor_bottom = 0.171
+offset_left = -109.0
+offset_top = 0.136009
+offset_bottom = 161.136
+grow_horizontal = 0
+script = ExtResource("6_jtpli")
+labels = [NodePath("VBoxContainer/Armor/armor strength"), NodePath("VBoxContainer/weaponStrength/weapon strength"), NodePath("VBoxContainer/WeaponDistance/weapon distance"), NodePath("VBoxContainer/BatteryConstumption/battery constumption")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/weapon labels"]
 layout_mode = 1
@@ -100,33 +107,73 @@ offset_bottom = 125.0
 grow_horizontal = 2
 mouse_filter = 2
 
-[node name="armor strength" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer"]
+[node name="Armor" type="HBoxContainer" parent="CanvasLayer/Main/weapon labels/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="armor strength" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer/Armor"]
 layout_mode = 2
 tooltip_text = "armor strength"
 mouse_filter = 1
 text = "1"
 horizontal_alignment = 2
 
-[node name="weapon strength" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer/Armor"]
+layout_mode = 2
+tooltip_text = "armor strength"
+mouse_filter = 1
+text = "  AR"
+
+[node name="weaponStrength" type="HBoxContainer" parent="CanvasLayer/Main/weapon labels/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="weapon strength" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer/weaponStrength"]
 layout_mode = 2
 tooltip_text = "weapon strength"
 mouse_filter = 1
 text = "1"
 horizontal_alignment = 2
 
-[node name="weapon distance" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer/weaponStrength"]
+layout_mode = 2
+tooltip_text = "weapon strength"
+mouse_filter = 1
+text = " WS"
+
+[node name="WeaponDistance" type="HBoxContainer" parent="CanvasLayer/Main/weapon labels/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="weapon distance" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer/WeaponDistance"]
 layout_mode = 2
 tooltip_text = "weapon distance"
 mouse_filter = 1
 text = "1"
 horizontal_alignment = 2
 
-[node name="battery constumption" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer/WeaponDistance"]
+layout_mode = 2
+tooltip_text = "weapon distance"
+mouse_filter = 1
+text = "WD"
+
+[node name="BatteryConstumption" type="HBoxContainer" parent="CanvasLayer/Main/weapon labels/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="battery constumption" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer/BatteryConstumption"]
 layout_mode = 2
 tooltip_text = "battery constumption"
 mouse_filter = 1
 text = "1"
 horizontal_alignment = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Main/weapon labels/VBoxContainer/BatteryConstumption"]
+layout_mode = 2
+tooltip_text = "battery constumption"
+mouse_filter = 1
+text = " BC"
 
 [node name="trader manager" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("buy_grid_container", "trader_button_sell", "trader_gold_label", "robot_gold_label", "buy_for", "sell_for")]
 visible = false

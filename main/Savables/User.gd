@@ -66,6 +66,7 @@ func save_battery_constumption(battery_constumption, default: bool = false):
 	else:
 		g_man.player.weapon_controller.weapon.battery_constumption *= battery_constumption
 		DataBase.insert(_server, g_man.dbms, _path, "battery_constumption", id, float(g_man.player.weapon_controller.weapon.battery_constumption))
+	set_battery_constumption()
 
 func save_weapon_range(weapon_range, default: bool = false):
 	if default:
@@ -73,6 +74,7 @@ func save_weapon_range(weapon_range, default: bool = false):
 	else:
 		g_man.player.weapon_controller.weapon.distance *= weapon_range
 		DataBase.insert(_server, g_man.dbms, _path, "weapon_range", id, float(g_man.player.weapon_controller.weapon.distance))
+	set_weapon_distance()
 
 func save_weapon_reflexes(weapon_reflexes, default: bool = false):
 	if default:
@@ -86,6 +88,7 @@ func save_add_weapon_strength(strength, add = true):
 	else:# overwrite
 		weapon_strength = strength
 	save_uni("weapon_strength", weapon_strength)
+	set_weapon_strength()
 
 func save_add_armor_strength(strength, add = true):
 	if add:
@@ -93,6 +96,8 @@ func save_add_armor_strength(strength, add = true):
 	else:# overwrite
 		armor_strength = strength
 	save_uni("armor_strength", armor_strength)
+	set_armor_strength()
+	
 
 func save_believe_in_god():
 	DataBase.insert(_server, g_man.dbms, _path, "believe_in_god", id, believe_in_god)
@@ -117,15 +122,17 @@ func load_gold_coins():
 	gold_coins = DataBase.select(_server, g_man.dbms, _path, "gold_coins", id, 500)
 
 func load_weapon():
-	g_man.player.weapon_controller.weapon.activated = DataBase.select(_server, g_man.dbms, _path, "weapon", id, false)
+	set_weapon( load_uni("weapon", false) )
 
 func load_battery_constumption():
 	g_man.player.weapon_controller.weapon.battery_constumption = DataBase.select(_server, g_man.dbms, _path, "battery_constumption", id, 75)
 	g_man.player.weapon_controller.weapon.battery_constumption = 75
 	save_battery_constumption(1)
+	set_battery_constumption()
 
 func load_weapon_range():
 	g_man.player.weapon_controller.weapon.distance = load_uni("weapon_range", 75)
+	set_weapon_distance()
 
 func load_weapon_reflexes():
 	_weapon_reflexes = load_uni("weapon_reflexes", 3)
@@ -138,12 +145,34 @@ func load_return_layer():
 
 func load_armor_strength():
 	armor_strength = load_uni("armor_strength", 1)
+	set_armor_strength()
 
 func load_weapon_strength():
 	weapon_strength = load_uni("weapon_strength", 1)
+	set_weapon_strength()
 	#endregion load
 #endregion save load
+
+#region set labels and activate/deactivate weapon weapon
 func set_weapon(activate):
 	g_man.player.weapon_controller.weapon.activated = activate
 	if activate:
 		save_weapon_activated(activate)
+		g_man.stats_labels.show()
+	else:
+		g_man.stats_labels.hide()
+
+func set_armor_strength():
+	g_man.stats_labels.set_label(StatsLabels.TypeLabel.ARMOR_STRENGTH, armor_strength)
+
+func set_weapon_strength():
+	g_man.stats_labels.set_label(StatsLabels.TypeLabel.WEAPON_STRENGTH, weapon_strength)
+
+func set_weapon_distance():
+	if g_man.player and g_man.player.weapon_controller and g_man.player.weapon_controller.weapon:
+		g_man.stats_labels.set_label(StatsLabels.TypeLabel.WEAPON_DISTANCE, g_man.player.weapon_controller.weapon.distance)
+
+func set_battery_constumption():
+	if g_man.player and g_man.player.weapon_controller and g_man.player.weapon_controller.weapon:
+		g_man.stats_labels.set_label(StatsLabels.TypeLabel.BATTERY_CONSTUMPTION, g_man.player.weapon_controller.weapon.battery_constumption)
+#endregion

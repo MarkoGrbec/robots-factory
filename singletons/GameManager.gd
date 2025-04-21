@@ -20,6 +20,7 @@ var in_game_menu: InGameMenu
 var trader_manager: TraderManager
 var misc: Misc
 var music_manager: MusicManager
+var stats_labels: StatsLabels
 
 var friendly_robots_spawn_reality: FriendlyRobotsSpawnReality
 var friendly_robots_spawn_godish: FriendlyRobotsSpawnGodish
@@ -34,6 +35,12 @@ var savable_terrain_ground: Savable
 var savable_terrain_underground1: Savable
 var savable_terrain_underground2: Savable
 var savable_terrain_underground3: Savable
+
+var savable_multi_tarrain_user__layer: SavableMulti
+var savable_multi_terrain_layer__quadrant: SavableMulti
+var savable_multi_terrain_quadrant__cell: SavableMulti
+#var savable_terrain_cell: Savable
+
 var savable_multi_avatar__quest_data: SavableMulti
 
 #var savable_multi___quest__qq: SavableMulti
@@ -63,6 +70,12 @@ func _ready() -> void:
 	savable_terrain_underground1 = Savable.new(false, dbms, "terrain_underground1", Terrain.new())
 	savable_terrain_underground2 = Savable.new(false, dbms, "terrain_underground2", Terrain.new())
 	savable_terrain_underground3 = Savable.new(false, dbms, "terrain_underground3", Terrain.new())
+	
+	savable_multi_tarrain_user__layer = SavableMulti.new(false, dbms, "terrain_user_layer", TerrainUser_Layer.new())
+	savable_multi_terrain_layer__quadrant = SavableMulti.new(false, dbms, "terrain_layer_quadrant", TerrainLayer_Quadrant.new())
+	savable_multi_terrain_quadrant__cell = SavableMulti.new(false, dbms, "terrain_quadrant_cell", TerrainQuadrant_Cell.new())
+	#savable_terrain_cell = Savable.new(false, dbms, "terrain_cell", TerrainCell.new())
+	
 	savable_multi_avatar__quest_data = SavableMulti.new(false, dbms, "savable_multi_avatar__quest_data", ServerQuest.new())
 	savable_multi____quest___qq__qq = SavableMulti.new(false, dbms, "qq_deep", QQDeep.new())
 	savable_entity = Savable.new(false, dbms, "entity", Entity.new())
@@ -145,14 +158,18 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "enemy")
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "enemy_finished")
 	
-	_table = DataBase.Table.new("terrain_ground")
-	create_columns_terrain(_table)
-	_table = DataBase.Table.new("terrain_underground1")
-	create_columns_terrain(_table)
-	_table = DataBase.Table.new("terrain_underground2")
-	create_columns_terrain(_table)
-	_table = DataBase.Table.new("terrain_underground3")
-	create_columns_terrain(_table)
+	#_table = DataBase.Table.new("terrain_ground")
+	#create_columns_terrain(_table)
+	#_table = DataBase.Table.new("terrain_underground1")
+	#create_columns_terrain(_table)
+	#_table = DataBase.Table.new("terrain_underground2")
+	#create_columns_terrain(_table)
+	#_table = DataBase.Table.new("terrain_underground3")
+	#create_columns_terrain(_table)
+	_table = DataBase.Table.new("terrain_quadrant_cell")
+	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "layer")
+	_table.create_column(false, dbms, DataBase.DataType.VECTOR2I, 1, "position")
+	_table.create_column(false, dbms, DataBase.DataType.ARRAY, 48, "array_data_array")
 	
 	_table = DataBase.Table.new("savable_multi_avatar__quest_data")
 	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "inventory")
@@ -198,16 +215,16 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "entity_num")
 	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "layer")
 
-func create_columns_terrain(_table):
-	create_columns_terrain_layer(_table, "_c")
-	create_columns_terrain_layer(_table, "_br")
-	create_columns_terrain_layer(_table, "_bl")
-	create_columns_terrain_layer(_table, "_tr")
-	create_columns_terrain_layer(_table, "_tl")
-
-func create_columns_terrain_layer(_table, str_quadrant):
-	_table.create_column(false, dbms, DataBase.DataType.VECTOR2I, 1, str("position", str_quadrant))
-	_table.create_column(false, dbms, DataBase.DataType.ARRAY, 48, str("array_data", str_quadrant))
+#func create_columns_terrain(_table):
+	#create_columns_terrain_layer(_table, "_c")
+	#create_columns_terrain_layer(_table, "_br")
+	#create_columns_terrain_layer(_table, "_bl")
+	#create_columns_terrain_layer(_table, "_tr")
+	#create_columns_terrain_layer(_table, "_tl")
+#
+#func create_columns_terrain_layer(_table, str_quadrant):
+	#_table.create_column(false, dbms, DataBase.DataType.VECTOR2I, 1, str("position", str_quadrant))
+	#_table.create_column(false, dbms, DataBase.DataType.ARRAY, 48, str("array_data", str_quadrant))
 
 func speech_activated():
 	if quests_manager.is_visible_in_tree() or mold_window.is_visible_in_tree():

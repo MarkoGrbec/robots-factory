@@ -28,6 +28,9 @@ func save_uni(column, data):
 
 func load_uni(column, data = null):
 	return DataBase.select(_server, g_man.dbms, _path, column, id, data)
+
+func reserve_uni(column, bytes_reserve, min_ratio_reserve = 0.01):
+	DataBase.reserve(_server, g_man.dbms, _path, column, bytes_reserve, min_ratio_reserve)
 #endregion savable
 
 

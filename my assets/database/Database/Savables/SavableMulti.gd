@@ -57,6 +57,7 @@ func get_all(id_primary: int, id_secondary: int):
 		return ret
 ## if both columns are set and something exists old is returned
 ## returns New data and an opposite column is made by savable id
+## if primary or secondary is set to 0 meaning new id is set.
 func new_data(id_primary: int, id_secondary: int, partly_load = 2, partly_save = 2):
 	var idRow
 	if id_primary and id_secondary:
@@ -88,7 +89,7 @@ func set_data(id_primary, id_secondary, data, partly_save):
 		id_row = _multi.add_row(id_row, id_row, id_secondary)
 		_savable.set_index_data(id_row, data, partly_save)
 		return data
-	push_error(String("{data} has not ben set correctly and base is empty").format({data = data.to_string()}))
+	push_error(data, " has not ben set correctly and base is empty")
 	return data
 
 ## if it doesn't exist it creates on idRow if more exists it takes only first row

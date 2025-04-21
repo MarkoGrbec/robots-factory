@@ -26,6 +26,7 @@ enum keys{
 	changes = 11,
 	plus_stack = 12,
 	minus_stack = 13,
+	stats = 14,
 	esc = 15,
 }
 

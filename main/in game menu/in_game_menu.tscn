@@ -124,6 +124,12 @@ tooltip_text = "it'll stop digging time
 but it'll not dig for you before the end of time"
 index = 13
 
+[node name="binding container14" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+tooltip_text = "it'll stop digging time
+but it'll not dig for you before the end of time"
+index = 14
+
 [node name="binding container15" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
 layout_mode = 2
 tooltip_text = "it will reset after restart of application"

@@ -104,9 +104,9 @@ func welcome_screen() -> void:
 		g_man.trader = g_man.savable_trader.set_index_data(1, Trader.new(), 2)
 	# terrain
 	var ground = g_man.savable_terrain_ground.get_index_data(1, 2)
-	var underground1 = g_man.savable_terrain_underground1.get_index_data(2, 2)
-	var underground2 = g_man.savable_terrain_underground2.get_index_data(3, 2)
-	var underground3 = g_man.savable_terrain_underground3.get_index_data(4, 2)
+	#var underground1 = g_man.savable_terrain_underground1.get_index_data(2, 2)
+	#var underground2 = g_man.savable_terrain_underground2.get_index_data(3, 2)
+	#var underground3 = g_man.savable_terrain_underground3.get_index_data(4, 2)
 	
 	
 	var t = terrain.instantiate()
@@ -117,7 +117,7 @@ func welcome_screen() -> void:
 	if g_man.trader.activated:
 		CreateMob.target_create_trader(g_man.trader)
 	
-	g_man.tile_map_layers.savables = [ground, underground1, underground2, underground3]
+	g_man.tile_map_layers.savables = [ground]
 	
 	g_man.tile_map_layers.load_map()
 	# npcs

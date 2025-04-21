@@ -61,10 +61,10 @@ func bake():
 		navigation_region_2d.bake_navigation_polygon()
 
 func load_map():
-	dict_ground_pos___id__left[0] = savables[0].dict_ground_pos___id__left
-	dict_ground_pos___id__left[1] = savables[1].dict_ground_pos___id__left
-	dict_ground_pos___id__left[2] = savables[2].dict_ground_pos___id__left
-	dict_ground_pos___id__left[3] = savables[3].dict_ground_pos___id__left
+	dict_ground_pos___id__left[0] = savables[0].dict_ground_pos___id__left[1]
+	dict_ground_pos___id__left[1] = savables[0].dict_ground_pos___id__left[1]
+	dict_ground_pos___id__left[2] = savables[0].dict_ground_pos___id__left[1]
+	dict_ground_pos___id__left[3] = savables[0].dict_ground_pos___id__left[1]
 	if not dict_ground_pos___id__left[0]:
 		set_new_terrain()
 	reload_terrain()

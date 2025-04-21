@@ -35,3 +35,5 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("changes"):
 		g_man.holding_hand.holding_hand_changes()
 		g_man.changes_manager.change_opened_window()
+	elif event.is_action_pressed("stats"):
+		g_man.stats_labels.open_close_window()
