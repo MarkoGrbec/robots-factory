@@ -68,7 +68,7 @@ func _queue_free_index_if_not_null(index: int):
 	_container[index] = null
 
 func _queue_free_if_not_null(variant: Variant):
-	if variant and variant.has_method("queue_free"):
+	if variant and not variant is int and variant.has_method("queue_free"):
 		variant.queue_free()
 
 func add_null(index):
@@ -95,6 +95,7 @@ func clear():
 		_queue_free_if_not_null(item)
 	_container.clear()
 	_null_container.clear()
+	set_data(null)
 	#_count = 0
 	
 func count():

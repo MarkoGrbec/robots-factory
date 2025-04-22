@@ -9,7 +9,7 @@ class_name TileMapLayers extends Node
 var dict_ground_pos___id__left: Array#[Dictionary[Vector2i, Array]]
 var dict_ground_pos__dirt: Dictionary[Vector2i, int]
 
-var savables
+var savables: Terrain
 var array_layer_loaded: Array[bool]
 #endregion grund layer
 
@@ -61,15 +61,16 @@ func bake():
 		navigation_region_2d.bake_navigation_polygon()
 
 func load_map():
-	dict_ground_pos___id__left[0] = savables[0].dict_ground_pos___id__left[1]
-	dict_ground_pos___id__left[1] = savables[0].dict_ground_pos___id__left[1]
-	dict_ground_pos___id__left[2] = savables[0].dict_ground_pos___id__left[1]
-	dict_ground_pos___id__left[3] = savables[0].dict_ground_pos___id__left[1]
+	if savables.array_layers__dict_ground_pos___id__left:
+		dict_ground_pos___id__left[0] = savables.array_layers__dict_ground_pos___id__left[0]
+		dict_ground_pos___id__left[1] = savables.array_layers__dict_ground_pos___id__left[1]
+		dict_ground_pos___id__left[2] = savables.array_layers__dict_ground_pos___id__left[2]
+		dict_ground_pos___id__left[3] = savables.array_layers__dict_ground_pos___id__left[3]
 	if not dict_ground_pos___id__left[0]:
 		set_new_terrain()
 	reload_terrain()
 	timer.timeout.connect(change_dirt_to_grass_overtime)
-	timer.start(30)
+	timer.start(45)
 
 func change_dirt_to_grass_overtime():
 	change_ground_dirt()
@@ -133,7 +134,7 @@ func add(id, callable):
 		callable.call()
 
 func dig(mouse_global_position: Vector2):
-	if save and not active_layer < savables.size():
+	if save and not active_layer < ground_layer.size():
 		return
 	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
 	# get data
@@ -225,7 +226,7 @@ func set_ground_cell(position: Vector2i, id: int, layer: int):
 		array_data_array = [NEW_ROCK_ARRAY.duplicate(true)]
 		dict_ground_pos___id__left[layer].set(position, array_data_array)
 	if save:
-		savables[layer].save_position__array_data_array(position, array_data_array)
+		savables.save_position__array_data_array(position, layer, array_data_array)
 	# set floor
 	ground_layer[layer].set_cell(position, id, Vector2i.ZERO)
 	bake()

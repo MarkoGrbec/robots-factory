@@ -46,8 +46,8 @@ func succeed_old_basis(success_old_basis__qq_index):
 		if success_old_basis__qq_index[0] == 2:
 			if success_old_basis__qq_index[1] == 1:
 				change_name()
-	elif quest_index == 3:
-		if success_old_basis__qq_index[0] == 1:
+	elif quest_index == 3:# maya
+		if success_old_basis__qq_index[0] == 4:
 			if success_old_basis__qq_index[1] == 0:
 				# gathering fork
 				change_type(1)
@@ -56,10 +56,15 @@ func succeed_old_basis(success_old_basis__qq_index):
 				change_type(2)
 			elif success_old_basis__qq_index[1] == 2:
 				# fighting fork
+				change_type(3)
+				# open fighting way
 				g_man.tile_map_layers.set_region(Rect2i(20, 16, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 				g_man.tile_map_layers.set_region(Rect2i(20, 17, 30, 3), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
 				g_man.tile_map_layers.set_region(Rect2i(20, 20, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
-				change_type(3)
+				# activate trader
+				g_man.trader.activated = true
+				g_man.trader.save_activated()
+				CreateMob.target_create_trader(g_man.trader)
 	elif quest_index == 5:# gathering bot
 		if success_old_basis__qq_index[0] == 3:
 			if success_old_basis__qq_index[1] == 0:

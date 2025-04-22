@@ -81,9 +81,9 @@ func _on_start_game_pressed() -> void:
 		# each one for 1 layer
 		g_man.savable_multi_avatar__quest_data.remove_all()
 		g_man.savable_terrain_ground.set_index_data(1, Terrain.new(), 2).remove_all()
-		g_man.savable_terrain_underground1.set_index_data(2, Terrain.new(), 2).remove_all()
-		g_man.savable_terrain_underground2.set_index_data(3, Terrain.new(), 2).remove_all()
-		g_man.savable_terrain_underground3.set_index_data(4, Terrain.new(), 2).remove_all()
+		#g_man.savable_terrain_underground1.set_index_data(2, Terrain.new(), 2).remove_all()
+		#g_man.savable_terrain_underground2.set_index_data(3, Terrain.new(), 2).remove_all()
+		#g_man.savable_terrain_underground3.set_index_data(4, Terrain.new(), 2).remove_all()
 		
 		user.avatar_name = avatar_name
 		user.fully_save()
@@ -117,7 +117,7 @@ func welcome_screen() -> void:
 	if g_man.trader.activated:
 		CreateMob.target_create_trader(g_man.trader)
 	
-	g_man.tile_map_layers.savables = [ground]
+	g_man.tile_map_layers.savables = ground
 	
 	g_man.tile_map_layers.load_map()
 	# npcs

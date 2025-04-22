@@ -279,12 +279,14 @@ func ask(raw_text: String, client) -> Array:
 	elif general_basis or qq.use_basis:
 		succeed_believe()
 		var index_quest_question = q_obj.index_quest_qustion(qq, basis)
+		var _array_old_basis__qq_index: Array = [basis, index_quest_question]
 		if index_quest_question == -1:
 			for flag in basis_flags:
 				index_quest_question = q_obj.index_quest_qustion(qq, flag)
 				if not index_quest_question == -1:
+					_array_old_basis__qq_index[0] = flag
 					break
-		var _array_old_basis__qq_index: Array = [basis, index_quest_question]
+		_array_old_basis__qq_index[1] = index_quest_question
 		response_dialog = get_response_dialog_indexed(qq, q_obj, avatar_name)
 		
 		set_new_basis(qq, q_obj, general_basis, avatar_name, indexes)

@@ -506,6 +506,59 @@ static func select(server: bool, data_base_dir, table_name, column_name, id: int
 		text = default_value
 	return text
 
+static func multi_select(server: bool, data_base_dir, table_name, column_name, start_id: int, end_id: int, default_value = []):
+	#if id < 1:
+		#push_error("id is too small: [", id, "] ", get_stack())
+		#return
+	var file_name = directory_exists(server, data_base_dir, table_name, column_name)
+	if file_name == "":
+		printerr("server: [", server, "] table does not exists: [", table_name, "] column: [", column_name, "]")
+		push_error("server: [", server, "] table does not exists: [", table_name, "] column: [", column_name, "]")
+		return default_value
+	if not FileAccess.file_exists(file_name):
+		printerr("server: [", server, "] table: [", table_name, "] file: [", column_name, "] doesn't exist")
+		push_error("server: [", server, "] table: [", table_name, "] file: [", column_name, "] doesn't exist")
+		return default_value
+	#we load intengrety of files in this path
+	var intengrety = -1
+	var _path = path(server, data_base_dir, table_name)
+	_path += '/'
+	#read length
+	var meta_data = get_header(file_name)
+	if not meta_data:
+		return default_value
+	var length = meta_data[0]
+	intengrety = load_back(_path, intengrety)
+	#Save backedUp file that we didn't save correctly to disc but to the bakedUpFile
+	if intengrety == 2:
+		load_back_data(_path, length)
+	
+	##read file section
+	#get to the id section
+	var data_length = get_data_length(meta_data[1], length, meta_data[2], meta_data[3])
+	
+	if not FileAccess.file_exists(file_name):
+		return default_value
+	var file_access = FileAccess.open(file_name, FileAccess.READ)
+	file_access.seek(data_length * start_id)
+	
+	var count = end_id - start_id
+	# needs to read 8 bytes more than it is needed to the process is skipped in the end
+	var buffer: PackedByteArray = file_access.get_buffer((data_length * end_id - start_id) + 4)
+
+	file_access.close()
+	if buffer.size() == 0:
+		return default_value
+	#if not type_check(buffer[0], meta_data[1]):
+		#return default_value
+	var text = []#bytes_to_var(buffer)
+	for i in count:
+		var data = buffer.slice(start_id + i, (start_id + i) + data_length + 12)
+		text.push_back(bytes_to_var(data))
+	if text == null:
+		text = default_value
+	return text
+
 ## excluding last one is used (use it as size() - 1)
 static func last_id(server: bool, data_base_dir, table_name, column_name):
 	var file_name = directory_exists(server, data_base_dir, table_name, column_name)
@@ -555,12 +608,12 @@ static func reset_last_id(server: bool, data_base_dir, table_name, column_name =
 		printerr("server: ", server, " Exception table: [", table_name, "] file_name: [", column_name, "].meta does not exist")
 		push_error("server: ", server, " Exception table: [", table_name, "] file_name: [", column_name, "].meta does not exist")
 		return
-	#var converted
-	var file_access = file_create_or_rea_or_write(file_name, FileAccess.READ_WRITE)
-	file_access = file_create_or_rea_or_write(str(file_name, ".meta"), FileAccess.READ_WRITE)
+	var file_access = file_create_or_rea_or_write(str(file_name, ".meta"), FileAccess.READ_WRITE)
 	file_access.seek(10)
 	file_access.store_64(0)
 	file_access.close()
+	#printerr("server: ", server, " table: [", table_name, "] file_name: [", column_name, "].meta reset last id", file_name)
+	#push_error("server: ", server, " table: [", table_name, "] file_name: [", column_name, "].meta reset last id ", file_name)
 #endregion select
 #region reserve
 static func reserve(server, data_base_dir, table_name, column_name, bytes_reserve, min_ratio_reserve = 0.01):
@@ -633,9 +686,10 @@ class MultiTable:
 		table.create_column(true, data_base_dir, DataType.LONG, 1, "id")
 		table.create_column(true, data_base_dir, DataType.LONG, 1, PRI)
 		table.create_column(true, data_base_dir, DataType.LONG, 1, SEC)
-		var lastId = DataBase.last_id(true, data_base_dir, path, "id")
-		if lastId:
-			for i in range(1, lastId):
+		var last_id_loading = DataBase.last_id(true, data_base_dir, path, "id")
+		if last_id_loading:
+			var all_rows = DataBase.multi_select(true, data_base_dir, path, "id", 0, last_id_loading)
+			for i in range(1, last_id_loading):
 				var id = DataBase.select(true, data_base_dir, path, "id", i)
 				if id:
 					var pri = DataBase.select(true, data_base_dir, path, PRI, id)
@@ -668,7 +722,7 @@ class MultiTable:
 	## returns: id row is written on
 	func add_row(main_key, pri, sec):
 		if not pri || not sec:
-			push_error(String("cannot make multi key too little info {pri} {sec} on {tableNameText}").format({pri = pri, sec = sec, tableNameText = table_name}))
+			push_error("cannot make multi key too little info ", pri, " ", sec, " on ", table_name)
 			return
 		#if(primary == 0 || secondary == 0){Debug.LogError($"cannot make multi key too little info {mainKey} {primary} {secondary} on {tableNameText}") return 0}
 		var pc = nl_primary_column.get_index_data(pri)
@@ -693,7 +747,7 @@ class MultiTable:
 		if pc.opositeColumn.has(sec):
 			return pc.opositeColumn[sec]
 		elif sc.opositeColumn.has(pri):
-			push_error(String("when does this happen [{tableNameText}] [{pri}] [{columnDataPri}] [{sec}]").format({tableNameText = table_name, pri = pri, columnDataPri = sc.opositeColumn[pri], sec = sec}))
+			push_error("when does this happen [", table_name, "] [", pri, "] [", sc.opositeColumn[pri], "] [", sec, "]")
 			return sc.opositeColumn[pri]
 		#//we add savable rows for database
 		var row = MultiColumn.new(pri, sec)
@@ -703,7 +757,7 @@ class MultiTable:
 		else:
 			nl_all_rows.set_index_data(main_key, row)
 			row.id = main_key
-#
+		
 		#//if it doesn't exist on other end
 		pc.opositeColumn[sec] = row.id
 		sc.opositeColumn[pri] = row.id
@@ -1038,11 +1092,14 @@ class MultiTable:
 	func last_id():
 		return nl_all_rows.count()
 
-	func clear(column_name = "id"):
+	func clear(column_name = "id", server: bool = false):
 		var _count = last_id()
 		for i in range(1, _count + 1):
 			delete_row(i)
-		DataBase.reset_last_id(_server, g_man.dbms, table_name, column_name)
+		DataBase.reset_last_id(server, g_man.dbms, table_name, column_name)
+		nl_all_rows.clear()
+		nl_primary_column.clear()
+		nlSecondaryColumn.clear()
 #endregion multitable
 
 #TODO:

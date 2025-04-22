@@ -1,13 +1,13 @@
 class_name Terrain extends ISavable
 
-var dict_ground_pos___id__left: Dictionary[Vector2i, Array]
+var array_layers__dict_ground_pos___id__left: Array#: Array[Dictionary[Vector2i, Array]]
 
 func copy():
 	return Terrain.new()
 
 #region fully
 func fully_load():
-	if not dict_ground_pos___id__left:
+	if not array_layers__dict_ground_pos___id__left:
 		partly_load()
 
 func fully_save():
@@ -15,6 +15,9 @@ func fully_save():
 #endregion fully
 #region partly
 func partly_load():
+	array_layers__dict_ground_pos___id__left.clear()
+	for i in 5:
+		array_layers__dict_ground_pos___id__left.push_back({})
 	load_position__array_data()
 
 func partly_save():
@@ -22,40 +25,43 @@ func partly_save():
 #endregion partly
 #region delete all
 func remove_all():
-	remove_quadrant(1)
-	remove_quadrant(2)
-	remove_quadrant(3)
-	remove_quadrant(4)
-	remove_quadrant(5)
+	#remove_quadrant(1)
+	#remove_quadrant(2)
+	#remove_quadrant(3)
+	#remove_quadrant(4)
+	#remove_quadrant(5)
+	g_man.savable_multi_tarrain_user__layer.remove_all()
+	g_man.savable_multi_terrain_layer__quadrant.remove_all()
+	g_man.savable_multi_terrain_quadrant__cell.remove_all()
 
-func remove_quadrant(quadrant):
-	var str_arr = get_quadrant_string(quadrant)
-	var last_id = DataBase.last_id(_server, g_man.dbms, _path, str_arr[0])
-	if last_id:
-		for i in range(1, last_id):
-			DataBase.insert(_server, g_man.dbms, _path, str_arr[0], i, null)
+#func remove_quadrant(quadrant):
+	#var str_arr = get_quadrant_string(quadrant)
+	#var last_id = DataBase.last_id(_server, g_man.dbms, _path, str_arr[0])
+	#if last_id:
+		#for i in range(1, last_id):
+			#DataBase.insert(_server, g_man.dbms, _path, str_arr[0], i, null)
 #endregion delete all
 #region save load
-func save_position__array_data_array(position: Vector2i, array_data_array: Array):
+func save_position__array_data_array(position: Vector2i, layer: int, array_data_array: Array):
 	var id_quadrant_index = get_unique(position)
 	var quadrant = id_quadrant_index[0]
 	var id_index = id_quadrant_index[1]
-	var str_quadrant = get_quadrant_string(quadrant)
+	#var str_quadrant = get_quadrant_string(quadrant)
 	
-	DataBase.reserve(_server, g_man.dbms, _path, str_quadrant[0], 1048576)
-	DataBase.insert(_server, g_man.dbms, _path, str_quadrant[0], id_index, position)
+	#DataBase.reserve(_server, g_man.dbms, _path, str_quadrant[0], 1048576)
+	#DataBase.insert(_server, g_man.dbms, _path, str_quadrant[0], id_index, position)
+	#
+	#DataBase.reserve(_server, g_man.dbms, _path, str_quadrant[1], 10480576)
+	#DataBase.insert(_server, g_man.dbms, _path, str_quadrant[1], id_index, array_data_array)
 	
-	DataBase.reserve(_server, g_man.dbms, _path, str_quadrant[1], 10480576)
-	DataBase.insert(_server, g_man.dbms, _path, str_quadrant[1], id_index, array_data_array)
-	
-	save_new_terrain_style(quadrant, id_index, position, array_data_array)
+	save_new_terrain_style(quadrant, id_index, position, layer, array_data_array)
 
-func save_new_terrain_style(quadrant, id_index, position, array_data_array):
+func save_new_terrain_style(quadrant, id_index, position, layer, array_data_array):
 	if g_man.user:
-		var user_layer: TerrainUser_Layer = g_man.savable_multi_tarrain_user__layer.new_data(g_man.user.id, id)
+		var user_layer: TerrainUser_Layer = g_man.savable_multi_tarrain_user__layer.new_data(g_man.user.id, layer)
 		var layer_quadrant: TerrainLayer_Quadrant = g_man.savable_multi_terrain_layer__quadrant.new_data(user_layer.id, quadrant)
 		var quadrant_cell: TerrainQuadrant_Cell = g_man.savable_multi_terrain_quadrant__cell.new_data(layer_quadrant.id, id_index)
-		quadrant_cell.save_data(position, array_data_array, id-1)
+		quadrant_cell.save_data(position, layer, array_data_array)
 
 func load_new_terrain_style():
 	if g_man.user:
@@ -65,10 +71,9 @@ func load_new_terrain_style():
 			for quadrant: TerrainLayer_Quadrant in layer_quadrants:
 				var cells = g_man.savable_multi_terrain_quadrant__cell.get_all(quadrant.id, 0)
 				for cell: TerrainQuadrant_Cell in cells:
-					var position__array_data_array = cell.load_data()
-					if position__array_data_array and position__array_data_array[1]:
-						dict_ground_pos___id__left.set(Vector2i(position__array_data_array[0]), [position__array_data_array[2], position__array_data_array[1]])
-					## TODO: it overwrites position !!!
+					var position__array_data_array__layer = cell.load_data()
+					if position__array_data_array__layer and position__array_data_array__layer[1]:
+						array_layers__dict_ground_pos___id__left[position__array_data_array__layer[2]].set(Vector2i(position__array_data_array__layer[0]), position__array_data_array__layer[1])
 
 func load_position__array_data():
 	load_position__array_data_from_quadrant(1)
@@ -77,8 +82,8 @@ func load_position__array_data():
 	#load_position__array_data_from_quadrant(4)
 	#load_position__array_data_from_quadrant(5)
 
-func load_position__array_data_from_quadrant(quadrant: int):
-	#var str_arr = get_quadrant_string(quadrant)
+func load_position__array_data_from_quadrant(_quadrant: int):
+	#var str_arr = get_quadrant_string(_quadrant)
 	#var str_pos = str_arr[0]
 	#var str_arr_data = str_arr[1]
 	#var last_id = DataBase.last_id(_server, g_man.dbms, _path, str_pos)
@@ -89,7 +94,7 @@ func load_position__array_data_from_quadrant(quadrant: int):
 			#if data_array:
 				#dict_ground_pos___id__left.set(Vector2i(position), data_array)
 				#
-				#save_new_terrain_style(quadrant, i, Vector2i(position), data_array)
+				#save_new_terrain_style(_quadrant, i, Vector2i(position), data_array)
 	#else:
 		load_new_terrain_style()
 

@@ -20,7 +20,7 @@ func _ready() -> void:
 func _volume_changed(value: float) -> void:
 	change_save_bus_level(value)
 	stop_sound_timer.start(2.5)
-	if Time.get_ticks_usec() > 10000000 and not audio_player.playing:
+	if Time.get_ticks_msec() > 15000 and not audio_player.playing:
 		audio_player.play()
 		await stop_sound_timer.timeout
 		audio_player.stop()

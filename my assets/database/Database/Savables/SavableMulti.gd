@@ -140,4 +140,5 @@ func delete_id_row(idRow: int):
 	
 func remove_all():
 	_savable.remove_all()
-	_multi.clear()
+	_multi.clear("id", _savable._server)
+	
