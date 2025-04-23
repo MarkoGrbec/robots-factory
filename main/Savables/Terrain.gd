@@ -24,6 +24,9 @@ func partly_save():
 	pass
 #endregion partly
 #region delete all
+func destroy():
+	remove_all()
+
 func remove_all():
 	#remove_quadrant(1)
 	#remove_quadrant(2)
@@ -67,13 +70,16 @@ func load_new_terrain_style():
 	if g_man.user:
 		var user_layers = g_man.savable_multi_tarrain_user__layer.get_all(g_man.user.id, 0)
 		for layer: TerrainUser_Layer in user_layers:
-			var layer_quadrants = g_man.savable_multi_terrain_layer__quadrant.get_all(layer.id, 0)
-			for quadrant: TerrainLayer_Quadrant in layer_quadrants:
-				var cells = g_man.savable_multi_terrain_quadrant__cell.get_all(quadrant.id, 0)
-				for cell: TerrainQuadrant_Cell in cells:
-					var position__array_data_array__layer = cell.load_data()
-					if position__array_data_array__layer and position__array_data_array__layer[1]:
-						array_layers__dict_ground_pos___id__left[position__array_data_array__layer[2]].set(Vector2i(position__array_data_array__layer[0]), position__array_data_array__layer[1])
+			if layer:
+				var layer_quadrants = g_man.savable_multi_terrain_layer__quadrant.get_all(layer.id, 0)
+				for quadrant: TerrainLayer_Quadrant in layer_quadrants:
+					if quadrant:
+						var cells = g_man.savable_multi_terrain_quadrant__cell.get_all(quadrant.id, 0)
+						for cell: TerrainQuadrant_Cell in cells:
+							if cell:
+								var position__array_data_array__layer = cell.load_data()
+								if position__array_data_array__layer and position__array_data_array__layer[1]:
+									array_layers__dict_ground_pos___id__left[position__array_data_array__layer[2]].set(Vector2i(position__array_data_array__layer[0]), position__array_data_array__layer[1])
 
 func load_position__array_data():
 	load_position__array_data_from_quadrant(1)

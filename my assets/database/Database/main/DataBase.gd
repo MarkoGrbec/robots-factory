@@ -544,19 +544,15 @@ static func multi_select(server: bool, data_base_dir, table_name, column_name, s
 	
 	var count = end_id - start_id
 	# needs to read 8 bytes more than it is needed to the process is skipped in the end
-	var buffer: PackedByteArray = file_access.get_buffer((data_length * end_id - start_id) + 4)
+	var buffer: PackedByteArray = file_access.get_buffer((data_length * count) + 4)
 
 	file_access.close()
 	if buffer.size() == 0:
 		return default_value
-	#if not type_check(buffer[0], meta_data[1]):
-		#return default_value
-	var text = []#bytes_to_var(buffer)
-	for i in count:
-		var data = buffer.slice(start_id + i, (start_id + i) + data_length + 12)
+	var text = []
+	for i in count -1:
+		var data = buffer.slice(data_length * (1 + start_id + i), (data_length * (2 + start_id + i)) + 4)
 		text.push_back(bytes_to_var(data))
-	if text == null:
-		text = default_value
 	return text
 
 ## excluding last one is used (use it as size() - 1)
@@ -688,16 +684,18 @@ class MultiTable:
 		table.create_column(true, data_base_dir, DataType.LONG, 1, SEC)
 		var last_id_loading = DataBase.last_id(true, data_base_dir, path, "id")
 		if last_id_loading:
-			var all_rows = DataBase.multi_select(true, data_base_dir, path, "id", 0, last_id_loading)
-			for i in range(1, last_id_loading):
-				var id = DataBase.select(true, data_base_dir, path, "id", i)
+			var all_rows_id = DataBase.multi_select(true, data_base_dir, path, "id", 0, last_id_loading)
+			var all_rows_pri = DataBase.multi_select(true, data_base_dir, path, PRI, 0, last_id_loading)
+			var all_rows_sec = DataBase.multi_select(true, data_base_dir, path, SEC, 0, last_id_loading)
+			for i in all_rows_id.size():
+				var id = all_rows_id[i]
 				if id:
-					var pri = DataBase.select(true, data_base_dir, path, PRI, id)
-					var sec = DataBase.select(true, data_base_dir, path, SEC, id)
+					var pri = all_rows_pri[i]
+					var sec = all_rows_sec[i]
 					if pri && sec:
 						add_row(id, pri, sec)
-				else:
-					nl_all_rows.add_null(i)
+					else:
+						nl_all_rows.add_null(id)
 				
 	var table_name:String
 	var dataBasePathText:String
@@ -900,9 +898,8 @@ class MultiTable:
 		for i in range(startAt, newCount):
 			var mc = nl_all_rows.get_index_data(i + 1 + startAt)
 			if mc:
-				array.append(mc.left)
-		array = ArrayManipulation.unique_array(array)
-		return array
+				array.push_back(mc.left)
+		return array.duplicate(true)
 	
 	## full rows no duplicates
 	func select_right_row(id_primary = 0, startAt = 0, length = 0):
@@ -924,9 +921,8 @@ class MultiTable:
 		for i in range(startAt, newCount):
 			var mc = nl_all_rows.get_index_data(i + 1 + startAt)
 			if mc:
-				array.append(mc.right)
-		array = ArrayManipulation.unique_array(array)
-		return array
+				array.push_back(mc.right)
+		return array.duplicate(true)
 	
 	func select_mc_from_id_row(id_row):
 		return nl_all_rows.get_index_data(id_row)
@@ -984,7 +980,7 @@ class MultiTable:
 
 			for i in range(_count):
 				if not p.has(s[i]):
-					p.append(s[i])
+					p.push_back(s[i])
 			#Debug.log("0 returns length: " + str(p.size()) + " " + str(_count))
 			return p.to_array()
 		elif idPrimary != 0:
@@ -992,14 +988,14 @@ class MultiTable:
 			if col == null:
 				#Debug.log("2 returns length: 0")
 				return []
-
+			
 			start_at = min(start_at + _count, col.opositeColumn.size()) - _count
 			start_at = max(0, start_at)
-
+			
 			var ret = null
 			for i in range(_count):
 				if col.opositeColumn.size() > start_at + i:
-					ret.append(col.opositeColumn.keys()[start_at + i])
+					ret.push_back(col.opositeColumn.keys()[start_at + i])
 			return ret
 		elif idSecondary != 0:
 			var col = nlSecondaryColumn.get_index_data(idSecondary)
@@ -1013,7 +1009,7 @@ class MultiTable:
 			var ret = null
 			for i in range(_count):
 				if col.opositeColumn.size() > start_at + i:
-					ret.append(col.opositeColumn.keys()[start_at + i])
+					ret.push_back(col.opositeColumn.keys()[start_at + i])
 			#Debug.log("2 returns length: " + str(ret.size()) + " " + str(_count))
 			return ret
 		#Debug.log("idPrimary and idSecondary are both 0 so it returns long[0]")
@@ -1062,8 +1058,8 @@ class MultiTable:
 		var mc = nl_all_rows.get_index_data(idRow)
 		if mc == null:
 			return 0
-		two.append(mc.left)
-		two.append(mc.right)
+		two.push_back(mc.left)
+		two.push_back(mc.right)
 		return two
 
 	func left_join(ids):
@@ -1074,7 +1070,7 @@ class MultiTable:
 		for item in left:
 			for lon in left[item]:
 				if not list.has(lon):
-					list.append(lon)
+					list.push_back(lon)
 		return list.to_array()
 	
 	
@@ -1086,7 +1082,7 @@ class MultiTable:
 		for item in right:
 			for lon in right[item]:
 				if not list.has(lon):
-					list.append(lon)
+					list.push_back(lon)
 		return list.to_array()
 
 	func last_id():
