@@ -57,6 +57,8 @@ func succeed_old_basis(success_old_basis__qq_index):
 			elif success_old_basis__qq_index[1] == 2:
 				# fighting fork
 				change_type(3)
+				g_man.user.save_add_weapon_strength(15, false)
+				g_man.user.save_add_armor_strength(15, false)
 				# open fighting way
 				g_man.tile_map_layers.set_region(Rect2i(20, 16, 30, 1), [[TileMapLayers.Tile.ROCK, 1]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 				g_man.tile_map_layers.set_region(Rect2i(20, 17, 30, 3), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
@@ -110,10 +112,10 @@ func succeed_old_basis(success_old_basis__qq_index):
 		elif success_old_basis__qq_index[0] == 2:
 			if success_old_basis__qq_index[1] == 0:
 				var user: User = g_man.user
-				user.save_add_weapon_strength(1)
+				user.save_add_weapon_strength(5)
 			elif success_old_basis__qq_index[1] == 1:
 				var user: User = g_man.user
-				user.save_add_armor_strength(1)
+				user.save_add_armor_strength(5)
 	elif quest_index == 11:# johny
 		if success_old_basis__qq_index[0] == 0:
 			if success_old_basis__qq_index[1] == 0:

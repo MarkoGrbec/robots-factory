@@ -403,7 +403,7 @@ func holding_hand_enemy_finished():
 		stop_holding_hand_enemy_finished()
 #endregion enemy_finished
 #region believe
-var believe_string: String = "To convince in to believing in to god you must choose correct pharse for his dialog. If you don't convince him, than he will strenghten the bond to other side. Each character has unique dialogs.\n\nPs. ask hint bot for more details."
+var believe_string: String = "To convince in to believing in to god you must choose correct pharse for his dialog.\nIf you don't convince him, than he will strenghten the bond to other side.\nEach character has unique dialogs."
 
 func load_return_holding_hand_believe():
 	return DataBase.select(_server, g_man.dbms, _path, "believe", id, true)

@@ -48,7 +48,7 @@ func _on_delete_user_pressed() -> void:
 	avatar_name = ""
 	start_game.text = str("start game")
 	username_line_edit.show()
-	g_man.savable_user.remove_all()
+	destroy_user()
 	delete_user.hide()
 	set_tooltip_start()
 
@@ -56,43 +56,51 @@ func submit_username(_text: String) -> void:
 	_on_start_game_pressed()
 
 func _on_start_game_pressed() -> void:
+	# load user
 	if avatar_name:
 		welcome_screen()
 		delete_user.show()
 		return
-	
+	# delete / create user from scratch
 	if username_line_edit.text and not avatar_name and username_line_edit.text.length() < 8:
+		# destroy user
+		destroy_user()
+		
+		# rename part username with 0 and 1
 		avatar_name = username_line_edit.text
 		if avatar_name.length() < 8:
 			var remaining = 8 - avatar_name.length()
 			for i in remaining:
 				avatar_name += str(randi_range(0, 1))
-		var user: User = g_man.savable_user.set_index_data(1, User.new(), 0)
-		g_man.user = user
-		user.destroy()
-		g_man.savable_mob.remove_all()
-		g_man.savable_entity.remove_all()
-		g_man.savable_holding_hand.remove_all()
-		g_man.savable_trader.remove_all()
-		var holding_hand: HoldingHand = g_man.savable_holding_hand.set_index_data(1, HoldingHand.new())
-		g_man.holding_hand = holding_hand
-		g_man.savable_inventory_slot.remove_all()
-		g_man.savable_trader.remove_all()
-		# each one for 1 layer
-		g_man.savable_multi_avatar__quest_data.remove_all()
-		g_man.savable_terrain_ground.set_index_data(1, Terrain.new(), 2).remove_all()
-		#g_man.savable_terrain_underground1.set_index_data(2, Terrain.new(), 2).remove_all()
-		#g_man.savable_terrain_underground2.set_index_data(3, Terrain.new(), 2).remove_all()
-		#g_man.savable_terrain_underground3.set_index_data(4, Terrain.new(), 2).remove_all()
 		
-		user.avatar_name = avatar_name
-		user.fully_save()
+		# create user
+		g_man.user.avatar_name = avatar_name
+		g_man.user.fully_save()
 		welcome_screen()
 		delete_user.show()
 	elif username_line_edit.text:
 		g_man.changes_manager.add_change("your name is too long it's the software's fault 8 bytes have gone wild")
 	else:
 		g_man.changes_manager.add_change("please enter your name")
+
+func destroy_user():
+	g_man.savable_user.remove_all()
+	g_man.user = g_man.savable_user.set_index_data(1, User.new(), 0)
+	g_man.user.destroy()
+	g_man.savable_mob.remove_all()
+	g_man.savable_entity.remove_all()
+	g_man.savable_holding_hand.remove_all()
+	g_man.savable_trader.remove_all()
+	var holding_hand: HoldingHand = g_man.savable_holding_hand.set_index_data(1, HoldingHand.new())
+	g_man.holding_hand = holding_hand
+	g_man.savable_inventory_slot.remove_all()
+	g_man.savable_trader.remove_all()
+	# each one for 1 layer
+	g_man.savable_multi_avatar__quest_data.remove_all()
+	g_man.savable_terrain_ground.set_index_data(1, Terrain.new(), 2).remove_all()
+	#g_man.savable_terrain_underground1.set_index_data(2, Terrain.new(), 2).remove_all()
+	#g_man.savable_terrain_underground2.set_index_data(3, Terrain.new(), 2).remove_all()
+	#g_man.savable_terrain_underground3.set_index_data(4, Terrain.new(), 2).remove_all()
 
 func welcome_screen() -> void:
 	# load or set stuff
@@ -179,6 +187,9 @@ func _on_message_to_ash_march_pressed() -> void:
 
 func _on_message_to_ash_april_pressed() -> void:
 	g_man.mold_window.set_instructions_only(["thanks I love that it finally clicked, not only for you but also for my experience.\n\nI have added buy stack while dragging use mouse wheel or change bindings [plus stack] [minus stack]\n\nthere's also a cheat IF you will need to buy another 15 iron to reset the trader and your gold coins,\nI think you haven't noticed but there's indicator how much it actually costs around cost is rough cost but while dragging there's indicator (above trader buy and sell box) cost that says exactly how much it costs.\nIt's usually not wise to dry empty but gather somewhere in middle I think and sell.\n\ntutorial has no changes, tho I don't know why did you wanted to try the dead end right away, ...\n\nplease adjust music and sounds volume I have added a audio to hear when changing it.\n\nnow there's 2 of us devs one is helping me with story\n\nyou might want to test only 1 end of the game this time and the other end on the next month you can choose witch ever fork you want. -> beleve or not to believe, ...\nI will be developing the story on other forks you saw before, fighting and crafting, ...\nI'll probably go first on fighting.\n\noh and try using controller I don't have one and I'd love to see if it works. also the save system of controller bindings.\nyou'll need to quit game to test save system\n\nI have noticed you haven't tried queued the digging\nif you press multiple times before the material is dug you can dig it many more times\nI'll add it to tutorial when I'll have time.\n\nIF you encounter a bug in bots believe that no option dialog shows restart the application it'll fix there's many of them and I searched through all but it can happen that I missed some new basis to fix thanks"])
+
+func _on_message_to_ash_may_pressed() -> void:
+	g_man.mold_window.set_instructions_only(["since you didn't get through whole tutorial I might tell you a hint you'd like to know the number on the dialog options means how many different response dialogs there are.\nonce you'll be at end of game I'd ask to delete the char and begin from beginning and try the branch of other believe. also you'll experience the fixed enemy bots. ps. don't forget to dig ;)"])
 
 func _on_tutorial_pressed() -> void:
 	g_man.user.gold_coins = 500

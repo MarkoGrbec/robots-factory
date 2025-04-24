@@ -109,7 +109,7 @@ func turn_fake_tunnel_back(tunnel_coords, state: EnemyController.State, target):
 	
 	enemy_tunnels.erase(tunnel_coords)
 	
-	if state == EnemyController.State.RUN or state == EnemyController.State.RETRIVE_AWAY and target is CPHelplessBot:
+	if state == EnemyController.State.DRAG and target is CPHelplessBot:
 		remove_helpless_bot(_helpless_bot)
 		_helpless_bot = null
 		QuestsManager.set_server_quest(5, true, 6)

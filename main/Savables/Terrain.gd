@@ -18,7 +18,8 @@ func partly_load():
 	array_layers__dict_ground_pos___id__left.clear()
 	for i in 5:
 		array_layers__dict_ground_pos___id__left.push_back({})
-	load_position__array_data()
+	#load_position__array_data()
+	load_new_terrain_style()
 
 func partly_save():
 	pass
@@ -81,14 +82,14 @@ func load_new_terrain_style():
 								if position__array_data_array__layer and position__array_data_array__layer[1]:
 									array_layers__dict_ground_pos___id__left[position__array_data_array__layer[2]].set(Vector2i(position__array_data_array__layer[0]), position__array_data_array__layer[1])
 
-func load_position__array_data():
-	load_position__array_data_from_quadrant(1)
+#func load_position__array_data():
+	#load_position__array_data_from_quadrant(1)
 	#load_position__array_data_from_quadrant(2)
 	#load_position__array_data_from_quadrant(3)
 	#load_position__array_data_from_quadrant(4)
 	#load_position__array_data_from_quadrant(5)
 
-func load_position__array_data_from_quadrant(_quadrant: int):
+#func load_position__array_data_from_quadrant(_quadrant: int):
 	#var str_arr = get_quadrant_string(_quadrant)
 	#var str_pos = str_arr[0]
 	#var str_arr_data = str_arr[1]
@@ -102,27 +103,27 @@ func load_position__array_data_from_quadrant(_quadrant: int):
 				#
 				#save_new_terrain_style(_quadrant, i, Vector2i(position), data_array)
 	#else:
-		load_new_terrain_style()
+		#load_new_terrain_style()
 
-func get_quadrant_string(quadrant):
-	var str_pos = "position"
-	var str_arr = "array_data"
-	if quadrant == 5:
-		str_pos = str(str_pos, "_c")
-		str_arr = str(str_arr, "_c")
-	elif quadrant == 1:
-		str_pos = str(str_pos, "_br")
-		str_arr = str(str_arr, "_br")
-	elif quadrant == 2:
-		str_pos = str(str_pos, "_bl")
-		str_arr = str(str_arr, "_bl")
-	elif quadrant == 3:
-		str_pos = str(str_pos, "_tr")
-		str_arr = str(str_arr, "_tr")
-	elif quadrant == 4:
-		str_pos = str(str_pos, "_tl")
-		str_arr = str(str_arr, "_tl")
-	return [str_pos, str_arr]
+#func get_quadrant_string(quadrant):
+	#var str_pos = "position"
+	#var str_arr = "array_data"
+	#if quadrant == 5:
+		#str_pos = str(str_pos, "_c")
+		#str_arr = str(str_arr, "_c")
+	#elif quadrant == 1:
+		#str_pos = str(str_pos, "_br")
+		#str_arr = str(str_arr, "_br")
+	#elif quadrant == 2:
+		#str_pos = str(str_pos, "_bl")
+		#str_arr = str(str_arr, "_bl")
+	#elif quadrant == 3:
+		#str_pos = str(str_pos, "_tr")
+		#str_arr = str(str_arr, "_tr")
+	#elif quadrant == 4:
+		#str_pos = str(str_pos, "_tl")
+		#str_arr = str(str_arr, "_tl")
+	#return [str_pos, str_arr]
 #endregion save load
 #region id unique
 func get_unique(coord: Vector2i):

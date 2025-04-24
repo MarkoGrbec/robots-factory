@@ -57,7 +57,8 @@ func run_away():
 	if (GameControl._helpless_bot and GameControl._helpless_bot.controller.target != self) and state != State.BROKEN and state == State.CHASE:
 		change_state(State.RUN_AWAY)
 		target_set_null_target()
-	if not movement.state == Movement.State.BROKEN and (state == State.RETRIVE or state == State.BRING_MATS):
+	# if I'm currently retrieveing the bot and my time is up go away
+	if not movement.state == Movement.State.BROKEN and (state == State.RETRIVE or state == State.BRING_MATS or state == State.DRAG or state == State.RETRIVE_DRAG):
 		change_state(State.RUN_AWAY)
 		target_set_null_target()
 
@@ -77,6 +78,12 @@ func _physics_process(_delta: float) -> void:
 			target_position = starting_point
 			target_set_null_target()
 		elif not state == State.BRING_MATS:
+			return
+	
+	# wait till the enemy bot tries to retrieve the helpless bot
+	if is_instance_valid(target) and target is CPHelplessBot:
+		# target is cp_mob and not me
+		if target.controller.target is CPEnemy and not target.controller.target == movement.body:
 			return
 	
 	if state == State.BRING_MATS:
@@ -109,7 +116,7 @@ func _physics_process(_delta: float) -> void:
 	
 	# change target's target
 	if state == State.CHASE or state == State.RETRIVE or state == State.BRING_MATS:
-		if target is CPMob and global_position.distance_to(target.global_position) < 72:
+		if is_instance_valid(target) and target is CPMob and global_position.distance_to(target.global_position) < 72:
 			# get the bot back in to the hole
 			if state == State.CHASE or state == State.BRING_MATS:
 				if state == State.BRING_MATS:
@@ -119,7 +126,7 @@ func _physics_process(_delta: float) -> void:
 				change_state(State.RETRIVE_DRAG)
 			# modify target from current bot
 			# first remove on other bot
-			if target is CPHelplessBot:
+			if is_instance_valid(target) and target is CPHelplessBot:
 				if is_instance_valid(target.controller.target):
 					if target.controller.target is CPEnemy:
 						if not target.controller.target == movement.body:
@@ -133,12 +140,14 @@ func _physics_process(_delta: float) -> void:
 	elif state == State.RUN or state == State.RUN_AWAY or state == State.RETRIVE_AWAY or state == State.BROKEN or state == State.DRAG or state == State.RETRIVE_DRAG:
 		# get and return to it if it's too far
 		if (state == State.DRAG or state == State.RETRIVE_DRAG) and target is CPMob and global_position.distance_to(target.global_position) > 80:
-			if State.DRAG:
+			if State.DRAG: # back to chase the helpless bot
 				change_state(State.CHASE)
-			else:
+				target_set_null_target()
+			else: # back to retrieve enemy bot
 				change_state(State.RETRIVE)
+				target_set_null_target()
 		
-		# go back to starting point
+		# go back to starting point DRAG = 7 || RETRIEVE_DRAG = 8
 		elif not target_position == starting_point:
 			target_position = starting_point
 			agent_next_path_position()

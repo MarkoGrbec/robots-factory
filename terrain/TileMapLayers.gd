@@ -130,7 +130,7 @@ func add(id, callable):
 	if cell_id == Tile.FAKE_TUNNEL:
 		return
 	
-	if not add_on_top(position, id, true) == false:
+	if not add_on_top(position, id, true, cell_id) == false:
 		callable.call()
 
 func dig(mouse_global_position: Vector2):
@@ -259,13 +259,13 @@ func override_fake_tunnel_back(position, id):
 #endregion dirt reference
 #region generating new terrain
 func set_new_terrain():
-	set_region(Rect2i(0, 0, 20, 10), [[Tile.DIRT, 1]], [Vector2i(5, 8)], RegionActionType.ADD, true, 0.8, [Tile.DIRT, 2], Vector2i(3, 4))
-	set_region(Rect2i(0, 10, 20, 10), [[Tile.CLAY, 1], [Tile.DIRT, 1]], [Vector2i(8, 12), Vector2i(10, 15)], RegionActionType.OVERWRITE, true, 0.3, [Tile.DIRT, 2], Vector2i(3, 6))
+	#set_region(Rect2i(0, 0, 20, 10), [[Tile.DIRT, 1]], [Vector2i(5, 8)], RegionActionType.ADD, true, 0.8, [Tile.DIRT, 2], Vector2i(3, 4))
+	#set_region(Rect2i(0, 10, 20, 10), [[Tile.CLAY, 1], [Tile.DIRT, 1]], [Vector2i(8, 12), Vector2i(10, 15)], RegionActionType.OVERWRITE, true, 0.3, [Tile.DIRT, 2], Vector2i(3, 6))
 	set_region(Rect2i(10, 3, 5, 3), [[Tile.CLAY, 3], [Tile.DIRT, 1]], [Vector2i(3, 6), Vector2i(1, 3)], RegionActionType.ADD, true, 0.2, [Tile.CLAY, 4], Vector2i(3, 8))
-	set_region(Rect2i(0, 0, 20, 1), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
-	set_region(Rect2i(0, 0, 1, 20), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
-	set_region(Rect2i(0, 20, 20, 1), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
-	set_region(Rect2i(20, 0, 1, 21), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
+	#set_region(Rect2i(0, 0, 20, 1), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
+	#set_region(Rect2i(0, 0, 1, 20), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
+	#set_region(Rect2i(0, 20, 20, 1), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
+	#set_region(Rect2i(20, 0, 1, 21), [[Tile.ROCK, 1]], [Vector2i(20, 30)], RegionActionType.OVERWRITE, false)
 	reload_terrain()
 	bake()
 ## example:
@@ -329,7 +329,7 @@ func reload_terrain():
 		else:
 			push_error("layer is probably empty should never be: ", layer)
 			printerr("layer is probably empty should never be: ", layer)
-			g_man.changes_manager.add_change(str("CRITICAL ERROR 2: layer is probably empty should never be: ", layer.get(position)))
+			g_man.changes_manager.add_key_change("CRITICAL ERROR 2:", str("layer is probably empty should never be: ", layer.get(position)))
 
 func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = false, below_tile: Tile = Tile.GRASS):
 	var array__data_array = dict_ground_pos___id__left[active_layer].get(position)
@@ -361,7 +361,9 @@ func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = fa
 			array__data_array.append_array([[tile, 1]])
 			set_ground_cell(position, tile, active_layer)
 	else:
-		dict_ground_pos___id__left[active_layer].set(position, [[below_tile, 1], [tile, 1]])
+		var material_name = Tile.find_key(below_tile)
+		
+		dict_ground_pos___id__left[active_layer].set(position, [[below_tile, Left[material_name]], [tile, 1]])
 		set_ground_cell(position, tile, active_layer)
 
 func remove_one(array_data_array: Array, position: Vector2i):

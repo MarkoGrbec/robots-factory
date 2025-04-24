@@ -30,5 +30,5 @@ func get_hit(damage):
 		g_man.sliders_manager.slider_change_value(Enums.slider.health, 100)
 		global_position = Vector2(500, 500)
 		g_man.user.save_position(global_position)
-		g_man.user.save_add_weapon_strength(1, false)
-		g_man.user.save_add_armor_strength(1, false)
+		g_man.user.save_add_weapon_strength(15, false)
+		g_man.user.save_add_armor_strength(15, false)

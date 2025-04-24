@@ -2,6 +2,7 @@ class_name TTCWeapon extends ITimeComplete
 
 func _init(weapon: Weapon):
 	if not weapon.activated:
+		g_man.changes_manager.add_change("you need weapon to fire")
 		queue_free()
 		return
 	_weapon = weapon
@@ -23,11 +24,13 @@ func stop():
 	queue_free()
 
 func start_of_ttc():
-	# fire
-	_weapon.fire_weapon(true)
-	var constumption = ((_weapon.distance * g_man.user.weapon_strength) / _weapon.battery_constumption)
-	g_man.sliders_manager.mana_slider.value -= constumption
-	return true
+	var constumption = check_constumption()
+	if constumption:
+		g_man.sliders_manager.mana_slider.value -= constumption
+		# fire
+		_weapon.fire_weapon(true)
+		return true
+	return false
 
 func set_complete_time():
 	var entity_object
@@ -57,6 +60,22 @@ func to_string_name():
 	return "TTCWeapon"
 
 func check():
-	if g_man.sliders_manager.mana_slider.value < 0 or g_man.sliders_manager.waiting_work:
+	if g_man.sliders_manager.mana_slider.value <= 0 or g_man.sliders_manager.waiting_work or not check_constumption():
+		g_man.changes_manager.add_change("battery is empty")
 		return false
 	return true
+
+func check_constumption():
+	var strength
+	# gathering crafting weapon strength so battery constumption is faster
+	if g_man.user.weapon_strength == 1:
+		strength = g_man.user.weapon_strength
+	# fighting strength so battery constumption is slower
+	else:
+		strength = g_man.user.weapon_strength * 0.2
+	
+	var constumption = ((_weapon.distance * strength) / _weapon.battery_constumption)
+	# if enough battery fire
+	if g_man.sliders_manager.mana_slider.value >= constumption:
+		return constumption
+	return false

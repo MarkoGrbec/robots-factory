@@ -13,7 +13,7 @@ func _ready() -> void:
 	g_man.stats_labels = self
 
 func set_label(type_label: TypeLabel, value):
-	labels[type_label].text = str(value)
+	labels[type_label].text = str(int(value))
 
 func open_close_window():
 	if is_visible_in_tree():
