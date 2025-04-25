@@ -1,4 +1,4 @@
-[gd_scene load_steps=485 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=489 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -3363,7 +3363,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
-default_starting_dialog = "quick defend the helpless robot"
+default_starting_dialog = "Defend the helpless robot at all costs!"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -3375,7 +3375,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
-default_starting_dialog = "threre's 2 of them now quick defend"
+default_starting_dialog = "There are 2 enemies now—defend quickly!"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -3387,7 +3387,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
-default_starting_dialog = "oh no theres many of them quick defend it"
+default_starting_dialog = "Oh no, there are so many of them! Defend it now!"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -3587,14 +3587,15 @@ add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
 add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 0
+quest_item = 12
+quantity = 1
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["močnejše orožje"])
-response_dialog = Array[String](["pojačal sem ti orožje"])
-response_failed_dialog = "potrebujem 1 pesek prosim"
+list_avatar_dialog = Array[String](["I need stronger weapon."])
+response_dialog = Array[String](["I've upgraded your weapon.", "I've upgraded your weapon.
+If you die, you'll lose all weapon upgrades."])
+response_failed_dialog = "I need 1 sand, please."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_d48wg"]
@@ -3605,14 +3606,14 @@ add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
 add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 0
+quest_item = 10
+quantity = 5
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["potrebujem močnejši oklep"])
-response_dialog = Array[String](["tvoj oklep je močnejši", "močnejši oklep imaš, pazi, če umreš boš ostal brez oklepa"])
-response_failed_dialog = "potrebujem 1 železo prosim"
+list_avatar_dialog = Array[String](["I need stronger armor."])
+response_dialog = Array[String](["Your armor is now stronger.", "You have stronger armor now - be careful, if you die you'll lose the armor."])
+response_failed_dialog = "I need 5 quarrystones, please."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_3iuxy"]
@@ -7887,9 +7888,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["slepa ulica"])
-response_dialog = Array[String](["ta pot se mi zdi najbolj prava saj je označena z glino
-A vendar te pelje nazaj do iste točke od koder prideš."])
+list_avatar_dialog = Array[String](["Dead end?"])
+response_dialog = Array[String](["This path seems the most correct since it's marked with clay.
+Yet it leads you back to the same point you came from."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -7901,7 +7902,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_slhaa")])
-default_starting_dialog = "živjo jaz sem izgubljen. kamor koli grem povsot je slepa ulica"
+default_starting_dialog = "Hello, I'm lost. Everywhere I go, there's a dead end."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -7918,14 +7919,14 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["kaj lahko sploh storimo?"])
-response_dialog = Array[String](["nevem če bi imel orodje za kopati potem bi že zdavnaj premostil te ovire...
+list_avatar_dialog = Array[String](["What can we even do?"])
+response_dialog = Array[String](["I don’t know—if I had tools to dig, I’d have bridged these obstacles long ago...
 
-kako dolgo pot sem vzel do sem.
-ne morem ne naprej ne nazaj.
-zmanjkalo mi je olja človek bi rekel da sem utrujen.
+How long a road I’ve traveled to get here.
+Now I can move neither forward nor back.
+The oil has run dry. A man would say I'm tired.
 
-jaz pa samo vem da nimam več olja za premikanje.", "ko bi vsaj imel material da bi ga položil"])
+But I only know this: I’ve no more oil for movement.", "If only I had material to lay down..."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -7954,7 +7955,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_4uldr"), SubResource("Resource_c5e7q")])
 believe_l = 0.0
 believe_r = 1.0
-reset = true
+reset = false
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
 [sub_resource type="Resource" id="Resource_lq8tp"]
@@ -7981,8 +7982,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_lq8tp")])
-list_avatar_dialog = Array[String](["kaj so ti turreti tu?"])
-response_dialog = Array[String](["napadajo nas z vseh strani", "oni so začeli", "pomagaj vedno močnejši postajajo"])
+list_avatar_dialog = Array[String](["Why are these turrets here?!"])
+response_dialog = Array[String](["They're attacking from all sides!", "They started this!", "Help us – they keep growing stronger!"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -7994,7 +7995,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_k10cb")])
-default_starting_dialog = ""
+default_starting_dialog = "Please help – you're our only hope!"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -8011,7 +8012,7 @@ activated = false
 list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_rxag7")])
 believe_l = 0.0
 believe_r = 1.0
-reset = true
+reset = false
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
 [sub_resource type="Resource" id="Resource_hiym6"]
@@ -8027,26 +8028,81 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["asdf"])
-response_dialog = Array[String](["asdf"])
+list_avatar_dialog = Array[String](["naberite material"])
+response_dialog = Array[String](["mi bomo nabirali"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_8r2pg"]
 script = ExtResource("4_0rfkw")
-description = ""
+description = "gather material"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_hiym6")])
-default_starting_dialog = ""
+default_starting_dialog = "prosim pomagaj hočemo naresti tovarno
+turreti napadajo in boti jemljejo material"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_777oi"]
+script = ExtResource("4_0rfkw")
+description = "defend material gatherers"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "hitro obrani nas med tem ko nabiramo material"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_gb0sb"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["vzemite nabrani material in pojdite graditi tovarno"])
+response_dialog = Array[String](["mi gremo graditi tovarno"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_2sxnr"]
+script = ExtResource("4_0rfkw")
+description = "build factory"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_gb0sb")])
+default_starting_dialog = "pripravljeni smo z materialom na tvoj ukaz"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_xjv3d"]
+script = ExtResource("4_0rfkw")
+description = "defend factory"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "prosim obrani nas med tem ko gradimo tovarno"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
 [sub_resource type="Resource" id="Resource_2but0"]
 script = ExtResource("3_d1vgu")
-quest_name = "asdf"
+quest_name = "Lea"
 position = Vector2(9380, -1085)
 patrol_targets = Array[Vector2]([])
 layer = 0
@@ -8054,7 +8110,7 @@ quest_body_type = 311
 color = Color(0.495936, 0.495936, 0, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_8r2pg")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_8r2pg"), SubResource("Resource_777oi"), SubResource("Resource_2sxnr"), SubResource("Resource_xjv3d")])
 believe_l = 0.0
 believe_r = 1.0
 reset = false

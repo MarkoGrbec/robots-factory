@@ -163,10 +163,12 @@ func set_weapon(activate):
 		g_man.stats_labels.hide()
 
 func set_armor_strength():
-	g_man.stats_labels.set_label(StatsLabels.TypeLabel.ARMOR_STRENGTH, armor_strength)
+	if g_man.stats_labels:
+		g_man.stats_labels.set_label(StatsLabels.TypeLabel.ARMOR_STRENGTH, armor_strength)
 
 func set_weapon_strength():
-	g_man.stats_labels.set_label(StatsLabels.TypeLabel.WEAPON_STRENGTH, weapon_strength)
+	if g_man.stats_labels:
+		g_man.stats_labels.set_label(StatsLabels.TypeLabel.WEAPON_STRENGTH, weapon_strength)
 
 func set_weapon_distance():
 	if g_man.player and g_man.player.weapon_controller and g_man.player.weapon_controller.weapon:

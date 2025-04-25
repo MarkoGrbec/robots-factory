@@ -142,3 +142,4 @@ func remove_all():
 	_savable.remove_all()
 	_multi.clear("id", _savable._server)
 	
+	

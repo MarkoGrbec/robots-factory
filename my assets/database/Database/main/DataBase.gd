@@ -675,7 +675,7 @@ class MultiTable:
 		dataBasePathText = data_base_dir
 		
 		nl_primary_column = NullList.new()
-		nlSecondaryColumn = NullList.new()
+		nl_secondary_column = NullList.new()
 		nl_all_rows = NullList.new()
 		
 		var table = Table.new(path)
@@ -700,13 +700,13 @@ class MultiTable:
 	var table_name:String
 	var dataBasePathText:String
 	var nl_primary_column:NullList
-	var nlSecondaryColumn:NullList
+	var nl_secondary_column:NullList
 	var nl_all_rows:NullList
 	
 	class Column:
 		func _init(id):
 			id = id
-		var opositeColumn = {}
+		var oposite_column = {}
 	class MultiColumn:
 		func _init(_left, _right):
 			left = _left
@@ -724,7 +724,7 @@ class MultiTable:
 			return
 		#if(primary == 0 || secondary == 0){Debug.LogError($"cannot make multi key too little info {mainKey} {primary} {secondary} on {tableNameText}") return 0}
 		var pc = nl_primary_column.get_index_data(pri)
-		var sc = nlSecondaryColumn.get_index_data(sec)
+		var sc = nl_secondary_column.get_index_data(sec)
 		
 		#we create row if it doesn't exist
 		if pc == null:
@@ -732,7 +732,7 @@ class MultiTable:
 			nl_primary_column.set_index_data(pri, pc)
 		if sc == null:
 			sc = Column.new(sec)
-			nlSecondaryColumn.set_index_data(sec, sc)
+			nl_secondary_column.set_index_data(sec, sc)
 			
 		#if main_key != 0:
 			#var row = MultiColumn.new(pri, sec)
@@ -742,11 +742,11 @@ class MultiTable:
 				#Delete(mainKey)
 		#else:
 		#//we stop if it already exists on both ends 1 should be enough
-		if pc.opositeColumn.has(sec):
-			return pc.opositeColumn[sec]
-		elif sc.opositeColumn.has(pri):
-			push_error("when does this happen [", table_name, "] [", pri, "] [", sc.opositeColumn[pri], "] [", sec, "]")
-			return sc.opositeColumn[pri]
+		if pc.oposite_column.has(sec):
+			return pc.oposite_column[sec]
+		elif sc.oposite_column.has(pri):
+			push_error("when does this happen [", table_name, "] [", pri, "] [", sc.oposite_column[pri], "] [", sec, "]")
+			return sc.oposite_column[pri]
 		#//we add savable rows for database
 		var row = MultiColumn.new(pri, sec)
 		#main key should never be given in
@@ -757,8 +757,8 @@ class MultiTable:
 			row.id = main_key
 		
 		#//if it doesn't exist on other end
-		pc.opositeColumn[sec] = row.id
-		sc.opositeColumn[pri] = row.id
+		pc.oposite_column[sec] = row.id
+		sc.oposite_column[pri] = row.id
 		
 		DataBase.insert(true, dataBasePathText, table_name, "id", row.id, row.id, "equals")
 		DataBase.insert(true, dataBasePathText, table_name, PRI, row.id, row.left, "equals")
@@ -775,10 +775,10 @@ class MultiTable:
 		var mc = nl_all_rows.get_index_data(idRow)
 		if mc:
 			var leftC = nl_primary_column.get_index_data(mc.left)
-			leftC.opositeColumn.erase(mc.right)
+			leftC.oposite_column.erase(mc.right)
 			
-			var rightC = nlSecondaryColumn.get_index_data(mc.right)
-			rightC.opositeColumn.erase(mc.left)
+			var rightC = nl_secondary_column.get_index_data(mc.right)
+			rightC.oposite_column.erase(mc.left)
 			
 			DataBase.insert(true, dataBasePathText, table_name, "id", mc.id, 0)
 			nl_all_rows.remove_at(mc.id)
@@ -790,7 +790,7 @@ class MultiTable:
 	#/// if one is 0 all rows are deleted with that oposite id - last idRow is returned
 	#/// </summary>
 	func delete(left, right):
-		#Debug.LogError(nslPrimaryColumn.get_index_data(left).opositeColumn[right])
+		#Debug.LogError(nslPrimaryColumn.get_index_data(left).oposite_column[right])
 		var ret = []
 		var lc = nl_primary_column.get_index_data(left)
 		if lc:
@@ -801,16 +801,16 @@ class MultiTable:
 				if not col_left:
 					return
 				#get all right keys
-				var arrayRight = col_left.opositeColumn.keys()
+				var arrayRight = col_left.oposite_column.keys()
 				for keyRight in arrayRight:
-					var row = lc.opositeColumn[keyRight]
+					var row = lc.oposite_column[keyRight]
 				#foreach (var keyRight in arrayRight)
 				#{
-					#ret = lc.opositeColumn[keyRight]
+					#ret = lc.oposite_column[keyRight]
 					#//delete from left column all right keys
-					#// lc.opositeColumn.Remove(keyRight)
+					#// lc.oposite_column.Remove(keyRight)
 					#// //delete from right columns all left keys
-					#// nlSecondaryMaster.get_index_data(keyRight).opositeColumn.Remove(left)
+					#// nlSecondaryMaster.get_index_data(keyRight).oposite_column.Remove(left)
 #
 					var mc = nl_all_rows.get_index_data(row)
 					if mc:
@@ -818,33 +818,33 @@ class MultiTable:
 						ret.push_back(row)
 				return ret
 				#end of deleting all rows with all right with left id
-			if lc.opositeColumn.has(right):
-				var row = lc.opositeColumn[right]
+			if lc.oposite_column.has(right):
+				var row = lc.oposite_column[right]
 				#//delete from left column the right value
-				#// lc.opositeColumn.Remove(right)
+				#// lc.oposite_column.Remove(right)
 				#// //delete from right column just 1 left value
-				#// nlSecondaryMaster.get_index_data(right).opositeColumn.Remove(left)
+				#// nlSecondaryMaster.get_index_data(right).oposite_column.Remove(left)
 
 				var mc = nl_all_rows.get_index_data(row)
 				if mc:
 					delete_row(row)
 					ret.push_back(row)
 					return ret
-		var rc = nlSecondaryColumn.get_index_data(right)
+		var rc = nl_secondary_column.get_index_data(right)
 		if rc:
 			#//delete all rows with right from left id
 			if left == 0:
-				var colRight = nlSecondaryColumn.get_index_data(right)
+				var colRight = nl_secondary_column.get_index_data(right)
 				if not colRight:
 					return 0
 				#get all left keys
-				var arrayLeft = colRight.opositeColumn.keys()
+				var arrayLeft = colRight.oposite_column.keys()
 				for keyLeft in arrayLeft:
-					var row = rc.opositeColumn[keyLeft]
+					var row = rc.oposite_column[keyLeft]
 					#//delete from right column all left keys
-					#// rc.opositeColumn.Remove(keyLeft)
+					#// rc.oposite_column.Remove(keyLeft)
 					#// //delete from right columns just 1 left key
-					#// nlPrimaryMaster.get_index_data(keyLeft).opositeColumn.Remove(right)
+					#// nlPrimaryMaster.get_index_data(keyLeft).oposite_column.Remove(right)
 #
 					var mc = nl_all_rows.get_index_data(row)
 					if mc != null:
@@ -852,12 +852,12 @@ class MultiTable:
 						ret.push_back(row)
 				return ret
 				#//end of deleting all rows with all right with left id
-			if rc.opositeColumn.has(left):
-				var row = rc.opositeColumn[left]
+			if rc.oposite_column.has(left):
+				var row = rc.oposite_column[left]
 				#//delete from right column the left value
-				#// rc.opositeColumn.Remove(left)
+				#// rc.oposite_column.Remove(left)
 				#// //delete from left column just 1 right value
-				#// nlPrimaryMaster.get_index_data(left).opositeColumn.Remove(right)
+				#// nlPrimaryMaster.get_index_data(left).oposite_column.Remove(right)
 #
 				var mc = nl_all_rows.get_index_data(row)
 				#//so that we get rid of error row does not exist as we are destroying it double times
@@ -871,21 +871,21 @@ class MultiTable:
 			var colP = nl_primary_column.get_index_data(idPrimary)
 			if colP == null:
 				return 0
-			return colP.opositeColumn.size()
+			return colP.oposite_column.size()
 		if idSecondary == 0:
 			return 0
-		var colS = nlSecondaryColumn.get_index_data(idSecondary)
+		var colS = nl_secondary_column.get_index_data(idSecondary)
 		if colS == null:
 			return 0
-		return colS.opositeColumn.size()
+		return colS.oposite_column.size()
 	
 	## full rows no duplicates
 	func select_left_row(id_secondary = 0, startAt := 0, length := 0):
 		startAt = max(0, startAt)
 		if id_secondary:
-			var sc:Column = nlSecondaryColumn.get_index_data(id_secondary)
+			var sc:Column = nl_secondary_column.get_index_data(id_secondary)
 			if sc:
-				var oposite_keys:Array = sc.opositeColumn.keys()
+				var oposite_keys:Array = sc.oposite_column.keys()
 				if length:
 					return oposite_keys.slice(startAt, startAt + length)
 				return oposite_keys
@@ -907,7 +907,7 @@ class MultiTable:
 		if id_primary:
 			var pc:Column = nl_primary_column.get_index_data(id_primary)
 			if pc:
-				var oposite_keys:Array = pc.opositeColumn.keys()
+				var oposite_keys:Array = pc.oposite_column.keys()
 				if length:
 					return oposite_keys.slice(startAt, startAt + length)
 				return oposite_keys
@@ -937,11 +937,11 @@ class MultiTable:
 			var colp = nl_primary_column.get_index_data(idPrimary)
 			if not colp:
 				return []
-			var p = colp.opositeColumn.keys()
-			var cols = nlSecondaryColumn.get_index_data(idSecondary)
+			var p = colp.oposite_column.keys()
+			var cols = nl_secondary_column.get_index_data(idSecondary)
 			if not cols:
 				return []
-			var s = cols.opositeColumn.keys()
+			var s = cols.oposite_column.keys()
 			for item in s:
 				if not p.has(item):
 					p.push_back(item)
@@ -952,12 +952,12 @@ class MultiTable:
 			var col = nl_primary_column.get_index_data(idPrimary)
 			if col == null:
 				return []
-			return col.opositeColumn.keys()
+			return col.oposite_column.keys()
 		elif idSecondary != 0:
-			var col = nlSecondaryColumn.get_index_data(idSecondary)
+			var col = nl_secondary_column.get_index_data(idSecondary)
 			if col == null:
 				return []
-			return col.opositeColumn.keys()
+			return col.oposite_column.keys()
 		return []
 	
 	func select_range(idPrimary, idSecondary, start_at, _count):
@@ -968,12 +968,12 @@ class MultiTable:
 			if colp == null:
 				#Debug.log("0 returns length: 0")
 				return []
-			var p = colp.opositeColumn.keys()
-			var cols = nlSecondaryColumn.get_index_data(idSecondary)
+			var p = colp.oposite_column.keys()
+			var cols = nl_secondary_column.get_index_data(idSecondary)
 			if cols == null:
 				#Debug.log("1 returns length: 0")
 				return []
-			var s = cols.opositeColumn.keys()
+			var s = cols.oposite_column.keys()
 
 			start_at = min(start_at + _count, s.size()) - _count
 			start_at = max(0, start_at)
@@ -989,27 +989,27 @@ class MultiTable:
 				#Debug.log("2 returns length: 0")
 				return []
 			
-			start_at = min(start_at + _count, col.opositeColumn.size()) - _count
+			start_at = min(start_at + _count, col.oposite_column.size()) - _count
 			start_at = max(0, start_at)
 			
 			var ret = null
 			for i in range(_count):
-				if col.opositeColumn.size() > start_at + i:
-					ret.push_back(col.opositeColumn.keys()[start_at + i])
+				if col.oposite_column.size() > start_at + i:
+					ret.push_back(col.oposite_column.keys()[start_at + i])
 			return ret
 		elif idSecondary != 0:
-			var col = nlSecondaryColumn.get_index_data(idSecondary)
+			var col = nl_secondary_column.get_index_data(idSecondary)
 			if col == null:
 				#Debug.log("3 returns length: 0")
 				return []
 			
-			start_at = min(start_at + _count, col.opositeColumn.size()) - _count
+			start_at = min(start_at + _count, col.oposite_column.size()) - _count
 			start_at = max(0, start_at)
 
 			var ret = null
 			for i in range(_count):
-				if col.opositeColumn.size() > start_at + i:
-					ret.push_back(col.opositeColumn.keys()[start_at + i])
+				if col.oposite_column.size() > start_at + i:
+					ret.push_back(col.oposite_column.keys()[start_at + i])
 			#Debug.log("2 returns length: " + str(ret.size()) + " " + str(_count))
 			return ret
 		#Debug.log("idPrimary and idSecondary are both 0 so it returns long[0]")
@@ -1022,34 +1022,34 @@ class MultiTable:
 			var col = nl_primary_column.get_index_data(idPrimary)
 			if not col:
 				return 0
-			if col.opositeColumn.has(idSecondary):
-				return col.opositeColumn[idSecondary]
+			if col.oposite_column.has(idSecondary):
+				return col.oposite_column[idSecondary]
 			return 0
 
 	## get oposite id rows
 	func select_id_rows(idPrimary, idSecondary):
 		var ids = []
 		if idPrimary == 0:
-			var col = nlSecondaryColumn.get_index_data(idSecondary)
+			var col = nl_secondary_column.get_index_data(idSecondary)
 			if col:
-				ids = col.opositeColumn.values()
+				ids = col.oposite_column.values()
 		else:
 			var col = nl_primary_column.get_index_data(idPrimary)
 			if col:
-				ids = col.opositeColumn.values()
+				ids = col.oposite_column.values()
 		return ids
 
 	## get oposite ids
 	func select_oposite_ids(idPrimary, idSecondary):
 		var ids = []
 		if idPrimary == 0:
-			var col = nlSecondaryColumn.get_index_data(idSecondary)
+			var col = nl_secondary_column.get_index_data(idSecondary)
 			if col:
-				ids = col.opositeColumn.keys()
+				ids = col.oposite_column.keys()
 		elif idSecondary == 0:
 			var col = nl_primary_column.get_index_data(idPrimary)
 			if col:
-				ids = col.opositeColumn.keys()
+				ids = col.oposite_column.keys()
 		return ids
 
 	## get p, s from specific row
@@ -1095,7 +1095,7 @@ class MultiTable:
 		DataBase.reset_last_id(server, g_man.dbms, table_name, column_name)
 		nl_all_rows.clear()
 		nl_primary_column.clear()
-		nlSecondaryColumn.clear()
+		nl_secondary_column.clear()
 #endregion multitable
 
 #TODO:

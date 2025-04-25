@@ -271,4 +271,5 @@ func remove_all():
 	var _count = last_id()
 	for i in range(1, _count):
 		remove_at(i)
+	_multi_null.clear("id", true)
 	

@@ -24,6 +24,7 @@ var stats_labels: StatsLabels
 
 var friendly_robots_spawn_reality: FriendlyRobotsSpawnReality
 var friendly_robots_spawn_godish: FriendlyRobotsSpawnGodish
+var friendly_robots_spawn_fight: FriendlyRobotsSpawnFight
 
 var factory: Factory
 var enemy_factory: Factory

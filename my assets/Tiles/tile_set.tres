@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=20 format=3 uid="uid://cxjxodvo5kmfv"]
+[gd_resource type="TileSet" load_steps=21 format=3 uid="uid://cxjxodvo5kmfv"]
 
 [ext_resource type="Texture2D" uid="uid://bt7o7ees5q8wa" path="res://my assets/Tiles/hex clay.png" id="1_nc0qu"]
 [ext_resource type="Texture2D" uid="uid://csd8x5xng6fbn" path="res://my assets/Tiles/hex dirt.png" id="2_qfebv"]
@@ -9,6 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://cel4gt2oc5532" path="res://my assets/Tiles/hex soft rock tunnel.png" id="7_jorpm"]
 [ext_resource type="Texture2D" uid="uid://c2j2i7gemrhmp" path="res://my assets/Tiles/hex soft rock underground.png" id="8_pjvy8"]
 [ext_resource type="Texture2D" uid="uid://c8ecir7aqqm1e" path="res://my assets/textures/house.png" id="9_xh2ge"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_xh2ge"]
+tile_data = PackedInt32Array(65536, 8, 0, 131072, 8, 0, 196608, 8, 0, 1, 8, 0, 65537, 8, 0, 131073, 8, 0, 196609, 8, 0, 262145, 8, 0, 2, 8, 0, 65538, 8, 0, 196610, 8, 0, 262146, 8, 0, 3, 8, 0, 65539, 8, 0, 131075, 8, 0, 196611, 8, 0, 262147, 8, 0, 131076, 8, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3rh0k"]
 texture = ExtResource("1_nc0qu")
@@ -239,3 +242,4 @@ sources/6 = SubResource("TileSetAtlasSource_8rto3")
 sources/7 = SubResource("TileSetAtlasSource_r10xt")
 sources/8 = SubResource("TileSetAtlasSource_eicfj")
 sources/9 = SubResource("TileSetAtlasSource_icrrd")
+pattern_0 = SubResource("TileMapPattern_xh2ge")

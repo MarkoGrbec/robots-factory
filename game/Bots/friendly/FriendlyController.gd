@@ -2,10 +2,12 @@ class_name FriendlyController extends EnemyController
 
 enum InternalState{
 	DEFEND,
-	ATTACK
+	ATTACK,
+	MINE
 }
 @export var internal_state: InternalState
 var close_to_target: float = 15
+var return_target
 
 func _physics_process(_delta: float) -> void:
 	# always reset target
@@ -40,3 +42,8 @@ func _physics_process(_delta: float) -> void:
 					g_man.factory.upgrade()
 				elif internal_state == InternalState.ATTACK:
 					g_man.enemy_factory.downgrade()
+				elif internal_state == InternalState.MINE:
+					if target == return_target:
+						# he got material back to home
+						GameControl# add material to the counter
+					target = return_target
