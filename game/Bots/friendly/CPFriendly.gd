@@ -6,6 +6,8 @@ class_name CPFriendly extends CPMob
 @export var robot_sfx_audio_stream_player: AudioStreamPlayer2D
 @export var dead_sound: AudioStream
 
+var friendly_robots_spawn: FriendlyRobotsSpawnFight
+
 func _on_mouse_entered() -> void:
 	if not g_man.speech_activated():
 		g_man.camera.input_active = -5
@@ -42,3 +44,9 @@ func get_hit(damage):
 		await robot_sfx_audio_stream_player.finished
 		
 		controller.target = null
+		if friendly_robots_spawn:
+			friendly_robots_spawn.report_friendly_dead()
+
+func got_material_back_home():
+	if friendly_robots_spawn:
+		friendly_robots_spawn.report_material_home(self)

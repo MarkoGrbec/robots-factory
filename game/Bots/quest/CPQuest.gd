@@ -157,6 +157,13 @@ func succeed_old_basis(success_old_basis__qq_index):
 				g_man.tile_map_layers.set_region(Rect2i(-29, -35, 30, 1), [[TileMapLayers.Tile.CLAY, 3]], [Vector2i(3, 5)], TileMapLayers.RegionActionType.OVERWRITE, true, 0.6, [TileMapLayers.Tile.DIRT, 3], Vector2i(2, 4))
 				g_man.tile_map_layers.set_region(Rect2i(-28, -34, 30, 1), [[TileMapLayers.Tile.ROCK, 3]], [Vector2i(5, 8)], TileMapLayers.RegionActionType.DISCARD, false)
 				g_man.tile_map_layers.active_layer_replace_with_old(old_active_layer)
+	elif quest_index == 24:# Lea
+		if success_old_basis__qq_index[0] == 0:
+			if success_old_basis__qq_index[1] == 0:
+				g_man.friendly_robots_spawn_fight.spawn_friendly_to_gather()
+		if success_old_basis__qq_index[0] == 2:
+			if success_old_basis__qq_index[1] == 0:
+				g_man.friendly_robots_spawn_fight.spawn_friendly_to_build()
 
 func change_name():
 	g_man.change_name_manager.open_window()

@@ -28,6 +28,7 @@ var friendly_robots_spawn_fight: FriendlyRobotsSpawnFight
 
 var factory: Factory
 var enemy_factory: Factory
+var factory_fight: Factory
 
 var dbms = "DBMS"
 

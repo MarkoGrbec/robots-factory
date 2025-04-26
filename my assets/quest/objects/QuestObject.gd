@@ -23,6 +23,8 @@ enum TypeActivated {
 @export var believe_r: float = 1
 @export_group("debug")
 @export var reset: bool = false
+@export var debug_basis: int
+@export var debug_activated: bool = true
 
 var quest_index
 
@@ -102,6 +104,11 @@ func config(server_quest: ServerQuest) -> void:
 		server_quest.initialized = true
 		server_quest.save_initialized()
 		server_quest.save_activated()
+		if reset:
+			server_quest.basis = debug_basis
+			server_quest.save_basis()
+			server_quest.activated = debug_activated
+			server_quest.save_activated()
 
 # Get a quest question based on basis and text input
 func get_quest_question(basis: int, text: String):

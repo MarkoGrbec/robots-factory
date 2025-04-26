@@ -98,7 +98,7 @@ text = "message to ash April"
 [node name="message to ash may" type="Button" parent="start game/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-text = "message to ash April"
+text = "message to ash May"
 
 [node name="MarginContainer3" type="MarginContainer" parent="start game/HBoxContainer/VBoxContainer"]
 layout_mode = 2

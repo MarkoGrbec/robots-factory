@@ -39,6 +39,7 @@ enemy=""
 material="static body 2d"
 player=""
 friendly="friendly units to defend"
+factory=""
 
 [input]
 

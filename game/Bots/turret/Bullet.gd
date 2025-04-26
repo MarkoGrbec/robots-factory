@@ -27,6 +27,11 @@ func _on_projectile_hit_body_entered(body: Node2D) -> void:
 		# destroy the entity_sprite2d_in_world and it's entity
 		if body.is_in_group("material"):
 			body.get_parent().destroy_me()
+		if body.is_in_group("factory"):
+			var damage = _enemy_turret.station_damage[_enemy_turret.station_type]
+			if _enemy_turret.station_type == EnemyTurret.StationType.CANNON and _enemy_turret.station == EnemyTurret.Station.THIRD:
+				damage *= 2.5
+			body.get_hit(damage)
 		destroy_me()
 
 func destroy_me():

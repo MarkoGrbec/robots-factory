@@ -1,0 +1,70 @@
+[gd_scene load_steps=14 format=3 uid="uid://ct1v5rbk617ba"]
+
+[ext_resource type="Script" uid="uid://xbqdnf76px8d" path="res://my assets/factory/Factory.gd" id="1_a2ear"]
+[ext_resource type="Texture2D" uid="uid://2ari18l0v1mq" path="res://my assets/factory/factory ground.png" id="2_xobqi"]
+[ext_resource type="Texture2D" uid="uid://ccewskdg3xuw0" path="res://my assets/factory/factory middle build.png" id="3_wos2h"]
+[ext_resource type="Texture2D" uid="uid://ded0m48omw537" path="res://my assets/factory/factory middle up.png" id="4_re3yj"]
+[ext_resource type="Texture2D" uid="uid://d1imw0pwfuwrt" path="res://my assets/factory/factory top.png" id="5_16517"]
+[ext_resource type="Texture2D" uid="uid://d34vp6exp63ax" path="res://my assets/factory/factory top up.png" id="6_gdwg5"]
+[ext_resource type="Texture2D" uid="uid://b7a4mujrupg0x" path="res://my assets/factory/factory top smoke.png" id="7_vvcnr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vjpew"]
+size = Vector2(183, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h4r26"]
+size = Vector2(212, 60)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_35ngb"]
+size = Vector2(212, 92)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okwx8"]
+size = Vector2(183, 122)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vdo4x"]
+size = Vector2(159, 183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghnwd"]
+size = Vector2(13, 254)
+
+[node name="FriendlyFactory" type="StaticBody2D" node_paths=PackedStringArray("factory_texture", "collisions") groups=["factory"]]
+script = ExtResource("1_a2ear")
+factory_texture = NodePath("FactoryTexture")
+textures = Array[Texture2D]([ExtResource("2_xobqi"), ExtResource("3_wos2h"), ExtResource("4_re3yj"), ExtResource("5_16517"), ExtResource("6_gdwg5"), ExtResource("7_vvcnr")])
+collisions = [NodePath("ground"), NodePath("middle build"), NodePath("middle build up"), NodePath("middle top"), NodePath("middle top up"), NodePath("smoke")]
+state = -1
+end_game_text = "Excellent—you successfully defended the organic robots, enabling them to construct the new factory.
+
+Thank you for playing. This concludes one branch of the game.
+Now try the alternate path: the branch where you believe in God."
+
+[node name="FactoryTexture" type="Sprite2D" parent="."]
+
+[node name="ground" type="CollisionShape2D" parent="."]
+position = Vector2(-5.5, 98)
+shape = SubResource("RectangleShape2D_vjpew")
+disabled = true
+
+[node name="middle build" type="CollisionShape2D" parent="."]
+position = Vector2(10, 98)
+shape = SubResource("RectangleShape2D_h4r26")
+disabled = true
+
+[node name="middle build up" type="CollisionShape2D" parent="."]
+position = Vector2(10, 82)
+shape = SubResource("RectangleShape2D_35ngb")
+disabled = true
+
+[node name="middle top" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 66)
+shape = SubResource("RectangleShape2D_okwx8")
+disabled = true
+
+[node name="middle top up" type="CollisionShape2D" parent="."]
+position = Vector2(12.5, 35.5)
+shape = SubResource("RectangleShape2D_vdo4x")
+disabled = true
+
+[node name="smoke" type="CollisionShape2D" parent="."]
+position = Vector2(74.5, 0)
+shape = SubResource("RectangleShape2D_ghnwd")
+disabled = true

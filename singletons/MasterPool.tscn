@@ -1,4 +1,4 @@
-[gd_scene load_steps=489 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=492 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -1616,6 +1616,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_3oteh"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_s3lrg"]
@@ -1878,6 +1880,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_r3wwj"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_5n0ss"]
@@ -2225,7 +2229,7 @@ metadata/_custom_type_script = ExtResource("5_0rfkw")
 [sub_resource type="Resource" id="Resource_eaxix"]
 script = ExtResource("5_0rfkw")
 use_basis = true
-new_basis = Array[int]([])
+new_basis = Array[int]([5])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -2239,6 +2243,17 @@ list_avatar_dialog = Array[String](["Build through crafting."])
 response_dialog = Array[String](["Try restarting the game after a few months because this is a fork you won’t take this time."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
+
+[sub_resource type="Resource" id="Resource_fbsni"]
+script = ExtResource("11_cdsqw")
+npc_activate = 3
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 
 [sub_resource type="Resource" id="Resource_wxps4"]
 script = ExtResource("11_cdsqw")
@@ -2296,9 +2311,12 @@ quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wxps4"), SubResource("Resource_cl3e8"), SubResource("Resource_qo27w"), SubResource("Resource_lypa6")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_fbsni"), SubResource("Resource_wxps4"), SubResource("Resource_cl3e8"), SubResource("Resource_qo27w"), SubResource("Resource_lypa6")])
 list_avatar_dialog = Array[String](["Build through fighting."])
-response_dialog = Array[String](["Try restarting the game after a few months because this is a fork you won’t take this time."])
+response_dialog = Array[String](["So you’ve chosen combat—now you must protect the robots
+while they gather materials and construct the factory.
+In time, you’ll acquire powerful weapon
+to oppose all turrets."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2314,6 +2332,30 @@ default_starting_dialog = ""
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
+[sub_resource type="Resource" id="Resource_d26bm"]
+script = ExtResource("4_0rfkw")
+description = "go through new path"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = "You’ve chosen your path. Now, go through the new path."
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_vm2b0"]
+script = ExtResource("4_0rfkw")
+description = "go to crafting way is still in progress"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
 [sub_resource type="Resource" id="Resource_krk0d"]
 script = ExtResource("3_d1vgu")
 quest_name = "maya"
@@ -2324,10 +2366,12 @@ quest_body_type = 311
 color = Color(1, 0.752941, 0, 1)
 equipment = 0
 activated = false
-list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nm8h1"), SubResource("Resource_qiegh"), SubResource("Resource_0kfxc"), SubResource("Resource_nqjdk"), SubResource("Resource_mmd0o")])
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nm8h1"), SubResource("Resource_qiegh"), SubResource("Resource_0kfxc"), SubResource("Resource_nqjdk"), SubResource("Resource_mmd0o"), SubResource("Resource_d26bm"), SubResource("Resource_vm2b0")])
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_p1w7n"]
@@ -2799,6 +2843,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_u77jc"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_wosds"]
@@ -3405,6 +3451,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_nw0d3"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_qwgub"]
@@ -3642,6 +3690,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_7v3nd"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_uekph"]
@@ -4004,6 +4054,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_h7qhj"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_ioj4w"]
@@ -4129,6 +4181,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_qngvf"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_7o0fo"]
@@ -4296,6 +4350,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_ksjeu"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_y7iai"]
@@ -4865,6 +4921,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_k7ixf"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_idqer"]
@@ -5321,6 +5379,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_pit16"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_w3kbx"]
@@ -5552,6 +5612,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_bsiru"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_1iubd"]
@@ -6292,6 +6354,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blnlk"),
 believe_l = 0.0
 believe_r = 0.4
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_vg3in"]
@@ -7180,6 +7244,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_34dl2"),
 believe_l = 0.6
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_mqvoq"]
@@ -7196,6 +7262,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_wawdi"),
 believe_l = 0.6
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_nrofl"]
@@ -7212,6 +7280,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_jbyve"),
 believe_l = 0.6
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_kyy1y"]
@@ -7228,6 +7298,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_jyrw4"),
 believe_l = 0.0
 believe_r = 0.4
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_q36m6"]
@@ -7244,6 +7316,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_2jajr"),
 believe_l = 0.0
 believe_r = 0.7
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_w0jbm"]
@@ -7260,6 +7334,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_blq7f"),
 believe_l = 0.0
 believe_r = 0.4
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_8vmaa"]
@@ -7276,6 +7352,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_lrahy"),
 believe_l = 0.0
 believe_r = 0.7
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
 [sub_resource type="Resource" id="Resource_vttep"]
@@ -7873,6 +7951,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_upmvw"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
 [sub_resource type="Resource" id="Resource_slhaa"]
@@ -7956,6 +8036,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_4uldr"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
 [sub_resource type="Resource" id="Resource_lq8tp"]
@@ -8013,12 +8095,14 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_rxag7")]
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 0
+debug_activated = true
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
 [sub_resource type="Resource" id="Resource_hiym6"]
 script = ExtResource("5_0rfkw")
 use_basis = false
-new_basis = Array[int]([0])
+new_basis = Array[int]([1])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -8028,8 +8112,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["naberite material"])
-response_dialog = Array[String](["mi bomo nabirali"])
+list_avatar_dialog = Array[String](["Gather resources!"])
+response_dialog = Array[String](["We'll focus on collection too."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -8041,8 +8125,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_hiym6")])
-default_starting_dialog = "prosim pomagaj hočemo naresti tovarno
-turreti napadajo in boti jemljejo material"
+default_starting_dialog = "Please help! We're trying to build the factory,
+but turrets are attacking and stealing our materials."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -8054,14 +8138,14 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
-default_starting_dialog = "hitro obrani nas med tem ko nabiramo material"
+default_starting_dialog = "Quick—defend us while we gather materials!"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
 [sub_resource type="Resource" id="Resource_gb0sb"]
 script = ExtResource("5_0rfkw")
 use_basis = false
-new_basis = Array[int]([0])
+new_basis = Array[int]([3])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
@@ -8071,8 +8155,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["vzemite nabrani material in pojdite graditi tovarno"])
-response_dialog = Array[String](["mi gremo graditi tovarno"])
+list_avatar_dialog = Array[String](["Take the collected materials and proceed to build the factory."])
+response_dialog = Array[String](["We'll begin factory construction."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -8084,7 +8168,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_gb0sb")])
-default_starting_dialog = "pripravljeni smo z materialom na tvoj ukaz"
+default_starting_dialog = "We're ready with materials awaiting your command."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -8096,7 +8180,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
-default_starting_dialog = "prosim obrani nas med tem ko gradimo tovarno"
+default_starting_dialog = "Please defend us while we construct the factory!"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -8114,6 +8198,8 @@ list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_8r2pg"),
 believe_l = 0.0
 believe_r = 1.0
 reset = false
+debug_basis = 3
+debug_activated = true
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
 [sub_resource type="Resource" id="Resource_xgrt2"]
