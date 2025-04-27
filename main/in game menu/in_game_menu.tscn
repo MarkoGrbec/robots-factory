@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://4uvqadvod7cb"]
+[gd_scene load_steps=15 format=3 uid="uid://4uvqadvod7cb"]
 
 [ext_resource type="Script" uid="uid://db61dwu37phlo" path="res://main/in game menu/InGameMenu.gd" id="1_un1ud"]
 [ext_resource type="PackedScene" uid="uid://b2i1wol5qwtld" path="res://my assets/binding/binding_container.tscn" id="2_cgffx"]
 [ext_resource type="Script" uid="uid://crwdcobjkbvbr" path="res://my assets/binding/Bindings.gd" id="2_omkwt"]
 [ext_resource type="PackedScene" uid="uid://b6jqqa8v3xar5" path="res://game/quest/options_holding_hand.tscn" id="4_yjfud"]
 [ext_resource type="PackedScene" uid="uid://cw3dwj3hge0vn" path="res://my assets/music/VolumeContainer.tscn" id="5_suw75"]
+[ext_resource type="AudioStream" uid="uid://b5l6uwpvbmttg" path="res://sounds/UI/suntemple_sfx-ui-button-click.wav" id="6_6v6yv"]
 [ext_resource type="Script" uid="uid://d05qjhu2e5jgr" path="res://main/in game menu/misc.gd" id="6_uty36"]
 [ext_resource type="AudioStream" uid="uid://g16k6rwgkd2t" path="res://sounds/defunct3 laser-short-2.wav" id="6_wvpya"]
 [ext_resource type="AudioStream" uid="uid://dpsnyhp7my5vg" path="res://sounds/storm-wind-trees-suburb klankbeeld.wav" id="7_5em43"]
@@ -21,16 +22,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 0
-current_tab = 1
+current_tab = 0
 script = ExtResource("1_un1ud")
 options_holding_hand_scene = ExtResource("4_yjfud")
 options_holding_hand_container = NodePath("holding hand/HBoxContainer/VBoxContainer")
 
-[node name="bindings" type="ScrollContainer" parent="." node_paths=PackedStringArray("binding_buttons", "disable_binding_button")]
-visible = false
+[node name="bindings" type="ScrollContainer" parent="." node_paths=PackedStringArray("bindings_container", "disable_binding_button")]
 layout_mode = 2
 script = ExtResource("2_omkwt")
-binding_buttons = [NodePath("HBoxContainer/VBoxContainer/binding container"), NodePath("HBoxContainer/VBoxContainer/binding container2"), NodePath("HBoxContainer/VBoxContainer/binding container3"), NodePath("HBoxContainer/VBoxContainer/binding container4"), NodePath("HBoxContainer/VBoxContainer/binding container5"), NodePath("HBoxContainer/VBoxContainer/binding container6"), NodePath("HBoxContainer/VBoxContainer/binding container7"), NodePath("HBoxContainer/VBoxContainer/binding container8"), NodePath("HBoxContainer/VBoxContainer/binding container9"), NodePath("HBoxContainer/VBoxContainer/binding container10"), NodePath("HBoxContainer/VBoxContainer/binding container15")]
+bindings_container = NodePath("HBoxContainer/VBoxContainer")
 disable_binding_button = NodePath("HBoxContainer/disable binding button")
 metadata/_tab_index = 0
 
@@ -153,6 +153,7 @@ size_flags_vertical = 0
 text = "X"
 
 [node name="audio" type="ScrollContainer" parent="."]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -176,73 +177,95 @@ size_flags_vertical = 0
 
 [node name="VolumeContainer" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+tooltip_text = "All audio text to speach excecluded
+
+If you want to have text to speach higher volume
+Set system volume higher and this volume lower"
 volume_name = "master"
 db_name = "Master_p3"
 bus_name = "Master"
 
 [node name="VolumeContainer2" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+tooltip_text = "all music"
 db_name = "music_p3"
 bus_name = "music"
 
 [node name="VolumeContainer3" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+tooltip_text = "turret weapon fire and impact sounds"
+audio_stream_sample = ExtResource("6_6v6yv")
+volume_name = "user interface"
+db_name = "ui_p3"
+bus_name = "ui"
+
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer3" index="2"]
+bus = &"ui"
+
+[node name="VolumeContainer4" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+layout_mode = 2
+tooltip_text = "effects like fire beam"
 audio_stream_sample = ExtResource("6_wvpya")
 volume_name = "sound effects"
 db_name = "sfx_p3"
 bus_name = "sfx"
 
-[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer3" index="2"]
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer4" index="2"]
 bus = &"sfx"
 
-[node name="VolumeContainer4" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+[node name="VolumeContainer5" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+tooltip_text = "all ambient sounds with thunder excluded"
 audio_stream_sample = ExtResource("7_5em43")
 volume_name = "rain effects"
 db_name = "rain_p3"
 bus_name = "rain"
 
-[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer4" index="2"]
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer5" index="2"]
 bus = &"rain"
 
-[node name="VolumeContainer5" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+[node name="VolumeContainer6" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+tooltip_text = "all foot steps"
 audio_stream_sample = ExtResource("8_7ptvs")
 volume_name = "foot steps"
 db_name = "foot_steps_p3"
 bus_name = "foot steps"
 
-[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer5" index="2"]
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer6" index="2"]
 bus = &"foot steps"
 
-[node name="VolumeContainer6" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+[node name="VolumeContainer7" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+tooltip_text = "thunder only"
 audio_stream_sample = ExtResource("9_5em43")
 volume_name = "thunder"
 db_name = "thunder_p3"
 bus_name = "thunder"
 
-[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer6" index="2"]
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer7" index="2"]
 bus = &"thunder"
 
-[node name="VolumeContainer7" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+[node name="VolumeContainer8" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+tooltip_text = "all robot sounds of changed status"
 audio_stream_sample = ExtResource("10_7ptvs")
 volume_name = "robot"
 db_name = "robot_p3"
 bus_name = "robot sfx"
 
-[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer7" index="2"]
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer8" index="2"]
 bus = &"robot sfx"
 
-[node name="VolumeContainer8" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
+[node name="VolumeContainer9" parent="audio/HBoxContainer/VBoxContainer" instance=ExtResource("5_suw75")]
 layout_mode = 2
+tooltip_text = "turret weapon fire and impact sounds"
 audio_stream_sample = ExtResource("11_58cyy")
 volume_name = "turret"
 db_name = "weapon_p3"
 bus_name = "weapon sfx"
 
-[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer8" index="2"]
+[node name="AudioStreamPlayer" parent="audio/HBoxContainer/VBoxContainer/VolumeContainer9" index="2"]
 bus = &"weapon sfx"
 
 [node name="MarginContainer2" type="MarginContainer" parent="audio/HBoxContainer"]
@@ -474,3 +497,4 @@ text = "X"
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer6"]
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer7"]
 [editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer8"]
+[editable path="audio/HBoxContainer/VBoxContainer/VolumeContainer9"]

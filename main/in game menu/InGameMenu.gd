@@ -59,3 +59,11 @@ func _on_quit_game_button_pressed() -> void:
 	g_man.trader_manager.close_window()
 	
 	GameControl.enemy_tunnels.clear()
+
+
+func _on_ui_pressed() -> void:
+	g_man.main_menu._on_ui_pressed()
+
+
+func _on_mouse_entered() -> void:
+	g_man.main_menu._on_mouse_entered()

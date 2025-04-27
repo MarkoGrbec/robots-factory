@@ -2,6 +2,8 @@ class_name MainMenu extends Node2D
 
 @export var main_menu_tab: TabContainer
 @export var in_game_main_menu: InGameMenu
+@export var audio_strem_player_focus_entered: AudioStreamPlayer
+@export var audio_strem_player_mouse_entered: AudioStreamPlayer
 @export var environment: WorldEnvironment
 
 var terrain
@@ -33,7 +35,15 @@ func _input(event: InputEvent) -> void:
 	elif event.is_action_pressed("inventory"):
 		g_man.inventory_system.open_window()
 	elif event.is_action_pressed("changes"):
-		g_man.holding_hand.holding_hand_changes()
+		if g_man.holding_hand:
+			g_man.holding_hand.holding_hand_changes()
 		g_man.changes_manager.change_opened_window()
 	elif event.is_action_pressed("stats"):
 		g_man.stats_labels.open_close_window()
+
+
+func _on_ui_pressed() -> void:
+	audio_strem_player_focus_entered.play()
+
+func _on_mouse_entered() -> void:
+	audio_strem_player_mouse_entered.play()

@@ -12,6 +12,8 @@ func copy():
 	return User.new()
 
 func destroy():
+	avatar_name = ""
+	save_username()
 	save_user_time_change_name(0)
 	save_user_type(0)
 	gold_coins = 500

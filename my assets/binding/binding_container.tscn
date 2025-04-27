@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://b0y78k4c0gi1k" path="res://my assets/binding/BindingKey.gd" id="1_y0nr8"]
 
-[node name="binding container" type="HBoxContainer" node_paths=PackedStringArray("label", "button")]
+[node name="binding container" type="HBoxContainer" node_paths=PackedStringArray("label", "buttons")]
 script = ExtResource("1_y0nr8")
 index = 1
 label = NodePath("label")
-button = NodePath("change binding")
+buttons = [NodePath("change binding pri"), NodePath("change binding sec"), NodePath("change binding ter")]
 
 [node name="label" type="Label" parent="."]
 layout_mode = 2
@@ -16,8 +16,20 @@ text = "forward"
 custom_minimum_size = Vector2(16, 0)
 layout_mode = 2
 
-[node name="change binding" type="Button" parent="."]
+[node name="change binding pri" type="Button" parent="."]
 layout_mode = 2
-text = "some custom binding"
+text = "N/A"
 
-[connection signal="pressed" from="change binding" to="." method="_change_binding"]
+[node name="change binding sec" type="Button" parent="."]
+layout_mode = 2
+text = "N/A"
+
+[node name="change binding ter" type="Button" parent="."]
+layout_mode = 2
+text = "N/A"
+
+[connection signal="focus_entered" from="." to="." method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="change binding pri" to="." method="_change_binding_pri"]
+[connection signal="pressed" from="change binding sec" to="." method="_change_binding_sec"]
+[connection signal="pressed" from="change binding ter" to="." method="_change_binding_ter"]

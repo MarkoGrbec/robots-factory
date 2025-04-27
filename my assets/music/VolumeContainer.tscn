@@ -16,12 +16,14 @@ text = "N/A"
 [node name="HScrollBar" type="HScrollBar" parent="."]
 custom_minimum_size = Vector2(150, 30)
 layout_mode = 2
-min_value = -80.0
-max_value = 20.0
-page = 15.0
+min_value = -15.0
+max_value = 15.0
+page = 4.0
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="Timer" type="Timer" parent="."]
 
+[connection signal="focus_entered" from="." to="." method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="value_changed" from="HScrollBar" to="." method="_volume_changed"]

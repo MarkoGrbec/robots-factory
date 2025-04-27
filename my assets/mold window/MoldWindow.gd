@@ -185,3 +185,9 @@ func begin():
 	#get_parent().last_sibling()
 	parent.show_window(true)
 	#get_parent().set_min_size(Vector2(555, 333))
+
+func _on_ui_pressed():
+	g_man.main_menu._on_ui_pressed()
+
+func _on_mouse_entered():
+	g_man.main_menu._on_mouse_entered()

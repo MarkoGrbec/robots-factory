@@ -1,8 +1,10 @@
-[gd_scene load_steps=41 format=3 uid="uid://bldvfhdbgr23e"]
+[gd_scene load_steps=43 format=3 uid="uid://bldvfhdbgr23e"]
 
 [ext_resource type="Script" uid="uid://bj254t7es4bsr" path="res://main/start menu/MainMenu.gd" id="1_3wy1v"]
+[ext_resource type="AudioStream" uid="uid://cksys18seen16" path="res://sounds/UI/breviceps_normal-ui-click.wav" id="2_bws4r"]
 [ext_resource type="Theme" uid="uid://cmeiu126swihn" path="res://my assets/themes/default.tres" id="2_kfbq2"]
 [ext_resource type="PackedScene" uid="uid://bj1a037by05w5" path="res://my assets/changes manager/changes_manager.tscn" id="2_pjrb6"]
+[ext_resource type="AudioStream" uid="uid://b5l6uwpvbmttg" path="res://sounds/UI/suntemple_sfx-ui-button-click.wav" id="3_f5r2o"]
 [ext_resource type="PackedScene" uid="uid://btw2dmrck5wsv" path="res://main/start menu/main_tab_container.tscn" id="4_d00gp"]
 [ext_resource type="PackedScene" uid="uid://bs3s7gpgf8hym" path="res://main/quest/quests_manager.tscn" id="6_4dugh"]
 [ext_resource type="Script" uid="uid://du87a7ugu75md" path="res://main/start menu/StatsLabels.gd" id="6_jtpli"]
@@ -43,10 +45,23 @@
 
 [node name="Node" type="Node"]
 
-[node name="main menu and input" type="Node2D" parent="." node_paths=PackedStringArray("main_menu_tab", "in_game_main_menu")]
+[node name="main menu and input" type="Node2D" parent="." node_paths=PackedStringArray("main_menu_tab", "in_game_main_menu", "audio_strem_player_focus_entered", "audio_strem_player_mouse_entered")]
 script = ExtResource("1_3wy1v")
 main_menu_tab = NodePath("../CanvasLayer/Main/main TabContainer")
 in_game_main_menu = NodePath("../CanvasLayer/Main/in game menu")
+audio_strem_player_focus_entered = NodePath("FocusEntered")
+audio_strem_player_mouse_entered = NodePath("MouseEntered")
+
+[node name="FocusEntered" type="AudioStreamPlayer" parent="main menu and input"]
+stream = ExtResource("2_bws4r")
+max_polyphony = 10
+bus = &"ui"
+
+[node name="MouseEntered" type="AudioStreamPlayer" parent="main menu and input"]
+stream = ExtResource("3_f5r2o")
+volume_db = 6.0
+max_polyphony = 10
+bus = &"ui"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -409,6 +424,69 @@ metadata/_custom_type_script = "uid://c5w5cvt6wb4ac"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 bus = &"sfx"
 
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/username" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/username" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/tutorial" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/tutorial" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash february" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash february" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash march" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash march" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash april" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash april" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash may" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash may" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer/welcome button" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer/welcome button" to="main menu and input" method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]
+[connection signal="focus_entered" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/inventory system" method="close_window"]
+[connection signal="focus_entered" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/inventory system" method="close_window"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/disable binding button" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/disable binding button" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/audio/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/audio/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/holding hand/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/holding hand/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/misc/HBoxContainer/VBoxContainer/quest move" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/misc/HBoxContainer/VBoxContainer/quest move" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/misc/HBoxContainer/VBoxContainer/HBoxContainer" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/misc/HBoxContainer/VBoxContainer/HBoxContainer" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/misc/HBoxContainer/VBoxContainer/speak names" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/misc/HBoxContainer/VBoxContainer/speak names" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/misc/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/misc/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/cheat/HBoxContainer/VBoxContainer/ButtonResetTraderMoney" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/cheat/HBoxContainer/VBoxContainer/ButtonResetTraderMoney" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/cheat/HBoxContainer/VBoxContainer/ActivateMark" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/cheat/HBoxContainer/VBoxContainer/ActivateMark" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/cheat/HBoxContainer/VBoxContainer/RemoveSophieMission" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/cheat/HBoxContainer/VBoxContainer/RemoveSophieMission" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/cheat/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/cheat/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/quit/VBoxContainer/quit game button" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/quit/VBoxContainer/quit game button" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/quit/VBoxContainer/quit button" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/quit/VBoxContainer/quit button" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/in game menu/quit/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/quit/close window" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
+
+[editable path="CanvasLayer/Main/main TabContainer"]
+[editable path="CanvasLayer/Main/in game menu"]
+[editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer3"]
+[editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer4"]
+[editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer5"]
+[editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer6"]
+[editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer7"]
+[editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer8"]
+[editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer9"]
+[editable path="CanvasLayer/Main/mold window"]
