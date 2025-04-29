@@ -38,6 +38,7 @@ func _ready() -> void:
 
 func show_window():
 	show()
+	g_man.construction_manager.close_window()
 	set_anchors()
 
 func set_anchors():

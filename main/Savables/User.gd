@@ -8,6 +8,10 @@ var believe_in_god: bool = false
 var weapon_strength: float = 1
 var armor_strength: float = 1
 
+#var id_tool
+#var id_workpiece
+#var id_finished_product
+
 func copy():
 	return User.new()
 
@@ -106,6 +110,15 @@ func save_believe_in_god():
 
 func save_layer(layer):
 	save_uni("layer", layer)
+
+func save_id_tool(id_tool):
+	save_uni("id_tool", id_tool)
+
+func save_id_workpiece(id_workpiece):
+	save_uni("id_workpiece", id_workpiece)
+
+func save_id_finished_product(id_finished_product):
+	save_uni("id_finished_product", id_finished_product)
 	#endregion save
 	#region load
 func load_username():
@@ -152,6 +165,15 @@ func load_armor_strength():
 func load_weapon_strength():
 	weapon_strength = load_uni("weapon_strength", 1)
 	set_weapon_strength()
+
+func load_return_id_tool():
+	return load_uni("id_tool", 0)
+
+func load_return_id_workpiece():
+	return load_uni("id_workpiece", 0)
+
+func load_return_id_finished_product():
+	return load_uni("id_finished_product", 0)
 	#endregion load
 #endregion save load
 

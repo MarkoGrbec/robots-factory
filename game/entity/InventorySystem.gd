@@ -21,6 +21,7 @@ func open_window(open: bool = false):
 	else:
 		show()
 		g_man.quests_manager.set_anchors()
+		g_man.construction_manager.set_anchors()
 
 func generate_inventory_slots():
 	var rang = range(1, 21)

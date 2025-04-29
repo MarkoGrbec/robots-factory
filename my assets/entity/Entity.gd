@@ -2741,6 +2741,7 @@ func fully_save():
 		#save_group_volume()
 		save_entity_num()
 		save_position_rotation()
+		save_quantity()
 		#save_constructed()
 		save_damage()
 		#save_special()

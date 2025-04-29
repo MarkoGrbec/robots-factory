@@ -51,9 +51,13 @@ func succeed_old_basis(success_old_basis__qq_index):
 			if success_old_basis__qq_index[1] == 0:
 				# gathering fork
 				change_type(1)
+				g_man.user.save_add_weapon_strength(1, false)
+				g_man.user.save_add_armor_strength(1, false)
 			elif success_old_basis__qq_index[1] == 1:
 				# crafting fork
 				change_type(2)
+				g_man.user.save_add_weapon_strength(1, false)
+				g_man.user.save_add_armor_strength(1, false)
 			elif success_old_basis__qq_index[1] == 2:
 				# fighting fork
 				change_type(3)

@@ -1,4 +1,5 @@
 class_name StopButtonQuest extends Node
+# for quest stacking all the materials
 
 @export var slot_texture: TextureRect
 @export var counter: Label

@@ -20,6 +20,7 @@ var in_game_menu: InGameMenu
 var trader_manager: TraderManager
 var misc: Misc
 var music_manager: MusicManager
+var construction_manager: ConstructionManager
 var stats_labels: StatsLabels
 
 var friendly_robots_spawn_reality: FriendlyRobotsSpawnReality
@@ -117,6 +118,10 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.BOOL, 1, "believe_in_god")
 	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "layer")
 	_table.create_column(false, dbms, DataBase.DataType.VECTOR2, 1, "position")
+	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "id_tool")
+	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "id_workpiece")
+	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "id_finished_product")
+	
 	
 	
 	

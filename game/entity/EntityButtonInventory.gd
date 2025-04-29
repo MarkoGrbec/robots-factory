@@ -12,14 +12,13 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		"tex" = slot_texture.texture
 	}
 	if entity:
-		var sprite = dragging_sprite.instantiate()
+		var sprite: DraggingSprite = dragging_sprite.instantiate()
 		sprite.texture = slot_texture.texture
 		sprite.entity = entity
 		sprite.entity_button_inventory = self
 		sprite.quantity_label.text = str(entity.quantity)
 		g_man.entity_manager.add_child_to_dragging(sprite)
 		data["entity"] = entity
-		#data["dragging_sprite"] = sprite
 		
 		
 		if g_man.trader_manager._trader:
@@ -42,6 +41,8 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 		
 		if cost <= user.gold_coins:
 			return true
+		return false
+	if data.get("finished_product") and entity:
 		return false
 	return true
 
@@ -72,6 +73,13 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			g_man.inventory_system.add_remove_hover_over_sprite(-1)
 			g_man.holding_hand.holding_hand_inventory()
 			return
+		origin_node = data.get("finished_product")
+		if origin_node:
+			origin_node.entity = null
+			origin_node.slot_texture.texture = null
+			origin_node.counter.text = ""
+			return
+	
 	# buy from trader
 	var entity_number_buy = data.get("buy")
 	var trader: Trader = data.get("trader")

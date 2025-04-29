@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bgihchuluthaa" path="res://my assets/textures/inventory space.png" id="1_oce66"]
 [ext_resource type="Script" uid="uid://db5nvykyhc6d8" path="res://game/entity/EntityButtonQuest.gd" id="2_fbw2j"]
 
-[node name="entity button quest" type="TextureRect" node_paths=PackedStringArray("slot_texture", "timer")]
+[node name="EntityButtonQuest" type="TextureRect" node_paths=PackedStringArray("slot_texture", "timer")]
 custom_minimum_size = Vector2(64, 64)
 texture = ExtResource("1_oce66")
 expand_mode = 1

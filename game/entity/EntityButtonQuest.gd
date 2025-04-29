@@ -1,4 +1,5 @@
 class_name EntityButtonQuest extends TextureRect
+# drag material to the quest slot
 
 @export var slot_texture: TextureRect
 @export var timer: Timer

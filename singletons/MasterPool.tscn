@@ -1,4 +1,4 @@
-[gd_scene load_steps=492 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=493 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -246,7 +246,9 @@ compatibility = Array[int]([])
 i_am_compatible = Array[int]([])
 inventory_quantity = 0
 sellable = false
-dict_transform_tool__results = Dictionary[int, Array]({})
+dict_transform_tool__results = Dictionary[int, Array]({
+10: [12, 20]
+})
 construct_materials = Array[int]([])
 type_material = 0
 type_materials = Array[int]([])
@@ -518,7 +520,9 @@ compatibility = Array[int]([])
 i_am_compatible = Array[int]([])
 inventory_quantity = 0
 sellable = false
-dict_transform_tool__results = Dictionary[int, Array]({})
+dict_transform_tool__results = Dictionary[int, Array]({
+10: [12]
+})
 construct_materials = Array[int]([])
 type_material = 0
 type_materials = Array[int]([])
@@ -3007,7 +3011,7 @@ to create a part of a robot."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
 
-[sub_resource type="Resource" id="Resource_wv4ku"]
+[sub_resource type="Resource" id="Resource_gi7qh"]
 script = ExtResource("11_cdsqw")
 npc_activate = 4
 npc_activated = true
@@ -3030,7 +3034,7 @@ quest_item = 13
 quantity = 2
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_wv4ku")])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_gi7qh")])
 list_avatar_dialog = Array[String](["Objective completed."])
 response_dialog = Array[String](["Great! I’ll send the clay for the head."])
 response_failed_dialog = "I need more clay."
@@ -3067,6 +3071,17 @@ default_starting_dialog = "Hey, let’s make some molds
 to create last part of a robot."
 default_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("4_0rfkw")
+
+[sub_resource type="Resource" id="Resource_wv4ku"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = false
+npc_alive = false
+npc_basis = 10
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
+npc_layer = -100
+metadata/_custom_type_script = ExtResource("11_cdsqw")
 
 [sub_resource type="Resource" id="Resource_vfwg3"]
 script = ExtResource("5_0rfkw")
@@ -3122,7 +3137,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 [sub_resource type="Resource" id="Resource_r2msl"]
 script = ExtResource("11_cdsqw")
 npc_activate = 4
-npc_activated = true
+npc_activated = false
 npc_alive = false
 npc_basis = 10
 npc_add_flags = Array[int]([])
@@ -3182,7 +3197,7 @@ metadata/_custom_type_script = ExtResource("4_0rfkw")
 [sub_resource type="Resource" id="Resource_ldw7g"]
 script = ExtResource("11_cdsqw")
 npc_activate = 4
-npc_activated = true
+npc_activated = false
 npc_alive = false
 npc_basis = 10
 npc_add_flags = Array[int]([])
@@ -3994,13 +4009,13 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["help around"])
-response_dialog = Array[String](["Sophie, retrieve sand for the construction plans and bring it to the site."])
+response_dialog = Array[String](["Bring sand for Sophie's construction plan and deliver it to the site."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_keqi0"]
 script = ExtResource("4_0rfkw")
-description = ""
+description = "bring sand to sophie"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false
@@ -4030,7 +4045,7 @@ metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_ttw4x"]
 script = ExtResource("4_0rfkw")
-description = ""
+description = "sophie factory build and avoid the turrets"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false
@@ -6307,7 +6322,7 @@ reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["First came dinosaur eggs, then later chicken eggs."])
 response_dialog = Array[String]([""])
-response_failed_dialog = "Thus, the chicken hatched a chicken egg."
+response_failed_dialog = "You're right - dinosaur eggs existed even earlier."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_ier8f"]
@@ -6325,7 +6340,7 @@ reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
 list_avatar_dialog = Array[String](["First came the chicken, only then the chicken egg."])
 response_dialog = Array[String]([""])
-response_failed_dialog = "You're right - dinosaur eggs existed even earlier."
+response_failed_dialog = "Thus, the chicken hatched a chicken egg."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_lrahy"]

@@ -40,6 +40,8 @@ func _input(event: InputEvent) -> void:
 		g_man.changes_manager.change_opened_window()
 	elif event.is_action_pressed("stats"):
 		g_man.stats_labels.open_close_window()
+	elif event.is_action_pressed("construction"):
+		g_man.construction_manager.open_close_window()
 
 
 func _on_ui_pressed() -> void:

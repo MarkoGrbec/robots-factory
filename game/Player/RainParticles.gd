@@ -15,8 +15,12 @@ class_name RainParticles extends GPUParticles2D
 @export var thunder_animation_player: AnimationPlayer
 @export var thunder_audio_stream: Array[AudioStream]
 
-const restart_rain: float = 20
-const change_direction: float = 15.0
+## restart rain when it's dry calculate it
+const RESTART_RAIN: float = 60
+## in how much time direction slightly changes
+const CHANGE_DIRECTION: float = 15.0
+## % / 2 not to double strike ## bigger number less chance to not double strike 0.97 is pretty common to strike double times or even three times
+const K_NOT_DOUBLE_STRIKE: float = 0.98
 
 var double_strike: float = 1.0
 var position_strike: float = 1.0
@@ -86,7 +90,7 @@ func stop_rain():
 			set_sound_type(SoundType.BIRDS)
 	else:# in doors no storm and no sound for now
 		set_sound_type(SoundType.NULL)
-	await get_tree().create_timer(restart_rain).timeout
+	await get_tree().create_timer(RESTART_RAIN).timeout
 	# restart rain after 20 sec if possible
 	set_direction_of_rain()
 
@@ -122,7 +126,7 @@ func set_random():
 	else:
 		set_sound_type(SoundType.WIND)
 	
-	await get_tree().create_timer(change_direction).timeout
+	await get_tree().create_timer(CHANGE_DIRECTION).timeout
 	# change direction after 15 seconds
 	set_random()
 
@@ -141,8 +145,8 @@ func thunder_strike():
 	double_strike = randf_range(0.5, 1)
 	
 	var k_double_strike = abs(gravity_x) * 0.0001
-	# double strike
-	if not double_strike > 0.97 - k_double_strike:
+	# double strike ## bigger (0.98) less % to strike double
+	if not double_strike > K_NOT_DOUBLE_STRIKE - k_double_strike:
 		double_strike = 1
 		position_strike = randf_range(0, 1)
 	
