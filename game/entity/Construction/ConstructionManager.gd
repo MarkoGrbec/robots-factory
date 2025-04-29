@@ -24,9 +24,11 @@ func open_window():
 	fetch_results()
 	g_man.quests_manager.close_window()
 	show()
+	set_anchors()
 
 func close_window():
 	hide()
+	set_anchors()
 
 func set_anchors():
 	if is_visible_in_tree():

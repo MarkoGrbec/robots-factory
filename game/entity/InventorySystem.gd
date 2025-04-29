@@ -12,6 +12,7 @@ func _ready() -> void:
 func close_window():
 	hide()
 	g_man.quests_manager.set_anchors()
+	g_man.construction_manager.set_anchors()
 
 func open_window(open: bool = false):
 	if is_visible_in_tree():
