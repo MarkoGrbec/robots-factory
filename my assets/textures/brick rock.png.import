@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh6bqgwqx02wq"
-path="res://.godot/imported/iron bar.png-8b69c8baaa343b94b1b96c4633cc61a3.ctex"
+uid="uid://bjtw8xvfx20b8"
+path="res://.godot/imported/brick rock.png-ca9d6abe3a91aa98d53209ebe54b3d14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my assets/textures/iron bar.png"
-dest_files=["res://.godot/imported/iron bar.png-8b69c8baaa343b94b1b96c4633cc61a3.ctex"]
+source_file="res://my assets/textures/brick rock.png"
+dest_files=["res://.godot/imported/brick rock.png-ca9d6abe3a91aa98d53209ebe54b3d14.ctex"]
 
 [params]
 

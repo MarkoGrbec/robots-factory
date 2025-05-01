@@ -1,4 +1,4 @@
-[gd_scene load_steps=493 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=509 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dbm2bldo0vgoo" path="res://my assets/textures/dirt.png" id="6_nl6tp"]
 [ext_resource type="Texture2D" uid="uid://ccspk2i065b1u" path="res://my assets/textures/sand.png" id="7_0oq30"]
 [ext_resource type="Texture2D" uid="uid://bdvbh01krpjnb" path="res://my assets/textures/clay.png" id="8_twfhk"]
-[ext_resource type="Texture2D" uid="uid://do76fw7f57dfd" path="res://my assets/textures/iron bar.png" id="9_0oq30"]
+[ext_resource type="Texture2D" uid="uid://do76fw7f57dfd" path="res://my assets/textures/hard metal.png" id="9_0oq30"]
 [ext_resource type="PackedScene" uid="uid://d3uuoqkraqp62" path="res://game/Bots/trader/cp_trader.tscn" id="10_nl6tp"]
 [ext_resource type="PackedScene" uid="uid://ylewlsulmddd" path="res://game/Bots/enemy/enemy_bot.tscn" id="10_tjthm"]
 [ext_resource type="Script" uid="uid://vdcocg2xhuoh" path="res://my assets/quest/objects/QuestBasis/QuestQuestion/QQOtherNPC.gd" id="11_cdsqw"]
@@ -23,7 +23,15 @@
 [ext_resource type="AudioStream" uid="uid://g16k6rwgkd2t" path="res://sounds/defunct3 laser-short-2.wav" id="15_gk2xh"]
 [ext_resource type="AudioStream" uid="uid://dhgaylnwlcabl" path="res://sounds/pickaxe_kamen.wav" id="15_tt0nk"]
 [ext_resource type="PackedScene" uid="uid://u61nott07l28" path="res://game/Bots/assistant/assistant_bot.tscn" id="15_wtrhf"]
+[ext_resource type="Texture2D" uid="uid://1dfp6yfa5sy4" path="res://my assets/textures/concrete.png" id="16_vs12e"]
+[ext_resource type="Texture2D" uid="uid://biy3ah3kc310i" path="res://my assets/textures/brick clay.png" id="17_qiegh"]
+[ext_resource type="Texture2D" uid="uid://b6dtqarpcqe7h" path="res://my assets/textures/roof tile clay.png" id="18_5bpv6"]
+[ext_resource type="Texture2D" uid="uid://bh6bqgwqx02wq" path="res://my assets/textures/iron bar.png" id="19_12x0b"]
+[ext_resource type="Texture2D" uid="uid://bjtw8xvfx20b8" path="res://my assets/textures/brick rock.png" id="20_jurw0"]
+[ext_resource type="Texture2D" uid="uid://5vlsh3ly0nhn" path="res://my assets/textures/roof tile rock.png" id="21_eaxix"]
+[ext_resource type="Texture2D" uid="uid://c41wjm0yjgjsm" path="res://my assets/textures/glass.png" id="22_38tap"]
 [ext_resource type="Script" uid="uid://yawqc32n88td" path="res://main/objects/HouseGround.gd" id="22_tt0nk"]
+[ext_resource type="Texture2D" uid="uid://byomtc52gyipf" path="res://my assets/textures/window.png" id="23_oaqqu"]
 
 [sub_resource type="Resource" id="Resource_d1vgu"]
 script = ExtResource("2_8f7pb")
@@ -247,7 +255,8 @@ i_am_compatible = Array[int]([])
 inventory_quantity = 0
 sellable = false
 dict_transform_tool__results = Dictionary[int, Array]({
-10: [12, 20]
+10: [11, 12, 20],
+20: [80003, 80004]
 })
 construct_materials = Array[int]([])
 type_material = 0
@@ -316,7 +325,9 @@ compatibility = Array[int]([])
 i_am_compatible = Array[int]([])
 inventory_quantity = 0
 sellable = false
-dict_transform_tool__results = Dictionary[int, Array]({})
+dict_transform_tool__results = Dictionary[int, Array]({
+11: [13]
+})
 construct_materials = Array[int]([])
 type_material = 0
 type_materials = Array[int]([])
@@ -384,7 +395,10 @@ compatibility = Array[int]([])
 i_am_compatible = Array[int]([])
 inventory_quantity = 0
 sellable = false
-dict_transform_tool__results = Dictionary[int, Array]({})
+dict_transform_tool__results = Dictionary[int, Array]({
+12: [90001],
+13: [15011]
+})
 construct_materials = Array[int]([])
 type_material = 0
 type_materials = Array[int]([])
@@ -452,7 +466,9 @@ compatibility = Array[int]([])
 i_am_compatible = Array[int]([])
 inventory_quantity = 0
 sellable = false
-dict_transform_tool__results = Dictionary[int, Array]({})
+dict_transform_tool__results = Dictionary[int, Array]({
+0: [15012, 15013]
+})
 construct_materials = Array[int]([])
 type_material = 0
 type_materials = Array[int]([])
@@ -521,7 +537,7 @@ i_am_compatible = Array[int]([])
 inventory_quantity = 0
 sellable = false
 dict_transform_tool__results = Dictionary[int, Array]({
-10: [12]
+20: [25001]
 })
 construct_materials = Array[int]([])
 type_material = 0
@@ -917,6 +933,552 @@ script = ExtResource("2_8f7pb")
 entity_num = 320
 description = ""
 scene = ExtResource("15_wtrhf")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
+
+[sub_resource type="Resource" id="Resource_d1ktf"]
+script = ExtResource("2_8f7pb")
+entity_num = 15011
+description = ""
+texture = ExtResource("16_vs12e")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
+
+[sub_resource type="Resource" id="Resource_4pasq"]
+script = ExtResource("2_8f7pb")
+entity_num = 15012
+description = ""
+texture = ExtResource("17_qiegh")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
+
+[sub_resource type="Resource" id="Resource_j6yh1"]
+script = ExtResource("2_8f7pb")
+entity_num = 15013
+description = ""
+texture = ExtResource("18_5bpv6")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
+
+[sub_resource type="Resource" id="Resource_vhy11"]
+script = ExtResource("2_8f7pb")
+entity_num = 25001
+description = ""
+texture = ExtResource("19_12x0b")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
+
+[sub_resource type="Resource" id="Resource_hgplm"]
+script = ExtResource("2_8f7pb")
+entity_num = 80003
+description = ""
+texture = ExtResource("20_jurw0")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
+
+[sub_resource type="Resource" id="Resource_nin14"]
+script = ExtResource("2_8f7pb")
+entity_num = 80004
+description = ""
+texture = ExtResource("21_eaxix")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
+
+[sub_resource type="Resource" id="Resource_kfgrk"]
+script = ExtResource("2_8f7pb")
+entity_num = 90001
+description = ""
+texture = ExtResource("22_38tap")
+house_frame = 0
+entity_type = 0
+scrap_type = 1
+is_key = false
+new_entity = 1
+fallen_tree_type = 1
+tree_stump_type = 1
+new_clay_type = 1
+new_hard_metal_type = 1
+compatibility = Array[int]([])
+i_am_compatible = Array[int]([])
+inventory_quantity = 0
+sellable = false
+dict_transform_tool__results = Dictionary[int, Array]({
+20: [90002]
+})
+construct_materials = Array[int]([])
+type_material = 0
+type_materials = Array[int]([])
+weight_ratio_materials = Array[float]([])
+type_metal = 0
+improvable_tools = Array[int]([])
+is_improvable = false
+is_combinable = false
+is_dividable = false
+is_sharpable = false
+clay_mold_volume_ratio = 0.0
+hard_use = 0.5
+is_top_inventory = false
+in_world_space = false
+equipable = false
+attachable = false
+default_visual_entity = 1
+is_container = false
+ql = 100.0
+weight_get = 1.0
+volume_get = 1.0
+cost = 0
+hard = 1.0
+time_to_finish_min = 1.0
+time_to_finish_max = 2.0
+time_to_create_min = 1.0
+time_to_create_max = 2.0
+time_to_use_min = 1.0
+time_to_use_max = 2.0
+time_to_improve = 1.0
+grow_time = 1.0
+grow_scale = 1.0
+harvest_type = 0
+harvest_tool = 1
+harvest_quantity = 0
+harvest_scale = 1.0
+attack = 1.0
+defense = 1.0
+range_attack = 1.0
+weapon_type = 0
+is_sound_on_end = false
+delay_sound = 0.0
+sound_one_shot = false
+experience_create_parent = 0
+experience_create = Array[int]([])
+experience_move = 31
+experience_use = 0
+metadata/_custom_type_script = "uid://db4he4pxs7h7s"
+
+[sub_resource type="Resource" id="Resource_i1ljv"]
+script = ExtResource("2_8f7pb")
+entity_num = 90002
+description = ""
+texture = ExtResource("23_oaqqu")
 house_frame = 0
 entity_type = 0
 scrap_type = 1
@@ -8300,7 +8862,7 @@ metadata/_custom_type_script = ExtResource("22_tt0nk")
 [node name="MasterPool" type="Node" node_paths=PackedStringArray("global_timer")]
 script = ExtResource("1_bgkrv")
 global_timer = NodePath("Timer")
-container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_ex1qj"), SubResource("Resource_cpje5"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
+container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_ex1qj"), SubResource("Resource_cpje5"), SubResource("Resource_d1ktf"), SubResource("Resource_4pasq"), SubResource("Resource_j6yh1"), SubResource("Resource_vhy11"), SubResource("Resource_hgplm"), SubResource("Resource_nin14"), SubResource("Resource_kfgrk"), SubResource("Resource_i1ljv"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
 quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj"), SubResource("Resource_v5avt"), SubResource("Resource_ykhcu"), SubResource("Resource_mqvoq"), SubResource("Resource_nrofl"), SubResource("Resource_kyy1y"), SubResource("Resource_q36m6"), SubResource("Resource_w0jbm"), SubResource("Resource_8vmaa"), SubResource("Resource_3nh3w"), SubResource("Resource_u0pu3"), SubResource("Resource_xaie5"), SubResource("Resource_2but0")])
 array_house_ground = Array[ExtResource("22_tt0nk")]([SubResource("Resource_xgrt2"), SubResource("Resource_tiwuc"), SubResource("Resource_kdcl1"), SubResource("Resource_2bky1"), SubResource("Resource_0nbsj"), SubResource("Resource_6aln0"), SubResource("Resource_w0hg2"), SubResource("Resource_qyol8"), SubResource("Resource_eejkm"), SubResource("Resource_58eew")])
 

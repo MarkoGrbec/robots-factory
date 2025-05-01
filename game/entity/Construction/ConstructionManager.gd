@@ -42,7 +42,6 @@ func add_tool(entity):
 		g_man.user.save_id_tool(entity.id)
 	else:
 		g_man.user.save_id_tool(null)
-	#if workpiece.entity:
 	fetch_results()
 
 func add_workpiece(entity):
@@ -50,8 +49,13 @@ func add_workpiece(entity):
 		g_man.user.save_id_workpiece(entity.id)
 	else:
 		g_man.user.save_id_workpiece(null)
-	#if tool.entity:
 	fetch_results()
+
+func add_finished_product(entity):
+	if entity:
+		g_man.user.save_id_finished_product(entity.id)
+	else:
+		g_man.user.save_id_finished_product(null)
 
 func destroy_entity_workpiece():
 	if workpiece.entity:
@@ -69,10 +73,15 @@ func fetch_results():
 	for child in results_grid.get_children():
 		child.queue_free()
 	
-	if not _tool or not _workpiece:
+	if not _workpiece:
 		return
 	
-	var results = mp.get_work_pieces(_tool.entity_num, _workpiece.entity_num)
+	# make tool null or get tool entity_num
+	var tool_entity_num = Enums.Esprite.nul
+	if _tool:
+		tool_entity_num = _tool.entity_num
+	
+	var results = mp.get_work_pieces(tool_entity_num, _workpiece.entity_num)
 	if results:
 		for result in results:
 			var result_slot: EntityButtonConstruction = entity_button_construction.instantiate()
@@ -80,3 +89,5 @@ func fetch_results():
 			
 			result_slot.entity = result
 			result_slot.slot_texture.texture = mp.get_item_object(result).texture
+			result_slot.tooltip_text = str(Enums.Esprite.find_key(result)).replace("_", " ")
+			result_slot.counter.text = str(1)

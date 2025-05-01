@@ -30,3 +30,4 @@ func fully_load():
 			var entity_object: EntityObject = mp.get_item_object(entity.entity_num)
 			entity_button_inventory.update_texture(entity_object.texture)
 			entity_button_inventory.quantity_label.text = str(entity.quantity)
+			entity_button_inventory.set_tooltip()

@@ -16,17 +16,22 @@ var entity
 
 func set_entity(_entity):
 	entity = _entity
-	if entity:
-		var entity_obj: EntityObject = mp.get_item_object(entity.entity_num)
-		slot_texture.texture = entity_obj.texture
-	else:
-		slot_texture.texture = null
+	if button_type == ButtonType.TOOL:
+		g_man.construction_manager.add_tool(entity)
+	elif button_type == ButtonType.WORKPIECE:
+		g_man.construction_manager.add_workpiece(entity)
+	elif button_type == ButtonType.FINISHED_PRODUCT:
+		g_man.construction_manager.add_finished_product(entity)
 	recount()
 
 func recount():
 	if entity:
+		var entity_obj: EntityObject = mp.get_item_object(entity.entity_num)
+		slot_texture.tooltip_text = entity.to_string_name()
+		slot_texture.texture = entity_obj.texture
 		counter.text = str(entity.quantity)
 	else:
+		slot_texture.tooltip_text = ""
 		slot_texture.texture = null
 		counter.text = ""
 
@@ -65,11 +70,8 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 		return false
 	var button_construction: EntityButtonConstruction = data.get("finished_product")
 	if button_construction:
-		if button_type == ButtonType.WORKPIECE:
-			if button_construction.button_type == ButtonType.TOOL:
-				return false
-		elif button_type == ButtonType.TOOL:
-			if button_construction.button_type == ButtonType.WORKPIECE:
+		if button_type == ButtonType.WORKPIECE or button_type == ButtonType.TOOL:
+			if button_construction.button_type == ButtonType.TOOL or button_construction.button_type == ButtonType.WORKPIECE:
 				return false
 	# everything else can be added even finished product
 	return true

@@ -123,6 +123,9 @@ enum Esprite{
 	mold_shovel_head						= 15008,
 	mold_hammer_head						= 15009,
 	raw_bowl								= 15010,
+	concrete								= 15011,
+	brick_clay								= 15012,
+	brick_tile_clay							= 15013,
 	#region hard clay 17500
 	hard_mold_arrow_tip						= 17500,
 	hard_mold_war_arrow_tip					= 17501,
@@ -139,7 +142,8 @@ enum Esprite{
 #endregion clay 15001-24999
 #region metal 25000-40000
 	metal_scrap								= 25000,
-	arrow_tip								= 25001,
+	iron_bar								= 25001,
+	arrow_tip								= 25002,
 	war_arrow_tip							= 25003,
 	crowbar									= 25005,
 	nail									= 25007,
@@ -185,11 +189,15 @@ enum Esprite{
 #region stone 80001 - 90000
 	whetstone								= 80001,
 	flattening_stone						= 80002,
+	brick_rock								= 80003,
+	brick_tile_rock							= 80004,
 #endregion stone 80001 - 90000
-#region plan 90001 - 130000
-
-
-#endregion plan 90001 - 130000
+#region glass 90001 - 100000
+	glass									= 90001,
+	window									= 90002,
+#endregion glass 90001 - 100000
+#region plan 100001 - 130000
+#endregion plan 100001 - 130000
 #region bullet and weapons 130001 - 150000
 	bullet									= 130001,
 	rifle									= 130002,

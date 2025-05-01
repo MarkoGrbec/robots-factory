@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh6bqgwqx02wq"
-path="res://.godot/imported/iron bar.png-8b69c8baaa343b94b1b96c4633cc61a3.ctex"
+uid="uid://do76fw7f57dfd"
+path="res://.godot/imported/hard metal.png-e0f310466440b45d8a91895a7eeeedf0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my assets/textures/iron bar.png"
-dest_files=["res://.godot/imported/iron bar.png-8b69c8baaa343b94b1b96c4633cc61a3.ctex"]
+source_file="res://my assets/textures/hard metal.png"
+dest_files=["res://.godot/imported/hard metal.png-e0f310466440b45d8a91895a7eeeedf0.ctex"]
 
 [params]
 

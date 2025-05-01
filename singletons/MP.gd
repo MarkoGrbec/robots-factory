@@ -251,3 +251,90 @@ func get_quest_objects(id_avatar) -> Array[ServerQuest]:
 # ponjklivo orodje uniforme
 # pomanjkljivo usposobljeni
 # 
+# 
+# 
+# ROBOT
+
+# kako si
+# utrujen
+
+# če rabi pomoč
+# neve če se mu sploh še da pomagat
+
+# če je žalosten
+# ja ker sem utrujen in nemorem ne naprej ne nazaj
+
+# 
+# 
+################################
+# malta
+# železne palce
+# opeka - glina ali kamna
+# strešna kritina
+# steklo - okna
+# 
+# 1. malta
+# 2. kovina - železne palce malta
+# 3. okna - opeka - železo
+# 4. železne štange
+# 5. strešna kritina
+# 6. opeka
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 
+# 

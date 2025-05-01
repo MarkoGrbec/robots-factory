@@ -75,9 +75,7 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 			return
 		origin_node = data.get("finished_product")
 		if origin_node:
-			origin_node.entity = null
-			origin_node.slot_texture.texture = null
-			origin_node.counter.text = ""
+			origin_node.set_entity(null)
 			return
 	
 	# buy from trader
@@ -110,10 +108,17 @@ func change_entity(_entity, node: EntityButtonInventory):
 	if _entity:
 		node.inventory_slot.id_entity = _entity.id
 		node.quantity_label.text = str(_entity.quantity)
+		node.set_tooltip()
 	else:
 		node.inventory_slot.id_entity = 0
 		node.quantity_label.text = ""
 	node.inventory_slot.save_id_entity()
+
+func set_tooltip():
+	if entity:
+		tooltip_text = entity.to_string_name()
+	else:
+		tooltip_text = ""
 
 func update_texture(_texture):
 	slot_texture.texture = _texture

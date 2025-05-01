@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh6bqgwqx02wq"
-path="res://.godot/imported/iron bar.png-8b69c8baaa343b94b1b96c4633cc61a3.ctex"
+uid="uid://byomtc52gyipf"
+path="res://.godot/imported/window.png-ccba6c90d21cf5fa30d829b9dad313b4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my assets/textures/iron bar.png"
-dest_files=["res://.godot/imported/iron bar.png-8b69c8baaa343b94b1b96c4633cc61a3.ctex"]
+source_file="res://my assets/textures/window.png"
+dest_files=["res://.godot/imported/window.png-ccba6c90d21cf5fa30d829b9dad313b4.ctex"]
 
 [params]
 

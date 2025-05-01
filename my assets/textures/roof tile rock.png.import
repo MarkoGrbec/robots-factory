@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bh6bqgwqx02wq"
-path="res://.godot/imported/iron bar.png-8b69c8baaa343b94b1b96c4633cc61a3.ctex"
+uid="uid://5vlsh3ly0nhn"
+path="res://.godot/imported/roof tile rock.png-16f1166ce7f85bc3bf11ba6772a1f8e3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://my assets/textures/iron bar.png"
-dest_files=["res://.godot/imported/iron bar.png-8b69c8baaa343b94b1b96c4633cc61a3.ctex"]
+source_file="res://my assets/textures/roof tile rock.png"
+dest_files=["res://.godot/imported/roof tile rock.png-16f1166ce7f85bc3bf11ba6772a1f8e3.ctex"]
 
 [params]
 
