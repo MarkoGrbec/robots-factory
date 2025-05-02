@@ -19,7 +19,7 @@ func destroy():
 	avatar_name = ""
 	save_username()
 	save_user_time_change_name(0)
-	save_user_type(0)
+	save_user_type(null)
 	gold_coins = 500
 	save_gold_coins()
 	save_weapon_activated(false)
@@ -57,7 +57,7 @@ func save_user_time_change_name(time_changed_name):
 	DataBase.insert(_server, g_man.dbms, _path, "time_changed_name", id, int(time_changed_name))
 
 func save_user_type(type):
-	DataBase.insert(_server, g_man.dbms, _path, "type", id, type)
+	save_uni("type", type)
 
 func save_gold_coins():
 	if not g_man.tutorial:
@@ -131,7 +131,7 @@ func load_return_user_time_change_name():
 	return DataBase.select(_server, g_man.dbms, _path, "time_changed_name", id, 0)
 
 func load_return_user_type():
-	return DataBase.select(_server, g_man.dbms, _path, "type", id, 0)
+	return load_uni("type", 0)
 
 func load_gold_coins():
 	gold_coins = DataBase.select(_server, g_man.dbms, _path, "gold_coins", id, 500)

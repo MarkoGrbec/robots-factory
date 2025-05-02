@@ -1,4 +1,4 @@
-[gd_scene load_steps=509 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=530 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -2792,19 +2792,63 @@ Go to the gathering bot and build a factory."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
+[sub_resource type="Resource" id="Resource_atkkb"]
+script = ExtResource("11_cdsqw")
+npc_activate = 3
+npc_activated = false
+npc_alive = false
+npc_basis = 6
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_igqiu"]
+script = ExtResource("11_cdsqw")
+npc_activate = 4
+npc_activated = false
+npc_alive = false
+npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_b0ioe"]
+script = ExtResource("11_cdsqw")
+npc_activate = 25
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
+[sub_resource type="Resource" id="Resource_w3sfa"]
+script = ExtResource("11_cdsqw")
+npc_activate = 26
+npc_activated = true
+npc_alive = false
+npc_basis = 0
+npc_add_flags = Array[int]([])
+npc_remove_flags = Array[int]([])
+npc_layer = -100
+metadata/_custom_type_script = "uid://vdcocg2xhuoh"
+
 [sub_resource type="Resource" id="Resource_eaxix"]
 script = ExtResource("5_0rfkw")
 use_basis = true
-new_basis = Array[int]([5])
+new_basis = Array[int]([6])
 add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([4])
 basis_is_root = 0
 add_qq_flags = Array[ExtResource("5_0rfkw")]([])
 quest_item = 0
 quantity = 0
 ql = 0
 reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
+other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_atkkb"), SubResource("Resource_igqiu"), SubResource("Resource_b0ioe"), SubResource("Resource_w3sfa")])
 list_avatar_dialog = Array[String](["Build through crafting."])
 response_dialog = Array[String](["Try restarting the game after a few months because this is a fork you won’t take this time."])
 response_failed_dialog = ""
@@ -2815,7 +2859,7 @@ script = ExtResource("11_cdsqw")
 npc_activate = 3
 npc_activated = false
 npc_alive = false
-npc_basis = 0
+npc_basis = 5
 npc_add_flags = Array[int]([])
 npc_remove_flags = Array[int]([])
 npc_layer = -100
@@ -2868,9 +2912,9 @@ metadata/_custom_type_script = "uid://vdcocg2xhuoh"
 [sub_resource type="Resource" id="Resource_38tap"]
 script = ExtResource("5_0rfkw")
 use_basis = true
-new_basis = Array[int]([])
+new_basis = Array[int]([5])
 add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([4])
 basis_is_root = 0
 add_qq_flags = Array[ExtResource("5_0rfkw")]([])
 quest_item = 0
@@ -2879,7 +2923,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_fbsni"), SubResource("Resource_wxps4"), SubResource("Resource_cl3e8"), SubResource("Resource_qo27w"), SubResource("Resource_lypa6")])
 list_avatar_dialog = Array[String](["Build through fighting."])
-response_dialog = Array[String](["So you’ve chosen combat—now you must protect the robots
+response_dialog = Array[String](["So you’ve chosen combat—the hardest fork, now you must protect the robots
 while they gather materials and construct the factory.
 In time, you’ll acquire powerful weapon
 to oppose all turrets."])
@@ -2900,25 +2944,44 @@ metadata/_custom_type_script = "uid://sjmolji57b8"
 
 [sub_resource type="Resource" id="Resource_d26bm"]
 script = ExtResource("4_0rfkw")
-description = "go through new path"
+description = "go through new path fighting"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([])
-default_starting_dialog = "You’ve chosen your path. Now, go through the new path."
+default_starting_dialog = "You’ve chosen fighting. Now, go through the new path."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
+[sub_resource type="Resource" id="Resource_yto8b"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kako"])
+response_dialog = Array[String](["samo pojdi"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
 [sub_resource type="Resource" id="Resource_vm2b0"]
 script = ExtResource("4_0rfkw")
-description = "go to crafting way is still in progress"
+description = "go to crafting way"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false
 display_answers = true
-list_quest_questions = Array[ExtResource("5_0rfkw")]([])
-default_starting_dialog = ""
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yto8b")])
+default_starting_dialog = "odločil si se za craftanje najlažjo pot. pojdi in zgradi tovarno iz nič.
+Ne boj se tu te roboti ne bodo našli. Ko bo pa zgrajena bo pa za njih že prepozno."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -8779,6 +8842,281 @@ debug_basis = 3
 debug_activated = true
 metadata/_custom_type_script = "uid://4bh35mqidnhe"
 
+[sub_resource type="Resource" id="Resource_tigvo"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([1])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["rad bi zgradil tovarno"])
+response_dialog = Array[String](["in imaš vse sestavine?"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_x4wkw"]
+script = ExtResource("4_0rfkw")
+description = "1. layer"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tigvo")])
+default_starting_dialog = "pozravljen [name], kaj je tebe pripeljalo k meni?"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_a7tqq"]
+script = ExtResource("5_0rfkw")
+use_basis = true
+new_basis = Array[int]([2])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([1])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 15011
+quantity = 1
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["imam mortar"])
+response_dialog = Array[String](["ha ha sem vedela da boš znal"])
+response_failed_dialog = "potrebujem 1 mortar"
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_xwn2e"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["katere sestavine potrebujem"])
+response_dialog = Array[String](["prvo bova naredila temelj
+torej mortar"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_bsh0p"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["koliko sestavin potrebujem"])
+response_dialog = Array[String](["1 mortar"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_rf8hq"]
+script = ExtResource("4_0rfkw")
+description = "katere sestavine"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_a7tqq"), SubResource("Resource_xwn2e"), SubResource("Resource_bsh0p")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_ai5md"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kaj potrebujeva"])
+response_dialog = Array[String](["potrebuješ železne palice"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_dvjah"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([0])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["imam konstrukcijo za vrata"])
+response_dialog = Array[String](["niti nisem dvomila"])
+response_failed_dialog = "potrebujeva 10 palic"
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_u0h1b"]
+script = ExtResource("4_0rfkw")
+description = "2. layer"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ai5md"), SubResource("Resource_dvjah")])
+default_starting_dialog = "hopsa hopsa imava temelj
+sedaj je čas za vrata"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_a6pw1"]
+script = ExtResource("3_d1vgu")
+quest_name = "Larisse"
+position = Vector2(300, 300)
+patrol_targets = Array[Vector2]([Vector2(500, 300), Vector2(300, 500), Vector2(500, 500), Vector2(386, 256), Vector2(256, 386), Vector2(1200, 800), Vector2(874, 874)])
+layer = 0
+quest_body_type = 311
+color = Color(0, 0.313726, 0.729412, 1)
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_x4wkw"), SubResource("Resource_rf8hq"), SubResource("Resource_u0h1b")])
+believe_l = 0.0
+believe_r = 1.0
+reset = true
+debug_basis = 0
+debug_activated = true
+metadata/_custom_type_script = "uid://4bh35mqidnhe"
+
+[sub_resource type="Resource" id="Resource_76whu"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([1])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kakšne posebne moči imam"])
+response_dialog = Array[String](["Maja ti je dala super moči.
+vsekakor lahko narediš vse a vendar moraš paziti da ne narediš preveč saj te bo utrudilo in zmanjkalo ti bo prostora."])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_l8uur"]
+script = ExtResource("4_0rfkw")
+description = ""
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_76whu")])
+default_starting_dialog = "pozdravljen [name] sem opazil da imaš posebne moči"
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_xnv3s"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kaj lahko naredim in iz česa"])
+response_dialog = Array[String](["tool -> workpiece -> result
+rock -> rock -> sand
+rock -> rock -> dirt
+rock -> rock -> hard metal
+hard metal -> rock -> brick rock
+hard metal -> rock -> brick tile rock
+dirt -> dirt -> clay
+N/A -> clay -> brick
+N/A -> clay -> brick tile
+hard metal -> hard metal -> iron bar
+clay -> sand -> concrete
+sand -> sand -> glass
+hard metal -> glass -> window"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_siai5"]
+script = ExtResource("5_0rfkw")
+use_basis = false
+new_basis = Array[int]([])
+add_basis_flags = Array[int]([])
+remove_basis_flags = Array[int]([])
+basis_is_root = 0
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
+quest_item = 0
+quantity = 0
+ql = 0
+reward = 0
+other_npcs = Array[ExtResource("11_cdsqw")]([])
+list_avatar_dialog = Array[String](["kako uporabljati in kreirati"])
+response_dialog = Array[String](["uporabi construction window N key or [construction] bindings.
+primer:
+rock tool -> rock workpiece -> hard metal result"])
+response_failed_dialog = ""
+metadata/_custom_type_script = "uid://brslonx5by775"
+
+[sub_resource type="Resource" id="Resource_vdj3e"]
+script = ExtResource("4_0rfkw")
+description = "kaj lahko naredim"
+dict_mission__entity_num = Dictionary[String, int]({})
+mission_quantity = 0
+fail_passes = false
+display_answers = true
+list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_xnv3s"), SubResource("Resource_siai5")])
+default_starting_dialog = ""
+default_failed_dialog = ""
+metadata/_custom_type_script = "uid://sjmolji57b8"
+
+[sub_resource type="Resource" id="Resource_wxx03"]
+script = ExtResource("3_d1vgu")
+quest_name = "Dragon"
+position = Vector2(1200, 300)
+patrol_targets = Array[Vector2]([Vector2(1200, 400), Vector2(864, 516), Vector2(516, 864), Vector2(400, 150)])
+layer = 0
+quest_body_type = 311
+color = Color(1, 0.0941176, 0.270588, 1)
+equipment = 0
+activated = false
+list_quest_basis = Array[ExtResource("4_0rfkw")]([SubResource("Resource_l8uur"), SubResource("Resource_vdj3e")])
+believe_l = 0.0
+believe_r = 1.0
+reset = false
+debug_basis = 0
+debug_activated = true
+metadata/_custom_type_script = "uid://4bh35mqidnhe"
+
 [sub_resource type="Resource" id="Resource_xgrt2"]
 script = ExtResource("22_tt0nk")
 description = "1. quadrant
@@ -8863,7 +9201,7 @@ metadata/_custom_type_script = ExtResource("22_tt0nk")
 script = ExtResource("1_bgkrv")
 global_timer = NodePath("Timer")
 container = Array[ExtResource("2_8f7pb")]([SubResource("Resource_d1vgu"), SubResource("Resource_0rfkw"), SubResource("Resource_oaqqu"), SubResource("Resource_x6q08"), SubResource("Resource_gk0eu"), SubResource("Resource_tloub"), SubResource("Resource_4n8xy"), SubResource("Resource_6p7k8"), SubResource("Resource_ve1j6"), SubResource("Resource_2o1ts"), SubResource("Resource_on5aj"), SubResource("Resource_f6nne"), SubResource("Resource_ex1qj"), SubResource("Resource_cpje5"), SubResource("Resource_d1ktf"), SubResource("Resource_4pasq"), SubResource("Resource_j6yh1"), SubResource("Resource_vhy11"), SubResource("Resource_hgplm"), SubResource("Resource_nin14"), SubResource("Resource_kfgrk"), SubResource("Resource_i1ljv"), SubResource("Resource_mrgwt"), SubResource("Resource_sn0bx"), SubResource("Resource_to0er"), SubResource("Resource_6ut2l")])
-quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj"), SubResource("Resource_v5avt"), SubResource("Resource_ykhcu"), SubResource("Resource_mqvoq"), SubResource("Resource_nrofl"), SubResource("Resource_kyy1y"), SubResource("Resource_q36m6"), SubResource("Resource_w0jbm"), SubResource("Resource_8vmaa"), SubResource("Resource_3nh3w"), SubResource("Resource_u0pu3"), SubResource("Resource_xaie5"), SubResource("Resource_2but0")])
+quest_container = Array[ExtResource("3_d1vgu")]([SubResource("Resource_qrwrg"), SubResource("Resource_cdsqw"), SubResource("Resource_krk0d"), SubResource("Resource_ogpnp"), SubResource("Resource_53ixe"), SubResource("Resource_go2w6"), SubResource("Resource_avhuw"), SubResource("Resource_chumm"), SubResource("Resource_8ce2w"), SubResource("Resource_bet0m"), SubResource("Resource_cknr8"), SubResource("Resource_ptcvj"), SubResource("Resource_v5avt"), SubResource("Resource_ykhcu"), SubResource("Resource_mqvoq"), SubResource("Resource_nrofl"), SubResource("Resource_kyy1y"), SubResource("Resource_q36m6"), SubResource("Resource_w0jbm"), SubResource("Resource_8vmaa"), SubResource("Resource_3nh3w"), SubResource("Resource_u0pu3"), SubResource("Resource_xaie5"), SubResource("Resource_2but0"), SubResource("Resource_a6pw1"), SubResource("Resource_wxx03")])
 array_house_ground = Array[ExtResource("22_tt0nk")]([SubResource("Resource_xgrt2"), SubResource("Resource_tiwuc"), SubResource("Resource_kdcl1"), SubResource("Resource_2bky1"), SubResource("Resource_0nbsj"), SubResource("Resource_6aln0"), SubResource("Resource_w0hg2"), SubResource("Resource_qyol8"), SubResource("Resource_eejkm"), SubResource("Resource_58eew")])
 
 [node name="Timer" type="Timer" parent="."]

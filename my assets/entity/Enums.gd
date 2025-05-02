@@ -123,7 +123,7 @@ enum Esprite{
 	mold_shovel_head						= 15008,
 	mold_hammer_head						= 15009,
 	raw_bowl								= 15010,
-	concrete								= 15011,
+	mortar									= 15011,
 	brick_clay								= 15012,
 	brick_tile_clay							= 15013,
 	#region hard clay 17500

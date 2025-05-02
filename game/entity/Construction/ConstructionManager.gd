@@ -18,13 +18,17 @@ func open_close_window():
 		open_window()
 
 func open_window():
-	tool.set_entity(Entity.get_entity(g_man.user.load_return_id_tool()))
-	workpiece.set_entity(Entity.get_entity(g_man.user.load_return_id_workpiece()))
-	finished_product.set_entity(Entity.get_entity(g_man.user.load_return_id_finished_product()))
-	fetch_results()
-	g_man.quests_manager.close_window()
-	show()
-	set_anchors()
+	# crafting fork
+	if g_man.user and g_man.user.load_return_user_type() == 2:
+		tool.set_entity(Entity.get_entity(g_man.user.load_return_id_tool()))
+		workpiece.set_entity(Entity.get_entity(g_man.user.load_return_id_workpiece()))
+		finished_product.set_entity(Entity.get_entity(g_man.user.load_return_id_finished_product()))
+		fetch_results()
+		g_man.quests_manager.close_window()
+		show()
+		set_anchors()
+	else:
+		g_man.changes_manager.add_change("you cannot craft you need to learn how to craft first")
 
 func close_window():
 	hide()

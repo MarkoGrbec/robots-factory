@@ -73,6 +73,9 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 		if button_type == ButtonType.WORKPIECE or button_type == ButtonType.TOOL:
 			if button_construction.button_type == ButtonType.TOOL or button_construction.button_type == ButtonType.WORKPIECE:
 				return false
+		# if entity exists on finished product don't drag it here
+		if entity and button_construction.button_type == ButtonType.FINISHED_PRODUCT:
+			return false
 	# everything else can be added even finished product
 	return true
 

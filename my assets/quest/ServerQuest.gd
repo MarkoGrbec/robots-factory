@@ -288,8 +288,10 @@ func ask(raw_text: String, client) -> Array:
 					break
 		_array_old_basis__qq_index[1] = index_quest_question
 		response_dialog = get_response_dialog_indexed(qq, q_obj, avatar_name)
-		
-		set_new_basis(qq, q_obj, general_basis, avatar_name, indexes)
+		if check_items_integrity(qq, client) and mission_quantity == 0:
+			set_new_basis(qq, q_obj, general_basis, avatar_name, indexes)
+		else:
+			response_dialog[1] = qq.response_failed_dialog
 		get_display_answers_all(indexes)
 		return [response_dialog, qq, inventory.id, _array_old_basis__qq_index, array_believe, array_answers__response_size]
 	# fail
