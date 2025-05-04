@@ -126,6 +126,7 @@ func _on_gui_input(event: InputEvent) -> void:
 				g_man.changes_manager.add_change("select")
 			elif g_man.construction_manager.finished_product.entity.entity_num == entity:
 				g_man.construction_manager.finished_product.entity.quantity += 1
+				g_man.construction_manager.finished_product.entity.save_quantity()
 				g_man.construction_manager.finished_product.recount()
 				g_man.construction_manager.destroy_entity_workpiece()
 

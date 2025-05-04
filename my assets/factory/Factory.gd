@@ -3,7 +3,8 @@ class_name Factory extends Node
 enum Type{
 	FRIENDLY,
 	ENEMY,
-	FIGHT
+	FIGHT,
+	CRAFT
 }
 
 enum State{
@@ -35,26 +36,26 @@ func _ready() -> void:
 		g_man.enemy_factory = self
 	if type == Type.FIGHT:
 		g_man.factory_fight = self
+	if type == Type.CRAFT:
+		g_man.factory_craft = self
 
 func upgrade():
 	if state < State.SMOKE:
 		health = initial_health
-		@warning_ignore("int_as_enum_without_cast")
-		state += 1
+		change_state(1)
 		# change texture
 		factory_texture.texture = textures[state]
 		# activate collision
 		collisions[state].disabled = false
 		
-		if (type == Type.FRIENDLY or type == Type.FIGHT) and state == State.SMOKE:
+		if (type == Type.FRIENDLY or type == Type.FIGHT or type == Type.CRAFT) and state == State.SMOKE:
 			# finished game
 			g_man.mold_window.set_instructions_only([end_game_text])
 
 func downgrade():
 	if state > State.NONE:
 		health = initial_health
-		@warning_ignore("int_as_enum_without_cast")
-		state -= 1
+		change_state(-1)
 		# change texture
 		factory_texture.texture = textures[state]
 		# activate collision
@@ -68,8 +69,19 @@ func get_hit(_damage):
 	health -= _damage
 	if health <= 0:
 		downgrade()
-	#
-	#state = State.NONE
-	#factory_texture.texture = null
-	#for col in collisions:
-		#col.disabled = true
+
+func reset():
+	state = State.NONE
+	g_man.user.save_factory_state(state)
+	factory_texture.texture = null
+	for col in collisions:
+		col.disabled = true
+
+func change_state(value):
+	state += value
+	g_man.user.save_factory_state(state)
+
+func reload_state(_state):
+	reset()
+	for i in range(0, int(_state + 1)):
+		upgrade()

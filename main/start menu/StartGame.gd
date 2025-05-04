@@ -148,6 +148,7 @@ func welcome_screen() -> void:
 	user.load_battery_constumption()
 	user.load_weapon_strength()
 	user.load_armor_strength()
+	user.load_factory_state()
 	# load position
 	var pos = user.load_return_position()
 	if pos != Vector2.ZERO:

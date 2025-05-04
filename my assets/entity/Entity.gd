@@ -2752,6 +2752,7 @@ func fully_save():
 func partly_save():
 	push_error("save: ", id, " ", to_string_name())
 	save_entity_num()
+	save_quantity()
 
 func fully_load():
 	#load_ql()

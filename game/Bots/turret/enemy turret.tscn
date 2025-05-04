@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://clrvijc1kdgy4"]
+[gd_scene load_steps=27 format=3 uid="uid://clrvijc1kdgy4"]
 
 [ext_resource type="Texture2D" uid="uid://b1sqhpytlj3ps" path="res://game/Bots/turret/PNG/Tower.png" id="1_j3jun"]
 [ext_resource type="Script" uid="uid://yvv4581kuoun" path="res://game/Bots/turret/EnemyTurret.gd" id="1_x8plt"]
@@ -26,19 +26,32 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_ewk0r"]
 radius = 17.0294
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6eugu"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pu8dd"]
+bg_color = Color(1, 0, 0, 0.498039)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_color = Color(0, 0, 0, 1)
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_j3jun"]
 radius = 752.0
 
-[node name="TurretStaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("weapon_sprite_2d", "master_audio_stream_player", "attack_timer") groups=["enemy"]]
+[node name="TurretStaticBody2D" type="StaticBody2D" node_paths=PackedStringArray("weapon_sprite_2d", "health_progress_bar", "master_audio_stream_player", "attack_timer", "health_timer") groups=["enemy"]]
 scale = Vector2(2, 2)
 script = ExtResource("1_x8plt")
 weapon_sprite_2d = NodePath("Sprite2D/Weapon")
+health_progress_bar = NodePath("Sprite2D/Health")
 weapon_sprites = Array[Texture2D]([ExtResource("2_mbhoa"), ExtResource("3_j4aok"), ExtResource("2_x8plt"), ExtResource("5_ewk0r"), ExtResource("6_oj4p0"), ExtResource("7_fxicx"), ExtResource("8_a27re"), ExtResource("9_y5k0w"), ExtResource("10_ebbrh")])
 bullet = Array[Texture2D]([ExtResource("5_j4aok"), ExtResource("6_f6etr"), ExtResource("7_f5xnr")])
 bullet_sound = Array[AudioStream]([ExtResource("14_rjjr8"), ExtResource("15_6eugu"), ExtResource("16_pu8dd")])
 bullet_impact_sound = Array[AudioStream]([ExtResource("17_ucoka"), ExtResource("18_iyhgh"), ExtResource("19_v4cvo")])
 master_audio_stream_player = NodePath("MasterAudioStreamPlayer2D")
 attack_timer = NodePath("AttackTimer")
+health_timer = NodePath("Sprite2D/HealthTimer")
 bullet_scene = ExtResource("6_v28d3")
 fire_speed = Array[PackedFloat32Array]([PackedFloat32Array(0.512, 0.256, 0.128), PackedFloat32Array(1, 0.5, 0.8), PackedFloat32Array(2, 1, 0.5)])
 station_damage = Array[float]([11.0, 15.0, 20.0])
@@ -53,6 +66,26 @@ scale = Vector2(0.128, 0.128)
 texture = ExtResource("1_j3jun")
 
 [node name="Weapon" type="Sprite2D" parent="Sprite2D"]
+
+[node name="Health" type="ProgressBar" parent="Sprite2D"]
+anchors_preset = -1
+anchor_left = -0.068
+anchor_top = -0.306
+anchor_right = 1.017
+anchor_bottom = -0.113
+offset_left = -117.088
+offset_top = -108.396
+offset_right = -116.978
+offset_bottom = -125.558
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 32
+theme_override_styles/background = SubResource("StyleBoxFlat_6eugu")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pu8dd")
+value = 100.0
+
+[node name="HealthTimer" type="Timer" parent="Sprite2D"]
+wait_time = 3.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -69,6 +102,7 @@ metadata/_custom_type_script = "uid://dtpaa0wfd5kuc"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
+[connection signal="timeout" from="Sprite2D/HealthTimer" to="." method="hide_health"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="AttackTimer" to="." method="shoot"]

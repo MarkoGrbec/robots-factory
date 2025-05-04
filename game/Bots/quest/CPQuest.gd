@@ -168,6 +168,21 @@ func succeed_old_basis(success_old_basis__qq_index):
 		if success_old_basis__qq_index[0] == 2:
 			if success_old_basis__qq_index[1] == 0:
 				g_man.friendly_robots_spawn_fight.spawn_friendly_to_build()
+	elif quest_index == 25:# larisse
+		if success_old_basis__qq_index[0] == 0:# 0. layer
+			g_man.factory_craft.reset()
+		elif success_old_basis__qq_index[0] == 1:# 1. layer
+			g_man.factory_craft.upgrade()
+		elif success_old_basis__qq_index[0] == 3:# 2. layer
+			g_man.factory_craft.upgrade()
+		elif success_old_basis__qq_index[0] == 7:# 3. layer
+			g_man.factory_craft.upgrade()
+		elif success_old_basis__qq_index[0] == 8:# 4. layer
+			g_man.factory_craft.upgrade()
+		elif success_old_basis__qq_index[0] == 9:# 5. layer
+			g_man.factory_craft.upgrade()
+		elif success_old_basis__qq_index[0] == 10:# 6. layer
+			g_man.factory_craft.upgrade()
 
 func change_name():
 	g_man.change_name_manager.open_window()

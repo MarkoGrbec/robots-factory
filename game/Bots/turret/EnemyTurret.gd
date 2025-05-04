@@ -17,12 +17,14 @@ enum Station{
 }
 
 @export var weapon_sprite_2d: Sprite2D
+@export var health_progress_bar: ProgressBar
 @export var weapon_sprites: Array[Texture2D]
 @export var bullet: Array[Texture2D]
 @export var bullet_sound: Array[AudioStream]
 @export var bullet_impact_sound: Array[AudioStream]
 @export var master_audio_stream_player: MasterAudioStreamPlayer2D
 @export var attack_timer: Timer
+@export var health_timer: Timer
 
 @export var bullet_scene: PackedScene
 
@@ -126,12 +128,24 @@ func reset_station():
 	station = Station.NONE
 	state = State.IDLE
 	weapon_sprite_2d.texture = null
-	health = 100
+	change_health(100, false)
 	attack_timer.stop()
 	reset_timer = Time.get_ticks_msec()
 
 func get_hit(damage):
 	damage -= armor[station_type]
-	health -= clampf(damage, 0, INF)
+	change_health(clampf(damage, 0, INF))
 	if health < 0:
 		reset_station()
+
+func change_health(value, add = true):
+	if add:
+		health += value
+	else:
+		health = value
+	health_progress_bar.value = health
+	health_progress_bar.show()
+	health_timer.start(3)
+
+func hide_health():
+	health_progress_bar.hide()

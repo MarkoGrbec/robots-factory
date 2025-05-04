@@ -28,6 +28,7 @@ func destroy():
 	save_weapon_reflexes(1, true)
 	save_layer(0)
 	save_position(Vector2.ZERO)
+	save_factory_state(-1)
 #region fully
 func fully_load():
 	if not avatar_name:
@@ -119,6 +120,9 @@ func save_id_workpiece(id_workpiece):
 
 func save_id_finished_product(id_finished_product):
 	save_uni("id_finished_product", id_finished_product)
+
+func save_factory_state(state):
+	save_uni("factory_state", state)
 	#endregion save
 	#region load
 func load_username():
@@ -174,6 +178,15 @@ func load_return_id_workpiece():
 
 func load_return_id_finished_product():
 	return load_uni("id_finished_product", 0)
+
+func load_factory_state():
+	var state = load_uni("factory_state", -1)
+	if load_return_user_type() == 2:
+		g_man.factory_craft.reload_state(state)
+	else:
+		g_man.factory.reload_state(state)
+		g_man.enemy_factory.reload_state(state)
+		g_man.factory_fight.reload_state(state)
 	#endregion load
 #endregion save load
 

@@ -308,6 +308,14 @@ Thank you for playing. This concludes one branch of the game.
 
 Now try the alternate path: the branch where you go through craft."
 
+[node name="FriendlyFactoryCraft" parent="." instance=ExtResource("13_wiobf")]
+position = Vector2(276, 245)
+type = 3
+end_game_text = "Excellent—you successfully constructed the new factory.
+
+Thank you for playing. This concludes one branch of the game.
+Now try the alternate path."
+
 [connection signal="body_entered" from="map/NavigationRegion2D/ground layer/EnterGatheringVillage" to="map/NavigationRegion2D/ground layer/EnterGatheringVillage" method="_on_body_entered"]
 [connection signal="body_entered" from="map/NavigationRegion2D/ground layer/EnterReality" to="map/NavigationRegion2D/ground layer/EnterReality" method="_on_body_entered"]
 [connection signal="timeout" from="FriendlyRobotsSpawnReality/SpawnFriendly" to="FriendlyRobotsSpawnReality" method="_on_spawn_friendly_timeout"]

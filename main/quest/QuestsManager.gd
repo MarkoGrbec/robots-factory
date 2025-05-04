@@ -85,7 +85,9 @@ func recount_entities():
 		quest_grid_container.add_child(node)
 		array_stop_button_quest.push_back(node)
 
-func add_response(quest_giver_name, response, basic_dialog, array_display_answers__response_size = []):
+func add_response(quest_giver_name, response, basic_dialog, array_display_answers__response_size = [], old_basis = []):
+	if true:
+		quest_giver_name = str(quest_giver_name, old_basis)
 	if _basic_dialog != basic_dialog or basic_dialog.contains("hacking, ..."):
 		_basic_dialog = basic_dialog
 		response = [response, basic_dialog]
@@ -230,7 +232,7 @@ static func target_send_quest_mob_remove(server_quest: ServerQuest):
 		server_quest.body.queue_free()
 
 func target_quest_response(quest_index, quest_giver_name, response, basis_dial, success_old_basis = [], array_believe = [], array_display_answers__response_size = []):
-	add_response(quest_giver_name, response, basis_dial, array_display_answers__response_size)
+	add_response(quest_giver_name, response, basis_dial, array_display_answers__response_size, success_old_basis)
 	var server_quest = g_man.savable_multi_avatar__quest_data.get_all(1, quest_index)
 	if server_quest[0].body:
 		if success_old_basis:

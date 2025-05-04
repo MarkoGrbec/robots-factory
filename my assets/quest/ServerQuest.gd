@@ -262,7 +262,12 @@ func ask(raw_text: String, client) -> Array:
 		if not default_failed_dialog:
 			default_failed_dialog = "what do you mean?"
 		response_dialog = [q_obj.quest_name, default_failed_dialog, false]
-	elif general_basis and not (check_items_integrity(qq, client) and mission_quantity == 0):
+	var items_intengrity = false
+	if qq:
+		items_intengrity = check_items_integrity(qq, client)
+	if not qq:
+		pass
+	elif general_basis and not (items_intengrity and mission_quantity == 0):
 		# failed
 		#var array_old_basis__qq_index
 		if q_obj.list_quest_basis[basis].fail_passes:
@@ -288,7 +293,7 @@ func ask(raw_text: String, client) -> Array:
 					break
 		_array_old_basis__qq_index[1] = index_quest_question
 		response_dialog = get_response_dialog_indexed(qq, q_obj, avatar_name)
-		if check_items_integrity(qq, client) and mission_quantity == 0:
+		if items_intengrity and mission_quantity == 0:
 			set_new_basis(qq, q_obj, general_basis, avatar_name, indexes)
 		else:
 			response_dialog[1] = qq.response_failed_dialog

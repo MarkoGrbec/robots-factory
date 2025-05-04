@@ -30,6 +30,7 @@ var friendly_robots_spawn_fight: FriendlyRobotsSpawnFight
 var factory: Factory
 var enemy_factory: Factory
 var factory_fight: Factory
+var factory_craft: Factory
 
 var dbms = "DBMS"
 
@@ -121,7 +122,7 @@ func create_database():
 	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "id_tool")
 	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "id_workpiece")
 	_table.create_column(false, dbms, DataBase.DataType.LONG, 1, "id_finished_product")
-	
+	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "factory_state")
 	
 	
 	

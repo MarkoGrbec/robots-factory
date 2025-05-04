@@ -55,7 +55,6 @@ enum Layers{
 }
 
 func bake():
-	await get_tree().process_frame
 	if not navigation_region_2d.is_baking():
 		#await navigation_region_2d.bake_finished
 		navigation_region_2d.bake_navigation_polygon()

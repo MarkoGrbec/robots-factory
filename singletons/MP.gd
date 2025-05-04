@@ -276,7 +276,7 @@ func get_quest_objects(id_avatar) -> Array[ServerQuest]:
 # 1. malta
 # 2. kovina - železne palce malta
 # 3. okna - opeka - železo
-# 4. železne štange
+# 4. hard metal
 # 5. strešna kritina
 # 6. opeka
 # 
