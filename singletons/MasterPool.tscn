@@ -2850,7 +2850,7 @@ ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([SubResource("Resource_atkkb"), SubResource("Resource_igqiu"), SubResource("Resource_b0ioe"), SubResource("Resource_w3sfa")])
 list_avatar_dialog = Array[String](["Build through crafting."])
-response_dialog = Array[String](["Try restarting the game after a few months because this is a fork you won’t take this time."])
+response_dialog = Array[String](["You're taking the easiest path, but the most tiresome one."])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
@@ -2980,8 +2980,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_yto8b")])
-default_starting_dialog = "odločil si se za craftanje najlažjo pot. pojdi in zgradi tovarno iz nič.
-Ne boj se tu te roboti ne bodo našli. Ko bo pa zgrajena bo pa za njih že prepozno."
+default_starting_dialog = "You've chosen the crafting path - the easiest route. Go and build the factory from scratch.
+Don't worry, the robots won't find you here. But once it's built, it'll be too late for them."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -8855,8 +8855,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["rad bi zgradil tovarno"])
-response_dialog = Array[String](["in imaš vse sestavine?"])
+list_avatar_dialog = Array[String](["I'd like to build a factory."])
+response_dialog = Array[String](["And do you have all the required materials?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -8868,7 +8868,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_tigvo")])
-default_starting_dialog = "pozravljen [name], kaj je tebe pripeljalo k meni?"
+default_starting_dialog = "Greetings [name], what brings you to me?"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -8885,9 +8885,9 @@ quantity = 3
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["imam mortar"])
-response_dialog = Array[String](["ha ha sem vedela da boš znal"])
-response_failed_dialog = "potrebujem 3 mortar"
+list_avatar_dialog = Array[String](["I have mortar."])
+response_dialog = Array[String](["Ha ha! I knew you'd figure it out."])
+response_failed_dialog = "I need 3 mortar."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_xwn2e"]
@@ -8903,9 +8903,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["katere sestavine potrebujem"])
-response_dialog = Array[String](["prvo bova naredila temelj
-torej mortar"])
+list_avatar_dialog = Array[String](["What resources do I need?"])
+response_dialog = Array[String](["First we'll make the foundation.
+So mortar."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -8922,8 +8922,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["koliko sestavin potrebujem"])
-response_dialog = Array[String](["1 mortar"])
+list_avatar_dialog = Array[String](["How many resources do I need?"])
+response_dialog = Array[String](["3 mortar."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -8953,8 +8953,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["kaj potrebujeva"])
-response_dialog = Array[String](["potrebuješ železne palice"])
+list_avatar_dialog = Array[String](["What do we need?"])
+response_dialog = Array[String](["We need iron rods."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -8967,13 +8967,13 @@ remove_basis_flags = Array[int]([])
 basis_is_root = 0
 add_qq_flags = Array[ExtResource("5_0rfkw")]([])
 quest_item = 25001
-quantity = 1
+quantity = 10
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["imam konstrukcijo za vrata"])
-response_dialog = Array[String](["niti nisem dvomila"])
-response_failed_dialog = "potrebujeva 10 palic"
+list_avatar_dialog = Array[String](["I have a door frame ready."])
+response_dialog = Array[String](["I never doubted you!"])
+response_failed_dialog = "We'll need 10 rods."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_u0h1b"]
@@ -8984,8 +8984,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ai5md"), SubResource("Resource_dvjah")])
-default_starting_dialog = "hopsa hopsa imava temelj
-sedaj je čas za vrata"
+default_starting_dialog = "Hoppity hop! Foundation's done.
+Now for the doors!"
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9002,8 +9002,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["kaj potrebuješ"])
-response_dialog = Array[String](["10 mortarja"])
+list_avatar_dialog = Array[String](["What do you need?"])
+response_dialog = Array[String](["10 mortar."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -9020,9 +9020,9 @@ quantity = 10
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["dajva zaliti konstrukcijo"])
-response_dialog = Array[String](["evo že zalivam"])
-response_failed_dialog = "potrebujem material za zalivanje"
+list_avatar_dialog = Array[String](["Let's pour the foundation."])
+response_dialog = Array[String](["Here, I'm pouring it now."])
+response_failed_dialog = "I need material for pouring."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_jddyk"]
@@ -9033,7 +9033,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_dycxi"), SubResource("Resource_1jomh")])
-default_starting_dialog = "zdaj ko imava konstrukcijo jo morava zaliti"
+default_starting_dialog = "Now that we have the frame, we need to pour it."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9050,9 +9050,10 @@ quantity = 10
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["imam konstrukcijo"])
-response_dialog = Array[String](["hvala za železne palice sedaj jih moram postaviti"])
-response_failed_dialog = "potrebujem 10 železnih palic"
+list_avatar_dialog = Array[String](["I have the frame ready."])
+response_dialog = Array[String](["Thanks for the iron rods.
+Now I need to install them."])
+response_failed_dialog = "I need 10 iron rods."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_idyjh"]
@@ -9063,8 +9064,8 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_vgnv7")])
-default_starting_dialog = "zdaj ko imava vrata morava še zid postavit malce pozno ampak tudi to je lahko način.
-najprej potrebujeva nekaj konstrukcije."
+default_starting_dialog = "Now that we have the doors, we still need to build the wall. It's a bit late for this step, but it can still work.
+First, we'll need some structural framework."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9081,9 +9082,9 @@ quantity = 3
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["imam okna"])
-response_dialog = Array[String](["tako se to dela."])
-response_failed_dialog = "rabim 3 okna"
+list_avatar_dialog = Array[String](["I have windows."])
+response_dialog = Array[String](["That's how it's done!"])
+response_failed_dialog = "I need 3 windows."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_0ujpo"]
@@ -9094,7 +9095,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_5xb8l")])
-default_starting_dialog = "evo potrebujem nekaj oken da jih bomo potrem vstavili v zid"
+default_starting_dialog = "Hey, we'll need some windows to install in the wall."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9111,9 +9112,9 @@ quantity = 20
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["evo nekaj mortarja"])
-response_dialog = Array[String](["ta zid bo zgrajen v kratkem času"])
-response_failed_dialog = "rabim 20 mortarja"
+list_avatar_dialog = Array[String](["Here's some mortar."])
+response_dialog = Array[String](["This wall will be built in no time!"])
+response_failed_dialog = "I need 20 mortar."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_2mt31"]
@@ -9124,7 +9125,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_cugor")])
-default_starting_dialog = "evo potreboval bom še mortar za zid"
+default_starting_dialog = "Looks like I'll need more mortar for the wall."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9141,9 +9142,9 @@ quantity = 20
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["evo imam glineno opeko"])
-response_dialog = Array[String](["že gradim zid"])
-response_failed_dialog = "potrebujem 20 opeke"
+list_avatar_dialog = Array[String](["Here, I have clay bricks."])
+response_dialog = Array[String](["I'm going to build the wall."])
+response_failed_dialog = "I need 20 bricks."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_hmadv"]
@@ -9159,9 +9160,9 @@ quantity = 20
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["evo imam skalnato opeko"])
-response_dialog = Array[String](["že gradim zid"])
-response_failed_dialog = "potrebujem 20 opeke"
+list_avatar_dialog = Array[String](["Here, I have stone bricks."])
+response_dialog = Array[String](["I'm going to build the wall."])
+response_failed_dialog = "I need 20 bricks."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_wuimg"]
@@ -9177,8 +9178,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["ali iz kamna ali iz gline?"])
-response_dialog = Array[String](["tokrat 40 opeke iz kamna ali iz gline ne pa mešano."])
+list_avatar_dialog = Array[String](["Should they be stone or clay?"])
+response_dialog = Array[String](["This time, 20 bricks - either all stone or all clay, no mixed materials."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -9190,7 +9191,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_mtrt5"), SubResource("Resource_hmadv"), SubResource("Resource_wuimg")])
-default_starting_dialog = "še zadnja naj pomembnejša stvar za zid opeka"
+default_starting_dialog = "One last crucial thing for the wall: the bricks."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9207,9 +9208,9 @@ quantity = 5
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["evo hard metal"])
-response_dialog = Array[String](["superca hard metal bom spremenila v plošče"])
-response_failed_dialog = "potrebujem 5 hard metala"
+list_avatar_dialog = Array[String](["Here's the hard metal."])
+response_dialog = Array[String](["Perfect - I'll forge this hard metal into plates."])
+response_failed_dialog = "I need 5 hard metal."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_m6ohx"]
@@ -9220,7 +9221,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_0bopo")])
-default_starting_dialog = "potrebujem še nekaj železja"
+default_starting_dialog = "I'll also require some additional hard metal."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9237,9 +9238,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["ali iz gline ali iz kamna?"])
-response_dialog = Array[String](["vseeno samo ne mešano.
-rabim jih pa 10"])
+list_avatar_dialog = Array[String](["Clay or stone?"])
+response_dialog = Array[String](["Doesn't matter - just no mixed materials.
+I need 10 of them."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -9256,9 +9257,9 @@ quantity = 10
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["imam glinene strešne kritine"])
-response_dialog = Array[String](["grem jo polagati"])
-response_failed_dialog = "rabim 10 strešne kritine"
+list_avatar_dialog = Array[String](["I have clay roof tiles."])
+response_dialog = Array[String](["I'll start installing them."])
+response_failed_dialog = "I need 10 roof tiles."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_ssyrd"]
@@ -9274,9 +9275,9 @@ quantity = 10
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["imam skalnate strešne kritine"])
-response_dialog = Array[String](["grem jo polagati"])
-response_failed_dialog = "rabim 10 strešne kritine"
+list_avatar_dialog = Array[String](["I have stone roof tiles."])
+response_dialog = Array[String](["I'll start installing them."])
+response_failed_dialog = "I need 10 roof tiles."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_57p5s"]
@@ -9287,7 +9288,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_6o81o"), SubResource("Resource_d03mw"), SubResource("Resource_ssyrd")])
-default_starting_dialog = "evo potrebujemo še strešno kritino"
+default_starting_dialog = "Hey - we still need more roofing."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9304,9 +9305,9 @@ quantity = 5
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["evo opeko"])
-response_dialog = Array[String](["hvala tovarna je zgrajena"])
-response_failed_dialog = "rabim še 5 opeke za dimnik ne mešano lahko iz kamna ali gline samo ne mešano."
+list_avatar_dialog = Array[String](["Here are clay bricks."])
+response_dialog = Array[String](["Thanks - the factory is now complete!"])
+response_failed_dialog = "I need 5 more bricks for the chimney - no mixed materials. Stone or clay only, but not mixed."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_imvlk"]
@@ -9322,9 +9323,9 @@ quantity = 5
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["evo opeko"])
-response_dialog = Array[String](["hvala tovarna je zgrajena"])
-response_failed_dialog = "rabim še 5 opeke za dimnik ne mešano lahko iz kamna ali gline samo ne mešano."
+list_avatar_dialog = Array[String](["Here are stone bricks."])
+response_dialog = Array[String](["Thanks - the factory is now complete!"])
+response_failed_dialog = "I need 5 more bricks for the chimney - no mixed materials. Stone or clay only, but not mixed."
 metadata/_custom_type_script = "uid://brslonx5by775"
 
 [sub_resource type="Resource" id="Resource_kpvlk"]
@@ -9335,7 +9336,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_2o7sn"), SubResource("Resource_imvlk")])
-default_starting_dialog = "rabim še opeko za dimnik pa je to to"
+default_starting_dialog = "I just need chimney bricks now, and that's it."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9370,9 +9371,9 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["kakšne posebne moči imam"])
-response_dialog = Array[String](["Maja ti je dala super moči.
-vsekakor lahko narediš vse a vendar moraš paziti da ne narediš preveč saj te bo utrudilo in zmanjkalo ti bo prostora."])
+list_avatar_dialog = Array[String](["What special abilities do I have?"])
+response_dialog = Array[String](["Maja gave you superpowers.
+Technically, you can create anything - but be careful not to overdo it. Exhaustion and space limitations apply."])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -9384,7 +9385,7 @@ mission_quantity = 0
 fail_passes = false
 display_answers = true
 list_quest_questions = Array[ExtResource("5_0rfkw")]([SubResource("Resource_76whu")])
-default_starting_dialog = "pozdravljen [name] sem opazil da imaš posebne moči"
+default_starting_dialog = "Greetings [name], I've noticed your special abilities."
 default_failed_dialog = ""
 metadata/_custom_type_script = "uid://sjmolji57b8"
 
@@ -9401,20 +9402,24 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["kaj lahko naredim in iz česa"])
-response_dialog = Array[String](["tool -> workpiece -> result
-rock -> rock -> sand
-rock -> rock -> dirt
-rock -> rock -> hard metal
-hard metal -> rock -> brick rock
-hard metal -> rock -> brick tile rock
-dirt -> dirt -> clay
-N/A -> clay -> brick
-N/A -> clay -> brick tile
-hard metal -> hard metal -> iron bar
-clay -> sand -> concrete
-sand -> sand -> glass
-hard metal -> glass -> window"])
+list_avatar_dialog = Array[String](["What can I make and from what?"])
+response_dialog = Array[String](["Let me explain what you can craft and from what materials:
+
+Crafting System Guide
+(Tool -> Workpiece -> Result)
+Recipe Combinations:
+Rock + Rock = Sand
+Rock + Rock = Dirt
+Rock + Rock = Hard Metal
+Hard Metal + Rock = Brick Rock
+Hard Metal + Rock = Brick Tile Rock
+Dirt + Dirt = Clay
+N/A + Clay = Brick
+N/A + Clay = Brick Tile
+Hard Metal + Hard Metal = Iron Rod
+Clay + Sand = Mortar
+Sand + Sand = Glass
+Hard Metal + Glass = Window"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -9431,10 +9436,16 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["kako uporabljati in kreirati"])
-response_dialog = Array[String](["uporabi construction window N key or [construction] bindings.
-primer:
-rock tool -> rock workpiece -> hard metal result"])
+list_avatar_dialog = Array[String](["How do I use this crafting system?"])
+response_dialog = Array[String](["Open the Construction Window by pressing N key
+
+Follow the pattern:
+Tool -> Target Material -> Result
+
+Example:
+Select Rock as your tool
+Target another Rock as workpiece
+Get Hard Metal"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 

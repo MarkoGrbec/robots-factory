@@ -161,6 +161,9 @@ var array_believe
 var array_response_dialog_index: Array[int]
 ## display_answers
 var array_answers__response_size: Array = []
+## dict qq flags ({basis -> flags} -> {flag -> flags})
+var dict_qq_flags__flags_flag = {}
+
 #region completting mission
 func mission_completing(dict_string_mission__Entity_sprite: Dictionary):
 	if dict_mission__entity_num and mission_quantity:

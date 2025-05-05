@@ -111,7 +111,7 @@ func config(server_quest: ServerQuest) -> void:
 			server_quest.save_activated()
 
 # Get a quest question based on basis and text input
-func get_quest_question(basis: int, text: String):
+func get_quest_question(basis: int, text: String, qq_flags: Dictionary = {}):
 	if list_quest_basis.size() <= basis or basis < 0:
 		push_error("NO quests for " + quest_name + ": " + str(basis) + ", count: " + str(list_quest_basis.size()))
 		return null
@@ -119,7 +119,7 @@ func get_quest_question(basis: int, text: String):
 	var q_basis = list_quest_basis[basis]
 	potential_load_basis(basis)
 	
-	var qqs = q_basis.list_quest_questions
+	var qqs: Array[QuestQuestion] = q_basis.list_quest_questions
 	
 	var qq_from_avatar_dialogs = []
 	#var index = 0
@@ -142,178 +142,184 @@ func get_quest_question(basis: int, text: String):
 	#
 	qq_from_avatar_dialogs = []
 	var dict_indexes = {}
-	#
-	#get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes, basis +1)
-	#if qq_from_avatar_dialogs:
-		#qq_from_avatar_dialogs = qq_from_avatar_dialogs[0]
+	
+	var flags = qq_flags.get(basis)
+	if flags:
+		for flag in flags:
+			var got = get_qq_from_deeps2(flag[1], qqs, text, qq_from_avatar_dialogs, dict_indexes, flag[0])
+			if got:
+				break
+	
+	if qq_from_avatar_dialogs:
+		qq_from_avatar_dialogs = qq_from_avatar_dialogs[0]
 	return [qq_from_avatar_dialogs, dict_indexes]
 
-func get_qq_from_deeps2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes: Dictionary, deep_basis_index):
-	var index = 0
-	var index_in_qq = 0
-	for qq in qqs:
-		var array = dict_indexes.get_or_add(str(deep_basis_index), [])
-		array.push_back(index_in_qq +1)
-		for qq_flag in qq.add_qq_flags:
-			var temp = get_qq_from_avatar_dialogs(qq_flag, text)
-			if temp:
-				qq_from_avatar_dialogs.push_back(temp)
-				var array_flag = dict_indexes.get_or_add(str(deep_basis_index, ":", index +1), [])
-				array_flag.push_back(index +1)
-			index += 1
-		index_in_qq += 1
-	
-	get_qq_from_deep_in2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes)
-
-func get_qq_from_deep_in2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes: Dictionary):
-	if qq_deeps and qqs:
-		for qq_deep in qq_deeps:
-			if qqs.size() < qq_deep.index:
-				continue
-			var qq = qqs[qq_deep.index -1]
-			if qq:
-				
-				#var index = 0
-				#for qq_flag in qq.add_qq_flags:
-					#var temp = get_qq_from_avatar_dialogs(qq_flag, text)
-					#if temp:
-						#qq_from_avatar_dialogs.push_back(temp)
-						#
-						#var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
-						#array.push_back(index +1)
-					#index += 1
+@warning_ignore("unused_parameter")
+func get_qq_from_deeps2(qq_flags: Dictionary, qqs: Array[QuestQuestion], text, qq_from_avatar_dialogs, dict_indexes: Dictionary, deep_basis_index):
+	var flags = qq_flags.get(deep_basis_index)
+	if flags:
+		for flag in flags:
+			for deep in qqs[flag[0]].add_qq_flags:
+				var dialog = get_qq_from_avatar_dialogs(deep, text)
+				if dialog:
+					qq_from_avatar_dialogs = [dialog, {}]
+					return dialog
+				return get_qq_from_deeps2(flag[1], deep.add_qq_flags, text, qq_from_avatar_dialogs, dict_indexes, flag[0])
+				#var x = flag[1].get(flag[0])
+				#for y in deep.add_qq_flags[x[0]]:
+					#var dial = get_qq_from_avatar_dialogs(y, text)
+					#if dial:
+						#qq_from_avatar_dialogs = [dial, {}]
+						#return dial
 				
 				
-				var temp = get_qq_from_avatar_dialogs(qq, text)
-				if temp:
-					qq_from_avatar_dialogs.push_back(temp)
-					var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
-					array.push_back(qq_deep.index)
 				
-				var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
-				get_qq_from_deep_in2(qq_ds, qq.add_qq_flags, text, qq_from_avatar_dialogs, dict_indexes)
-
-
-
-
-
-
-
-
-
-
-
-
-func get_qq_from_deeps1(qq_deeps, qqs, array_indexes, text, ret = [null, array_indexes]):
-	if not qqs:
-		return ret
-	
-	
-	var index = 0
-	var index_in_qq = 0
-	for qq in qqs:
-		array_indexes.push_back(index_in_qq)
-		for qq_flag in qq.add_qq_flags:
-			var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
-			if qq_from_avatar_dialogs:
-				array_indexes.push_back(index)
+				###get_qq_from_deeps2(flag[1], deep.add_qq_flags, text, qq_from_avatar_dialogs, )
+	##
+	##var index = 0
+	##var index_in_qq = 0
+	##for qq in qqs:
+		##var array = dict_indexes.get_or_add(str(deep_basis_index), [])
+		##array.push_back(index_in_qq +1)
+		##for qq_flag in qq.add_qq_flags:
+			##var temp = get_qq_from_avatar_dialogs(qq_flag, text)
+			##if temp:
+				##qq_from_avatar_dialogs.push_back(temp)
+				##var array_flag = dict_indexes.get_or_add(str(deep_basis_index, ":", index +1), [])
+				##array_flag.push_back(index +1)
+			##index += 1
+		##index_in_qq += 1
+	##
+	##get_qq_from_deep_in2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes)
+#
+#func get_qq_from_deep_in2(qq_deeps, qqs, text, qq_from_avatar_dialogs, dict_indexes: Dictionary):
+	#if qq_deeps and qqs:
+		#for qq_deep in qq_deeps:
+			#if qqs.size() < qq_deep.index:
+				#continue
+			#var qq = qqs[qq_deep.index -1]
+			#if qq:
+				#
+				##var index = 0
+				##for qq_flag in qq.add_qq_flags:
+					##var temp = get_qq_from_avatar_dialogs(qq_flag, text)
+					##if temp:
+						##qq_from_avatar_dialogs.push_back(temp)
+						##
+						##var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
+						##array.push_back(index +1)
+					##index += 1
+				#
+				#
+				#var temp = get_qq_from_avatar_dialogs(qq, text)
+				#if temp:
+					#qq_from_avatar_dialogs.push_back(temp)
+					#var array = dict_indexes.get_or_add(str(qq_deep.str_index, ":", qq_deep.index), [])
+					#array.push_back(qq_deep.index)
+				#
+				#var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
+				#get_qq_from_deep_in2(qq_ds, qq.add_qq_flags, text, qq_from_avatar_dialogs, dict_indexes)
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#func get_qq_from_deeps1(qq_deeps, qqs, array_indexes, text, ret = [null, array_indexes]):
+	#if not qqs:
+		#return ret
+	#
+	#
+	#var index = 0
+	#var index_in_qq = 0
+	#for qq in qqs:
+		#array_indexes.push_back(index_in_qq)
+		#for qq_flag in qq.add_qq_flags:
+			#var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
+			#if qq_from_avatar_dialogs:
+				#array_indexes.push_back(index)
+				##ret[0] = qq_from_avatar_dialogs
+				##return ret
+				#return [qq_from_avatar_dialogs, array_indexes]
+			#index += 1
+		#array_indexes.pop_back()
+		#index_in_qq += 1
+	#
+	#
+	#
+	#if qq_deeps:
+		#for qq_deep in qq_deeps:
+			#for qq in qqs[qq_deep.index -1].add_qq_flags:
+				#var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
+				#if qq_from_avatar_dialogs:
+					#array_indexes.push_back(qq_deep.index -1)
+					##ret[0] = qq_from_avatar_dialogs
+					##return ret
+					#return [qq_from_avatar_dialogs, array_indexes]
+				#var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
+				#return get_qq_from_deep_in(qq_ds, qq.add_qq_flags, array_indexes, text, ret)
+	#
+	#
+	##return ret
+#
+#func get_qq_from_deep_in(qq_deeps, qqs, array_indexes, text, ret = [null, array_indexes]):
+	#if qq_deeps:
+		#for qq_deep in qq_deeps:
+			#for qq in qqs[qq_deep.index -1].add_qq_flags:
+				#var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
+				#if qq_from_avatar_dialogs:
+					#array_indexes.push_back(qq_deep.index -1)
+					##ret[0] = qq_from_avatar_dialogs
+					##return ret
+					#return [qq_from_avatar_dialogs, array_indexes]
+				#var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
+				#return get_qq_from_deep_in(qq_ds, qq.add_qq_flags, array_indexes, text, ret)
+#
+#
+#
+#
+#func get_qq_from_deeps(qq_deeps, qqs, array_indexes, text, ret = [null, array_indexes, {}], i_indexes = 0):
+	#var index = 0
+	#if not qqs:
+		#ret = ret.duplicate()
+		##ret[2] = true
+		#return ret
+	#
+	## last one in row get 1 more deeper
+	##if not qq_deeps:
+	#index = 0
+	#var index_in_qq = 0
+	#for qq in qqs:
+		#array_indexes.push_back(index_in_qq)
+		#for qq_flag in qq.add_qq_flags:
+			#var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
+			#if qq_from_avatar_dialogs:
+				#ret[2][str(i_indexes)] = [index, true]
+				#i_indexes = index
+				#i_indexes += 1
+				#array_indexes.push_back(index)
 				#ret[0] = qq_from_avatar_dialogs
 				#return ret
-				return [qq_from_avatar_dialogs, array_indexes]
-			index += 1
-		array_indexes.pop_back()
-		index_in_qq += 1
-	
-	
-	
-	if qq_deeps:
-		for qq_deep in qq_deeps:
-			for qq in qqs[qq_deep.index -1].add_qq_flags:
-				var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
-				if qq_from_avatar_dialogs:
-					array_indexes.push_back(qq_deep.index -1)
-					#ret[0] = qq_from_avatar_dialogs
-					#return ret
-					return [qq_from_avatar_dialogs, array_indexes]
-				var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
-				return get_qq_from_deep_in(qq_ds, qq.add_qq_flags, array_indexes, text, ret)
-	
-	
-	#return ret
-
-func get_qq_from_deep_in(qq_deeps, qqs, array_indexes, text, ret = [null, array_indexes]):
-	if qq_deeps:
-		for qq_deep in qq_deeps:
-			for qq in qqs[qq_deep.index -1].add_qq_flags:
-				var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq, text)
-				if qq_from_avatar_dialogs:
-					array_indexes.push_back(qq_deep.index -1)
-					#ret[0] = qq_from_avatar_dialogs
-					#return ret
-					return [qq_from_avatar_dialogs, array_indexes]
-				var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
-				return get_qq_from_deep_in(qq_ds, qq.add_qq_flags, array_indexes, text, ret)
-
-
-
-
-func get_qq_from_deeps(qq_deeps, qqs, array_indexes, text, ret = [null, array_indexes, {}], i_indexes = 0):
-	var index = 0
-	if not qqs:
-		ret = ret.duplicate()
-		#ret[2] = true
-		return ret
-	
-	# last one in row get 1 more deeper
-	#if not qq_deeps:
-	index = 0
-	var index_in_qq = 0
-	for qq in qqs:
-		array_indexes.push_back(index_in_qq)
-		for qq_flag in qq.add_qq_flags:
-			var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
-			if qq_from_avatar_dialogs:
-				ret[2][str(i_indexes)] = [index, true]
-				i_indexes = index
-				i_indexes += 1
-				array_indexes.push_back(index)
-				ret[0] = qq_from_avatar_dialogs
-				return ret
-				#through = true
-			#else:
-				#array_indexes.pop_back()
-			index += 1
-		#if not ret[0]:
-			#array_indexes.pop_back()
-		index_in_qq += 1
-	
-	
-	if qq_deeps:
-		# get the right one for the answer
-		for qq_deep in qq_deeps:
-			for qq_flags in qqs[qq_deep.index -1].add_qq_flags:
-				var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flags, text)
-				if qq_from_avatar_dialogs:
-					ret[2][str(i_indexes)] = [index, true]
-					i_indexes = index
-					i_indexes += 1
-					array_indexes.push_back(index)
-					ret[0] = qq_from_avatar_dialogs
-					return ret
-			index += 1
-		# get deep in answers that have been explored in array_indexes
-		var deep = explore_deep(qq_deeps, array_indexes, qqs, text, ret, i_indexes +1)
-		if deep:
-			i_indexes += 1
-	
-	## last one in row get 1 more deeper
-	#if not qq_deeps:
-		#index = 0
-		#var index_in_qq = 0
-		#for qq in qqs:
-			##array_indexes.push_back(index_in_qq)
-			#for qq_flag in qq.add_qq_flags:
-				#var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
+				##through = true
+			##else:
+				##array_indexes.pop_back()
+			#index += 1
+		##if not ret[0]:
+			##array_indexes.pop_back()
+		#index_in_qq += 1
+	#
+	#
+	#if qq_deeps:
+		## get the right one for the answer
+		#for qq_deep in qq_deeps:
+			#for qq_flags in qqs[qq_deep.index -1].add_qq_flags:
+				#var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flags, text)
 				#if qq_from_avatar_dialogs:
 					#ret[2][str(i_indexes)] = [index, true]
 					#i_indexes = index
@@ -321,30 +327,51 @@ func get_qq_from_deeps(qq_deeps, qqs, array_indexes, text, ret = [null, array_in
 					#array_indexes.push_back(index)
 					#ret[0] = qq_from_avatar_dialogs
 					#return ret
-					##through = true
-				##else:
-					##array_indexes.pop_back()
-				#index += 1
-			##if not ret[0]:
-				##array_indexes.pop_back()
-			#index_in_qq += 1
-	#ret = ret.duplicate()
-	#ret[2] = through
-	return ret
-
-func explore_deep(qq_deeps, array_indexes, qqs, text, ret, i_indexes):
-	# get deep in answers that have been explored in array_indexes
-	for qq_deep in qq_deeps:
-		#array_indexes.push_back(qq_deep.index -1)
-		var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
-		var qq_from_avatar_dialogs = get_qq_from_deeps(qq_ds, qqs[qq_deep.index -1].add_qq_flags, array_indexes, text, ret, i_indexes +1)
-		#if not qq_from_avatar_dialogs[2]:
-			#array_indexes.pop_back()
-		if qq_from_avatar_dialogs:
-			ret[2][str(i_indexes)] = [qq_deep.index -1, true]
-			#i_indexes = qq_deep.index -1
-			array_indexes.push_back(qq_deep.index -1)
-			return qq_from_avatar_dialogs
+			#index += 1
+		## get deep in answers that have been explored in array_indexes
+		#var deep = explore_deep(qq_deeps, array_indexes, qqs, text, ret, i_indexes +1)
+		#if deep:
+			#i_indexes += 1
+	#
+	### last one in row get 1 more deeper
+	##if not qq_deeps:
+		##index = 0
+		##var index_in_qq = 0
+		##for qq in qqs:
+			###array_indexes.push_back(index_in_qq)
+			##for qq_flag in qq.add_qq_flags:
+				##var qq_from_avatar_dialogs = get_qq_from_avatar_dialogs(qq_flag, text)
+				##if qq_from_avatar_dialogs:
+					##ret[2][str(i_indexes)] = [index, true]
+					##i_indexes = index
+					##i_indexes += 1
+					##array_indexes.push_back(index)
+					##ret[0] = qq_from_avatar_dialogs
+					##return ret
+					###through = true
+				###else:
+					###array_indexes.pop_back()
+				##index += 1
+			###if not ret[0]:
+				###array_indexes.pop_back()
+			##index_in_qq += 1
+	##ret = ret.duplicate()
+	##ret[2] = through
+	#return ret
+#
+#func explore_deep(qq_deeps, array_indexes, qqs, text, ret, i_indexes):
+	## get deep in answers that have been explored in array_indexes
+	#for qq_deep in qq_deeps:
+		##array_indexes.push_back(qq_deep.index -1)
+		#var qq_ds = g_man.savable_multi____quest___qq__qq.get_all(qq_deep.id, 0)
+		#var qq_from_avatar_dialogs = get_qq_from_deeps(qq_ds, qqs[qq_deep.index -1].add_qq_flags, array_indexes, text, ret, i_indexes +1)
+		##if not qq_from_avatar_dialogs[2]:
+			##array_indexes.pop_back()
+		#if qq_from_avatar_dialogs:
+			#ret[2][str(i_indexes)] = [qq_deep.index -1, true]
+			##i_indexes = qq_deep.index -1
+			#array_indexes.push_back(qq_deep.index -1)
+			#return qq_from_avatar_dialogs
 
 func get_qq_from_avatar_dialogs(qq, text):
 	if qq.list_avatar_dialog.any(
