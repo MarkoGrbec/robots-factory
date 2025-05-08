@@ -2199,8 +2199,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["test"])
-response_dialog = Array[String](["test dialog 4"])
+list_avatar_dialog = Array[String](["a4"])
+response_dialog = Array[String](["response a4"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -2235,8 +2235,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["abbc"])
-response_dialog = Array[String](["response abbc"])
+list_avatar_dialog = Array[String](["a3"])
+response_dialog = Array[String](["response a3"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -2253,8 +2253,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["abb"])
-response_dialog = Array[String](["response abb"])
+list_avatar_dialog = Array[String](["a2"])
+response_dialog = Array[String](["response a2"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -2271,8 +2271,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["abc"])
-response_dialog = Array[String](["response abc"])
+list_avatar_dialog = Array[String](["a1"])
+response_dialog = Array[String](["response a1"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -2289,8 +2289,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["bbb"])
-response_dialog = Array[String](["response bbb"])
+list_avatar_dialog = Array[String](["b2"])
+response_dialog = Array[String](["response b2"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 
@@ -2307,8 +2307,8 @@ quantity = 0
 ql = 0
 reward = 0
 other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["bbc"])
-response_dialog = Array[String](["response bbc"])
+list_avatar_dialog = Array[String](["b1"])
+response_dialog = Array[String](["response b1"])
 response_failed_dialog = ""
 metadata/_custom_type_script = "uid://brslonx5by775"
 

@@ -132,6 +132,8 @@ func get_quest_question(basis: int, text: String, qq_flags: Dictionary = {}):
 		if qq_from_avatar_dialogs:
 			#var string = str(basis +1)
 			_flags.get_or_add(i, {})
+			#for iii in qq.add_qq_flags.size():
+				#deep_dict.get_or_add(iii, {})
 			return [qq_from_avatar_dialogs, {}]
 		i += 1
 		#index += 1
@@ -147,21 +149,10 @@ func get_quest_question(basis: int, text: String, qq_flags: Dictionary = {}):
 	qq_from_avatar_dialogs = []
 	var dict_indexes = {}
 	
+	
 	var flags: Dictionary = qq_flags.get(basis)
 	if flags:
-		for flag in flags:
-			var dict = flags.get(flag)
-			var ii: int = 0
-			for deep in qqs[basis].add_qq_flags:
-				var dialog = get_qq_from_avatar_dialogs(deep, text)
-				if dialog:
-					dict.get_or_add(ii, {})
-					return [dialog, {}]
-				var got = get_qq_from_deeps2(dict, deep.add_qq_flags, text, qq_from_avatar_dialogs, dict_indexes, ii)
-				if got:
-					break
-				ii += 1
-	
+		qq_from_avatar_dialogs = get_qq_from_deeps2(flags, qqs, text, qq_from_avatar_dialogs, dict_indexes, 0)
 	if qq_from_avatar_dialogs:
 		qq_from_avatar_dialogs = qq_from_avatar_dialogs[0]
 	return [qq_from_avatar_dialogs, dict_indexes]
@@ -173,23 +164,25 @@ func get_qq_from_deeps2(qq_flags: Dictionary, qqs: Array[QuestQuestion], text, q
 	for flag in qq_flags:
 		var dict = qq_flags.get(flag)
 		var i: int = 0
-		for deep in qqs[deep_basis_index].add_qq_flags:
-			var dialog = get_qq_from_avatar_dialogs(deep, text)
-			if dialog:
-				dict.get_or_add(i, {})
-				qq_from_avatar_dialogs = [dialog, {}]
-				return dialog
-			var got = get_qq_from_deeps2(dict, deep.add_qq_flags, text, qq_from_avatar_dialogs, dict_indexes, i)
-			if got:
-				return got
+		for deep in qqs:
+			if i == flag:
+				var dialog = get_qq_from_avatar_dialogs(deep, text)
+				if dialog:
+					qq_from_avatar_dialogs = [dialog, {}]
+					return qq_from_avatar_dialogs
+				else:
+					var ii: int = 0
+					for deep_i in deep.add_qq_flags:
+						dialog = get_qq_from_avatar_dialogs(deep_i, text)
+						if dialog:
+							dict.get_or_add(ii, {})
+							qq_from_avatar_dialogs = [dialog, {}]
+							return qq_from_avatar_dialogs
+						ii += 1
+				var got = get_qq_from_deeps2(dict, deep.add_qq_flags, text, qq_from_avatar_dialogs, dict_indexes, i)
+				if got:
+					return got
 			i += 1
-			#var x = flag[1].get(flag[0])
-			#for y in deep.add_qq_flags[x[0]]:
-				#var dial = get_qq_from_avatar_dialogs(y, text)
-				#if dial:
-					#qq_from_avatar_dialogs = [dial, {}]
-					#return dial
-			
 			
 			
 			###get_qq_from_deeps2(flag[1], deep.add_qq_flags, text, qq_from_avatar_dialogs, )
