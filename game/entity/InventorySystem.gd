@@ -1,16 +1,21 @@
 class_name InventorySystem extends TabContainer
 
 @export var inventory_slot_scene: PackedScene
+@export var grid_container_inventory_slots: GridContainer
+
+var window_manager: WindowManager
+var picked_entity
 var dragging: bool = false
 var hover_over_sprite: int = 0
-@export var grid_container_inventory_slots: GridContainer
-var picked_entity
+
 
 func _ready() -> void:
+	window_manager = get_parent()
+	window_manager.set_id_window(2, "inventory")
 	g_man.inventory_system = self
 
 func close_window():
-	hide()
+	window_manager.close_window()
 	g_man.quests_manager.set_anchors()
 	g_man.construction_manager.set_anchors()
 
@@ -20,7 +25,7 @@ func open_window(open: bool = false):
 			close_window()
 		return
 	else:
-		show()
+		window_manager.open_window()
 		g_man.quests_manager.set_anchors()
 		g_man.construction_manager.set_anchors()
 

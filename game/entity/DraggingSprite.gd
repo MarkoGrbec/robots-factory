@@ -8,6 +8,7 @@ var entity_button_inventory: EntityButtonInventory
 var can_change_quantity = false
 
 func _physics_process(_delta: float) -> void:
+	g_man.inventory_system.window_manager.camera_inside(g_man.camera.global_position - global_position)
 	global_position = get_global_mouse_position()
 	if Input.is_action_just_released("select"):
 		var local_position = g_man.camera.global_position - global_position
@@ -18,7 +19,7 @@ func _physics_process(_delta: float) -> void:
 		if g_man.construction_manager.is_visible_in_tree():
 			c_opened = local_position.x < -125
 		# boundries of inventory
-		if entity_button_inventory and (local_position.x > -125 or local_position.y < -40) and q_opened and c_opened and entity:
+		if entity_button_inventory and not g_man.inventory_system.window_manager.camera_inside(local_position) and q_opened and c_opened and entity:
 			# make entity in world as it didn't go in any of the slots
 			g_man.entity_manager.drop_entity_in_world(entity, g_man.entity_manager.get_global_mouse_position(), g_man.tile_map_layers.active_layer)
 			entity_button_inventory.update_texture(null)

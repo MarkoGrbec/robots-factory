@@ -1,5 +1,8 @@
 extends Node
 
+var global_canvas: GlobalCanvas
+var array_mouse_inside_windows: Array = []
+
 var tutorial: bool = false
 
 var user: User

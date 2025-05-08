@@ -1,4 +1,4 @@
-[gd_scene load_steps=552 format=3 uid="uid://cfsyjdafhmeh"]
+[gd_scene load_steps=545 format=3 uid="uid://cfsyjdafhmeh"]
 
 [ext_resource type="Script" uid="uid://c2rlcl5l04uge" path="res://singletons/MP.gd" id="1_bgkrv"]
 [ext_resource type="Script" uid="uid://db4he4pxs7h7s" path="res://my assets/entity/objects/Entity/EntityObject.gd" id="2_8f7pb"]
@@ -2186,132 +2186,6 @@ debug_basis = 0
 debug_activated = true
 metadata/_custom_type_script = ExtResource("3_d1vgu")
 
-[sub_resource type="Resource" id="Resource_s3lrg"]
-script = ExtResource("5_0rfkw")
-use_basis = true
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["a4"])
-response_dialog = Array[String](["response a4"])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
-[sub_resource type="Resource" id="Resource_ynny2"]
-script = ExtResource("5_0rfkw")
-use_basis = true
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([SubResource("Resource_s3lrg")])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["abbd"])
-response_dialog = Array[String](["response abbd"])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
-[sub_resource type="Resource" id="Resource_26iuc"]
-script = ExtResource("5_0rfkw")
-use_basis = true
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([SubResource("Resource_ynny2")])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["a3"])
-response_dialog = Array[String](["response a3"])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
-[sub_resource type="Resource" id="Resource_eimks"]
-script = ExtResource("5_0rfkw")
-use_basis = true
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([SubResource("Resource_26iuc")])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["a2"])
-response_dialog = Array[String](["response a2"])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
-[sub_resource type="Resource" id="Resource_65aeo"]
-script = ExtResource("5_0rfkw")
-use_basis = true
-new_basis = Array[int]([])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([SubResource("Resource_eimks")])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["a1"])
-response_dialog = Array[String](["response a1"])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
-[sub_resource type="Resource" id="Resource_m6ky3"]
-script = ExtResource("5_0rfkw")
-use_basis = true
-new_basis = Array[int]([0])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["b2"])
-response_dialog = Array[String](["response b2"])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
-[sub_resource type="Resource" id="Resource_qine2"]
-script = ExtResource("5_0rfkw")
-use_basis = true
-new_basis = Array[int]([0])
-add_basis_flags = Array[int]([])
-remove_basis_flags = Array[int]([])
-basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([SubResource("Resource_m6ky3")])
-quest_item = 0
-quantity = 0
-ql = 0
-reward = 0
-other_npcs = Array[ExtResource("11_cdsqw")]([])
-list_avatar_dialog = Array[String](["b1"])
-response_dialog = Array[String](["response b1"])
-response_failed_dialog = ""
-metadata/_custom_type_script = "uid://brslonx5by775"
-
 [sub_resource type="Resource" id="Resource_g2od0"]
 script = ExtResource("11_cdsqw")
 npc_activate = 4
@@ -2330,7 +2204,7 @@ new_basis = Array[int]([1])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([SubResource("Resource_65aeo"), SubResource("Resource_qine2")])
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
 quest_item = 0
 quantity = 0
 ql = 0
@@ -2348,7 +2222,7 @@ new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([SubResource("Resource_65aeo"), SubResource("Resource_qine2")])
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
 quest_item = 0
 quantity = 0
 ql = 0
@@ -2366,7 +2240,7 @@ new_basis = Array[int]([])
 add_basis_flags = Array[int]([])
 remove_basis_flags = Array[int]([])
 basis_is_root = 0
-add_qq_flags = Array[ExtResource("5_0rfkw")]([SubResource("Resource_65aeo"), SubResource("Resource_qine2")])
+add_qq_flags = Array[ExtResource("5_0rfkw")]([])
 quest_item = 0
 quantity = 0
 ql = 0

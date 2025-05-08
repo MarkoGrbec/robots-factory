@@ -8,7 +8,11 @@ class_name ConstructionManager extends TabContainer
 @export var workpiece: EntityButtonConstruction
 @export var finished_product: EntityButtonConstruction
 
+var window_manager: WindowManager
+
 func _ready() -> void:
+	window_manager = get_parent()
+	window_manager.set_id_window(1, "construction manager")
 	g_man.construction_manager = self
 
 func open_close_window():
@@ -25,21 +29,22 @@ func open_window():
 		finished_product.set_entity(Entity.get_entity(g_man.user.load_return_id_finished_product()))
 		fetch_results()
 		g_man.quests_manager.close_window()
-		show()
+		window_manager.open_window()
 		set_anchors()
 	else:
 		g_man.changes_manager.add_change("you cannot craft you need to learn how to craft first")
 
 func close_window():
-	hide()
+	window_manager.close_window()
 	set_anchors()
 
 func set_anchors():
-	if is_visible_in_tree():
-		if g_man.inventory_system.is_visible_in_tree():
-			anchor_right = 0.609
-		else:
-			anchor_right = 1
+	pass
+	#if is_visible_in_tree():
+		#if g_man.inventory_system.is_visible_in_tree():
+			#anchor_right = 0.609
+		#else:
+			#anchor_right = 1
 
 func add_tool(entity):
 	if entity:

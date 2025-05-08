@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bldvfhdbgr23e"]
+[gd_scene load_steps=47 format=3 uid="uid://bldvfhdbgr23e"]
 
 [ext_resource type="Script" uid="uid://bj254t7es4bsr" path="res://main/start menu/MainMenu.gd" id="1_3wy1v"]
 [ext_resource type="AudioStream" uid="uid://cksys18seen16" path="res://sounds/UI/breviceps_normal-ui-click.wav" id="2_bws4r"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bj1a037by05w5" path="res://my assets/changes manager/changes_manager.tscn" id="2_pjrb6"]
 [ext_resource type="AudioStream" uid="uid://b5l6uwpvbmttg" path="res://sounds/UI/suntemple_sfx-ui-button-click.wav" id="3_f5r2o"]
 [ext_resource type="PackedScene" uid="uid://btw2dmrck5wsv" path="res://main/start menu/main_tab_container.tscn" id="4_d00gp"]
+[ext_resource type="Script" uid="uid://bk3ujslk2fcg5" path="res://main/GlobalCanvas.gd" id="4_nge2l"]
 [ext_resource type="PackedScene" uid="uid://bs3s7gpgf8hym" path="res://main/quest/quests_manager.tscn" id="6_4dugh"]
 [ext_resource type="Script" uid="uid://du87a7ugu75md" path="res://main/start menu/StatsLabels.gd" id="6_jtpli"]
 [ext_resource type="PackedScene" uid="uid://ba8b517af62hg" path="res://main/success windows/change_name_manager.tscn" id="7_67ri8"]
@@ -15,6 +16,7 @@
 [ext_resource type="Script" uid="uid://b0blxi6f08uwi" path="res://main/TraderManager.gd" id="12_5xyti"]
 [ext_resource type="PackedScene" uid="uid://bwfl5sjvtwx4v" path="res://game/entity/trader_button_buy.tscn" id="13_s758e"]
 [ext_resource type="PackedScene" uid="uid://ls0x4xqay4he" path="res://game/entity/trader_button_sell.tscn" id="14_4hmqs"]
+[ext_resource type="Script" uid="uid://da1y23rh116ru" path="res://my assets/database/GUI/Windows/WindowManager.gd" id="14_pfi0o"]
 [ext_resource type="PackedScene" uid="uid://cugv3q0gmarru" path="res://game/entity/dragging_sprite.tscn" id="14_piupu"]
 [ext_resource type="Script" uid="uid://bq3j4kgt7vfxa" path="res://terrain/DraggingNode.gd" id="16_ksear"]
 [ext_resource type="AudioStream" uid="uid://chge5rm7ja346" path="res://music/Ivan Stanton, Cammy - MIDIocrity - 17 Savior of Humanity (Cammy Remix).mp3" id="18_ksear"]
@@ -70,27 +72,27 @@ bus = &"ui"
 [node name="Main" type="Control" parent="CanvasLayer"]
 y_sort_enabled = true
 layout_mode = 3
-anchor_top = 0.049
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.951
-offset_top = 1.248
-offset_bottom = 0.751953
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_kfbq2")
-
-[node name="main TabContainer" parent="CanvasLayer/Main" instance=ExtResource("4_d00gp")]
-layout_mode = 1
+script = ExtResource("4_nge2l")
 
 [node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = -1
 anchor_bottom = 0.0
-offset_top = -31.0
+offset_top = -1.0
+offset_bottom = 40.0
 grow_vertical = 1
+
+[node name="main TabContainer" parent="CanvasLayer/Main" instance=ExtResource("4_d00gp")]
+layout_mode = 1
 
 [node name="CircleSliders" parent="CanvasLayer/Main" instance=ExtResource("18_q0sk7")]
 layout_mode = 1
@@ -327,63 +329,20 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.609
 
-[node name="inventory system" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("grid_container_inventory_slots")]
-visible = false
+[node name="Construction" type="Control" parent="CanvasLayer/Main"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.609375
-anchor_top = 0.00171233
-anchor_right = 1.00038
-anchor_bottom = 0.573712
+anchor_right = 0.405
+anchor_bottom = 0.546
+offset_right = 0.439972
+offset_bottom = 0.191986
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
-script = ExtResource("9_fwcvl")
-inventory_slot_scene = ExtResource("10_n3o0a")
-grid_container_inventory_slots = NodePath("inventory/in game menu/VBoxContainer/GridContainer")
-metadata/_edit_use_anchors_ = true
+script = ExtResource("14_pfi0o")
+border = 0
+default_window_rect = Rect2(0, 0, 784, 512)
+metadata/_custom_type_script = "uid://da1y23rh116ru"
 
-[node name="inventory" type="ScrollContainer" parent="CanvasLayer/Main/inventory system"]
-layout_mode = 2
-metadata/_tab_index = 0
-
-[node name="in game menu" type="HBoxContainer" parent="CanvasLayer/Main/inventory system/inventory"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="close window2" type="Button" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "X"
-
-[node name="inventory container" type="MarginContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
-custom_minimum_size = Vector2(32, 0)
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 32)
-layout_mode = 2
-
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/inventory system/inventory/in game menu/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-columns = 5
-
-[node name="close window" type="Button" parent="CanvasLayer/Main/inventory system/inventory/in game menu"]
-visible = false
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-text = "X"
-
-[node name="ConstructionManager" type="TabContainer" parent="CanvasLayer/Main" node_paths=PackedStringArray("results_grid", "tool", "workpiece", "finished_product")]
-visible = false
+[node name="ConstructionManager" type="TabContainer" parent="CanvasLayer/Main/Construction" node_paths=PackedStringArray("results_grid", "tool", "workpiece", "finished_product")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -399,52 +358,121 @@ tool = NodePath("Construction/VBoxContainer/HBoxContainer/ToolEntityButtonConstr
 workpiece = NodePath("Construction/VBoxContainer/HBoxContainer/WorkpieceEntityButtonConstruction")
 finished_product = NodePath("Construction/VBoxContainer/HBoxContainer2/FinishedProductEntityButtonConstruction")
 
-[node name="Construction" type="ScrollContainer" parent="CanvasLayer/Main/ConstructionManager"]
+[node name="Construction" type="ScrollContainer" parent="CanvasLayer/Main/Construction/ConstructionManager"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/ConstructionManager/Construction"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer"]
 layout_mode = 2
 
-[node name="Tool" type="Label" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer/HBoxContainer"]
+[node name="Tool" type="Label" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "tool"
 
-[node name="ToolEntityButtonConstruction" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer/HBoxContainer" instance=ExtResource("19_f5r2o")]
+[node name="ToolEntityButtonConstruction" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer" instance=ExtResource("19_f5r2o")]
 layout_mode = 2
 button_type = 0
 
-[node name="WorkPiece" type="Label" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer/HBoxContainer"]
+[node name="WorkPiece" type="Label" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "workpiece"
 
-[node name="WorkpieceEntityButtonConstruction" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer/HBoxContainer" instance=ExtResource("19_f5r2o")]
+[node name="WorkpieceEntityButtonConstruction" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer" instance=ExtResource("19_f5r2o")]
 layout_mode = 2
 button_type = 1
 
-[node name="Results" type="Label" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer"]
+[node name="Results" type="Label" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer"]
 layout_mode = 2
 text = "results"
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer"]
 layout_mode = 2
 columns = 5
 
-[node name="Finished product" type="Label" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer"]
+[node name="Finished product" type="Label" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer"]
 layout_mode = 2
 text = "finished product"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer"]
 layout_mode = 2
 
-[node name="FinishedProductEntityButtonConstruction" parent="CanvasLayer/Main/ConstructionManager/Construction/VBoxContainer/HBoxContainer2" instance=ExtResource("19_f5r2o")]
+[node name="FinishedProductEntityButtonConstruction" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer2" instance=ExtResource("19_f5r2o")]
 layout_mode = 2
 button_type = 3
+
+[node name="Inventory" type="Control" parent="CanvasLayer/Main"]
+visible = false
+layout_mode = 1
+anchor_left = 0.76
+anchor_right = 1.0
+anchor_bottom = 0.394
+offset_left = 0.479919
+offset_bottom = -0.312012
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 1
+script = ExtResource("14_pfi0o")
+border = 0
+set_default_window_rect = true
+default_window_rect = Rect2(2048, 5000, 460, 380)
+metadata/_custom_type_script = "uid://da1y23rh116ru"
+
+[node name="inventory system" type="TabContainer" parent="CanvasLayer/Main/Inventory" node_paths=PackedStringArray("grid_container_inventory_slots")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+script = ExtResource("9_fwcvl")
+inventory_slot_scene = ExtResource("10_n3o0a")
+grid_container_inventory_slots = NodePath("inventory/in game menu/VBoxContainer/GridContainer")
+
+[node name="inventory" type="ScrollContainer" parent="CanvasLayer/Main/Inventory/inventory system"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="in game menu" type="HBoxContainer" parent="CanvasLayer/Main/Inventory/inventory system/inventory"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="close window2" type="Button" parent="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
+
+[node name="inventory container" type="MarginContainer" parent="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu"]
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/VBoxContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+columns = 5
+
+[node name="close window" type="Button" parent="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "X"
 
 [node name="change name manager" parent="CanvasLayer/Main" instance=ExtResource("7_67ri8")]
 visible = false
@@ -511,12 +539,16 @@ bus = &"sfx"
 [connection signal="focus_entered" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="main menu and input" method="_on_ui_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="main menu and input" method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]
-[connection signal="focus_entered" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/inventory system" method="close_window"]
-[connection signal="focus_entered" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Main/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/inventory system" method="close_window"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Construction" to="CanvasLayer/Main/Construction" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main/Construction" to="CanvasLayer/Main/Construction" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory" to="CanvasLayer/Main/Inventory" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main/Inventory" to="CanvasLayer/Main/Inventory" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/Inventory/inventory system" method="close_window"]
+[connection signal="focus_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/Inventory/inventory system" method="close_window"]
 [connection signal="focus_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/disable binding button" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/disable binding button" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
 [connection signal="focus_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
