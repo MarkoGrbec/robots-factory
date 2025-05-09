@@ -2725,6 +2725,10 @@ func damage_entity(entity_to_damage: Entity, client = null):
 				#g_man.local_server_network_node.net_dp_node.target_entitis_destroy.rpc_id(client.id_net, [entity_to_damage.id])
 #endregion destruction
 #region count
+func add_quantity(_quantity):
+	quantity += _quantity
+	save_quantity()
+
 func get_dict_count():
 	var dict = {}
 	for e in e_container:

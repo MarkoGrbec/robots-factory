@@ -12,14 +12,12 @@ func _physics_process(_delta: float) -> void:
 	global_position = get_global_mouse_position()
 	if Input.is_action_just_released("select"):
 		var local_position = g_man.camera.global_position - global_position
-		var q_opened = true
-		var c_opened = true
-		if g_man.quests_manager.is_visible_in_tree():
-			q_opened = local_position.x < -125
-		if g_man.construction_manager.is_visible_in_tree():
-			c_opened = local_position.x < -125
+		
+		var i_opened = g_man.inventory_system.window_manager.camera_inside(local_position)
+		var q_opened = g_man.quests_manager.window_manager.camera_inside(local_position)
+		var c_opened = g_man.construction_manager.window_manager.camera_inside(local_position)
 		# boundries of inventory
-		if entity_button_inventory and not g_man.inventory_system.window_manager.camera_inside(local_position) and q_opened and c_opened and entity:
+		if entity_button_inventory and not i_opened and not q_opened and not c_opened and entity:
 			# make entity in world as it didn't go in any of the slots
 			g_man.entity_manager.drop_entity_in_world(entity, g_man.entity_manager.get_global_mouse_position(), g_man.tile_map_layers.active_layer)
 			entity_button_inventory.update_texture(null)

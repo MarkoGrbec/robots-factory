@@ -106,8 +106,9 @@ func delete_database_if_needed():
 func create_database():
 	delete_database_if_needed()
 	var _table: DataBase.Table
-	#_table = DataBase.Table.new("windows")
-	#_table.create_column(false, dbms, DataBase.DataType.RECT, 1, "rect")
+	_table = DataBase.Table.new("windows")
+	_table.create_column(false, dbms, DataBase.DataType.RECT, 1, "rect")
+	
 	_table = DataBase.Table.new("user")
 	_table.create_column(false, dbms, DataBase.DataType.STRING, 16, "username")
 	_table.create_column(false, dbms, DataBase.DataType.INT, 1, "time_changed_name")

@@ -12,7 +12,7 @@ var window_manager: WindowManager
 
 func _ready() -> void:
 	window_manager = get_parent()
-	window_manager.set_id_window(1, "construction manager")
+	window_manager.set_id_window(2, "construction manager")
 	g_man.construction_manager = self
 
 func open_close_window():
@@ -40,11 +40,11 @@ func close_window():
 
 func set_anchors():
 	pass
-	#if is_visible_in_tree():
-		#if g_man.inventory_system.is_visible_in_tree():
-			#anchor_right = 0.609
-		#else:
-			#anchor_right = 1
+	if is_visible_in_tree():
+		if g_man.inventory_system.is_visible_in_tree():
+			window_manager.set_relative_size(0.6, true, true)
+		else:
+			window_manager.set_relative_size(0.6, true, false)
 
 func add_tool(entity):
 	if entity:

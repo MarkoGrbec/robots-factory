@@ -114,6 +114,16 @@ func change_entity(_entity, node: EntityButtonInventory):
 		node.quantity_label.text = ""
 	node.inventory_slot.save_id_entity()
 
+func update_entity():
+	if entity:
+		var entity_obj = mp.get_item_object(entity.entity_num)
+		update_texture(entity_obj.texture)
+		set_tooltip()
+		update_quantity()
+	else:
+		update_texture(null)
+	
+
 func set_tooltip():
 	if entity:
 		tooltip_text = entity.to_string_name()
@@ -124,4 +134,10 @@ func update_texture(_texture):
 	slot_texture.texture = _texture
 	if not _texture:
 		entity = null
+		quantity_label.text = ""
+
+func update_quantity():
+	if entity:
+		quantity_label.text = str(entity.quantity)
+	else:
 		quantity_label.text = ""

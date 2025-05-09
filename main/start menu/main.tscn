@@ -322,14 +322,31 @@ layout_mode = 2
 size_flags_vertical = 0
 text = "X"
 
-[node name="QuestsManager" parent="CanvasLayer/Main" instance=ExtResource("6_4dugh")]
+[node name="Quest" type="Control" parent="CanvasLayer/Main"]
 visible = false
+layout_mode = 1
+anchor_right = 0.75
+anchor_bottom = 1.0
+offset_right = -6.10352e-05
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("14_pfi0o")
+grab_threshold = 65
+border = 0
+set_default_window_rect = true
+default_window_rect = Rect2(0, 0, 1024, 512)
+minimum_window_size = Vector2(512, 512)
+metadata/_custom_type_script = "uid://da1y23rh116ru"
+
+[node name="QuestsManager" parent="CanvasLayer/Main/Quest" instance=ExtResource("6_4dugh")]
 z_index = 1
 layout_mode = 1
-anchors_preset = -1
-anchor_right = 0.609
+mouse_filter = 1
 
 [node name="Construction" type="Control" parent="CanvasLayer/Main"]
+visible = false
 layout_mode = 1
 anchor_right = 0.405
 anchor_bottom = 0.546
@@ -337,9 +354,13 @@ offset_right = 0.439972
 offset_bottom = 0.191986
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("14_pfi0o")
+grab_threshold = 65
 border = 0
+set_default_window_rect = true
 default_window_rect = Rect2(0, 0, 784, 512)
+minimum_window_size = Vector2(512, 512)
 metadata/_custom_type_script = "uid://da1y23rh116ru"
 
 [node name="ConstructionManager" type="TabContainer" parent="CanvasLayer/Main/Construction" node_paths=PackedStringArray("results_grid", "tool", "workpiece", "finished_product")]
@@ -349,7 +370,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 0
 current_tab = 0
 script = ExtResource("19_oip6e")
 entity_button_construction = ExtResource("19_f5r2o")
@@ -372,6 +392,7 @@ layout_mode = 2
 
 [node name="Tool" type="Label" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 text = "tool"
 
 [node name="ToolEntityButtonConstruction" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer" instance=ExtResource("19_f5r2o")]
@@ -380,6 +401,7 @@ button_type = 0
 
 [node name="WorkPiece" type="Label" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 text = "workpiece"
 
 [node name="WorkpieceEntityButtonConstruction" parent="CanvasLayer/Main/Construction/ConstructionManager/Construction/VBoxContainer/HBoxContainer" instance=ExtResource("19_f5r2o")]
@@ -419,6 +441,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("14_pfi0o")
+grab_threshold = 65
 border = 0
 set_default_window_rect = true
 default_window_rect = Rect2(2048, 5000, 460, 380)
@@ -539,6 +562,8 @@ bus = &"sfx"
 [connection signal="focus_entered" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="main menu and input" method="_on_ui_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="main menu and input" method="_on_mouse_entered"]
 [connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Quest" to="CanvasLayer/Main/Quest" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main/Quest" to="CanvasLayer/Main/Quest" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Main/Construction" to="CanvasLayer/Main/Construction" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Main/Construction" to="CanvasLayer/Main/Construction" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="CanvasLayer/Main/Inventory" to="CanvasLayer/Main/Inventory" method="_on_mouse_entered"]

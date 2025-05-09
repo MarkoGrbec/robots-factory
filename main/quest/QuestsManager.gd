@@ -12,8 +12,7 @@ var array_stop_button_quest: Array[StopButtonQuest]
 @export var answer_container: GridContainer
 
 @export var believe_texture_rect: TextureRect
-### for automated scrolling
-#@export var scroll_container: Control
+
 
 var dict_name__server_quest: Dictionary[String, ServerQuest]
 var dialogs = []
@@ -21,6 +20,7 @@ var answers = []
 var _basic_dialog
 
 var _quest_index
+var window_manager: WindowManager
 #region text to speach
 # One-time steps.
 var voices
@@ -30,26 +30,27 @@ var stop_talking
 
 func _ready() -> void:
 	g_man.quests_manager = self
-	#get_parent().set_id_window(13, "quests manager")
+	window_manager = get_parent()
+	window_manager.set_id_window(3, "quest manager")
 	
 	# Pick a voice. Here, we arbitrarily pick the first English voice.
 	voices = DisplayServer.tts_get_voices_for_language("en")
 	pass
 
 func show_window():
-	show()
+	window_manager.open_window()
 	g_man.construction_manager.close_window()
 	set_anchors()
 
 func set_anchors():
 	if is_visible_in_tree():
 		if g_man.inventory_system.is_visible_in_tree():
-			anchor_right = 0.609
+			window_manager.set_relative_size(0.6, true, true)
 		else:
-			anchor_right = 1
+			window_manager.set_relative_size(0.6, true, false)
 
 func close_window():
-	hide()
+	window_manager.close_window()
 	if stop_talking and stop_talking.is_valid():
 		stop_talking.call()
 		stop_talking = null

@@ -10,6 +10,12 @@ func destroy():
 	id_entity = 0
 	save_id_entity()
 
+func set_id_entity_and_entity(_id_entity):
+	id_entity = _id_entity
+	save_id_entity()
+	set_entity()
+	
+
 func save_id_entity():
 	DataBase.insert(_server, g_man.dbms, _path, "id_entity", id, id_entity)
 	if id_entity:
@@ -24,10 +30,10 @@ func load_id_entity():
 func fully_load():
 	load_id_entity()
 	if id_entity:
-		var entity: Entity = g_man.savable_entity.get_index_data(id_entity)
-		entity_button_inventory.entity = entity
-		if entity:
-			var entity_object: EntityObject = mp.get_item_object(entity.entity_num)
-			entity_button_inventory.update_texture(entity_object.texture)
-			entity_button_inventory.quantity_label.text = str(entity.quantity)
-			entity_button_inventory.set_tooltip()
+		set_entity()
+
+func set_entity():
+	var entity: Entity = g_man.savable_entity.get_index_data(id_entity)
+	entity_button_inventory.entity = entity
+	if entity:
+		entity_button_inventory.update_entity()

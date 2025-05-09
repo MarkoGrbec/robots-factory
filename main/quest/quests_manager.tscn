@@ -32,18 +32,15 @@ believe_texture_rect = NodePath("quest dialog/VBoxContainer/MarginContainer2/Tex
 
 [node name="quest dialog" type="HBoxContainer" parent="."]
 layout_mode = 2
-mouse_filter = 0
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="quest dialog"]
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-mouse_filter = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="quest dialog"]
 layout_mode = 2
 size_flags_horizontal = 3
-mouse_filter = 0
 
 [node name="MarginContainer2" type="MarginContainer" parent="quest dialog/VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
@@ -97,20 +94,18 @@ placeholder_text = "say to npc"
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 size_flags_stretch_ratio = 0.3
-mouse_filter = 0
 
 [node name="quest grid container" type="GridContainer" parent="quest dialog/MarginContainer2"]
 layout_mode = 2
-mouse_filter = 0
 
 [node name="entity button quest" parent="quest dialog/MarginContainer2/quest grid container" instance=ExtResource("3_mp27h")]
 layout_mode = 2
-mouse_filter = 0
 
 [node name="close dialog manager" type="Button" parent="quest dialog"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+mouse_filter = 1
 text = "X"
 
 [connection signal="editing_toggled" from="quest dialog/VBoxContainer/ask quester" to="." method="_on_ask_quester_editing_toggled"]

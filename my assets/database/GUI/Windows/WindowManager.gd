@@ -1,5 +1,27 @@
 class_name WindowManager extends Control
 
+@export var grab_threshold := 55
+@export var resize_threshold := 20
+@export var border := 20
+@export var set_default_window_rect: bool = false
+@export var default_window_rect: Rect2 = Rect2(256, 100, 784, 256)
+@export var minimum_window_size: Vector2 = Vector2(225, 225)
+## when ever resizing window it makes sibling last
+@export var set_if_last_sibling: bool = false
+## if it can drag
+@export var can_drag: bool = true
+## if it can resize x
+@export var can_resize_x: bool = true
+## if it can resize y cannot resize it yet
+@export var can_resize_y: bool = false
+## if it can resize width
+@export var can_resize_width: bool = true
+## if it can resize height
+@export var can_resize_height: bool = true
+
+static var MOUSE_BUTTON_NAME: String = "left mouse button"
+static var id_windows = {}
+
 var start : Vector2
 var initial_position : Vector2
 var is_moving : bool
@@ -9,19 +31,7 @@ var resize_y : bool
 var initial_size : Vector2
 var focus = false
 var id_window: int
-
-static var MOUSE_BUTTON_NAME: String = "left mouse button"
-static var id_windows = {}
-
-@export var grab_threshold := 55
-@export var resize_threshold := 20
-@export var border := 20
-@export var set_default_window_rect: bool = false
-@export var default_window_rect: Rect2 = Rect2(256, 100, 784, 256)
-@export var minimum_window_size: Vector2 = Vector2(225, 225)
-## when ever resizing window it makes sibling last
-@export var set_if_last_sibling: bool = false
-
+var set_anchor_less: bool = true
 func _ready() -> void:
 	g_man.array_mouse_inside_windows.push_back(mouse_inside)
 
@@ -75,8 +85,7 @@ func is_last_sibling():
 func set_id_window(id:int, text:String):
 	id_window = id
 	if id_windows.has(id):
-		pass
-		#g_man.mold_window.set_instructions_only([text, "window id:", id, "does not have unique id there for won't save it's position size correctly it conflicts with:", id_windows[id], get_stack()])
+		g_man.mold_window.set_instructions_only([text, "window id:", id, "does not have unique id there for won't save it's position size correctly it conflicts with:", id_windows[id], get_stack()])
 	else:
 		id_windows[id] = text
 		if not id == 14: # slider manager do not resize or move
@@ -92,24 +101,49 @@ func set_id_window(id:int, text:String):
 # if it's accidenally out of borders I throw them back and resize
 func reset_window_position():
 	await get_tree().process_frame
-	var pos = get_global_position()
-	# left border
-	if pos.x < border:
-		pos.x = border
-	# right border
-	elif pos.x > g_man.global_canvas.get_global_canvas_rect().size.x + border * 2 - get_size().x:
-		pos.x = g_man.global_canvas.get_global_canvas_rect().size.x + border * 2 - get_size().x
-	# top border
-	if pos.y < border:
-		pos.y = border
-	# bottom border
-	elif pos.y > g_man.global_canvas.get_global_canvas_rect().size.y + border * 2 - get_size().y:
-		pos.y = g_man.global_canvas.get_global_canvas_rect().size.y + border * 2 - get_size().y
-	set_position(pos)
-	# if too big window resize it
-	var new_width = clamp(get_size().x, minimum_window_size.x, g_man.global_canvas.get_global_canvas_rect().size.x - get_global_rect().position.x - border)
-	var new_height = clamp(get_size().y, minimum_window_size.y, g_man.global_canvas.get_global_canvas_rect().size.y - get_global_rect().position.y - border)
-	set_size(Vector2(new_width, new_height))
+	for i in 2:
+		var pos = get_global_position()
+		# left border
+		if pos.x < border:
+			pos.x = border
+		# right border
+		elif pos.x > g_man.global_canvas.get_global_canvas_rect().size.x + border * 2 - get_size().x:
+			pos.x = g_man.global_canvas.get_global_canvas_rect().size.x + border * 2 - get_size().x
+		# top border
+		if pos.y < border:
+			pos.y = border
+		# bottom border
+		elif pos.y > g_man.global_canvas.get_global_canvas_rect().size.y + border * 2 - get_size().y:
+			pos.y = g_man.global_canvas.get_global_canvas_rect().size.y + border * 2 - get_size().y
+		set_position(pos)
+		# if too big window resize it
+		var new_width = clamp(get_size().x, minimum_window_size.x, g_man.global_canvas.get_global_canvas_rect().size.x - get_global_rect().position.x - border)
+		var new_height = clamp(get_size().y, minimum_window_size.y, g_man.global_canvas.get_global_canvas_rect().size.y - get_global_rect().position.y - border)
+		set_size(Vector2(new_width, new_height))
+
+## k: 0 - 1 of max size
+func set_relative_size(k: float, x_only: bool, less: bool):
+	if set_anchor_less and less:
+		if x_only:
+			set_size(Vector2(get_size().x * k, get_size().y))
+		else:
+			set_size(get_size() * k)
+		set_anchor_less = false
+	elif not set_anchor_less and not less:
+		if x_only:
+			set_size(Vector2(get_size().x / k, get_size().y))
+		else:
+			set_size(get_size() / k)
+		set_anchor_less = true
+	reset_window_position()
+
+func set_x_rect_relative_to(window_manager: WindowManager):
+	if window_manager.is_visible_in_tree():
+		var pos = get_global_position()
+		var w_rect: Rect2 = window_manager.get_global_rect()
+		if pos.x < w_rect.position.x + w_rect.size.x:
+			set_position(Vector2(w_rect.position.x + w_rect.size.x, pos.y))
+			reset_window_position()
 
 func _input(event):
 	if not event is InputEventMouse or not id_window:
@@ -130,7 +164,7 @@ func _input(event):
 		var left_right = local_mouse_pos.x > 0 && local_mouse_pos.x < rect.size.x
 		var up_down = local_mouse_pos.y > 0 && local_mouse_pos.y < rect.size.y
 	#region drag
-		if local_mouse_pos.y < grab_threshold && local_mouse_pos.y > -resize_threshold && left_right:
+		if can_drag and local_mouse_pos.y < grab_threshold && local_mouse_pos.y > -resize_threshold && left_right:
 			reset_window_position()
 			# set it as last sibling
 			last_sibling()
@@ -139,22 +173,22 @@ func _input(event):
 			is_moving = true
 	#endregion drag
 	#region resize
-		else:# get_parent().get_child_count() == get_index() + 1: # if last sibling
-			if abs(local_mouse_pos.x - rect.size.x) < resize_threshold && up_down:
+		else:
+			if can_resize_width and abs(local_mouse_pos.x - rect.size.x) < resize_threshold && up_down:
 				reset_window_position()
 				start.x = event.position.x
 				initial_size.x = get_size().x
 				resize_x = true
 				is_resizing = true
 			
-			if abs(local_mouse_pos.y - rect.size.y) < resize_threshold && left_right:
+			if can_resize_height and abs(local_mouse_pos.y - rect.size.y) < resize_threshold && left_right:
 				reset_window_position()
 				start.y = event.position.y
 				initial_size.y = get_size().y
 				resize_y = true
 				is_resizing = true
 			
-			if local_mouse_pos.x < resize_threshold &&  local_mouse_pos.x > -resize_threshold && up_down:
+			if can_resize_x and local_mouse_pos.x < resize_threshold &&  local_mouse_pos.x > -resize_threshold && up_down:
 				reset_window_position()
 				start.x = event.position.x
 				initial_position.x = get_global_position().x
@@ -162,7 +196,7 @@ func _input(event):
 				is_resizing = true
 				resize_x = true
 			
-			if local_mouse_pos.y < resize_threshold &&  local_mouse_pos.y > -resize_threshold && left_right:
+			if can_resize_y and local_mouse_pos.y < resize_threshold &&  local_mouse_pos.y > -resize_threshold && left_right:
 				reset_window_position()
 				start.y = event.position.y
 				initial_position.y = get_global_position().y
@@ -200,7 +234,6 @@ func _input(event):
 				#set_position(Vector2(get_position().x, initial_position.y - (new_height - initial_size.y)))
 			
 			set_size(Vector2(new_width, new_height))
-			
 #endregion button hold
 #region button released
 	if Input.is_action_just_released(MOUSE_BUTTON_NAME):

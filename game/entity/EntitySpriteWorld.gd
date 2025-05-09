@@ -18,6 +18,14 @@ func destroy_me():
 		g_man.inventory_system.dragging = false
 	queue_free()
 
+func add_to_inventory():
+	g_man.inventory_system.add_remove_hover_over_sprite(-1)
+	g_man.inventory_system.add_entity_in_to_inventory(entity)
+	if selected:
+		selected = false
+		g_man.inventory_system.dragging = false
+	queue_free()
+
 func _process(_delta: float) -> void:
 	if selected and entity:
 		global_position = get_global_mouse_position()
@@ -26,6 +34,12 @@ func _process(_delta: float) -> void:
 			static_body_2d.set_collision_layer_value(1, true)
 			g_man.inventory_system.add_remove_hover_over_sprite(-1)
 			GlobalSignals.select_tile_node.emit(entity.entity_num, global_position, destroy_me)
+			selected = false
+		elif Input.is_action_just_released("pick up"):
+			g_man.inventory_system.dragging = false
+			static_body_2d.set_collision_layer_value(1, true)
+			g_man.inventory_system.add_remove_hover_over_sprite(-1)
+			add_to_inventory()
 			selected = false
 		elif Input.is_action_just_released("select"):
 			g_man.inventory_system.dragging = false
@@ -60,11 +74,9 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 					g_man.inventory_system.dragging = true
 					selected = true
 
-
 func _on_area_2d_mouse_entered() -> void:
 	if not g_man.speech_activated():
 		g_man.inventory_system.add_remove_hover_over_sprite(1)
-
 
 func _on_area_2d_mouse_exited() -> void:
 	g_man.inventory_system.add_remove_hover_over_sprite(-1)
