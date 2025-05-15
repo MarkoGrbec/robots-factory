@@ -16,10 +16,12 @@ func _get_drag_data(_at_position: Vector2) -> Variant:
 		sprite.texture = slot_texture.texture
 		sprite.entity = entity
 		sprite.entity_button_inventory = self
-		sprite.quantity_label.text = str(entity.quantity)
+		sprite.can_change_quantity = true
+		sprite.quantity = entity.quantity
+		sprite.refresh_quantity()
 		g_man.entity_manager.add_child_to_dragging(sprite)
 		data["entity"] = entity
-		
+		data["dragging_sprite"] = sprite
 		
 		if g_man.trader_manager._trader:
 			var user_gold_coins = g_man.user.gold_coins
@@ -46,14 +48,59 @@ func _can_drop_data(_at_position: Vector2, data: Variant) -> bool:
 		return false
 	return true
 
+func drop_data_quantity_update(e, _quantity, data):
+	e.quantity -= _quantity
+	e.save_quantity()
+	if e.quantity <= 0:
+		e.destroy_me()
+	update_entity()
+	var origin_node = data.get("inv_node")
+	if origin_node:
+		origin_node.update_entity()
+		return
+	origin_node = data.get("node2d")
+	if origin_node:
+		origin_node.queue_free()
+		g_man.inventory_system.add_remove_hover_over_sprite(-1)
+		g_man.holding_hand.holding_hand_inventory()
+		return
+	origin_node = data.get("finished_product")
+	if origin_node:
+		origin_node.set_entity(null)
+		return
+
+func get_dragging_sprite_drop_quantity(e, data):
+	var _dragging_sprite = data.get("dragging_sprite")
+	var _quantity = e.quantity
+	if _dragging_sprite:
+		_quantity = _dragging_sprite.quantity
+	return _quantity
+
 func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	g_man.inventory_system.dragging = false
 	
+	var origin_node = data.get("inv_node")
+	
 	# target is changed
 	var temp_entity = entity
-	var e = data.get("entity")
+	var e: Entity = data.get("entity")
 	if e:
-		change_entity(e, self)
+		# split
+		if temp_entity and temp_entity.entity_num == e.entity_num:
+			var _quantity = get_dragging_sprite_drop_quantity(e, data)
+			temp_entity.add_quantity(_quantity)
+			drop_data_quantity_update(e, _quantity, data)
+			return
+		# split on empty tile
+		if not temp_entity:
+			var _quantity = get_dragging_sprite_drop_quantity(e, data)
+			entity = Entity.create_from_scratch(e.entity_num, true, false, true)
+			entity.quantity = _quantity
+			drop_data_quantity_update(e, _quantity, data)
+			return
+		# change entity for entity (they aren't same)
+		else:
+			change_entity(e, self)
 	
 	var temp_texture = slot_texture.texture
 	slot_texture.texture = data.get("tex")
@@ -61,7 +108,6 @@ func _drop_data(_at_position: Vector2, data: Variant) -> void:
 	reset_trader_manager_cost()
 	
 	#overwrite origin is changed
-	var origin_node = data.get("inv_node")
 	if origin_node:
 		change_entity(temp_entity, origin_node)
 		origin_node.slot_texture.texture = temp_texture
@@ -108,10 +154,10 @@ func change_entity(_entity, node: EntityButtonInventory):
 	if _entity:
 		node.inventory_slot.id_entity = _entity.id
 		node.quantity_label.text = str(_entity.quantity)
-		node.set_tooltip()
 	else:
 		node.inventory_slot.id_entity = 0
 		node.quantity_label.text = ""
+	node.set_tooltip()
 	node.inventory_slot.save_id_entity()
 
 func update_entity():

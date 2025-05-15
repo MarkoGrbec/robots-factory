@@ -105,7 +105,11 @@ func get_id_by_global_position(global_position):
 	var cell_id = ground_layer[active_layer].get_cell_source_id(position)
 	return cell_id
 
-func add_or_dig(index, mouse_global_position, callable):
+func add_or_dig(entity, mouse_global_position, callable):
+	var index = entity
+	if entity is Entity:
+		index = entity.entity_num
+	
 	if index == 0:
 		g_man.holding_hand.holding_hand_dig()
 		dig(mouse_global_position)
@@ -114,13 +118,13 @@ func add_or_dig(index, mouse_global_position, callable):
 	var cell_id = ground_layer[active_layer].get_cell_source_id(position)
 	if not (cell_id == Tile.TUNNEL or cell_id == Tile.SOFT_ROCK_TUNNEL or cell_id == Tile.FAKE_TUNNEL or cell_id == Tile.HOUSE or cell_id == Tile.HOUSE_DOOR):
 		if index == Enums.Esprite.dirt:
-			add(Tile.DIRT, callable)
+			add(Tile.DIRT, entity.quantity, callable)
 		elif index == Enums.Esprite.clay:
-			add(Tile.CLAY, callable)
+			add(Tile.CLAY, entity.quantity, callable)
 		elif index == Enums.Esprite.rock:
-			add(Tile.ROCK, callable)
+			add(Tile.ROCK, entity.quantity, callable)
 
-func add(id, callable):
+func add(id, quantity, callable):
 	g_man.holding_hand.holding_hand_drop()
 	var position: Vector2i = ground_layer[active_layer].local_to_map(ground_layer[active_layer].get_local_mouse_position())
 	_fill_around(position)
@@ -129,7 +133,7 @@ func add(id, callable):
 	if cell_id == Tile.FAKE_TUNNEL:
 		return
 	
-	if not add_on_top(position, id, true, cell_id) == false:
+	if not add_on_top(position, id, true, cell_id, quantity) == false:
 		callable.call()
 
 func dig(mouse_global_position: Vector2):
@@ -330,7 +334,7 @@ func reload_terrain():
 			printerr("layer is probably empty should never be: ", layer)
 			g_man.changes_manager.add_key_change("CRITICAL ERROR 2:", str("layer is probably empty should never be: ", layer.get(position)))
 
-func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = false, below_tile: Tile = Tile.GRASS):
+func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = false, below_tile: Tile = Tile.GRASS, quantity: int = 1):
 	var array__data_array = dict_ground_pos___id__left[active_layer].get(position)
 	if array__data_array:
 		var data_array = array__data_array[array__data_array.size() - 1]
@@ -348,21 +352,22 @@ func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = fa
 					data_array = array__data_array[array__data_array.size() - 1]
 					if data_array[0] == Tile.DIRT:# if last tile is dirt add to it and push back GRASS
 						data_array[1] += 1
-						array__data_array.push_back([tile, 1])
+						# push back new tile
+						array__data_array.push_back([tile, quantity])
 					else:# add 2 tiles
-						array__data_array.append_array([[Tile.DIRT, 1], [tile, 1]])
+						array__data_array.append_array([[Tile.DIRT, 1], [tile, quantity]])
 						pass
 				else:# add 2 tiles if it's empty
-					array__data_array.append_array([[Tile.DIRT, 1], [tile, 1]])
+					array__data_array.append_array([[Tile.DIRT, 1], [tile, quantity]])
 			else:# not grass and same tile add to it
-				data_array[1] += 1
+				data_array[1] += quantity
 		else:# if tile is not same as bottom tile just add to it
-			array__data_array.append_array([[tile, 1]])
+			array__data_array.append_array([[tile, quantity]])
 			set_ground_cell(position, tile, active_layer)
 	else:
 		var material_name = Tile.find_key(below_tile)
 		
-		dict_ground_pos___id__left[active_layer].set(position, [[below_tile, Left[material_name]], [tile, 1]])
+		dict_ground_pos___id__left[active_layer].set(position, [[below_tile, Left[material_name]], [tile, quantity]])
 		set_ground_cell(position, tile, active_layer)
 
 func remove_one(array_data_array: Array, position: Vector2i):

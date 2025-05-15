@@ -8,7 +8,6 @@ var entity_button_inventory: EntityButtonInventory
 var can_change_quantity = false
 
 func _physics_process(_delta: float) -> void:
-	g_man.inventory_system.window_manager.camera_inside(g_man.camera.global_position - global_position)
 	global_position = get_global_mouse_position()
 	if Input.is_action_just_released("select"):
 		var local_position = g_man.camera.global_position - global_position
@@ -34,4 +33,6 @@ func _physics_process(_delta: float) -> void:
 
 func refresh_quantity():
 	quantity = clampi(quantity, 1, 20)
+	if entity:
+		quantity = clampi(quantity, 1, entity.quantity)
 	quantity_label.text = str(quantity)

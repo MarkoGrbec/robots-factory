@@ -183,7 +183,7 @@ func write_text(label: Label, voice_id = -1):
 
 func begin():
 	#get_parent().last_sibling()
-	parent.show_window(true)
+	parent.open_window(true)
 	#get_parent().set_min_size(Vector2(555, 333))
 
 func _on_ui_pressed():

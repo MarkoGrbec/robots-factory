@@ -15,10 +15,16 @@ enum Convert{
 func _ready() -> void:
 	g_man.entity_manager = self
 
+var bakers_queue: int = 0
+
 func bake():
-	await get_tree().process_frame
+	#await get_tree().process_frame
 	if navigation_region_2d.is_baking():
+		bakers_queue += 1
+		if bakers_queue > 1:
+			return
 		await navigation_region_2d.bake_finished
+		bakers_queue = 0
 	navigation_region_2d.bake_navigation_polygon()
 
 func create_entity_from_scratch(entity_num: Enums.Esprite, _global_position: Vector2):

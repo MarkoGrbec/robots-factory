@@ -87,7 +87,7 @@ func recount_entities():
 		array_stop_button_quest.push_back(node)
 
 func add_response(quest_giver_name, response, basic_dialog, array_display_answers__response_size = [], old_basis = []):
-	if true:
+	if false: # DEBUG old basis
 		quest_giver_name = str(quest_giver_name, old_basis)
 	if _basic_dialog != basic_dialog or basic_dialog.contains("hacking, ..."):
 		_basic_dialog = basic_dialog
