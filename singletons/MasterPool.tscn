@@ -2497,19 +2497,15 @@ list_avatar_dialog = Array[String](["What ways are open?"])
 response_dialog = Array[String](["Well, choose wisely.
 
 Do you want to:
-
 Build a factory through gathering,
-
-Build a factory through crafting (not this month),
-
-Build a factory through fighting (not this month)?"])
+Build a factory through crafting,
+Build a factory through fighting?"])
 response_failed_dialog = ""
 metadata/_custom_type_script = ExtResource("5_0rfkw")
 
 [sub_resource type="Resource" id="Resource_qiegh"]
 script = ExtResource("4_0rfkw")
-description = "not implemented exception:
-craft, fight"
+description = "reboot, longer way, what ways are opened -> choose wisely"
 dict_mission__entity_num = Dictionary[String, int]({})
 mission_quantity = 0
 fail_passes = false

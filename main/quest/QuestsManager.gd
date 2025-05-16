@@ -113,13 +113,16 @@ func add_response(quest_giver_name, response, basic_dialog, array_display_answer
 		answer.queue_free()
 	answers.clear()
 	for answer__response_size in array_display_answers__response_size:
-		var button: Button = answer_dialog.instantiate()
+		var button: ButtonAnswer = answer_dialog.instantiate()
 		answers.push_back(button)
 		answer_container.add_child(button)
 		button.text = str(answer__response_size[1], ": ", answer__response_size[0].replace("\"", "").replace("[", "").replace("]", "").replace(",", "").replace("\\", ""))
 		button.pressed.connect(
 			func():
 				_on_ask_quester(button.text)
+				for answer in answers:
+					answer.queue_free()
+				answers.clear()
 		)
 	g_man.holding_hand.holding_hand_npc()
 

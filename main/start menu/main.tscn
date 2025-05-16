@@ -70,7 +70,6 @@ bus = &"ui"
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Main" type="Control" parent="CanvasLayer"]
-y_sort_enabled = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,21 +81,6 @@ size_flags_vertical = 3
 mouse_filter = 1
 theme = ExtResource("2_kfbq2")
 script = ExtResource("4_nge2l")
-
-[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.0
-offset_top = -1.0
-offset_bottom = 40.0
-grow_vertical = 1
-
-[node name="in game menu" parent="CanvasLayer/Main" instance=ExtResource("8_bsumw")]
-visible = false
-layout_mode = 1
-
-[node name="main TabContainer" parent="CanvasLayer/Main" instance=ExtResource("4_d00gp")]
-layout_mode = 1
 
 [node name="CircleSliders" parent="CanvasLayer/Main" instance=ExtResource("18_q0sk7")]
 visible = false
@@ -328,6 +312,7 @@ size_flags_vertical = 0
 text = "X"
 
 [node name="Quest" type="Control" parent="CanvasLayer/Main"]
+visible = false
 layout_mode = 1
 anchor_right = 0.75
 anchor_bottom = 1.0
@@ -338,7 +323,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("14_pfi0o")
 grab_threshold = 65
-border = 0
+border = 5
 set_default_window_rect = true
 default_window_rect = Rect2(0, 0, 1024, 512)
 minimum_window_size = Vector2(512, 512)
@@ -346,94 +331,6 @@ metadata/_custom_type_script = "uid://da1y23rh116ru"
 
 [node name="QuestsManager" parent="CanvasLayer/Main/Quest" instance=ExtResource("6_4dugh")]
 layout_mode = 1
-
-[node name="change name manager" parent="CanvasLayer/Main" instance=ExtResource("7_67ri8")]
-y_sort_enabled = true
-layout_mode = 1
-
-[node name="mold window" parent="CanvasLayer/Main" instance=ExtResource("18_piupu")]
-visible = true
-y_sort_enabled = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.111
-anchor_top = 0.164
-anchor_right = 0.872
-anchor_bottom = 0.877
-offset_left = 0.127991
-offset_top = 0.224007
-offset_right = 0.455933
-offset_bottom = -0.16803
-mouse_filter = 1
-
-[node name="MoldWindowtab" parent="CanvasLayer/Main/mold window" index="0"]
-mouse_filter = 1
-
-[node name="yes no cancel" parent="CanvasLayer/Main/mold window/MoldWindowtab" index="2"]
-mouse_filter = 1
-
-[node name="leftSpace" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel" index="0"]
-mouse_filter = 1
-
-[node name="MarginContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel" index="1"]
-mouse_filter = 1
-
-[node name="VBoxContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer" index="0"]
-mouse_filter = 1
-
-[node name="top" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer" index="0"]
-mouse_filter = 1
-
-[node name="instructions" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer" index="1"]
-mouse_filter = 1
-
-[node name="ScrollContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/instructions" index="0"]
-mouse_filter = 1
-
-[node name="MarginContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/instructions/ScrollContainer" index="0"]
-mouse_filter = 1
-
-[node name="VBoxContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer" index="0"]
-mouse_filter = 1
-
-[node name="instructions" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer/VBoxContainer" index="0"]
-mouse_filter = 1
-
-[node name="yes" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/buttons/HBoxContainer" index="0"]
-mouse_filter = 1
-
-[node name="no" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/buttons/HBoxContainer" index="2"]
-mouse_filter = 1
-
-[node name="cancel" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/buttons/HBoxContainer" index="4"]
-mouse_filter = 1
-
-[node name="X" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/x" index="0"]
-mouse_filter = 1
-
-[node name="submit" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add text/MarginContainer/VBoxContainer/buttons/VBoxContainer/HBoxContainer" index="1"]
-mouse_filter = 1
-
-[node name="cancel" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add text/MarginContainer/VBoxContainer/buttons/VBoxContainer/HBoxContainer" index="3"]
-mouse_filter = 1
-
-[node name="X" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add text/x" index="0"]
-mouse_filter = 1
-
-[node name="instructions" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer/VBoxContainer" index="0"]
-mouse_filter = 1
-
-[node name="submit" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/MarginContainer/VBoxContainer/buttons/VBoxContainer/HBoxContainer" index="1"]
-mouse_filter = 1
-
-[node name="cancel" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/MarginContainer/VBoxContainer/buttons/VBoxContainer/HBoxContainer" index="3"]
-mouse_filter = 1
-
-[node name="LineEdit" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/MarginContainer/VBoxContainer/buttons/VBoxContainer" index="1"]
-mouse_filter = 1
-
-[node name="X" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/x" index="0"]
-mouse_filter = 1
 
 [node name="Construction" type="Control" parent="CanvasLayer/Main"]
 visible = false
@@ -447,7 +344,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("14_pfi0o")
 grab_threshold = 65
-border = 0
+border = 5
 set_default_window_rect = true
 default_window_rect = Rect2(0, 0, 784, 512)
 minimum_window_size = Vector2(512, 512)
@@ -532,7 +429,7 @@ size_flags_vertical = 3
 mouse_filter = 1
 script = ExtResource("14_pfi0o")
 grab_threshold = 65
-border = 0
+border = 5
 set_default_window_rect = true
 default_window_rect = Rect2(2048, 5000, 460, 380)
 metadata/_custom_type_script = "uid://da1y23rh116ru"
@@ -587,6 +484,111 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "X"
 
+[node name="change name manager" parent="CanvasLayer/Main" instance=ExtResource("7_67ri8")]
+visible = false
+layout_mode = 1
+
+[node name="main TabContainer" parent="CanvasLayer/Main" instance=ExtResource("4_d00gp")]
+layout_mode = 1
+
+[node name="in game menu" parent="CanvasLayer/Main" instance=ExtResource("8_bsumw")]
+visible = false
+layout_mode = 1
+
+[node name="RemoveSophieMission" parent="CanvasLayer/Main/in game menu/cheat/HBoxContainer/VBoxContainer" index="3"]
+visible = true
+text = "remove sophie/johnny mission"
+
+[node name="mold window" parent="CanvasLayer/Main" instance=ExtResource("18_piupu")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.111
+anchor_top = 0.164
+anchor_right = 0.872
+anchor_bottom = 0.877
+offset_left = 0.127991
+offset_top = 0.224007
+offset_right = 0.455933
+offset_bottom = -0.16803
+mouse_filter = 1
+
+[node name="MoldWindowtab" parent="CanvasLayer/Main/mold window" index="0"]
+mouse_filter = 1
+
+[node name="yes no cancel" parent="CanvasLayer/Main/mold window/MoldWindowtab" index="2"]
+mouse_filter = 1
+
+[node name="leftSpace" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel" index="0"]
+mouse_filter = 1
+
+[node name="MarginContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel" index="1"]
+mouse_filter = 1
+
+[node name="VBoxContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer" index="0"]
+mouse_filter = 1
+
+[node name="top" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer" index="0"]
+mouse_filter = 1
+
+[node name="instructions" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer" index="1"]
+mouse_filter = 1
+
+[node name="ScrollContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/instructions" index="0"]
+mouse_filter = 1
+
+[node name="MarginContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/instructions/ScrollContainer" index="0"]
+mouse_filter = 1
+
+[node name="VBoxContainer" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer" index="0"]
+mouse_filter = 1
+
+[node name="instructions" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer/VBoxContainer" index="0"]
+mouse_filter = 1
+
+[node name="yes" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/buttons/HBoxContainer" index="0"]
+mouse_filter = 1
+
+[node name="no" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/buttons/HBoxContainer" index="2"]
+mouse_filter = 1
+
+[node name="cancel" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/MarginContainer/VBoxContainer/buttons/HBoxContainer" index="4"]
+mouse_filter = 1
+
+[node name="X" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel/x" index="0"]
+mouse_filter = 1
+
+[node name="submit" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add text/MarginContainer/VBoxContainer/buttons/VBoxContainer/HBoxContainer" index="1"]
+mouse_filter = 1
+
+[node name="cancel" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add text/MarginContainer/VBoxContainer/buttons/VBoxContainer/HBoxContainer" index="3"]
+mouse_filter = 1
+
+[node name="X" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add text/x" index="0"]
+mouse_filter = 1
+
+[node name="instructions" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/MarginContainer/VBoxContainer/instructions/ScrollContainer/MarginContainer/VBoxContainer" index="0"]
+mouse_filter = 1
+
+[node name="submit" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/MarginContainer/VBoxContainer/buttons/VBoxContainer/HBoxContainer" index="1"]
+mouse_filter = 1
+
+[node name="cancel" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/MarginContainer/VBoxContainer/buttons/VBoxContainer/HBoxContainer" index="3"]
+mouse_filter = 1
+
+[node name="LineEdit" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/MarginContainer/VBoxContainer/buttons/VBoxContainer" index="1"]
+mouse_filter = 1
+
+[node name="X" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/x" index="0"]
+mouse_filter = 1
+
+[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.0
+offset_top = -1.0
+offset_bottom = 40.0
+grow_vertical = 1
+
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
 layer = 2
 follow_viewport_enabled = true
@@ -608,6 +610,39 @@ metadata/_custom_type_script = "uid://c5w5cvt6wb4ac"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
 bus = &"sfx"
 
+[connection signal="focus_entered" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Quest" to="CanvasLayer/Main/Quest" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main/Quest" to="CanvasLayer/Main/Quest" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Construction" to="CanvasLayer/Main/Construction" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main/Construction" to="CanvasLayer/Main/Construction" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory" to="CanvasLayer/Main/Inventory" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Main/Inventory" to="CanvasLayer/Main/Inventory" method="_on_mouse_exited"]
+[connection signal="focus_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/Inventory/inventory system" method="close_window"]
+[connection signal="focus_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="pressed" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/Inventory/inventory system" method="close_window"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/username" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/username" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/tutorial" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/tutorial" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash february" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash february" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash march" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash march" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash april" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash april" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash may" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash may" to="main menu and input" method="_on_mouse_entered"]
+[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer/welcome button" to="main menu and input" method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer/welcome button" to="main menu and input" method="_on_mouse_entered"]
 [connection signal="focus_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/disable binding button" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/disable binding button" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
 [connection signal="focus_entered" from="CanvasLayer/Main/in game menu/bindings/HBoxContainer/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
@@ -638,40 +673,8 @@ bus = &"sfx"
 [connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/quit/VBoxContainer/quit button" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
 [connection signal="focus_entered" from="CanvasLayer/Main/in game menu/quit/close window" to="CanvasLayer/Main/in game menu" method="_on_ui_pressed"]
 [connection signal="mouse_entered" from="CanvasLayer/Main/in game menu/quit/close window" to="CanvasLayer/Main/in game menu" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/start game" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/HBoxContainer/delete user" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/username" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/username" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/tutorial" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/tutorial" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash february" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash february" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash march" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash march" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash april" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash april" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash may" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/start game/HBoxContainer/VBoxContainer/message to ash may" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer/welcome button" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/main TabContainer/welcome robot/HBoxContainer/VBoxContainer/welcome button" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="focus_entered" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Main/trader manager/HBoxContainer/close button" to="CanvasLayer/Main/trader manager" method="close_window"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/Quest" to="CanvasLayer/Main/Quest" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Main/Quest" to="CanvasLayer/Main/Quest" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/Construction" to="CanvasLayer/Main/Construction" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Main/Construction" to="CanvasLayer/Main/Construction" method="_on_mouse_exited"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory" to="CanvasLayer/Main/Inventory" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Main/Inventory" to="CanvasLayer/Main/Inventory" method="_on_mouse_exited"]
-[connection signal="focus_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window2" to="CanvasLayer/Main/Inventory/inventory system" method="close_window"]
-[connection signal="focus_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_ui_pressed"]
-[connection signal="mouse_entered" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="main menu and input" method="_on_mouse_entered"]
-[connection signal="pressed" from="CanvasLayer/Main/Inventory/inventory system/inventory/in game menu/close window" to="CanvasLayer/Main/Inventory/inventory system" method="close_window"]
 
+[editable path="CanvasLayer/Main/main TabContainer"]
 [editable path="CanvasLayer/Main/in game menu"]
 [editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer3"]
 [editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer4"]
@@ -680,5 +683,4 @@ bus = &"sfx"
 [editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer7"]
 [editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer8"]
 [editable path="CanvasLayer/Main/in game menu/audio/HBoxContainer/VBoxContainer/VolumeContainer9"]
-[editable path="CanvasLayer/Main/main TabContainer"]
 [editable path="CanvasLayer/Main/mold window"]

@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://12xatoe4y68n"]
+[gd_scene load_steps=2 format=3 uid="uid://12xatoe4y68n"]
+
+[ext_resource type="Script" uid="uid://btk40bqi6tc04" path="res://main/quest/ButtonAnswer.gd" id="1_8uw1d"]
 
 [node name="ButtonAnswer" type="Button"]
 size_flags_horizontal = 0
 size_flags_vertical = 4
+script = ExtResource("1_8uw1d")

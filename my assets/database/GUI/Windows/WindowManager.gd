@@ -56,9 +56,9 @@ func mouse_inside(pos: Vector2):
 		pos -= get_global_position()
 		var left_right: bool = pos.x > 0 and pos.x < rect.size.x
 		if pos.y < rect.size.y and pos.y > 0 and left_right:
-			g_man.changes_manager.add_key_change("mouse_inside t: ", str(true, pos, rect))
+			#g_man.changes_manager.add_key_change("mouse_inside t: ", str(true, pos, rect))
 			return true
-	g_man.changes_manager.add_key_change("mouse_inside f: ", str(true, pos, get_global_rect()))
+	#g_man.changes_manager.add_key_change("mouse_inside f: ", str(true, pos, get_global_rect()))
 	return false
 
 func open_window(_show: bool = false):
@@ -74,7 +74,8 @@ func close_window():
 	hide()
 
 func last_sibling():
-	get_parent().move_child.call_deferred(self, get_parent().get_child_count())
+	if set_if_last_sibling:
+		get_parent().move_child.call_deferred(self, get_parent().get_child_count())
 
 func is_last_sibling():
 	var parent = get_parent()  # Get the parent node
@@ -152,8 +153,7 @@ func _input(event):
 		#local_exit_mouse_pos = event.position - get_global_position()
 	if focus:
 		if Input.is_action_just_pressed(MOUSE_BUTTON_NAME):
-			if set_if_last_sibling:
-				last_sibling()
+			last_sibling()
 	# don't grab or resize if it's not last sibling like pressed on it
 	elif not is_last_sibling():
 		return

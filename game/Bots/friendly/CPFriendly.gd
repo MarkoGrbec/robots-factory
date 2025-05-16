@@ -23,13 +23,16 @@ func _input(event: InputEvent) -> void:
 			if event is InputEventMouseButton:
 				if event.is_action_pressed("select"):
 					if get_global_mouse_position().distance_to(global_position) < 128:
-						if randf_range(0, 1) < 0.5:
-							g_man.entity_manager.create_entity_from_scratch(Enums.Esprite.hard_metal, global_position)
-						#g_man.entity_manager.create_entity_from_scratch(Enums.Esprite.hard_metal, global_position)
-						else:
-							g_man.entity_manager.create_entity_from_scratch(Enums.Esprite.sand, global_position)
-						g_man.camera.input_active = 0
-						queue_free()
+						create_material()
+
+func create_material():
+	if randf_range(0, 1) < 0.5:
+		g_man.entity_manager.create_entity_from_scratch(Enums.Esprite.hard_metal, global_position)
+	#g_man.entity_manager.create_entity_from_scratch(Enums.Esprite.hard_metal, global_position)
+	else:
+		g_man.entity_manager.create_entity_from_scratch(Enums.Esprite.sand, global_position)
+	g_man.camera.input_active = 0
+	queue_free()
 
 func get_hit(damage):
 	damage -= armor
@@ -46,6 +49,8 @@ func get_hit(damage):
 		controller.target = null
 		if friendly_robots_spawn:
 			friendly_robots_spawn.report_friendly_dead()
+	elif health < 0 and controller.state == FriendlyController.State.BROKEN:
+		create_material()
 
 func got_material_back_home():
 	if friendly_robots_spawn:

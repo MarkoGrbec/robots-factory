@@ -69,17 +69,17 @@ texture = ExtResource("1_j3jun")
 
 [node name="Health" type="ProgressBar" parent="Sprite2D"]
 anchors_preset = -1
-anchor_left = -0.068
-anchor_top = -0.306
-anchor_right = 1.017
-anchor_bottom = -0.113
-offset_left = -117.088
-offset_top = -108.396
-offset_right = -116.978
-offset_bottom = -125.558
+anchor_left = -0.652
+anchor_top = -0.849
+anchor_right = 1.652
+anchor_bottom = -0.101
+offset_left = -116.963
+offset_top = -116.959
+offset_right = -117.037
+offset_bottom = -116.991
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 128
 theme_override_styles/background = SubResource("StyleBoxFlat_6eugu")
 theme_override_styles/fill = SubResource("StyleBoxFlat_pu8dd")
 value = 100.0

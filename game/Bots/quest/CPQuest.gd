@@ -125,6 +125,8 @@ func succeed_old_basis(success_old_basis__qq_index):
 			if success_old_basis__qq_index[1] == 0:
 				g_man.user.believe_in_god = true
 				g_man.user.save_believe_in_god()
+				g_man.user.save_factory_state(5)
+				g_man.enemy_factory.reload_state(5)
 		if success_old_basis__qq_index[0] == 1:
 			if success_old_basis__qq_index[1] == 0:
 				printerr("start full scale attack on factory")

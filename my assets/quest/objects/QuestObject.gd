@@ -147,7 +147,7 @@ func get_quest_question(basis: int, text: String, qq_flags: Dictionary = {}):
 	var dict_indexes = {}
 	
 	
-	var flags: Dictionary = qq_flags.get(basis)
+	var flags = qq_flags.get(basis)
 	if flags:
 		qq_from_avatar_dialogs = get_qq_from_deeps2(flags, qqs, text, qq_from_avatar_dialogs, dict_indexes, 0)
 	if qq_from_avatar_dialogs:

@@ -82,6 +82,7 @@ func change_state(value):
 	g_man.user.save_factory_state(state)
 
 func reload_state(_state):
-	reset()
-	for i in range(0, int(_state + 1)):
-		upgrade()
+	if _state:
+		reset()
+		for i in range(0, int(_state + 1)):
+			upgrade()

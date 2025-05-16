@@ -28,7 +28,7 @@ func destroy():
 	save_weapon_reflexes(1, true)
 	save_layer(0)
 	save_position(Vector2.ZERO)
-	save_factory_state(-1)
+	save_factory_state(null)
 #region fully
 func fully_load():
 	if not avatar_name:
@@ -180,7 +180,7 @@ func load_return_id_finished_product():
 	return load_uni("id_finished_product", 0)
 
 func load_factory_state():
-	var state = load_uni("factory_state", -1)
+	var state = load_uni("factory_state", null)
 	if load_return_user_type() == 2:
 		g_man.factory_craft.reload_state(state)
 	else:

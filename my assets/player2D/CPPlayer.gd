@@ -21,8 +21,8 @@ func _on_mouse_exited() -> void:
 	g_man.camera.input_active = false
 	hide_label()
 
-func _process(_delta: float) -> void:
-	g_man.changes_manager.add_key_change("CPPlayer: id position, global_position: ", str(g_man.tile_map_layers.get_position_by_mouse_position(), ", ", global_position))
+#func _process(_delta: float) -> void:
+	#g_man.changes_manager.add_key_change("CPPlayer: id position, global_position: ", str(g_man.tile_map_layers.get_position_by_mouse_position(), ", ", global_position))
 
 func get_hit(damage):
 	# lower damage

@@ -134,7 +134,7 @@ func reset_station():
 
 func get_hit(damage):
 	damage -= armor[station_type]
-	change_health(clampf(damage, 0, INF))
+	change_health(clampf(-damage, -50, INF))
 	if health < 0:
 		reset_station()
 
