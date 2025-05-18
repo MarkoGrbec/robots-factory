@@ -116,10 +116,10 @@ func add_response(quest_giver_name, response, basic_dialog, array_display_answer
 		var button: ButtonAnswer = answer_dialog.instantiate()
 		answers.push_back(button)
 		answer_container.add_child(button)
-		button.text = str(answer__response_size[1], ": ", answer__response_size[0].replace("\"", "").replace("[", "").replace("]", "").replace(",", "").replace("\\", ""))
-		button.pressed.connect(
+		button.set_text( str(answer__response_size[1], ": ", answer__response_size[0].replace("\"", "").replace("[", "").replace("]", "").replace(",", "").replace("\\", "")) )
+		button.button.pressed.connect(
 			func():
-				_on_ask_quester(button.text)
+				_on_ask_quester(button.get_text())
 				for answer in answers:
 					answer.queue_free()
 				answers.clear()

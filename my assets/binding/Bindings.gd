@@ -30,6 +30,8 @@ enum keys{
 	minus_stack = 13,
 	stats = 14,
 	esc = 15,
+	construction = 16,
+	pick_up_material = 17,
 }
 
 func load_keys():

@@ -96,9 +96,21 @@ index = 7
 layout_mode = 2
 index = 8
 
+[node name="binding container17" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+tooltip_text = "it will reset after restart of application"
+index = 17
+default = true
+
 [node name="binding container9" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
 layout_mode = 2
 index = 9
+
+[node name="binding container16" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
+layout_mode = 2
+tooltip_text = "it will reset after restart of application"
+index = 16
+default = true
 
 [node name="binding container10" parent="bindings/HBoxContainer/VBoxContainer" instance=ExtResource("2_cgffx")]
 layout_mode = 2

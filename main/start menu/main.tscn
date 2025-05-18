@@ -488,6 +488,14 @@ text = "X"
 visible = false
 layout_mode = 1
 
+[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
+layout_mode = 1
+anchors_preset = -1
+anchor_bottom = 0.0
+offset_top = -1.0
+offset_bottom = 40.0
+grow_vertical = 1
+
 [node name="main TabContainer" parent="CanvasLayer/Main" instance=ExtResource("4_d00gp")]
 layout_mode = 1
 
@@ -580,14 +588,6 @@ mouse_filter = 1
 
 [node name="X" parent="CanvasLayer/Main/mold window/MoldWindowtab/yes no cancel add line/x" index="0"]
 mouse_filter = 1
-
-[node name="changes manager" parent="CanvasLayer/Main" instance=ExtResource("2_pjrb6")]
-layout_mode = 1
-anchors_preset = -1
-anchor_bottom = 0.0
-offset_top = -1.0
-offset_bottom = 40.0
-grow_vertical = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="CanvasLayer"]
 layer = 2

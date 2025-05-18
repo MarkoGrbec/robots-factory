@@ -2,7 +2,21 @@
 
 [ext_resource type="Script" uid="uid://btk40bqi6tc04" path="res://main/quest/ButtonAnswer.gd" id="1_8uw1d"]
 
-[node name="ButtonAnswer" type="Button"]
+[node name="MarginContainer" type="MarginContainer" node_paths=PackedStringArray("label", "button")]
+offset_right = 8.0
+offset_bottom = 23.0
 size_flags_horizontal = 0
-size_flags_vertical = 4
+size_flags_vertical = 0
 script = ExtResource("1_8uw1d")
+label = NodePath("Label")
+button = NodePath("ButtonAnswer")
+
+[node name="ButtonAnswer" type="Button" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 1
+
+[connection signal="focus_entered" from="ButtonAnswer" to="." method="_on_ui_pressed"]
+[connection signal="mouse_entered" from="ButtonAnswer" to="." method="_on_button_mouse_entered"]
