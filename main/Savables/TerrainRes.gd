@@ -1,4 +1,4 @@
 extends Resource
 class_name TerrainRes
 
-var array_layers__dict_ground_pos___id__left: Array
+@export var array_layers__dict_ground_pos___id__left: Array

@@ -229,7 +229,8 @@ func set_ground_cell(position: Vector2i, id: int, layer: int):
 		array_data_array = [NEW_ROCK_ARRAY.duplicate(true)]
 		dict_ground_pos___id__left[layer].set(position, array_data_array)
 	if save:
-		savables.save_position__array_data_array(position, layer, array_data_array)
+		#savables.save_position__array_data_array(position, layer, array_data_array)
+		savables.save_array_layers_and_all(dict_ground_pos___id__left)
 	# set floor
 	ground_layer[layer].set_cell(position, id, Vector2i.ZERO)
 	bake()
@@ -275,6 +276,7 @@ func set_new_terrain():
 ##
 ## Rect2i(0, 10, 20, 10), [[Tile.CLAY, 1], [Tile.DIRT, 1]], [Vector2i(8, 12), Vector2i(10, 15)], true, true, 0.3, [Tile.DIRT, 2], Vector2i(3, 6)
 func set_region(region: Rect2i, data_arrays: Array, data_arrays_range: Array = [], action_type: RegionActionType = RegionActionType.OVERWRITE, grass_on_top: bool = true, grass_random: float = 1, other_tile_instead_of_grass: Array = [Tile.DIRT, 2], other_tile_range: Vector2i = Vector2i(1, 1)):
+	save = false
 	for x in range(region.position.x, region.position.x + region.size.x):
 		for y in range(region.position.y, region.position.y + region.size.y):
 			var duplicate_data_arrays = data_arrays.duplicate(true)
@@ -317,9 +319,12 @@ func set_region(region: Rect2i, data_arrays: Array, data_arrays_range: Array = [
 			if _array_data_array:
 				var _data_array = _array_data_array[_array_data_array.size() - 1]
 				set_ground_cell(Vector2i(x, y), _data_array[0], active_layer)
+	save = true
 
 func reload_terrain():
+	save = false
 	if array_layer_loaded[active_layer]:
+		save = true
 		return
 	else:
 		array_layer_loaded[active_layer] = true
@@ -333,6 +338,7 @@ func reload_terrain():
 			push_error("layer is probably empty should never be: ", layer)
 			printerr("layer is probably empty should never be: ", layer)
 			g_man.changes_manager.add_key_change("CRITICAL ERROR 2:", str("layer is probably empty should never be: ", layer.get(position)))
+	save = true
 
 func add_on_top(position: Vector2i, tile: Tile = Tile.GRASS, override: bool = false, below_tile: Tile = Tile.GRASS, quantity: int = 1):
 	var array__data_array = dict_ground_pos___id__left[active_layer].get(position)
@@ -384,6 +390,7 @@ func remove_one(array_data_array: Array, position: Vector2i):
 #region fill empty
 ## only position it makes rock around empty tiles
 func _fill_around(position, id = Tile.SOFT_ROCK, rect: Rect2i = Rect2i(0, 0, 0, 0)):
+	save = false
 	if rect == Rect2i(0, 0, 0, 0):
 		var first = 0
 		var second = 2
@@ -403,14 +410,19 @@ func _fill_around(position, id = Tile.SOFT_ROCK, rect: Rect2i = Rect2i(0, 0, 0, 
 		set_region(Rect2i(rect.position.x + rect.size.x, rect.position.y, 1, rect.size.y + 1), [[Tile.ROCK, 10]], [], RegionActionType.DISCARD, false)
 		# bottom
 		set_region(Rect2i(rect.position.x, rect.position.y + rect.size.y, rect.size.x, 1), [[Tile.ROCK, 10]], [], RegionActionType.DISCARD, false)
+	save = true
 	
 func _fill_first_second(position, first, second, y):
+	save = false
 	for x in range(first, second):
 		_fill_position(position, x, y)
+	save = true
 
 func _fill_left_to_right(position):
+	save = false
 	for x in range(-1, 2):
 		_fill_position(position, x, 0)
+	save = true
 
 func _fill_position(position, x, y):
 	var new_position: Vector2i = position + Vector2i(x, y)
